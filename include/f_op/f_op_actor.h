@@ -158,7 +158,7 @@ public:
 
     dEvt_info_c();
     virtual ~dEvt_info_c() {}
-    void setEventName(char*);
+    void setEventName(const char*);
     char* getEventName();
 
     void setToolId(u8 id) { mMapToolId = id; }

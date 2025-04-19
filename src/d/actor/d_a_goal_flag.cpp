@@ -731,7 +731,7 @@ bool daGoal_Flag_c::_delete() {
 
 /* 00001D74-00001DB4       .text getDemoAction__13daGoal_Flag_cFi */
 int daGoal_Flag_c::getDemoAction(int param_1) {
-    static char* ActionNames[] = {
+    static const char* ActionNames[] = {
         "00_dummy",
         "01_dummy",
         "02_dummy",

@@ -1540,7 +1540,7 @@ bool daNpc_Ls1_c::cut_move_ANM_CHG() {
 
 /* 00002830-000029B0       .text privateCut__11daNpc_Ls1_cFi */
 void daNpc_Ls1_c::privateCut(int i_staffIdx) {
-    static char* a_cut_tbl[] = {
+    static const char* a_cut_tbl[] = {
         "LOK_PLYER",
         "PLYER_MOV",
         "WAI",

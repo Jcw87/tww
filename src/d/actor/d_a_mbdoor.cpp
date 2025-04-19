@@ -274,7 +274,7 @@ cPhs_State daMbdoor_c::create() {
 
 /* 00000AF4-00000B3C       .text getDemoAction__10daMbdoor_cFv */
 int daMbdoor_c::getDemoAction() {
-    static char* action_table[] = {
+    static const char* action_table[] = {
         "WAIT",
         "SET_START",
         "SET_ANGLE",

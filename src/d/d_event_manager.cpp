@@ -778,7 +778,7 @@ cPhs_State dEv_extra_createCB(void* actor) {
 
 /* 800753A8-80075450       .text dEv_talkman_get_action__Fi */
 static int dEv_talkman_get_action(int param_0) {
-    static char* action_table[] = {
+    static const char* action_table[] = {
         "WAIT",
         "TALK0",
         "TALK1",

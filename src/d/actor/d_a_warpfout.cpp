@@ -19,7 +19,7 @@ static daWarpfout_c::EventActionFunc event_action_tbl[] = {
     &daWarpfout_c::actWarp4, &daWarpfout_c::actEnd,
 };
 
-static char* action_table[] = {
+static const char* action_table[] = {
     "WARP1", "WARP2", "WARP3", "WARP4", "END",
 };
 

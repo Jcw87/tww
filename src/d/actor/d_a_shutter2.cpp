@@ -105,7 +105,7 @@ BOOL daShutter2_c::Execute(Mtx** pMtx) {
 void daShutter2_c::shutter_move() {
     float fVar3;
 
-    static char* action_table[4] = {
+    static const char* action_table[4] = {
         "WAIT",
         "OPEN",
         "CLOSE",

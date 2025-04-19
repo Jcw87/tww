@@ -3521,7 +3521,7 @@ inline s32 dComIfGp_event_order(u16 eventType, u16 priority, u16 flag, u16 hind,
     return g_dComIfG_gameInfo.play.getEvent()->order(eventType, priority, flag, hind, pActor1, pActor2, eventID, infoIdx);
 }
 
-inline s32 dComIfGp_event_orderOld(u16 eventType, u16 priority, u16 flag, u16 hind, void* pActor1, void* pActor2, void* pEventName) {
+inline s32 dComIfGp_event_orderOld(u16 eventType, u16 priority, u16 flag, u16 hind, void* pActor1, void* pActor2, const void* pEventName) {
     return g_dComIfG_gameInfo.play.getEvent()->orderOld(eventType, priority, flag, hind, pActor1, pActor2, pEventName);
 }
 
@@ -3620,7 +3620,7 @@ inline int dComIfGp_evmng_getMyStaffId(const char* pName, fopAc_ac_c* pActor = N
     return dComIfGp_getPEvtManager()->getMyStaffId(pName, pActor, staffType);
 }
 
-inline int dComIfGp_evmng_getMyActIdx(int staffIdx, char** pActions, int actionCount, BOOL force, int nameType) {
+inline int dComIfGp_evmng_getMyActIdx(int staffIdx, const char** pActions, int actionCount, BOOL force, int nameType) {
     return dComIfGp_getPEvtManager()->getMyActIdx(staffIdx, pActions, actionCount, force, nameType);
 }
 
@@ -3632,7 +3632,7 @@ inline s32 dComIfGp_evmng_getMySubstanceNum(int staffIdx, char* name) {
     return dComIfGp_getPEvtManager()->getMySubstanceNum(staffIdx, name);
 }
 
-inline f32* dComIfGp_evmng_getMyFloatP(int staffIdx, char* name) {
+inline f32* dComIfGp_evmng_getMyFloatP(int staffIdx, const char* name) {
     return reinterpret_cast<f32*>(dComIfGp_getPEvtManager()->getMySubstanceP(staffIdx, name, dEvDtData_c::TYPE_FLOAT));
 }
 
@@ -3640,15 +3640,15 @@ inline Vec* dComIfGp_evmng_getMyVec3dP(int staffIdx, char* name) {
     return reinterpret_cast<Vec*>(dComIfGp_getPEvtManager()->getMySubstanceP(staffIdx, name, dEvDtData_c::TYPE_VEC));
 }
 
-inline cXyz* dComIfGp_evmng_getMyXyzP(int staffIdx, char* name) {
+inline cXyz* dComIfGp_evmng_getMyXyzP(int staffIdx, const char* name) {
     return reinterpret_cast<cXyz*>(dComIfGp_getPEvtManager()->getMySubstanceP(staffIdx, name, dEvDtData_c::TYPE_VEC));
 }
 
-inline int* dComIfGp_evmng_getMyIntegerP(int staffIdx, char* name) {
+inline int* dComIfGp_evmng_getMyIntegerP(int staffIdx, const char* name) {
     return reinterpret_cast<int*>(dComIfGp_getPEvtManager()->getMySubstanceP(staffIdx, name, dEvDtData_c::TYPE_INT));
 }
 
-inline char* dComIfGp_evmng_getMyStringP(int staffIdx, char* name) {
+inline char* dComIfGp_evmng_getMyStringP(int staffIdx, const char* name) {
     return reinterpret_cast<char*>(dComIfGp_getPEvtManager()->getMySubstanceP(staffIdx, name, dEvDtData_c::TYPE_STRING));
 }
 

@@ -33,7 +33,7 @@ namespace JASystem {
         void resumeThread();
         BOOL sendCmdMsg(s32 (*)(void*), void*, u32);
         int checkPassDvdT(u32, u32*, void (*)(u32));
-        u32 checkFile(char*);
+        u32 checkFile(const char*);
         void unpauseDvdT();
         s32 dvdThreadCheckBack(void*);
 

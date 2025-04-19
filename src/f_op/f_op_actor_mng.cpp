@@ -126,7 +126,7 @@ fopAcM_prm_class * createAppend(u32 parameter, cXyz* pPos, int roomNo, csXyz* pA
 }
 
 /* 80024474-80024478       .text fopAcM_Log__FP10fopAc_ac_cPc */
-void fopAcM_Log(fopAc_ac_c*, char*) {
+void fopAcM_Log(fopAc_ac_c*, const char*) {
     /* Empty function */
 }
 
@@ -689,7 +689,7 @@ s32 fopAcM_orderCatchEvent(fopAc_ac_c* i_this, fopAc_ac_c* i_partner) {
 }
 
 /* 80025C34-80025CC8       .text fopAcM_orderOtherEvent2__FP10fopAc_ac_cPcUsUs */
-s32 fopAcM_orderOtherEvent2(fopAc_ac_c* i_this, char* pEventName, u16 flag, u16 hind) {
+s32 fopAcM_orderOtherEvent2(fopAc_ac_c* i_this, const char* pEventName, u16 flag, u16 hind) {
     u16 prio = dComIfGp_evmng_getEventPrio(dComIfGp_evmng_getEventIdx(pEventName));
     if (prio == 0)
         prio = 0xFF;

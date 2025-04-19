@@ -7,7 +7,7 @@
 
 namespace JAInter {
     u8* transInitDataFile(u8*, u32);
-    void loadTmpDVDFile(char*, u8**);
+    void loadTmpDVDFile(const char*, u8**);
     void deleteTmpDVDFile(u8**);
     u32 routeToTrack(u32);
 

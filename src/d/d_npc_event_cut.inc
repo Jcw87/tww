@@ -8,7 +8,7 @@
 
 /* 8021CC4C-8021CED0       .text cutProc__15dNpc_EventCut_cFv */
 bool dNpc_EventCut_c::cutProc() {
-    static char* action_table[] = {
+    static const char* action_table[] = {
         "WAIT",
         "TURN_TO_ACTOR",
         "MOVE_TO_ACTOR",

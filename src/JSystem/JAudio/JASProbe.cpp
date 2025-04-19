@@ -8,7 +8,7 @@
 #include "JSystem/JAudio/JASProbe.h"
 
 /* 8027D6B0-8027D6B4       .text probeStart__Q28JASystem6KernelFlPc */
-void JASystem::Kernel::probeStart(s32, char*) {}
+void JASystem::Kernel::probeStart(s32, const char*) {}
 
 /* 8027D6B4-8027D6B8       .text probeFinish__Q28JASystem6KernelFl */
 void JASystem::Kernel::probeFinish(s32) {}

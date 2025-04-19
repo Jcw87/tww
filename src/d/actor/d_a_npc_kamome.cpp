@@ -973,7 +973,7 @@ static daNpc_kam_c::EventActionFunc event_action_tbl[] = {
     &daNpc_kam_c::actionAreaOutTurn,
 };
 
-static char* cut_name_tbl[] = {
+static const char* cut_name_tbl[] = {
     "wait",
     "change",
     "descend",

@@ -236,7 +236,7 @@ BOOL daWarpgn_c::demo_execute() {
 
 /* 00000C10-00000D2C       .text demo_proc__10daWarpgn_cFv */
 void daWarpgn_c::demo_proc() {
-    static char* action_table[] = {"WAIT", "WARP", "WARP_ARRIVE", "WARP_ARRIVE_END", "START_WARP", "APPEAR"};
+    static const char* action_table[] = {"WAIT", "WARP", "WARP_ARRIVE", "WARP_ARRIVE_END", "START_WARP", "APPEAR"};
 
     mStaffId = dComIfGp_evmng_getMyStaffId("Warpgn");
 

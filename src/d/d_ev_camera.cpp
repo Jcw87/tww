@@ -23,7 +23,7 @@ void dCamera_c::searchEventArgData(char*) {
 }
 
 /* 800B0248-800B0310       .text getEvIntData__9dCamera_cFPiPc */
-void dCamera_c::getEvIntData(int*, char*) {
+void dCamera_c::getEvIntData(int*, const char*) {
     /* Nonmatching */
 }
 
@@ -33,7 +33,7 @@ void dCamera_c::getEvStringPntData(char*) {
 }
 
 /* 800B03BC-800B0484       .text getEvIntData__9dCamera_cFPiPci */
-void dCamera_c::getEvIntData(int*, char*, int) {
+void dCamera_c::getEvIntData(int*, const char*, int) {
     /* Nonmatching */
 }
 
@@ -48,7 +48,7 @@ void dCamera_c::getEvXyzData(cXyz*, char*, cXyz) {
 }
 
 /* 800B066C-800B074C       .text getEvStringData__9dCamera_cFPcPcPc */
-bool dCamera_c::getEvStringData(char*, char*, char*) {
+bool dCamera_c::getEvStringData(char*, const char*, const char*) {
     /* Nonmatching */
 }
 

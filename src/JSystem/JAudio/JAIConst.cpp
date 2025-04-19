@@ -37,7 +37,7 @@ u8* JAInter::transInitDataFile(u8* param_1, u32 param_2) {
 }
 
 /* 802917D8-802918CC       .text loadTmpDVDFile__7JAInterFPcPPUc */
-void JAInter::loadTmpDVDFile(char* param_1, u8** tmpPointer) {
+void JAInter::loadTmpDVDFile(const char* param_1, u8** tmpPointer) {
     u32 size = JASystem::Dvd::checkFile(param_1);
     if (size == 0) {
         *tmpPointer = NULL;

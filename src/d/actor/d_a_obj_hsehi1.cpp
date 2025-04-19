@@ -490,7 +490,7 @@ static daObj_hsh_c::EventActionFunc event_action_tbl[] = {
     &daObj_hsh_c::actionDeleteEvent,
 };
 
-static char* cut_name_tbl[] = {
+const static char* cut_name_tbl[] = {
     "WAIT",
     "Disp",
     "MsgSet",

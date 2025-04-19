@@ -4710,7 +4710,7 @@ bool dCamera_c::eventCamera(s32) {
         &dCamera_c::maptoolIdEvCamera,
     };
 
-    static char* ActionNames[28] = {
+    static const char* ActionNames[28] = {
         "PAUSE",
         "WAIT",
         "TALK",

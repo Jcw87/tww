@@ -3428,7 +3428,7 @@ static daNpc_Md_c::EventActionFunc event_action_tbl[] = {
     &daNpc_Md_c::actionLookDown,     &daNpc_Md_c::actionLookDown,
 };
 
-static char* cut_name_tbl[] = {
+static const char* cut_name_tbl[] = {
     "WAIT", "CREATEITEM", "MSG_SET", "MSG_END", "POS_MOV",  "FLY",        "GLIDING",   "LANDING", "WALK",    "DASH",      "END",
     "TACT", "TAKEOFF",    "Onetime", "QUAKE",   "HARPPLAY", "OFF_PLAYER", "ON_PLAYER", "TURN",    "SET_ANM", "LOOK_DOWN", "LOOK_UP",
 };
