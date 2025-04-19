@@ -1,6 +1,7 @@
 #ifndef J3DTRANSFORM_H
 #define J3DTRANSFORM_H
 
+#include "global.h"
 #include "JSystem/JGeometry.h"
 #include "dolphin/mtx/mtxvec.h"
 
@@ -66,6 +67,8 @@ inline void J3DPSMulMtxVec(__REGISTER MtxP mtx, __REGISTER Vec* vec, __REGISTER 
         ps_sum0 f6, f5, f6, f5
         psq_st f6, 8(dst), 1, 0
     }
+#else
+    NOT_IMPLEMENTED;
 #endif
 }
 
@@ -93,6 +96,8 @@ inline void J3DPSMulMtxVec(__REGISTER MtxP mtx, __REGISTER S16Vec* vec, __REGIST
         ps_sum0 f6, f5, f6, f5
         psq_st f6, 4(dst), 1, 7
     }
+#else
+    NOT_IMPLEMENTED;
 #endif
 }
 
@@ -125,6 +130,8 @@ inline void J3DPSMulMtxVec(__REGISTER Mtx3P mtx, __REGISTER Vec* vec, __REGISTER
         ps_sum0 f6, f5, f6, f5
         psq_st f6, 8(dst), 1, 0
     }
+#else
+    NOT_IMPLEMENTED;
 #endif
 }
 
@@ -157,6 +164,8 @@ inline void J3DPSMulMtxVec(__REGISTER Mtx3P mtx, __REGISTER S16Vec* vec, __REGIS
         ps_sum0 f6, f5, f6, f5
         psq_st f6, 4(dst), 1, 7
     }
+#else
+    NOT_IMPLEMENTED;
 #endif
 }
 

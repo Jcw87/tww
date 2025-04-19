@@ -321,15 +321,33 @@ void J3DAnmTransformFull::getTransform(u16 idx, J3DTransformInfo* dst) const {
 
 /* 802F06D8-802F072C       .text J3DHermiteInterpolationS__FfPsPsPsPsPsPs */
 f32 J3DHermiteInterpolationS(f32 t, s16* time0, s16* value0, s16* tangent0, s16* time1, s16* value1, s16* tangent1) {
-    /*
-    f32 v0 = *(f32*)value0;
-    f32 timeRange = (*(f32*)time1 - *(f32*)time0);
-    f32 kt = (t - *(f32*)time0) / timeRange;
-    f32 t1 = (-timeRange * *(f32*)tangent0 - (*(f32*)value1 - v0));
-    f32 t2 = kt * kt * ((*(f32*)tangent1 * timeRange + v0) - *(f32*)value1 - t1);
-    return (t1 * kt * kt + (timeRange * *(f32*)tangent0 + t2) * kt + v0) - t2;
-    */
+#ifndef __MWERKS__
+    f32 ftime0 = (f32)*time0;
+    f32 fvalue0 = (f32)*value0;
+    f32 ftangent0 = (f32)*tangent0;
+    f32 ftime1 = (f32)*time1;
+    f32 fvalue1 = (f32)*value1;
+    f32 ftangent1 = (f32)*tangent1;
 
+    f32 duration = ftime1 - ftime0;
+    f32 t1 = (t - ftime0) / duration;
+    f32 t2 = t1 * t1;
+
+    f32 dv = fvalue1 - fvalue0;
+    f32 ff4 = dv - duration * ftangent0;
+
+    f32 ff0 = ftangent1 * duration + fvalue0;
+    ff0 = ff0 - fvalue1;
+    ff0 = ff0 - ff4;
+    ff0 = t2 * ff0;
+
+    f32 fout = duration * ftangent0 + ff0;
+    fout = fout * t1 + fvalue0;
+    fout = ff4 * t2 + fout;
+    fout = fout - ff0;
+
+    return fout;
+#else
     __REGISTER f32 p1 = t;
     __REGISTER s16* p2 = time0;
     __REGISTER s16* p3 = value0;
@@ -338,7 +356,7 @@ f32 J3DHermiteInterpolationS(f32 t, s16* time0, s16* value0, s16* tangent0, s16*
     __REGISTER s16* p6 = value1;
     __REGISTER s16* p7 = tangent1;
     __REGISTER f32 fout;
-#ifdef __MWERKS__
+
     asm {
         psq_l f0, 0(p2), 0x1, 5
         psq_l f3, 0(p5), 0x1, 5
@@ -361,8 +379,8 @@ f32 J3DHermiteInterpolationS(f32 t, s16* time0, s16* value0, s16* tangent0, s16*
         fmadds fout, f5, f7, fout
         fsubs fout, fout, f3
     }
-#endif
     return fout;
+#endif
 }
 
 /* 802F072C-802F0954       .text J3DGetKeyFrameInterpolationS__FfP18J3DAnmKeyTableBasePs */

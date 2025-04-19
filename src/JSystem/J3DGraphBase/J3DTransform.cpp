@@ -8,6 +8,7 @@
 #include "JSystem/J3DGraphBase/J3DTransform.h"
 #include "JSystem/J3DGraphBase/J3DStruct.h"
 #include "JSystem/JMath/JMATrigonometric.h"
+#include "JSystem/JMath/JMath.h"
 #include <cmath>
 
 // This symbol needs to go in .data, but as it's only 8 bytes long, it would normally go in .sdata or .sdata2.
@@ -160,6 +161,14 @@ ASM void J3DPSCalcInverseTranspose(__REGISTER Mtx src, __REGISTER Mtx33 dst) {
         li       r3, 1
         psq_st   f8, 32(r4), 1, 0
         blr
+    #else
+        Mtx invX;
+
+        if (MTXInvXpose(src, invX) == 0) {
+            return;
+        }
+
+        J3DPSMtx33CopyFrom34(invX, dst);
     #endif
 }
 
@@ -347,6 +356,22 @@ asm {
         fmuls  f4, mtx_z_, scl_z_
         stfs   f4, 40(mtx)
     }
+#else
+    f32 sx = scl.x;
+    f32 sy = scl.y;
+    f32 sz = scl.z;
+
+    mtx[0][0] *= sx;
+    mtx[0][1] *= sy;
+    mtx[0][2] *= sz;
+
+    mtx[1][0] *= sx;
+    mtx[1][1] *= sy;
+    mtx[1][2] *= sz;
+
+    mtx[2][0] *= sx;
+    mtx[2][1] *= sy;
+    mtx[2][2] *= sz;
 #endif
 }
 
@@ -380,6 +405,22 @@ asm {
         psq_st mtx2_xy, 24(mtx), 0, 0
         stfs   mtx2_z_, 32(mtx)
     }
+#else
+    f32 sx = scl.x;
+    f32 sy = scl.y;
+    f32 sz = scl.z;
+
+    mtx[0][0] *= sx;
+    mtx[0][1] *= sy;
+    mtx[0][2] *= sz;
+
+    mtx[1][0] *= sx;
+    mtx[1][1] *= sy;
+    mtx[1][2] *= sz;
+
+    mtx[2][0] *= sx;
+    mtx[2][1] *= sy;
+    mtx[2][2] *= sz;
 #endif
 }
 
@@ -467,6 +508,22 @@ void J3DMtxProjConcat(__REGISTER Mtx a, __REGISTER Mtx b, __REGISTER Mtx dst) {
         // dest[2][2] and dest[2][3]
         psq_st     f0, 0x28(dst), 0, 0
         }
+    #else
+    Mtx tmp;
+
+    for (int i = 0; i < 3; i++) {
+        f32 a0 = a[i][0];
+        f32 a1 = a[i][1];
+        f32 a2 = a[i][2];
+        f32 a3 = a[i][3];
+
+        tmp[i][0] = a0 * b[0][0] + a1 * b[1][0] + a2 * b[2][0] + a3 * b[3][0];
+        tmp[i][1] = a0 * b[0][1] + a1 * b[1][1] + a2 * b[2][1] + a3 * b[3][1];
+        tmp[i][2] = a0 * b[0][2] + a1 * b[1][2] + a2 * b[2][2] + a3 * b[3][2];
+        tmp[i][3] = a0 * b[0][3] + a1 * b[1][3] + a2 * b[2][3] + a3 * b[3][3];
+    }
+
+    JMath::gekko_ps_copy12(dst, tmp);
     #endif
 }
 
@@ -491,6 +548,12 @@ asm {
         psq_st x3_y3, 24(dst), 0, 0
         stfs z3, 32(dst)
     }
+#else
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            dst[i][j] = src[i][j];
+        }
+    }
 #endif
 }
 
@@ -510,6 +573,12 @@ asm {
         psq_st f4, 24(dst), 0, 0
         lfs    f5, 40(src)
         stfs   f5, 32(dst)
+    }
+#else
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            dst[i][j] = src[i][j];
+        }
     }
 #endif
 }
@@ -582,5 +651,12 @@ loop:
     lfd fp31, 0x28(sp)
     addi sp, sp, 0x40
     blr
+#else
+    Mtx* src = (Mtx*)mB;
+    Mtx* dst = (Mtx*)mAB;
+
+    for (u32 i = 0; i < count; i++) {
+        C_MTXConcat(mA, src[i], dst[i]);
+    }
 #endif
 }
