@@ -1,6 +1,7 @@
 #ifndef JMATH_H
 #define JMATH_H
 
+#include "global.h"
 #include "dolphin/mtx/quat.h"
 #include "math.h"
 
@@ -10,7 +11,11 @@ void JMAQuatLerp(Quaternion* a, Quaternion* b, f32 t, Quaternion* out);
 f32 JMAHermiteInterpolation(f32 frame, f32 time0, f32 value0, f32 tangent0, f32 time1, f32 value1, f32 tangent1);
 
 inline f32 JMAFastReciprocal(f32 value) {
+#ifdef __MWERKS__
     return __fres(value);
+#else
+    NOT_IMPLEMENTED;
+#endif
 }
 
 inline float __frsqrtes(__REGISTER double f) {
@@ -20,6 +25,8 @@ inline float __frsqrtes(__REGISTER double f) {
     asm {
         frsqrte out, f
     }
+#else
+    NOT_IMPLEMENTED;
 #endif
     // clang-format on
     return out;
@@ -32,6 +39,8 @@ inline f32 JMAFastSqrt(__REGISTER f32 input) {
         asm {
             frsqrte out, input
         }
+#else
+        NOT_IMPLEMENTED;
 #endif
         return out * input;
     } else {
@@ -55,6 +64,12 @@ inline void gekko_ps_copy3(__REGISTER void* dst, __REGISTER const void* src) {
         psq_st src0, 0(dst), 0, 0
         stfs src1, 8(dst)
     };
+#else
+    f32* fsrc = (f32*)src;
+    f32* fdst = (f32*)dst;
+    for (int i = 0; i < 3; i++) {
+        fdst[i] = fsrc[i];
+    }
 #endif
 }
 
@@ -71,6 +86,12 @@ inline void gekko_ps_copy6(__REGISTER void* dst, __REGISTER const void* src) {
         psq_st src1, 8(dst), 0, 0
         psq_st src2, 16(dst), 0, 0
     };
+#else
+    f32* fsrc = (f32*)src;
+    f32* fdst = (f32*)dst;
+    for (int i = 0; i < 6; i++) {
+        fdst[i] = fsrc[i];
+    }
 #endif
 }
 
@@ -96,6 +117,12 @@ inline void gekko_ps_copy12(__REGISTER void* dst, __REGISTER const void* src) {
         psq_st src4, 32(dst), 0, 0
         psq_st src5, 40(dst), 0, 0
     };
+#else
+    f32* fsrc = (f32*)src;
+    f32* fdst = (f32*)dst;
+    for (int i = 0; i < 12; i++) {
+        fdst[i] = fsrc[i];
+    }
 #endif
 }
 
@@ -127,6 +154,12 @@ inline void gekko_ps_copy16(__REGISTER void* dst, __REGISTER const void* src) {
         psq_st src6, 48(dst), 0, 0
         psq_st src7, 56(dst), 0, 0
     };
+#else
+    f32* fsrc = (f32*)src;
+    f32* fdst = (f32*)dst;
+    for (int i = 0; i < 16; i++) {
+        fdst[i] = fsrc[i];
+    }
 #endif
 }
 

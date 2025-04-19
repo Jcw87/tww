@@ -1,6 +1,7 @@
 #ifndef J3DTRANSFORM_H
 #define J3DTRANSFORM_H
 
+#include "global.h"
 #include "JSystem/JGeometry.h"
 #include "dolphin/mtx/mtxvec.h"
 
@@ -66,6 +67,12 @@ inline void J3DPSMulMtxVec(__REGISTER MtxP mtx, __REGISTER Vec* vec, __REGISTER 
         ps_sum0 f6, f5, f6, f5
         psq_st f6, 8(dst), 1, 0
     }
+#else
+    Vec tmp;
+    tmp.x = mtx[0][0] * vec->x + mtx[0][1] * vec->y + mtx[0][2] * vec->z + mtx[0][3];
+    tmp.y = mtx[1][0] * vec->x + mtx[1][1] * vec->y + mtx[1][2] * vec->z + mtx[1][3];
+    tmp.z = mtx[2][0] * vec->x + mtx[2][1] * vec->y + mtx[2][2] * vec->z + mtx[2][3];
+    *dst = tmp;
 #endif
 }
 
@@ -93,6 +100,12 @@ inline void J3DPSMulMtxVec(__REGISTER MtxP mtx, __REGISTER S16Vec* vec, __REGIST
         ps_sum0 f6, f5, f6, f5
         psq_st f6, 4(dst), 1, 7
     }
+#else
+    S16Vec tmp;
+    tmp.x = (s16)(mtx[0][0] * vec->x + mtx[0][1] * vec->y + mtx[0][2] * vec->z + mtx[0][3]);
+    tmp.y = (s16)(mtx[1][0] * vec->x + mtx[1][1] * vec->y + mtx[1][2] * vec->z + mtx[1][3]);
+    tmp.z = (s16)(mtx[2][0] * vec->x + mtx[2][1] * vec->y + mtx[2][2] * vec->z + mtx[2][3]);
+    *dst = tmp;
 #endif
 }
 
@@ -125,6 +138,12 @@ inline void J3DPSMulMtxVec(__REGISTER Mtx3P mtx, __REGISTER Vec* vec, __REGISTER
         ps_sum0 f6, f5, f6, f5
         psq_st f6, 8(dst), 1, 0
     }
+#else
+    Vec tmp;
+    tmp.x = mtx[0][0] * vec->x + mtx[0][1] * vec->y + mtx[0][2] * vec->z;
+    tmp.y = mtx[1][0] * vec->x + mtx[1][1] * vec->y + mtx[1][2] * vec->z;
+    tmp.z = mtx[2][0] * vec->x + mtx[2][1] * vec->y + mtx[2][2] * vec->z;
+    *dst = tmp;
 #endif
 }
 
@@ -157,6 +176,12 @@ inline void J3DPSMulMtxVec(__REGISTER Mtx3P mtx, __REGISTER S16Vec* vec, __REGIS
         ps_sum0 f6, f5, f6, f5
         psq_st f6, 4(dst), 1, 7
     }
+#else
+    S16Vec tmp;
+    tmp.x = (s16)(mtx[0][0] * vec->x + mtx[0][1] * vec->y + mtx[0][2] * vec->z);
+    tmp.y = (s16)(mtx[1][0] * vec->x + mtx[1][1] * vec->y + mtx[1][2] * vec->z);
+    tmp.z = (s16)(mtx[2][0] * vec->x + mtx[2][1] * vec->y + mtx[2][2] * vec->z);
+    *dst = tmp;
 #endif
 }
 

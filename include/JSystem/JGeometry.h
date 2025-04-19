@@ -14,8 +14,12 @@ struct TUtil {
         if (mag <= 0.0f) {
             return mag;
         } else {
+#ifdef __MWERKS__
             f32 root = __frsqrte(mag);
             return 0.5f * root * (3.0f - mag * (root * root)) * mag;
+#else
+            return sqrtf(mag);
+#endif
         }
     }
 
@@ -23,9 +27,13 @@ struct TUtil {
         if (mag <= 0.0f) {
             return mag;
         }
+#ifdef __MWERKS__
         f32 root = __frsqrte(mag);
         root = 0.5f * root * (3.0f - mag * (root * root));
         return root;
+#else
+        return 1.0f / sqrtf(mag);
+#endif
     }
 };
 
