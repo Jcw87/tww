@@ -139,8 +139,8 @@ public:
         mpJntCtrl = NULL;
     }
 
-    void setActorInfo(char*, fopAc_ac_c*);
-    void setActorInfo2(char*, fopNpc_npc_c*);
+    void setActorInfo(CONST char*, fopAc_ac_c*);
+    void setActorInfo2(CONST char*, fopNpc_npc_c*);
 
     bool cutProc();
     void cutWaitStart();

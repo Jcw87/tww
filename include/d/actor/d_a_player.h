@@ -624,7 +624,7 @@ public:
     virtual BOOL checkCutCharge() const { return FALSE; }
     virtual BOOL getBokoFlamePos(cXyz*) { return FALSE; }
     virtual BOOL checkTactWait() const { return FALSE; }
-    virtual void setTactZev(fpc_ProcID i_partnerId, int i_melodyNum, char* i_eventName) {}
+    virtual void setTactZev(fpc_ProcID i_partnerId, int i_melodyNum, CONST char* i_eventName) {}
     virtual void onDekuSpReturnFlg(u8) {}
     virtual BOOL checkComboCutTurn() const { return false; }
     virtual f32 getBaseAnimeFrameRate() = 0;

@@ -480,7 +480,7 @@ public:
     bool onModeChange(s32, s32);
     int nextType(s32);
     bool onTypeChange(s32, s32);
-    void SetTypeForce(char*, fopAc_ac_c*);
+    void SetTypeForce(CONST char*, fopAc_ac_c*);
     bool SetTypeForce(s32, fopAc_ac_c*);
     bool onStyleChange(s32, s32);
     int GetCameraTypeFromMapToolID(s32, s32);
@@ -568,12 +568,12 @@ public:
     void StartEventCamera(int, int, ...);
     void EndEventCamera(int);
     void searchEventArgData(char*);
-    void getEvIntData(int*, char*);
+    void getEvIntData(int*, CONST char*);
     void getEvStringPntData(char*);
-    void getEvIntData(int*, char*, int);
+    void getEvIntData(int*, CONST char*, int);
     void getEvFloatData(f32*, char*, f32);
     void getEvXyzData(cXyz*, char*, cXyz);
-    bool getEvStringData(char*, char*, char*);
+    bool getEvStringData(char*, CONST char*, CONST char*);
     void getEvStringPntData(char*, char*);
     void getEvActor(char*);
     void getEvActor(char*, char*);

@@ -518,7 +518,7 @@ bool dNpc_PathRun_c::chkInside(cXyz* param_1) {
 #include "d/d_npc_event_cut.inc"
 
 /* 8021B95C-8021B998       .text setActorInfo__15dNpc_EventCut_cFPcP10fopAc_ac_c */
-void dNpc_EventCut_c::setActorInfo(char* staffName, fopAc_ac_c* pActor) {
+void dNpc_EventCut_c::setActorInfo(CONST char* staffName, fopAc_ac_c* pActor) {
     mpEvtStaffName = staffName;
     mpActor = pActor;
     mTargetActorPos.set(0.0f, 0.0f, 0.0f);
@@ -528,7 +528,7 @@ void dNpc_EventCut_c::setActorInfo(char* staffName, fopAc_ac_c* pActor) {
 }
 
 /* 8021B998-8021B9D8       .text setActorInfo2__15dNpc_EventCut_cFPcP12fopNpc_npc_c */
-void dNpc_EventCut_c::setActorInfo2(char* staffName, fopNpc_npc_c* pActor) {
+void dNpc_EventCut_c::setActorInfo2(CONST char* staffName, fopNpc_npc_c* pActor) {
     mpEvtStaffName = staffName;
     mpActor = pActor;
     mpTalkActor = pActor;

@@ -141,7 +141,7 @@ daObjTpost_HIO_c::daObjTpost_HIO_c() {
 
 /* 00000280-000003D4       .text cutProc__12daObjTpost_cFv */
 void daObjTpost_c::cutProc() {
-    static char* action_table[3] = {
+    static CONST char* action_table[3] = {
         "PRESENT",
         "SET_ANM",
         "DISP_LETTER"
@@ -536,7 +536,7 @@ bool daObjTpost_c::checkTalk() {
 
 /* 00000D38-00000DC0       .text eventOrder__12daObjTpost_cFv */
 void daObjTpost_c::eventOrder() {
-    static char* a_demo_name_tbl[] = {
+    static CONST char* a_demo_name_tbl[] = {
         "DEFAULT_POST"
     };
 

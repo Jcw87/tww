@@ -16,7 +16,7 @@ namespace daObjPirateship {
     
     class Act_c : public dBgS_MoveBgActor {
         struct PirateOffset {
-            /* 0x00 */ char* name;
+            /* 0x00 */ CONST char* name;
             /* 0x04 */ u32 params;
             /* 0x08 */ Vec pos;
             /* 0x14 */ SVec angle;

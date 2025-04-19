@@ -1403,7 +1403,7 @@ static dCcD_SrcSph l_sph_src = {
     }},
 };
 
-static char* l_npc_staff_id[] = {
+static CONST char* l_npc_staff_id[] = {
     "Roten",
     "Roten",
     "Roten",
@@ -2176,7 +2176,7 @@ void daNpcRoten_c::eventMove() {
 
 /* 00002314-000025FC       .text privateCut__12daNpcRoten_cFv */
 void daNpcRoten_c::privateCut() {
-    static char* cut_name_tbl[] = {
+    static CONST char* cut_name_tbl[] = {
         "INIT",
         "MES_SET",
         "SET_ITEM",

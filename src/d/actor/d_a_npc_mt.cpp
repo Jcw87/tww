@@ -15,7 +15,7 @@
 
 const char daNpcMt_c::m_arcname[] = "Niten";
 
-static char* l_npc_staff_id[] = {
+static CONST char* l_npc_staff_id[] = {
     "Mt"
 };
 
@@ -748,7 +748,7 @@ void daNpcMt_c::eventMove() {
 
 /* 00001580-000016B0       .text privateCut__9daNpcMt_cFv */
 void daNpcMt_c::privateCut() {
-    static char* cut_name_tbl[] = {
+    static CONST char* cut_name_tbl[] = {
         "MES_SET",
         "GET_ITEM",
     };

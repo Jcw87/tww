@@ -115,7 +115,7 @@ static const char* l_staff_name[] = {
     "Os2"
 };
 
-static char* l_daiza_name[] = {
+static CONST char* l_daiza_name[] = {
     "Hdai1",
     "Hdai2",
     "Hdai3"
@@ -186,7 +186,7 @@ daNpc_Os_HIO_c::daNpc_Os_HIO_c() {
 }
 
 /* 00000300-00000354       .text searchFromName__FPcUlUl */
-static fopAc_ac_c* searchFromName(char* name, u32 param_1, u32 param_2) {
+static fopAc_ac_c* searchFromName(CONST char* name, u32 param_1, u32 param_2) {
     fopAc_ac_c* actor = fopAcM_searchFromName(name, param_1, param_2);
 
     if(actor && fpcM_IsCreating(fopAcM_GetID(actor))) {
@@ -1296,7 +1296,7 @@ static eventActionFunc event_action_tbl[] = {
     &daNpc_Os_c::actionDefault
 };
 
-static char* cut_name_tbl[] = {
+static CONST char* cut_name_tbl[] = {
     "WAIT",
     "WAKEUP",
     "MOVE",

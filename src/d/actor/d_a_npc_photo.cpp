@@ -499,7 +499,7 @@ static dCcD_SrcCyl l_cyl_src2 = {
     }},
 };
 
-static char* l_npc_staff_id = {
+static CONST char* l_npc_staff_id = {
     "Po"
 };
 
@@ -1200,7 +1200,7 @@ void daNpcPhoto_c::eventMove() {
 
 /* 00002368-00002560       .text privateCut__12daNpcPhoto_cFv */
 void daNpcPhoto_c::privateCut() {
-    static char* cut_name_tbl[] = {
+    static CONST char* cut_name_tbl[] = {
         "MES_SET",
         "SE_SET",
         "POS_SET",

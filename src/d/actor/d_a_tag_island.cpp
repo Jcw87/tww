@@ -322,7 +322,7 @@ void daTag_Island_c::demoProcCom_ikada() {
 
 /* 00000CFC-00000D44       .text getNowEventAction__14daTag_Island_cFv */
 int daTag_Island_c::getNowEventAction() {
-    static char *action_table[] = {
+    static CONST char *action_table[] = {
         "WAIT",
         "SPEAK",
         "TACT_BF",

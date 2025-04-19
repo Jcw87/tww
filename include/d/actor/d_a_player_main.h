@@ -1967,7 +1967,7 @@ public:
     virtual BOOL checkCutCharge() const { return mCurProc == daPyProc_CUT_TURN_MOVE_e; }
     virtual BOOL getBokoFlamePos(cXyz*);
     virtual BOOL checkTactWait() const { return mCurProc == daPyProc_TACT_WAIT_e; }
-    virtual void setTactZev(fpc_ProcID i_partnerId, int i_melodyNum, char* i_eventName);
+    virtual void setTactZev(fpc_ProcID i_partnerId, int i_melodyNum, CONST char* i_eventName);
     virtual void onDekuSpReturnFlg(u8 i_point);
     virtual f32 getBaseAnimeFrameRate() { return mFrameCtrlUnder[UNDER_MOVE0_e].getRate(); }
     virtual f32 getBaseAnimeFrame() { return mFrameCtrlUnder[UNDER_MOVE0_e].getFrame(); }
@@ -2125,7 +2125,7 @@ private:
     /* 0x3488 */ dAttList_c* mpAttnEntryX;
     /* 0x348C */ dAttList_c* mpAttnEntryY;
     /* 0x3490 */ dAttList_c* mpAttnEntryZ;
-    /* 0x3494 */ char* mTactZevEventName;
+    /* 0x3494 */ CONST char* mTactZevEventName;
     /* 0x3498 */ LIGHT_INFLUENCE mLightInfluence;
     /* 0x34B8 */ u8 mDirection;
     /* 0x34B9 */ u8 mFrontWallType;

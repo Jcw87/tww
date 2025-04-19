@@ -47,7 +47,7 @@ enum NpcNo_e {
     /* 0x12 */ NPC_UG2,
 };
 
-static char* l_npc_staff_id[] = {
+static CONST char* l_npc_staff_id[] = {
     "Uo1",
     "Uo2",
     "Uo3",
@@ -5834,7 +5834,7 @@ void daNpcPeople_c::eventMove() {
 
 /* 000044C0-00004728       .text privateCut__13daNpcPeople_cFv */
 void daNpcPeople_c::privateCut() {
-    static char* cut_name_tbl[] = {
+    static CONST char* cut_name_tbl[] = {
         "MES_SET",
         "MES_SET_TP",
         "MES_SET2",

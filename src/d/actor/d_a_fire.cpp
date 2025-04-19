@@ -327,7 +327,7 @@ void daFire_c::ctrlEffect() {
 
 /* 00000E8C-0000102C       .text demo_proc__8daFire_cFv */
 void daFire_c::demo_proc() {
-    static char* action_table[] = {"WAIT", "ON", "OFF"};
+    static CONST char* action_table[] = {"WAIT", "ON", "OFF"};
 
     s32 act_idx = dComIfGp_evmng_getMyActIdx(field_0x8F8, action_table, ARRAY_SIZE(action_table), FALSE, 0);
     switch (act_idx) {
@@ -395,7 +395,7 @@ void daFire_c::eventOrder() {
 
 /* 000011A8-000012AC       .text checkOrder__8daFire_cFv */
 void daFire_c::checkOrder() {
-    static char* act_name[] = {"Fire", "Zenfire"};
+    static CONST char* act_name[] = {"Fire", "Zenfire"};
 
     if (!eventInfo.checkCommandDemoAccrpt()) {
         return;

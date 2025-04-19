@@ -40,7 +40,7 @@ daGFlag_HIO_c::~daGFlag_HIO_c() {
 
 /* 000000EC-00000210       .text setTexObj__16daGFlag_packet_cFUc */
 void daGFlag_packet_c::setTexObj(u8 i_arcIdx) {
-    static char* arc_name_tbl[] = {
+    static CONST char* arc_name_tbl[] = {
         "Gflag",
         "Tgflag"
     };
@@ -731,7 +731,7 @@ bool daGoal_Flag_c::_delete() {
 
 /* 00001D74-00001DB4       .text getDemoAction__13daGoal_Flag_cFi */
 int daGoal_Flag_c::getDemoAction(int param_1) {
-    static char* ActionNames[] = {
+    static CONST char* ActionNames[] = {
         "00_dummy",
         "01_dummy",
         "02_dummy",
@@ -852,11 +852,11 @@ BOOL daGoal_Flag_c::TimerExecute() {
             setAction(&daGoal_Flag_c::RaceEnd);
             mRaceStartState = 0;
         } else {
-            static char* event_name_tbl[] = {
+            static CONST char* event_name_tbl[] = {
                 "race_goal_cam",
                 "race_fail_cam",
             };
-            char* event_name = event_name_tbl[mRaceEndState != 3 ? 1 : 0];
+            CONST char* event_name = event_name_tbl[mRaceEndState != 3 ? 1 : 0];
             fopAcM_orderOtherEvent(this, event_name);
             eventInfo.onCondition(dEvtCnd_UNK2_e);
         }

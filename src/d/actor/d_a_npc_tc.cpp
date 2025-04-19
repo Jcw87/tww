@@ -635,7 +635,7 @@ bool daNpc_Tc_c::chkAttention(cXyz param_1, s16 param_2) {
 
 /* 0000136C-00001424       .text eventOrder__10daNpc_Tc_cFv */
 void daNpc_Tc_c::eventOrder() {
-    static char* a_demo_name_tbl[] = {
+    static CONST char* a_demo_name_tbl[] = {
         "TC_JUMP_DEMO",
         "TC_RESCUE",
         "TC_TALK_NEAR_JAIL",

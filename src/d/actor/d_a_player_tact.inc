@@ -114,7 +114,7 @@ BOOL daPy_lk_c::checkTactLastInput() {
 }
 
 /* 8014D9F8-8014DA78       .text setTactZev__9daPy_lk_cFUiiPc */
-void daPy_lk_c::setTactZev(fpc_ProcID i_partnerId, int i_melodyNum, char* i_eventName) {
+void daPy_lk_c::setTactZev(fpc_ProcID i_partnerId, int i_melodyNum, CONST char* i_eventName) {
 #if VERSION <= VERSION_JPN
     if (i_eventName)
 #else

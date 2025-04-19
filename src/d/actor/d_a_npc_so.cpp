@@ -1433,7 +1433,7 @@ void daNpc_So_c::modeProc(daNpc_So_c::Proc_e mode, int index) {
 
 /* 00003110-00003264       .text eventOrder__10daNpc_So_cFv */
 void daNpc_So_c::eventOrder() {
-    static char* a_demo_name_tbl[] = {"SO_1ST_MEET", "SO_1ST_MEET_END", "SO_MAPOPEN", "SO_BOW", "SO_GET_RUPEE", "SO_TRIFORCE_CHECK"};
+    static CONST char* a_demo_name_tbl[] = {"SO_1ST_MEET", "SO_1ST_MEET_END", "SO_MAPOPEN", "SO_BOW", "SO_GET_RUPEE", "SO_TRIFORCE_CHECK"};
 
     if (mB70 == 1 || mB70 == 2) {
         eventInfo.onCondition(dEvtCnd_CANTALK_e);

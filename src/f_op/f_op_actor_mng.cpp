@@ -126,7 +126,7 @@ fopAcM_prm_class * createAppend(u32 parameter, cXyz* pPos, int roomNo, csXyz* pA
 }
 
 /* 80024474-80024478       .text fopAcM_Log__FP10fopAc_ac_cPc */
-void fopAcM_Log(fopAc_ac_c*, char*) {
+void fopAcM_Log(fopAc_ac_c*, CONST char*) {
     /* Empty function */
 }
 
@@ -160,7 +160,7 @@ fpc_ProcID fopAcM_create(s16 procName, u32 parameter, cXyz* pPos, int roomNo, cs
 }
 
 /* 80024598-80024614       .text fopAcM_create__FPcUlP4cXyziP5csXyzP4cXyzPFPv_i */
-fpc_ProcID fopAcM_create(char* pProcNameString, u32 parameter, cXyz* pPos, int roomNo, csXyz* pAngle, cXyz* pScale, createFunc createFunc) {
+fpc_ProcID fopAcM_create(CONST char* pProcNameString, u32 parameter, cXyz* pPos, int roomNo, csXyz* pAngle, cXyz* pScale, createFunc createFunc) {
     dStage_objectNameInf * nameInf = dStage_searchName(pProcNameString);
     if (nameInf == NULL)
         return fpcM_ERROR_PROCESS_ID_e;
@@ -196,7 +196,7 @@ fpc_ProcID fopAcM_createChild(s16 procName, fpc_ProcID parentPcId, u32 parameter
 }
 
 /* 80024790-80024814       .text fopAcM_createChild__FPcUiUlP4cXyziP5csXyzP4cXyzPFPv_i */
-fpc_ProcID fopAcM_createChild(char* pProcNameString, fpc_ProcID parentPcId, u32 parameter, cXyz* pPos, int roomNo, csXyz* pAngle, cXyz* pScale, createFunc createFunc) {
+fpc_ProcID fopAcM_createChild(CONST char* pProcNameString, fpc_ProcID parentPcId, u32 parameter, cXyz* pPos, int roomNo, csXyz* pAngle, cXyz* pScale, createFunc createFunc) {
     dStage_objectNameInf * nameInf = dStage_searchName(pProcNameString);
     if (nameInf == NULL)
         return fpcM_ERROR_PROCESS_ID_e;
@@ -238,7 +238,7 @@ fpc_ProcID fopAcM_createChildFromOffset(s16 procName, fpc_ProcID parentPcId, u32
 }
 
 /* 800249D4-80024B78       .text fopAcM_createChildFromOffset__FPcUiUlP4cXyziP5csXyzP4cXyzPFPv_i */
-fpc_ProcID fopAcM_createChildFromOffset(char* pProcNameString, fpc_ProcID parentPcId, u32 parameter, cXyz* pPosOffs, int roomNo, csXyz* pAngleOffs, cXyz* pScale, createFunc createFunc) {
+fpc_ProcID fopAcM_createChildFromOffset(CONST char* pProcNameString, fpc_ProcID parentPcId, u32 parameter, cXyz* pPosOffs, int roomNo, csXyz* pAngleOffs, cXyz* pScale, createFunc createFunc) {
     fopAc_ac_c * pParent = fopAcM_SearchByID(parentPcId);
     s16 parentAngleY = pParent->current.angle.y;
 
@@ -689,7 +689,7 @@ s32 fopAcM_orderCatchEvent(fopAc_ac_c* i_this, fopAc_ac_c* i_partner) {
 }
 
 /* 80025C34-80025CC8       .text fopAcM_orderOtherEvent2__FP10fopAc_ac_cPcUsUs */
-s32 fopAcM_orderOtherEvent2(fopAc_ac_c* i_this, char* i_eventName, u16 flag, u16 hind) {
+s32 fopAcM_orderOtherEvent2(fopAc_ac_c* i_this, CONST char* i_eventName, u16 flag, u16 hind) {
     u16 prio = dComIfGp_evmng_getEventPrio(dComIfGp_evmng_getEventIdx(i_eventName));
     if (prio == 0)
         prio = 0xFF;
@@ -698,12 +698,12 @@ s32 fopAcM_orderOtherEvent2(fopAc_ac_c* i_this, char* i_eventName, u16 flag, u16
 }
 
 /* 80025CC8-80025D28       .text fopAcM_orderChangeEvent__FP10fopAc_ac_cPcUsUs */
-s32 fopAcM_orderChangeEvent(fopAc_ac_c* i_this, char* i_eventName, u16 flag, u16 hind) {
+s32 fopAcM_orderChangeEvent(fopAc_ac_c* i_this, CONST char* i_eventName, u16 flag, u16 hind) {
     return fopAcM_orderChangeEventId(i_this, dComIfGp_evmng_getEventIdx(i_eventName), flag, hind);
 }
 
 /* 80025D28-80025D94       .text fopAcM_orderChangeEvent__FP10fopAc_ac_cP10fopAc_ac_cPcUsUs */
-s32 fopAcM_orderChangeEvent(fopAc_ac_c* i_this, fopAc_ac_c* i_partner, char* i_eventName, u16 flag, u16 hind) {
+s32 fopAcM_orderChangeEvent(fopAc_ac_c* i_this, fopAc_ac_c* i_partner, CONST char* i_eventName, u16 flag, u16 hind) {
     return fopAcM_orderChangeEventId(i_this, i_partner, dComIfGp_evmng_getEventIdx(i_eventName), flag, hind);
 }
 
@@ -1425,7 +1425,7 @@ fopAc_ac_c* fopAcM_findObjectCB(fopAc_ac_c* it, void* i_prm) {
 }
 
 /* 80028410-80028448       .text fopAcM_searchFromName__FPcUlUl */
-fopAc_ac_c* fopAcM_searchFromName(char* pProcName, u32 paramMask, u32 parameter) {
+fopAc_ac_c* fopAcM_searchFromName(CONST char* pProcName, u32 paramMask, u32 parameter) {
     fopAcM_search_prm param;
     param.procname = pProcName;
     param.prm_mask = paramMask;

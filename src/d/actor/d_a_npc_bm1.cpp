@@ -704,7 +704,7 @@ bool daNpc_Bm1_c::createInit() {
         }
     }
 
-    static char* a_staff_tbl[0x10] = {"Bm1", "Bm1", "Bm1", "Bm1", "Bm1", "Bm2", "Bm2", "Bm3", "Bm3", "Bm3", "Bm4", "Bm4", "Bm4", "Bm4", "Bm5", "Bm5"};
+    static CONST char* a_staff_tbl[0x10] = {"Bm1", "Bm1", "Bm1", "Bm1", "Bm1", "Bm2", "Bm2", "Bm3", "Bm3", "Bm3", "Bm4", "Bm4", "Bm4", "Bm4", "Bm5", "Bm5"};
     mEventCut.setActorInfo2(a_staff_tbl[mSpecificType], this);
     mAnmNum = 0x16;
 
@@ -2927,7 +2927,7 @@ bool daNpc_Bm1_c::cut_move_360_TRN() {
 
 /* 000058B8-000059E0       .text privateCut__11daNpc_Bm1_cFi */
 void daNpc_Bm1_c::privateCut(int arg0) {
-    static char* a_cut_tbl[] = {"ACTION", "360_TRN"};
+    static CONST char* a_cut_tbl[] = {"ACTION", "360_TRN"};
 
     if (arg0 != -1) {
         mActionIndex = dComIfGp_evmng_getMyActIdx(arg0, a_cut_tbl, ARRAY_SIZE(a_cut_tbl), 1, 0);

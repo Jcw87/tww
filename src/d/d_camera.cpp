@@ -60,7 +60,7 @@ inline static bool isPlayerFlying(u32 param_0) {
     return dComIfGp_checkPlayerStatus1(param_0, daPyStts1_DEKU_LEAF_FLY_e) || isSubPlayerFlying();
 }
 
-inline static bool is_current_map(char* stage_name) {
+inline static bool is_current_map(CONST char* stage_name) {
     return !strcmp(dComIfGp_getStartStageName(), stage_name);
 }
 
@@ -1396,7 +1396,7 @@ bool dCamera_c::onTypeChange(s32 i_curType, s32 i_nextType) {
 }
 
 /* 80164DB4-80164DFC       .text SetTypeForce__9dCamera_cFPcP10fopAc_ac_c */
-void dCamera_c::SetTypeForce(char* param_0, fopAc_ac_c* param_1) {
+void dCamera_c::SetTypeForce(CONST char* param_0, fopAc_ac_c* param_1) {
     SetTypeForce(GetCameraTypeFromCameraName(param_0), param_1);
 }
 
@@ -4707,7 +4707,7 @@ bool dCamera_c::eventCamera(s32) {
         &dCamera_c::maptoolIdEvCamera,
     };
 
-    static char* ActionNames[28] = {
+    static CONST char* ActionNames[28] = {
         "PAUSE",
         "WAIT",
         "TALK",

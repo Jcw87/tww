@@ -58,7 +58,7 @@ BOOL daPds_c::CreateHeap() {
 
 /* 00000244-00000380       .text CreateInit__Q210daPedestal7daPds_cFv */
 void daPds_c::CreateInit() {
-    static char* l_os_name[] = {
+    static CONST char* l_os_name[] = {
         "Os",
         "Os1",
         "Os2"
@@ -214,7 +214,7 @@ static eventActionFunc event_action_tbl[] = {
     &daPds_c::actionDefault,
 };
 
-static char* cut_name_tbl[] = {
+static CONST char* cut_name_tbl[] = {
     "WAIT",
     "MOVE",
     "EFFSET",

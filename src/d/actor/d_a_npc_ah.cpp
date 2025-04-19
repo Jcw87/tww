@@ -26,7 +26,7 @@ static const int l_btp_ix_tbl[] = {
     dRes_ID_AH_BTP_HOU_e
 };
 
-static char* l_npc_staff_id[] = {
+static CONST char* l_npc_staff_id[] = {
     "Ah"
 };
 
@@ -479,7 +479,7 @@ void daNpcAh_c::eventMove() {
 
 /* 0000142C-00001554       .text privateCut__9daNpcAh_cFv */
 void daNpcAh_c::privateCut() {
-    static char* cut_name_tbl[] = {
+    static CONST char* cut_name_tbl[] = {
         "MES_SET",
         "GET_ITEM",
     };

@@ -4,10 +4,11 @@
 #include "JSystem/JMath/random.h"
 #include "dolphin/mtx/mtx.h"
 #include "dolphin/mtx/vec.h"
+#include "global.h"
 
 namespace JAInter {
     u8* transInitDataFile(u8*, u32);
-    void loadTmpDVDFile(char*, u8**);
+    void loadTmpDVDFile(CONST char*, u8**);
     void deleteTmpDVDFile(u8**);
     u32 routeToTrack(u32);
 
