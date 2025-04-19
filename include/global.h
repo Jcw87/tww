@@ -2,6 +2,7 @@
 #define _global_h_
 
 #include "dolphin/types.h"
+#include "stdarg.h"
 
 #define ARRAY_SIZE(o) (sizeof(o) / sizeof(o[0]))
 #define ARRAY_SSIZE(o) ((int)(sizeof(o) / sizeof(o[0])))
@@ -36,6 +37,23 @@
 #define COMPOUND_LITERAL(x) (x)
 #endif
 
+#ifndef __MWERKS__
+#ifdef __cplusplus
+extern "C" {
+#endif
+void OSPanic(const char* file, s32 line, const char* fmt, ...);
+void OSReport(const char* fmt, ...);
+#ifdef __cplusplus
+};
+
+namespace std {
+    struct __tag_va_List {
+        va_list list;
+    };
+}
+#endif
+#endif
+
 #ifdef __MWERKS__
 #define GLUE(a, b) a##b
 #define GLUE2(a, b) GLUE(a, b)
@@ -45,6 +63,9 @@
 #define SECTION_INIT __declspec(section ".init")
 #define ASM asm
 #define WEAKFUNC __declspec(weak)
+#define __FUNCSIG__ __FUNCTION__
+#define NOT_IMPLEMENTED
+#define NOT_IMPLEMENTED_CONTINUE
 #else
 #define STATIC_ASSERT(...)
 #define ALIGN_DECL(alignment, decl) ATTRIBUTE_ALIGN(alignment) decl
@@ -52,6 +73,12 @@
 #define SECTION_INIT
 #define ASM
 #define WEAKFUNC
+#define NOT_IMPLEMENTED OSPanic(__FILE__, __LINE__, "not implemented")
+#define NOT_IMPLEMENTED_CONTINUE static bool reported = false; \
+if (!reported) { \
+    OSReport("stub %s\n", __FUNCSIG__); \
+    reported = true; \
+}
 #endif
 
 // Intrinsics
@@ -106,5 +133,9 @@ extern void __sync();
     (void*)0; (void*)0; (void*)0; (void*)0; (void*)0; (void*)0; (void*)0; (void*)0; (void*)0; (void*)0; \
     (void*)0; (void*)0; (void*)0; (void*)0; (void*)0; (void*)0; (void*)0; (void*)0; (void*)0; (void*)0; \
     (void*)0; (void*)0; (void*)0; (void*)0; (void*)0; (void*)0; (void*)0; (void*)0; (void*)0; (void*)0;
+
+#define M_PI 3.14159265358979323846f
+#define DEG_TO_RAD(degrees) (degrees * (M_PI / 180.0f))
+#define RAD_TO_DEG(radians) (radians * (180.0f / M_PI + 0.000005f)) // the 0.000005f is probably a fakematch
 
 #endif
