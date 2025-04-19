@@ -568,12 +568,12 @@ public:
     void StartEventCamera(int, int, ...);
     void EndEventCamera(int);
     void searchEventArgData(char*);
-    void getEvIntData(int*, char*);
+    void getEvIntData(int*, const char*);
     void getEvStringPntData(char*);
-    void getEvIntData(int*, char*, int);
+    void getEvIntData(int*, const char*, int);
     void getEvFloatData(f32*, char*, f32);
     void getEvXyzData(cXyz*, char*, cXyz);
-    bool getEvStringData(char*, char*, char*);
+    bool getEvStringData(char*, const char*, const char*);
     void getEvStringPntData(char*, char*);
     void getEvActor(char*);
     void getEvActor(char*, char*);

@@ -864,7 +864,7 @@ void daNpcMn_c::eventMove() {
 
 /* 00001F74-00002194       .text privateCut__9daNpcMn_cFv */
 void daNpcMn_c::privateCut() {
-    static char* cut_name_tbl[] = {
+    static const char* cut_name_tbl[] = {
         "MES_SET", "GET_ITEM", "WAIT", "HATCH", "BIKKURI", "TURN", "WALK", "LOOK", "JUMP", "SWON",
     };
     int staffIdx = dComIfGp_evmng_getMyStaffId(l_npc_staff_id[0]);

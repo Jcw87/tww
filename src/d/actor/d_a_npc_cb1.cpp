@@ -1045,7 +1045,7 @@ daNpc_Cb1_c::mode_entry_t daNpc_Cb1_c::m_evProcTbl[] = {
     },
 };
 
-static char* l_cutNameTbl[] = {
+static const char* l_cutNameTbl[] = {
     "WAIT",
     "MSG_SET",
     "MSG_END",

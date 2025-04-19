@@ -357,7 +357,7 @@ void daObjDoguu_c::setJDemo(int) {
 
 /* 0000100C-000015A8       .text privateCut__12daObjDoguu_cFv */
 void daObjDoguu_c::privateCut() {
-    static char* cut_name_tbl[] = {
+    static const char* cut_name_tbl[] = {
         "SETGOAL",
         "SETBALL",
         "SETANGLE",

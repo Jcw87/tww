@@ -479,7 +479,7 @@ void daNpcAh_c::eventMove() {
 
 /* 0000142C-00001554       .text privateCut__9daNpcAh_cFv */
 void daNpcAh_c::privateCut() {
-    static char* cut_name_tbl[] = {
+    static const char* cut_name_tbl[] = {
         "MES_SET",
         "GET_ITEM",
     };

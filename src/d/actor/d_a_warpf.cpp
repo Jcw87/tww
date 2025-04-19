@@ -375,7 +375,7 @@ static daWarpf_c::ActionFunc event_action_tbl[] = {
 void daWarpf_c::demo_proc() {
     mStaffID = dComIfGp_evmng_getMyStaffId("Warpf");
     if (dComIfGp_event_runCheck() && !eventInfo.checkCommandTalk() && mStaffID != -1) {
-        static char* action_table[] = {
+        static const char* action_table[] = {
             "WAIT",
             "WARP_START",
             "WARP_1",

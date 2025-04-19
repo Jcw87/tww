@@ -1680,7 +1680,7 @@ BOOL daNpc_Zl1_c::cut_move_SURPRISED() {
 
 /* 00003574-000037E0       .text privateCut__11daNpc_Zl1_cFi */
 void daNpc_Zl1_c::privateCut(int i_staffIdx) {
-    static char* a_cut_tbl[] = {
+    static const char* a_cut_tbl[] = {
         "LOK_PLYER",
         "LOK_PARTNER",
         "CHG_ANM_ATR",

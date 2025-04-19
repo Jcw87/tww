@@ -249,7 +249,7 @@ void daCanon_c::wait_proc_init() {
 
 /* 00000AB8-00000D14       .text wait_proc__9daCanon_cFv */
 void daCanon_c::wait_proc() {
-    static char* cut_name_tbl[] = {"Canon_game"};
+    static const char* cut_name_tbl[] = {"Canon_game"};
 
     f32 unused_abs = (dComIfGp_getPlayer(0)->current.pos - current.pos).absXZ();
 
@@ -424,7 +424,7 @@ void daCanon_c::end_proc_init() {
 
 /* 00001714-00001814       .text end_proc__9daCanon_cFv */
 void daCanon_c::end_proc() {
-    static char* cut_name_tbl[] = {"Canon_game"};
+    static const char* cut_name_tbl[] = {"Canon_game"};
 
     if (m656 > 0) {
         if (m656 == 30) {

@@ -39,9 +39,9 @@
 namespace JUTAssertion {
     u32 getSDevice();
     void showAssert(u32 device, const char * file, int line, const char * assertion);
-    void setWarningMessage_f(u32 device, char * file, int line, const char * fmt, ...);
-    void setLogMessage_f(u32 device, char* file, int line, const char* fmt, ...);
-    void setConfirmMessage(u32 device, char * file, int line, bool cond, const char * msg);
+    void setWarningMessage_f(u32 device, const char * file, int line, const char * fmt, ...);
+    void setLogMessage_f(u32 device, const char* file, int line, const char* fmt, ...);
+    void setConfirmMessage(u32 device, const char * file, int line, bool cond, const char * msg);
     void create();
     u32 flush_subroutine();
     void flushMessage();

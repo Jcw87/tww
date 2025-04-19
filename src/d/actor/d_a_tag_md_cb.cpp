@@ -331,7 +331,7 @@ static daTag_MdCb_c::EventActionFunc event_action_tbl[] = {
     &daTag_MdCb_c::actionDefault,
     &daTag_MdCb_c::actionDefault,
 };
-static char* cut_name_tbl[] = {
+static const char* cut_name_tbl[] = {
     "wait",
     "init",
     "msg_init",

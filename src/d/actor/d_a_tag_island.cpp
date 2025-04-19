@@ -330,7 +330,7 @@ int daTag_Island_c::getNowEventAction() {
         "TACT_AF",
     };
 
-    return dComIfGp_evmng_getMyActIdx(mStaffId, (char**)action_table, ARRAY_SIZE(action_table), FALSE, 1);
+    return dComIfGp_evmng_getMyActIdx(mStaffId, action_table, ARRAY_SIZE(action_table), FALSE, 1);
 }
 
 /* 00000D44-00000EDC       .text demoProc__14daTag_Island_cFv */

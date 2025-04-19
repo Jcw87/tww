@@ -145,7 +145,7 @@ BOOL daShutter_c::_execute() {
 
 /* 00000788-00000B14       .text shutter_move__11daShutter_cFv */
 void daShutter_c::shutter_move() {
-    static char* action_table[] = {
+    static const char* action_table[] = {
         "WAIT",
         "WAIT02",
         "OPEN",

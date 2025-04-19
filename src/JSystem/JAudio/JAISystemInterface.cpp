@@ -14,7 +14,7 @@
 JASystem::Kernel::TPortCmd JAInter::SystemInterface::systemPortCmd;
 
 /* 8029E188-8029E1B4       .text checkFileExsistence__Q27JAInter15SystemInterfaceFPc */
-BOOL JAInter::SystemInterface::checkFileExsistence(char* param_1) {
+BOOL JAInter::SystemInterface::checkFileExsistence(const char* param_1) {
     if (DVDConvertPathToEntrynum(param_1) != -1)
         return TRUE;
     else

@@ -327,7 +327,7 @@ void daFire_c::ctrlEffect() {
 
 /* 00000E8C-0000102C       .text demo_proc__8daFire_cFv */
 void daFire_c::demo_proc() {
-    static char* action_table[] = {"WAIT", "ON", "OFF"};
+    static const char* action_table[] = {"WAIT", "ON", "OFF"};
 
     s32 act_idx = dComIfGp_evmng_getMyActIdx(field_0x8F8, action_table, ARRAY_SIZE(action_table), FALSE, 0);
     switch (act_idx) {

@@ -593,7 +593,7 @@ u8 daObjApzl_Rupee_Table[] = {
 
 /* 0000087C-00000D08       .text privateCut__11daObjApzl_cFv */
 void daObjApzl_c::privateCut() {
-    static char* cut_name_tbl[] = {
+    static const char* cut_name_tbl[] = {
         "WAIT",
         "TALK",
         "GAME",

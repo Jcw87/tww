@@ -208,7 +208,7 @@ void daTag_Mk_c::demoProcCom() {
 
 /* 000006FC-00000744       .text getNowEventAction__10daTag_Mk_cFv */
 s32 daTag_Mk_c::getNowEventAction() {
-    static char* action_table[] = {"WAIT", "MAKE", "DELETE", "SETGOAL"};
+    static const char* action_table[] = {"WAIT", "MAKE", "DELETE", "SETGOAL"};
 
     return dComIfGp_evmng_getMyActIdx(mStaffIdx, action_table, ARRAY_SIZE(action_table), FALSE, 1);
 }

@@ -5833,7 +5833,7 @@ void daNpcPeople_c::eventMove() {
 
 /* 000044C0-00004728       .text privateCut__13daNpcPeople_cFv */
 void daNpcPeople_c::privateCut() {
-    static char* cut_name_tbl[] = {
+    static const char* cut_name_tbl[] = {
         "MES_SET",
         "MES_SET_TP",
         "MES_SET2",

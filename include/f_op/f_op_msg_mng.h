@@ -331,7 +331,7 @@ public:
     void stringSet();
     void getString(char*, u32);
     void getString(char*, char*, char*, char*, u32, f32*, f32*, int*);
-    void getRubyString(char*, char*, char*, char*, char*, char*, f32*, f32*, int*);
+    void getRubyString(char*, char*, char*, char*, const char*, const char*, f32*, f32*, int*);
 #if VERSION >= VERSION_USA
     void tag_len_kaisen_game(int*, f32*, int*, int*, int*);
     void tag_len_rupee(int*, f32*, int*, int*, int*);

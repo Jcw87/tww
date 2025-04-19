@@ -142,7 +142,7 @@ daObjTpost_HIO_c::daObjTpost_HIO_c() {
 
 /* 00000280-000003D4       .text cutProc__12daObjTpost_cFv */
 void daObjTpost_c::cutProc() {
-    static char* action_table[3] = {
+    static const char* action_table[3] = {
         "PRESENT",
         "SET_ANM",
         "DISP_LETTER"

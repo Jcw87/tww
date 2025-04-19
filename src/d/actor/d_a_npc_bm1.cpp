@@ -2927,7 +2927,7 @@ bool daNpc_Bm1_c::cut_move_360_TRN() {
 
 /* 000058B8-000059E0       .text privateCut__11daNpc_Bm1_cFi */
 void daNpc_Bm1_c::privateCut(int arg0) {
-    static char* a_cut_tbl[] = {"ACTION", "360_TRN"};
+    static const char* a_cut_tbl[] = {"ACTION", "360_TRN"};
 
     if (arg0 != -1) {
         mActionIndex = dComIfGp_evmng_getMyActIdx(arg0, a_cut_tbl, ARRAY_SIZE(a_cut_tbl), 1, 0);

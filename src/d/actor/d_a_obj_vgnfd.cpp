@@ -48,12 +48,12 @@ static const char* l_daObjVgnfd_demo_name[] = {
     "4_door_kz",
 };
 
-static char* l_daObjVgnfd_act_name[] = {
+static const char* l_daObjVgnfd_act_name[] = {
     "wait0",
     "wait1",
 };
 
-static char* l_daObjVgnfd_break_act_name[] = {
+static const char* l_daObjVgnfd_break_act_name[] = {
     "wait0",
     "gannon",
     "vib0",

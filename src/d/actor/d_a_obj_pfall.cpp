@@ -211,7 +211,7 @@ bool daObj_Pfall_c::_delete() {
 
 /* 00000AB0-00000C04       .text cutProc__13daObj_Pfall_cFv */
 void daObj_Pfall_c::cutProc() {
-    static char* action_table[3] = {
+    static const char* action_table[3] = {
         "WAIT",
         "OPEN",
         "HIKU"

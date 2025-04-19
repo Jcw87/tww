@@ -385,7 +385,7 @@ void daSbox_c::demoProcCom() {
 
 /* 000011F8-00001240       .text getNowEventAction__8daSbox_cFv */
 s32 daSbox_c::getNowEventAction() {
-    static char* action_table[] = {"WAIT", "OPEN", "DELETE"};
+    static const char* action_table[] = {"WAIT", "OPEN", "DELETE"};
 
     return dComIfGp_evmng_getMyActIdx(m2F8, action_table, ARRAY_SIZE(action_table), FALSE, 1);
 }

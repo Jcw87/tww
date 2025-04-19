@@ -723,7 +723,7 @@ void daObjFigure_c::eventMove() {
 
 /* 00001060-0000119C       .text privateCut__13daObjFigure_cFv */
 void daObjFigure_c::privateCut() {
-    static char* cut_name_tbl[] = {
+    static const char* cut_name_tbl[] = {
         "MES_SET",
         "ON_PLR",
         "OFF_PLR",
