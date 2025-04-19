@@ -459,7 +459,7 @@ bool daNpc_Km1_c::event_action() {
 
 /* 0000103C-00001144       .text privateCut__11daNpc_Km1_cFv */
 void daNpc_Km1_c::privateCut() {
-    static char* cut_name_tbl[] = {"ACTION"};
+    static const char* cut_name_tbl[] = {"ACTION"};
 
     int staffIdx = dComIfGp_evmng_getMyStaffId("Km1",NULL,0);
     if(staffIdx != -1){

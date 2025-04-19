@@ -202,7 +202,7 @@ void dEvDtStaff_c::specialProcLight() {
         return;
     }
 
-    static char * action_table[] = {
+    static const char * action_table[] = {
         "WAIT",
         "CHANGE",
         "ADD_TIME",
@@ -258,7 +258,7 @@ void dEvDtStaff_c::specialProcMessage() {
         return;
     }
 
-    static char* action_table[] = {
+    static const char* action_table[] = {
         "WAIT",
         "CREATE_MSG",
         "PUSHBUTTON",
@@ -400,7 +400,7 @@ void dEvDtStaff_c::specialProcSound() {
         return;
     }
 
-    static char* action_table[] = {
+    static const char* action_table[] = {
         "WAIT",
         "STRM_PLAY",
         "STRM_DEMO_MJ_SISTER",
@@ -495,7 +495,7 @@ void dEvDtStaff_c::specialProcCreate() {
         return;
     }
 
-    static char* action_table[] = {
+    static const char* action_table[] = {
         "WAIT",
         "CREATE",
     };
@@ -570,7 +570,7 @@ void dEvDtStaff_c::specialProcDirector() {
         return;
     }
 
-    static char* action_table[] = {
+    static const char* action_table[] = {
         "WAIT",
         "NEXT",
         "FADE",
@@ -756,7 +756,7 @@ void dEvDtStaff_c::specialProcPackage() {
         return;
     }
 
-    static char* action_table[] = {
+    static const char* action_table[] = {
         "WAIT",
         "PLAY",
         "PLAY2",
@@ -839,7 +839,7 @@ void dEvDtStaff_c::specialProcTimekeeper() {
         return;
     }
 
-    static char* action_table[] = {
+    static const char* action_table[] = {
         "COUNTDOWN",
         "WAIT",
     };

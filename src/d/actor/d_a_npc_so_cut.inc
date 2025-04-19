@@ -19,7 +19,7 @@ void daNpc_So_c::cutProc() {
             daNpc_So_c::CutFunc run;
         };
 
-        static char* action_table[] = {
+        static const char* action_table[] = {
             "SWIM",           "JUMP",          "APPEAR",        "DIVE",
             "DISAPPEAR",      "SET_ANM",       "EFFECT",        "EQUIP",
             "UNEQUIP",        "EATESA",        "EATESA1ST",     "JUMP_MAPOPEN",

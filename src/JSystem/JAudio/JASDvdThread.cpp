@@ -102,7 +102,7 @@ int JASystem::Dvd::checkPassDvdT(u32 p1, u32* p2, void (*p3)(u32)) {
 }
 
 /* 8027B914-8027B960       .text checkFile__Q28JASystem3DvdFPc */
-u32 JASystem::Dvd::checkFile(char* name) {
+u32 JASystem::Dvd::checkFile(const char* name) {
     DVDFileInfo info;
     if (!DVDOpen(name, &info)) {
         return 0;

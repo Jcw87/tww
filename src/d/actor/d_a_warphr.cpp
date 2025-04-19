@@ -231,7 +231,7 @@ BOOL daWarphr_c::demo_execute() {
 
 /* 00000B50-00000C6C       .text demo_proc__10daWarphr_cFv */
 void daWarphr_c::demo_proc() {
-    static char* action_table[] = {"WAIT", "WARP", "WARP_ARRIVE", "WARP_ARRIVE_END", "START_WARP"};
+    static const char* action_table[] = {"WAIT", "WARP", "WARP_ARRIVE", "WARP_ARRIVE_END", "START_WARP"};
 
     m304 = dComIfGp_evmng_getMyStaffId("Ghrwp");
     if (dComIfGp_event_runCheck() && !eventInfo.checkCommandTalk() && m304 != -1) {

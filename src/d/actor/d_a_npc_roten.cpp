@@ -2176,7 +2176,7 @@ void daNpcRoten_c::eventMove() {
 
 /* 00002314-000025FC       .text privateCut__12daNpcRoten_cFv */
 void daNpcRoten_c::privateCut() {
-    static char* cut_name_tbl[] = {
+    static const char* cut_name_tbl[] = {
         "INIT",
         "MES_SET",
         "SET_ITEM",

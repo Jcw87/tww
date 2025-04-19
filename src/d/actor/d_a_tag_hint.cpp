@@ -530,7 +530,7 @@ u16 daTag_Hint_c::talk() {
 
 /* 00001A00-00001D98       .text actionEvent__12daTag_Hint_cFv */
 BOOL daTag_Hint_c::actionEvent() {
-    static char* action_table[] = {
+    static const char* action_table[] = {
         "WAIT",
         "MESSAGE",
         "MESSAGE2",

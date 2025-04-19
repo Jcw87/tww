@@ -214,7 +214,7 @@ s32 daSwhit0_c::checkHit() {
 
 /* 00000B44-00000C48       .text DemoProc__10daSwhit0_cFv */
 s32 daSwhit0_c::DemoProc() {
-    static char* action_table[] = {
+    static const char* action_table[] = {
         "WAIT",
         "CHANGE"
     };

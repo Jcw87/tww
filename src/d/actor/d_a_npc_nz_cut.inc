@@ -117,7 +117,7 @@ void daNpc_Nz_c::cutProc() {
         return;
     }
 
-    static char* action_table[] = {
+    static const char* action_table[] = {
         "EATESA",
         "EATESA1ST",
         "KILLALL",

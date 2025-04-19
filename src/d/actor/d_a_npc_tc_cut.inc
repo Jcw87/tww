@@ -6,7 +6,7 @@
 
 /* 00005C58-00005E60       .text cutProc__10daNpc_Tc_cFv */
 void daNpc_Tc_c::cutProc() {
-    static char* action_table[] = {
+    static const char* action_table[] = {
         "SIT_TO_JUMP",
         "PRESENT",
         "SET_ANM",

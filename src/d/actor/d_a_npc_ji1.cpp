@@ -1568,7 +1568,7 @@ void daNpc_Ji1_c::set_mtx() {
 
 /* 00004448-00004488       .text getEventActionNo__11daNpc_Ji1_cFi */
 s32 daNpc_Ji1_c::getEventActionNo(int staffIdx) {
-    static char* ActionNames[] = {
+    static const char* ActionNames[] = {
         "00_dummy",
         "01_dummy",
         "02_dummy",
@@ -2034,7 +2034,7 @@ u32 daNpc_Ji1_c::privateCut() {
         return false;
     }
 
-    static char* cut_name_tbl[] = {
+    static const char* cut_name_tbl[] = {
         "SETANM",
         "TALKMSG",
         "INITPOS",

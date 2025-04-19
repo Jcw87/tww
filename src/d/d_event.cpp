@@ -752,7 +752,7 @@ dEvt_info_c::dEvt_info_c() {
 }
 
 /* 80071658-800716AC       .text setEventName__11dEvt_info_cFPc */
-void dEvt_info_c::setEventName(char* evtName) {
+void dEvt_info_c::setEventName(const char* evtName) {
     if (evtName == NULL) {
         mEventId = -1;
     } else {

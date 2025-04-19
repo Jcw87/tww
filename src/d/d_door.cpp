@@ -320,7 +320,7 @@ void dDoor_info_c::closeEndCom() {
 
 /* 8006C0A4-8006C0EC       .text getDemoAction__12dDoor_info_cFv */
 s32 dDoor_info_c::getDemoAction() {
-    static char* action_table[] = {
+    static const char* action_table[] = {
         "WAIT",
         "STOP_OPEN",
         "STOP_CLOSE",

@@ -33,7 +33,7 @@ static void dummy() {
     DEAD_STRING("fg_warp1");
 }
 
-static char* M_act_table[] = {
+static const char* M_act_table[] = {
     "warp_start",
     "warp_appear",
     "warp_make",

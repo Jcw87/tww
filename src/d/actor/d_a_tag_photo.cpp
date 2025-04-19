@@ -238,7 +238,7 @@ void daTagPhoto_c::eventMove() {
 
 /* 000005BC-000006C8       .text privateCut__12daTagPhoto_cFv */
 void daTagPhoto_c::privateCut() {
-    static char* cut_name_tbl[] = {
+    static const char* cut_name_tbl[] = {
         "MES_SET"
     };
 

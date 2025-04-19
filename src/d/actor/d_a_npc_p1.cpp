@@ -820,7 +820,7 @@ BOOL daNpc_P1_c::evn_talk() {
 
 /* 00002464-000027AC       .text minigameExplainCut__10daNpc_P1_cFv */
 BOOL daNpc_P1_c::minigameExplainCut() {
-    static char* ActionNames[] = {"4013_msg", "4014_msg"};
+    static const char* ActionNames[] = {"4013_msg", "4014_msg"};
     int staffId = dComIfGp_evmng_getMyStaffId(mEventCut6B0.getActorName(), NULL);
     int actIdx = dComIfGp_evmng_getMyActIdx(staffId, ActionNames, ARRAY_SSIZE(ActionNames), TRUE, 0);
 
@@ -886,7 +886,7 @@ BOOL daNpc_P1_c::minigameExplainCut() {
 /* 000027AC-00002920       .text privateCut__10daNpc_P1_cFv */
 BOOL daNpc_P1_c::privateCut() {
 
-    static char* cut_name_tbl[] = {"4013_msg", "4014_msg", "SETANM", "HEADSWING", "TALKMSG"};
+    static const char* cut_name_tbl[] = {"4013_msg", "4014_msg", "SETANM", "HEADSWING", "TALKMSG"};
     int staffIdx = dComIfGp_evmng_getMyStaffId(mEventCut6B0.getActorName());
     if (staffIdx == -1) {
         return FALSE;

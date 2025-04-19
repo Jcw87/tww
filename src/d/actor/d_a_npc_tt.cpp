@@ -448,7 +448,7 @@ void daNpc_Tt_c::demoProcCom() {
 
 /* 00001040-00001088       .text getNowEventAction__10daNpc_Tt_cFv */
 s32 daNpc_Tt_c::getNowEventAction() {
-    static char* action_table[] = {
+    static const char* action_table[] = {
         "WAIT",
         "SPEAK",
         "PATTEN",

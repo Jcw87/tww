@@ -459,7 +459,7 @@ BOOL fopAcM_SearchByName(s16 procName, fopAc_ac_c** p_actor);
 
 fopAcM_prm_class* fopAcM_CreateAppend();
 
-void fopAcM_Log(fopAc_ac_c* p_actor, char* str);
+void fopAcM_Log(fopAc_ac_c* p_actor, const char* str);
 
 BOOL fopAcM_delete(fopAc_ac_c* p_actor);
 BOOL fopAcM_delete(fpc_ProcID actorID);
@@ -548,7 +548,7 @@ s32 fopAcM_orderZHintEvent(fopAc_ac_c*, fopAc_ac_c*);
 s32 fopAcM_orderSpeakEvent(fopAc_ac_c* i_actor);
 s32 fopAcM_orderDoorEvent(fopAc_ac_c*, fopAc_ac_c*);
 s32 fopAcM_orderCatchEvent(fopAc_ac_c*, fopAc_ac_c*);
-s32 fopAcM_orderOtherEvent2(fopAc_ac_c* i_this, char* i_eventName, u16 flag, u16 hind = -1);
+s32 fopAcM_orderOtherEvent2(fopAc_ac_c* i_this, const char* i_eventName, u16 flag, u16 hind = -1);
 s32 fopAcM_orderChangeEvent(fopAc_ac_c* i_this, char* i_eventName, u16 flag, u16 hind);
 s32 fopAcM_orderChangeEvent(fopAc_ac_c* i_this, fopAc_ac_c* i_partner, char* i_eventName, u16 flag, u16 hind);
 s32 fopAcM_orderChangeEventId(fopAc_ac_c* i_this, s16 eventIdx, u16 flag, u16 hind);

@@ -1560,7 +1560,7 @@ BOOL daNpc_Rsh1_c::evn_turn() {
 
 /* 00003C10-00003D80       .text privateCut__12daNpc_Rsh1_cFv */
 bool daNpc_Rsh1_c::privateCut() {
-    static char* cut_name_tbl[] = {
+    static const char* cut_name_tbl[] = {
         "TALKMSG",
         "CONTINUE_TALK",
         "SETANM",

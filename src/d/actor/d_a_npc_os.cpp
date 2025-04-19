@@ -1296,7 +1296,7 @@ static eventActionFunc event_action_tbl[] = {
     &daNpc_Os_c::actionDefault
 };
 
-static char* cut_name_tbl[] = {
+static const char* cut_name_tbl[] = {
     "WAIT",
     "WAKEUP",
     "MOVE",

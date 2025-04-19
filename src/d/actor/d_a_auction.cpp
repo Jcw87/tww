@@ -475,7 +475,7 @@ void daAuction_c::eventMove() {
 
 /* 0000104C-00001300       .text privateCut__11daAuction_cFv */
 void daAuction_c::privateCut() {
-    static char* cut_name_tbl[] = {
+    static const char* cut_name_tbl[] = {
         "MES_SET",
         "MES_END",
         "START",

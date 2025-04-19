@@ -1743,11 +1743,11 @@ BOOL daNpc_Bs1_c::wait_action(void*) {
 
 /* 00003A70-00003CB4       .text getdemo_action__11daNpc_Bs1_cFPv */
 BOOL daNpc_Bs1_c::getdemo_action(void*) {
-    static char* a_name[] = {
+    static const char* a_name[] = {
         "Bs1",
         "Bs2",
     };
-    static char* a_cut_name[] = {
+    static const char* a_cut_name[] = {
         "dummy1",
         "dummy2",
     };
@@ -1931,7 +1931,7 @@ BOOL daNpc_Bs1_c::evn_mantan_init() {
 
 /* 000041E0-00004384       .text privateCut__11daNpc_Bs1_cFv */
 BOOL daNpc_Bs1_c::privateCut() {
-    static char* cut_name_tbl[] = {
+    static const char* cut_name_tbl[] = {
         "TALKMSG",
         "CONTINUE_TALK",
         "JNTLOCK",

@@ -191,7 +191,7 @@ cPhs_State daMdoor_c::create() {
 
 /* 00000698-00000958       .text demoProc__9daMdoor_cFv */
 void daMdoor_c::demoProc() {
-    static char* action_table[] = {
+    static const char* action_table[] = {
         "WAIT", "CLOSE", "STOP_OPEN",
     };
 

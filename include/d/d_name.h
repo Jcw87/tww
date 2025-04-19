@@ -112,7 +112,7 @@ public:
     void draw() { _draw(); }
     int isInputEnd() { return isInputEnd_; }
     char* getInputStrPtr() { return inputStr; }
-    void setNextNameStr(char* i_name) { strcpy(nextNameStr, i_name); }
+    void setNextNameStr(const char* i_name) { strcpy(nextNameStr, i_name); }
 
     void _create();
     void initial();

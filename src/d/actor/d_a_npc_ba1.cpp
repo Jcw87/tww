@@ -1246,7 +1246,7 @@ bool daNpc_Ba1_c::cut_move_START_TALE1() {
 
 /* 00002820-00002948       .text privateCut__11daNpc_Ba1_cFi */
 void daNpc_Ba1_c::privateCut(int i_staff_idx) {
-    static char* a_cut_tbl[] = {
+    static const char* a_cut_tbl[] = {
         "ACTION",
         "START_TALE1",
     };

@@ -224,7 +224,7 @@ void daWarpdm20_c::demo_execute() {
 
 /* 00000BB4-00000CD0       .text demo_proc__12daWarpdm20_cFv */
 void daWarpdm20_c::demo_proc() {
-    static char* action_table[] = {
+    static const char* action_table[] = {
         "WAIT",
         "WARP",
         "DEAD",

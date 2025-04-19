@@ -316,7 +316,7 @@ void daNpc_Hr_c::defaultSetPos(cXyz* param_1) {
 
 /* 00000A94-00000ADC       .text getNowEventAction__10daNpc_Hr_cFv */
 s32 daNpc_Hr_c::getNowEventAction() {
-    static char* action_table[] = {
+    static const char* action_table[] = {
         "WAIT",
         "SPEAK",
         "PATTEN",

@@ -4003,9 +4003,9 @@ void fopMsgM_msgDataProc_c::stringSet() {
                     nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                 }
 
-                char* r27 = "発";
+                const char* r27 = "発";
                 // Furigana for 発 (counter with irregular pronunciation)
-                char* sp3C8[] = {
+                const char* sp3C8[] = {
                     "ぱつ",
                     "ぱつ",
                     "はつ",
@@ -4162,8 +4162,8 @@ void fopMsgM_msgDataProc_c::stringSet() {
                     nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                 }
 
-                char* r8 = "回";
-                char* r9 = "かい";
+                const char* r8 = "回";
+                const char* r9 = "かい";
                 getRubyString(field_0x60, field_0x68, field_0x64, field_0x6C, r8, r9, &nowCursorPos, &field_0x24, &field_0x150);
 
                 count += bmgData[count + 1];
@@ -4350,8 +4350,8 @@ void fopMsgM_msgDataProc_c::stringSet() {
                     nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                 }
 
-                char* r8 = "通";
-                char* r9 = "つう";
+                const char* r8 = "通";
+                const char* r9 = "つう";
                 getRubyString(field_0x60, field_0x68, field_0x64, field_0x6C, r8, r9, &nowCursorPos, &field_0x24, &field_0x150);
 
                 count += bmgData[count + 1];
@@ -4388,9 +4388,9 @@ void fopMsgM_msgDataProc_c::stringSet() {
                     nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                 }
 
-                char* r23 = "人";
+                const char* r23 = "人";
                 // Furigana for 人 (counter with irregular pronunciation)
-                char* sp3A0[] = {
+                const char* sp3A0[] = {
                     "にん",
                     "り",
                     "り",
@@ -4441,9 +4441,9 @@ void fopMsgM_msgDataProc_c::stringSet() {
                         nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                     }
 
-                    char* r8 = "分";
+                    const char* r8 = "分";
                     // Furigana for 分 (counter with irregular pronunciation)
-                    char* sp378[] = {
+                    const char* sp378[] = {
                         "ぷん",
                         "ぷん",
                         "ふん",
@@ -4491,8 +4491,8 @@ void fopMsgM_msgDataProc_c::stringSet() {
                         nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                     }
 
-                    char* r8 = "秒";
-                    char* r9 = "びょう";
+                    const char* r8 = "秒";
+                    const char* r9 = "びょう";
                     getRubyString(field_0x60, field_0x68, field_0x64, field_0x6C, r8, r9, &nowCursorPos, &field_0x24, &field_0x150);
                 }
 
@@ -4605,8 +4605,8 @@ void fopMsgM_msgDataProc_c::stringSet() {
                     nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                 }
 
-                char* r8 = "個";
-                char* r9 = "こ";
+                const char* r8 = "個";
+                const char* r9 = "こ";
                 getRubyString(field_0x60, field_0x68, field_0x64, field_0x6C, r8, r9, &nowCursorPos, &field_0x24, &field_0x150);
 
                 count += bmgData[count + 1];
@@ -4643,8 +4643,8 @@ void fopMsgM_msgDataProc_c::stringSet() {
                     nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                 }
 
-                char* r8 = "個";
-                char* r9 = "こ";
+                const char* r8 = "個";
+                const char* r9 = "こ";
                 getRubyString(field_0x60, field_0x68, field_0x64, field_0x6C, r8, r9, &nowCursorPos, &field_0x24, &field_0x150);
 
                 count += bmgData[count + 1];
@@ -4682,9 +4682,9 @@ void fopMsgM_msgDataProc_c::stringSet() {
                         nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                     }
 
-                    char* r8 = "分";
+                    const char* r8 = "分";
                     // Furigana for 分 (counter with irregular pronunciation)
-                    char* sp350[] = {
+                    const char* sp350[] = {
                         "ぷん",
                         "ぷん",
                         "ふん",
@@ -4732,8 +4732,8 @@ void fopMsgM_msgDataProc_c::stringSet() {
                         nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                     }
 
-                    char* r8 = "秒";
-                    char* r9 = "びょう";
+                    const char* r8 = "秒";
+                    const char* r9 = "びょう";
                     getRubyString(field_0x60, field_0x68, field_0x64, field_0x6C, r8, r9, &nowCursorPos, &field_0x24, &field_0x150);
                 }
 
@@ -4771,8 +4771,8 @@ void fopMsgM_msgDataProc_c::stringSet() {
                     nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                 }
 
-                char* r8 = "個";
-                char* r9 = "こ";
+                const char* r8 = "個";
+                const char* r9 = "こ";
                 getRubyString(field_0x60, field_0x68, field_0x64, field_0x6C, r8, r9, &nowCursorPos, &field_0x24, &field_0x150);
 
                 count += bmgData[count + 1];
@@ -4809,9 +4809,9 @@ void fopMsgM_msgDataProc_c::stringSet() {
                     nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                 }
 
-                char* r23 = "本";
+                const char* r23 = "本";
                 // Furigana for 本 (counter with irregular pronunciation)
-                char* sp328[] = {
+                const char* sp328[] = {
                     "ぽん",
                     "ぽん",
                     "ほん",
@@ -4864,8 +4864,8 @@ void fopMsgM_msgDataProc_c::stringSet() {
                     nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                 }
 
-                char* r8 = "個";
-                char* r9 = "こ";
+                const char* r8 = "個";
+                const char* r9 = "こ";
                 getRubyString(field_0x60, field_0x68, field_0x64, field_0x6C, r8, r9, &nowCursorPos, &field_0x24, &field_0x150);
 
                 count += bmgData[count + 1];
@@ -4902,8 +4902,8 @@ void fopMsgM_msgDataProc_c::stringSet() {
                     nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                 }
 
-                char* r8 = "個";
-                char* r9 = "こ";
+                const char* r8 = "個";
+                const char* r9 = "こ";
                 getRubyString(field_0x60, field_0x68, field_0x64, field_0x6C, r8, r9, &nowCursorPos, &field_0x24, &field_0x150);
 
                 count += bmgData[count + 1];
@@ -4940,8 +4940,8 @@ void fopMsgM_msgDataProc_c::stringSet() {
                     nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                 }
 
-                char* r8 = "個";
-                char* r9 = "こ";
+                const char* r8 = "個";
+                const char* r9 = "こ";
                 getRubyString(field_0x60, field_0x68, field_0x64, field_0x6C, r8, r9, &nowCursorPos, &field_0x24, &field_0x150);
 
                 count += bmgData[count + 1];
@@ -4978,8 +4978,8 @@ void fopMsgM_msgDataProc_c::stringSet() {
                     nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                 }
 
-                char* r8 = "個";
-                char* r9 = "こ";
+                const char* r8 = "個";
+                const char* r9 = "こ";
                 getRubyString(field_0x60, field_0x68, field_0x64, field_0x6C, r8, r9, &nowCursorPos, &field_0x24, &field_0x150);
 
                 count += bmgData[count + 1];
@@ -5016,8 +5016,8 @@ void fopMsgM_msgDataProc_c::stringSet() {
                     nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                 }
 
-                char* r8 = "枚";
-                char* r9 = "まい";
+                const char* r8 = "枚";
+                const char* r9 = "まい";
                 getRubyString(field_0x60, field_0x68, field_0x64, field_0x6C, r8, r9, &nowCursorPos, &field_0x24, &field_0x150);
 
                 count += bmgData[count + 1];
@@ -5054,8 +5054,8 @@ void fopMsgM_msgDataProc_c::stringSet() {
                     nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                 }
 
-                char* r8 = "個";
-                char* r9 = "こ";
+                const char* r8 = "個";
+                const char* r9 = "こ";
                 getRubyString(field_0x60, field_0x68, field_0x64, field_0x6C, r8, r9, &nowCursorPos, &field_0x24, &field_0x150);
 
                 count += bmgData[count + 1];
@@ -5118,8 +5118,8 @@ void fopMsgM_msgDataProc_c::stringSet() {
                     nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                 }
 
-                char* r8 = "個";
-                char* r9 = "こ";
+                const char* r8 = "個";
+                const char* r9 = "こ";
                 getRubyString(field_0x60, field_0x68, field_0x64, field_0x6C, r8, r9, &nowCursorPos, &field_0x24, &field_0x150);
 
                 count += bmgData[count + 1];
@@ -5146,8 +5146,8 @@ void fopMsgM_msgDataProc_c::stringSet() {
                     nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                 }
 
-                char* r8 = "個";
-                char* r9 = "こ";
+                const char* r8 = "個";
+                const char* r9 = "こ";
                 getRubyString(field_0x60, field_0x68, field_0x64, field_0x6C, r8, r9, &nowCursorPos, &field_0x24, &field_0x150);
 
                 count += bmgData[count + 1];
@@ -5174,8 +5174,8 @@ void fopMsgM_msgDataProc_c::stringSet() {
                     nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                 }
 
-                char* r8 = "個";
-                char* r9 = "こ";
+                const char* r8 = "個";
+                const char* r9 = "こ";
                 getRubyString(field_0x60, field_0x68, field_0x64, field_0x6C, r8, r9, &nowCursorPos, &field_0x24, &field_0x150);
 
                 count += bmgData[count + 1];
@@ -5202,8 +5202,8 @@ void fopMsgM_msgDataProc_c::stringSet() {
                     nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                 }
 
-                char* r8 = "個";
-                char* r9 = "こ";
+                const char* r8 = "個";
+                const char* r9 = "こ";
                 getRubyString(field_0x60, field_0x68, field_0x64, field_0x6C, r8, r9, &nowCursorPos, &field_0x24, &field_0x150);
 
                 count += bmgData[count + 1];
@@ -5230,8 +5230,8 @@ void fopMsgM_msgDataProc_c::stringSet() {
                     nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                 }
 
-                char* r8 = "枚";
-                char* r9 = "まい";
+                const char* r8 = "枚";
+                const char* r9 = "まい";
                 getRubyString(field_0x60, field_0x68, field_0x64, field_0x6C, r8, r9, &nowCursorPos, &field_0x24, &field_0x150);
 
                 count += bmgData[count + 1];
@@ -5258,8 +5258,8 @@ void fopMsgM_msgDataProc_c::stringSet() {
                     nowCursorPos = field_0x108[lineCount] + field_0x14 + 0.5f;
                 }
 
-                char* r8 = "個";
-                char* r9 = "こ";
+                const char* r8 = "個";
+                const char* r9 = "こ";
                 getRubyString(field_0x60, field_0x68, field_0x64, field_0x6C, r8, r9, &nowCursorPos, &field_0x24, &field_0x150);
 
                 count += bmgData[count + 1];
@@ -5955,7 +5955,7 @@ void fopMsgM_msgDataProc_c::getString(char* i_dest, char* param_2, char* param_3
 }
 
 /* 80035A24-80035D28       .text getRubyString__21fopMsgM_msgDataProc_cFPcPcPcPcPcPcPfPfPi */
-void fopMsgM_msgDataProc_c::getRubyString(char* param_1, char* param_2, char* param_3, char* param_4, char* param_5, char* param_6, f32* param_7, f32* param_8, int* param_9) {
+void fopMsgM_msgDataProc_c::getRubyString(char* param_1, char* param_2, char* param_3, char* param_4, const char* param_5, const char* param_6, f32* param_7, f32* param_8, int* param_9) {
     f32 temp = *param_7;
 
     int c;

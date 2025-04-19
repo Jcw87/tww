@@ -104,7 +104,7 @@ s32 ep_switch_event_begin(ep_class* i_this) {
 BOOL ep_switch_event_move(ep_class* i_this) {
     BOOL ret = FALSE;
     if (dComIfGp_evmng_getIsAddvance(i_this->m7E0)) {
-        static char* actions[] = { "WAIT", "FIRE" };
+        static const char* actions[] = { "WAIT", "FIRE" };
 
         ret = dComIfGp_evmng_getMyActIdx(i_this->m7E0, actions, ARRAY_SIZE(actions), FALSE, 0);
         switch (ret) {

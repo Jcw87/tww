@@ -343,7 +343,7 @@ bool daNpc_Jb1_c::event_action() {
 
 /* 000009D0-00000ABC       .text privateCut__11daNpc_Jb1_cFi */
 void daNpc_Jb1_c::privateCut(int staffIdx) {
-    static char* a_cut_tbl[] = {
+    static const char* a_cut_tbl[] = {
         "ACTION"
     };
 

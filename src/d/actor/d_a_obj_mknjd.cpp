@@ -435,7 +435,7 @@ u16 daObjMknjD::Act_c::talk(int i_param1) {
 
 /* 00000F88-00001348       .text privateCut__Q210daObjMknjD5Act_cFv */
 void daObjMknjD::Act_c::privateCut() {
-    static char* cut_name_tbl[] = {
+    static const char* cut_name_tbl[] = {
         "SETGOAL",
         "SETANGLE",
         "WAIT",

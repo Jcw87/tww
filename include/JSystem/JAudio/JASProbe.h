@@ -5,7 +5,7 @@
 
 namespace JASystem {
     namespace Kernel {
-        void probeStart(s32, char*);
+        void probeStart(s32, const char*);
         void probeFinish(s32);
     }
 }

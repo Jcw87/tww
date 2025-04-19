@@ -90,7 +90,7 @@ static cPhs_State phase_3(char*) {
 }
 
 /* 8022F9BC-8022F9FC       .text resLoad__FP30request_of_phase_process_classPc */
-cPhs_State resLoad(request_of_phase_process_class* phase, char* resName) {
+cPhs_State resLoad(request_of_phase_process_class* phase, const char* resName) {
     static cPhs__Handler l_method[] = {
         (cPhs__Handler)phase_1,
         (cPhs__Handler)phase_2,
@@ -99,7 +99,7 @@ cPhs_State resLoad(request_of_phase_process_class* phase, char* resName) {
     if (phase->id == 2) {
         return cPhs_COMPLEATE_e;
     }
-    return dComLbG_PhaseHandler(phase, l_method, resName);
+    return dComLbG_PhaseHandler(phase, l_method, (void*)resName);
 }
 
 /* 8022F9FC-802301C8       .text create__10dScnName_cFv */

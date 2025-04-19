@@ -559,7 +559,7 @@ bool daNpc_Hi1_c::decideType(int param_1) {
 
 /* 000013B4-00001454       .text privateCut__11daNpc_Hi1_cFi */
 void daNpc_Hi1_c::privateCut(int i_staffIdx) {
-    static char* a_cut_tbl[] = {
+    static const char* a_cut_tbl[] = {
         "DUMMY"
     };
 

@@ -1458,7 +1458,7 @@ void action_dead_move(cc_class* i_this) {
 
 /* 000040E4-000042E8       .text deku_come_demo__FP8cc_class */
 void deku_come_demo(cc_class* i_this) {
-    static char* cut_name_tbl[] = {
+    static const char* cut_name_tbl[] = {
         "START_RET",
         "NEXT_RET",
     };
@@ -1514,7 +1514,7 @@ void deku_come_demo(cc_class* i_this) {
 
 /* 000042E8-00004518       .text deku_ret_demo__FP8cc_class */
 void deku_ret_demo(cc_class* i_this) {
-    static char* cut_name_tbl[] = {
+    static const char* cut_name_tbl[] = {
         "START_RET",
         "NEXT_RET",
     };

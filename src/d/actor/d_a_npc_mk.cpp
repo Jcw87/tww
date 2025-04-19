@@ -370,7 +370,7 @@ BOOL daNpc_Mk_c::checkDemoStart() {
 
 /* 00000C70-00000CB8       .text getNowEventAction__10daNpc_Mk_cFv */
 s32 daNpc_Mk_c::getNowEventAction() {
-    static char* action_table[] = {
+    static const char* action_table[] = {
         "WAIT",
         "TALK",
         "HOME",

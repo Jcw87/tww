@@ -73,7 +73,7 @@ u32 JUTAssertion::getSDevice() {
 }
 
 /* 802C7698-802C7788       .text setConfirmMessage__12JUTAssertionFUlPcibPCc */
-void JUTAssertion::setConfirmMessage(u32 param_1, char* file, int line, bool param_4, const char* msg) {
+void JUTAssertion::setConfirmMessage(u32 param_1, const char* file, int line, bool param_4, const char* msg) {
     if (param_4 == 1) {
         return;
     }
@@ -137,7 +137,7 @@ void setWarningMessage_f_va(u32 device, const char* file, int line, const char* 
 }
 
 /* 802C79FC-802C7A7C       .text setWarningMessage_f__12JUTAssertionFUlPciPCce */
-void JUTAssertion::setWarningMessage_f(u32 device, char* file, int line, const char* msg, ...) {
+void JUTAssertion::setWarningMessage_f(u32 device, const char* file, int line, const char* msg, ...) {
     va_list args;
     va_start(args, msg);
     setWarningMessage_f_va(device, file, line, msg, args);
@@ -169,7 +169,7 @@ void setLogMessage_f_va(u32 device, const char* file, int line, const char* msg,
 }
 
 /* 802C7B94-802C7C14       .text setLogMessage_f__12JUTAssertionFUlPciPCce */
-void JUTAssertion::setLogMessage_f(u32 device, char* file, int line, const char* msg, ...) {
+void JUTAssertion::setLogMessage_f(u32 device, const char* file, int line, const char* msg, ...) {
     va_list args;
     va_start(args, msg);
     setLogMessage_f_va(device, file, line, msg, args);
