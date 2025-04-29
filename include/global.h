@@ -61,6 +61,7 @@ namespace std {
 #define __FUNCSIG__ __FUNCTION__
 #define NOT_IMPLEMENTED
 #define NOT_IMPLEMENTED_CONTINUE
+#define MWERKS_CAST(x) (x)
 #else
 #define STATIC_ASSERT(...)
 #define ALIGN_DECL(alignment, decl) ATTRIBUTE_ALIGN(alignment) decl
@@ -75,6 +76,7 @@ if (!reported) { \
     OSReport("stub %s\n", __FUNCSIG__); \
     reported = true; \
 }
+#define MWERKS_CAST(x)
 #endif
 
 // Intrinsics
