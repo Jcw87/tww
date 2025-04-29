@@ -256,12 +256,6 @@ void daPirate_Flag_packet_c::draw() {
 #endif
 }
 
-static void dummy() {
-    (GXColor){0x00, 0xFF, 0x00, 0x80};
-    (GXColor){0x00, 0x00, 0xFF, 0x80};
-    (GXColor){0xFF, 0x00, 0x00, 0x80};
-}
-
 /* 00000E44-000011A0       .text daPirate_Flag_Draw__FP17pirate_flag_class */
 static BOOL daPirate_Flag_Draw(pirate_flag_class* i_this) {
     if (l_p_ship->m2CC == 0) {

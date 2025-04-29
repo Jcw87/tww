@@ -19,7 +19,7 @@ s32 JStage::TAmbientLight::JSGFGetType() const {
 
 /* 8026DCFC-8026DD10       .text JSGGetColor__Q26JStage13TAmbientLightCFv */
 GXColor JStage::TAmbientLight::JSGGetColor() const {
-    return (GXColor){0xFF, 0xFF, 0xFF, 0xFF};
+    return MWERKS_CAST(GXColor){0xFF, 0xFF, 0xFF, 0xFF};
 }
 
 /* 8026DD10-8026DD14       .text JSGSetColor__Q26JStage13TAmbientLightF8_GXColor */

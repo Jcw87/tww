@@ -635,10 +635,6 @@ BOOL daNpc_Km1_c::_draw() {
     }
     dSnap_RegistFig(DSNAP_TYPE_NPC_KM1_KK1,this,1.0f,1.0f,1.0f);
 
-    // Color literals for debug drawing. Unused in non-debug builds.
-    (GXColor){0xFF,0x00, 0x00, 0x80};
-    (GXColor){0x00,0x00, 0xFF, 0x80};
-
     return true;
 }
 

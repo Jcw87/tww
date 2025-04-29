@@ -94,7 +94,7 @@ cXyz cXyz::normZC(void) const {
             outVec.x = 0.0f;
             outVec.y = 0.0f;
             outVec.z = 1.0f;
-            outVec = (Vec){0, 0, 1};
+            outVec = MWERKS_CAST(Vec){0, 0, 1};
         }
     }
     return outVec;

@@ -39,6 +39,7 @@
 #define SECTION_INIT __declspec(section ".init")
 #define ASM asm
 #define WEAKFUNC __declspec(weak)
+#define MWERKS_CAST(x) (x)
 #else
 #define STATIC_ASSERT(...)
 #define ALIGN_DECL(alignment, decl) ATTRIBUTE_ALIGN(alignment) decl
@@ -46,6 +47,7 @@
 #define SECTION_INIT
 #define ASM
 #define WEAKFUNC
+#define MWERKS_CAST(x)
 #endif
 
 // Intrinsics
