@@ -302,7 +302,7 @@ f64 TFunctionValue_composite::composite_index(const JGadget::TVector_pointer<TFu
         }
         break;
     case 1: {
-        div_t dt = div(index, size - 1);
+        div_t dt = div(int(index), int(size - 1));
         index = dt.rem;
         if (index < 0) {
             index = size + index;
@@ -315,7 +315,7 @@ f64 TFunctionValue_composite::composite_index(const JGadget::TVector_pointer<TFu
             index = 0;
         } else {
             u32 uVar3 = (u32)(size - 2) * 2;
-            div_t dt2 = div(index, uVar3);
+            div_t dt2 = div(int(index), int(uVar3));
             index = dt2.rem;
             if (index < 0) {
                 index += uVar3;
