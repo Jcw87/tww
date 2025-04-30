@@ -50,7 +50,11 @@ inline void J3DGDWriteXFCmdHdr(u16 cmd, u8 len) {
 }
 
 inline void J3DGXCmd1f32ptr(f32* value) {
+#ifdef __MWERKS__
     GXFIFO.u32 = *(u32*)value;
+#else
+    GXCmd1u32(*(u32*)value);
+#endif
 }
 
 void J3DGDSetGenMode(u8 texGenNum, u8 colorChanNum, u8 tevStageNum, u8 IndTexStageNum, GXCullMode cullMode);
@@ -80,15 +84,27 @@ void J3DGDSetFogRangeAdj(u8, u16, GXFogAdjTable*);
 void J3DGDSetVtxAttrFmtv(GXVtxFmt, GXVtxAttrFmtList*, bool);
 
 static inline void J3DFifoLoadIndx(u8 cmd, u16 indx, u16 addr) {
+#ifdef __MWERKS__
     GXFIFO.u8 = cmd;
     GXFIFO.u16 = indx;
     GXFIFO.u16 = addr;
+#else
+    GXCmd1u8(cmd);
+    GXCmd1u16(indx);
+    GXCmd1u16(addr);
+#endif
 }
 
 inline void J3DFifoWriteXFCmdHdr(u16 addr, u8 len) {
+#ifdef __MWERKS__
     GXFIFO.u8 = GX_CMD_LOAD_XF_REG;
     GXFIFO.u16 = len - 1;
     GXFIFO.u16 = addr;
+#else
+    GXCmd1u8(GX_CMD_LOAD_XF_REG);
+    GXCmd1u16(len - 1);
+    GXCmd1u16(addr);
+#endif
 }
 
 inline void J3DGDSetNumChans(u8 numChans) {
