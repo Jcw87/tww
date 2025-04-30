@@ -219,12 +219,14 @@ void JUTException::errorHandler(OSError error, OSContext* context, u32 param_3, 
 
 /* 802C5084-802C50CC       .text setFPException__12JUTExceptionFUl */
 void JUTException::setFPException(u32 fpscr_enable_bits) {
+#if __MWERKS__
     __OSFpscrEnableBits = fpscr_enable_bits;
     if (fpscr_enable_bits) {
         OSSetErrorHandler(EXCEPTION_FLOATING_POINT_EXCEPTION, (OSErrorHandler)errorHandler);
     } else {
         OSSetErrorHandler(EXCEPTION_FLOATING_POINT_EXCEPTION, NULL);
     }
+#endif
 }
 
 /* 802C50CC-802C525C       .text showFloatSub__12JUTExceptionFif */
