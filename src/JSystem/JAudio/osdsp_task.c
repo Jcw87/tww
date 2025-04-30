@@ -17,6 +17,7 @@ DSPTaskInfo* DSP_prior_task;
 
 /* 8028ECA0-8028EFA4       .text __DSPHandler */
 void __DSPHandler(int interrupt, OSContext* context) {
+#ifdef __MWERKS__
     OSContext funcContext;
     __DSPRegs[5] = ((u16)(__DSPRegs[5]) & ~0x28) | 0x80;
     OSClearContext(&funcContext);
@@ -107,6 +108,9 @@ void __DSPHandler(int interrupt, OSContext* context) {
 
     OSClearContext(&funcContext);
     OSSetCurrentContext(context);
+#else
+    NOT_IMPLEMENTED;
+#endif
 }
 
 /* 8028EFC0-8028F010       .text DsyncFrame2__FUlUlUl */
