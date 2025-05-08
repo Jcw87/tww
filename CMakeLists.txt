@@ -77,6 +77,7 @@ target_compile_definitions(dolphin_sdk PUBLIC
 set_property(TARGET dolphin_sdk PROPERTY CXX_STANDARD 23)
 
 add_executable(tww
+    src/port/main.cpp
     src/m_Do/m_Do_main.cpp
     src/m_Do/m_Do_printf.cpp
     src/m_Do/m_Do_audio.cpp
