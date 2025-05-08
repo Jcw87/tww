@@ -7,6 +7,7 @@
 #include "JSystem/JUtility/JUTAssert.h"
 #include "global.h"
 #include <math.h>
+#include "port/byteswap.h"
 
 namespace JStudio {
 
@@ -273,7 +274,7 @@ public:
     virtual void prepare();
     virtual f64 getValue(f64);
 
-    void data_set(const f32* pf, u32 u) {
+    void data_set(const BE(f32)* pf, u32 u) {
         ASSERT((pf != NULL) || (u == 0));
         _44 = pf;
         uData_ = u;
@@ -298,7 +299,7 @@ public:
                                           JStudio::TFunctionValue_list::TIndexData_ const&);
 
 private:
-    /* 0x44 */ const f32* _44;
+    /* 0x44 */ const BE(f32)* _44;
     /* 0x48 */ u32 uData_;
     /* 0x50 */ f64 _50;
     /* 0x58 */ update_INTERPOLATE pfnUpdate_;
@@ -317,15 +318,15 @@ public:
             const f32&
         >
     {
-        TIterator_data_(const TFunctionValue_list_parameter& rParent, const f32* value) {
+        TIterator_data_(const TFunctionValue_list_parameter& rParent, const BE(f32)* value) {
 #ifdef DEBUG
             pOwn_ = &rParent;
 #endif
             pf_ = value;
         }
 
-        const f32* get() const { return pf_; }
-        void set(const f32* value) { pf_ = value; }
+        const BE(f32)* get() const { return pf_; }
+        void set(const BE(f32)* value) { pf_ = value; }
 
         friend bool operator==(const TIterator_data_& r1, const TIterator_data_& r2) {
 #ifdef DEBUG
@@ -373,9 +374,9 @@ public:
 
 #ifdef DEBUG
         /* 0x00 */ const TFunctionValue_list_parameter* pOwn_;
-        /* 0x04 */ const f32* pf_;
+        /* 0x04 */ const BE(f32)* pf_;
 #else
-        /* 0x00 */ const f32* pf_;
+        /* 0x00 */ const BE(f32)* pf_;
 #endif
     };
     typedef f64 (*update_INTERPOLATE)(const TFunctionValue_list_parameter&, f64);
@@ -384,7 +385,7 @@ public:
 
     virtual u32 getType() const;
     virtual TFunctionValueAttributeSet getAttributeSet();
-    void data_set(f32 const*, u32);
+    void data_set(BE(f32) const*, u32);
     virtual void initialize();
     virtual void prepare();
     virtual f64 getValue(f64);
@@ -402,7 +403,7 @@ public:
     f64 data_getValue_front() const { return pfData_[0]; }
 
 private:
-    /* 0x44 */ const f32* pfData_;
+    /* 0x44 */ const BE(f32)* pfData_;
     /* 0x48 */ u32 uData_;
     /* 0x4c */ TIterator_data_ dat1;
     /* 0x50 */ TIterator_data_ dat2;
@@ -421,7 +422,7 @@ public:
             const f32&
         >
     {
-        TIterator_data_(const TFunctionValue_hermite& rParent, const f32* value) {
+        TIterator_data_(const TFunctionValue_hermite& rParent, const BE(f32)* value) {
 #ifdef DEBUG
             pOwn_ = &rParent;
 #endif
@@ -429,8 +430,8 @@ public:
             uSize_ = rParent.data_getSize();
         }
 
-        const f32* get() const { return pf_; }
-        void set(const f32* value, u32 size) {
+        const BE(f32)* get() const { return pf_; }
+        void set(const BE(f32)* value, u32 size) {
             pf_ = value;
             uSize_ = size;
         }
@@ -486,10 +487,10 @@ public:
 
 #ifdef DEBUG
         /* 0x00 */ const TFunctionValue_hermite* pOwn_;
-        /* 0x04 */ const f32* pf_;
+        /* 0x04 */ const BE(f32)* pf_;
         /* 0x08 */ u32 uSize_;
 #else
-        /* 0x00 */ const f32* pf_;
+        /* 0x00 */ const BE(f32)* pf_;
         /* 0x04 */ u32 uSize_;
 #endif
     };
@@ -498,7 +499,7 @@ public:
 
     virtual u32 getType() const;
     virtual TFunctionValueAttributeSet getAttributeSet();
-    void data_set(f32 const*, u32, u32);
+    void data_set(BE(f32) const*, u32, u32);
     virtual void initialize();
     virtual void prepare();
     virtual f64 getValue(f64);
@@ -510,7 +511,7 @@ public:
     f64 data_getValue_front() const { return pfData_[0]; }
 
 private:
-    /* 0x40 */ const f32* pfData_;
+    /* 0x40 */ const BE(f32)* pfData_;
     /* 0x44 */ u32 u_;
     /* 0x48 */ u32 uSize_;
     /* 0x4c */ TIterator_data_ dat1;

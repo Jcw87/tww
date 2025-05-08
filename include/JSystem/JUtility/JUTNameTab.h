@@ -2,13 +2,14 @@
 #define JUTNAMETAB_H
 
 #include "dolphin/types.h"
+#include "port/byteswap.h"
 
 struct ResNTAB {
-    u16 mEntryNum;
+    BE(u16) mEntryNum;
     u16 mPad0;
     struct Entry {
-        u16 mKeyCode;
-        u16 mOffs;
+        BE(u16) mKeyCode;
+        BE(u16) mOffs;
     } mEntries[1];
 
     inline const char* getName(u32 index) const {

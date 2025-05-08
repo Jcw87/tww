@@ -43,7 +43,7 @@ const char* JMessage::TControl::getMessageData(u16 groupID, u16 messageIndex) co
     void* messageEntry = getMessageEntry(groupID, messageIndex);
     if (messageEntry == NULL)
         return NULL;
-    u32 offs = *(u32*)messageEntry;
+    u32 offs = *(BE(u32)*)messageEntry;
     return mResource->mMessageData + offs;
 }
 
@@ -104,7 +104,7 @@ bool JMessage::TControl::setMessageCode_flush_() {
     if (mMessageEntry == NULL)
         return false;
 
-    u32 offs = *(u32*)mMessageEntry;
+    u32 offs = *(BE(u32)*)mMessageEntry;
     mMessageDataStart = mResource->mMessageData + offs;
     mMessageDataCurrent = mMessageDataStart;
     return true;

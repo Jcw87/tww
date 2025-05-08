@@ -4,6 +4,7 @@
 #include "JSystem/J3DAssert.h"
 #include "JSystem/JUtility/JUTAssert.h"
 #include "dolphin/types.h"
+#include "port/byteswap.h"
 
 class J3DDeformer;
 class J3DClusterKey;
@@ -32,16 +33,16 @@ public:
     void setDeformer(J3DDeformer* deformer) { mDeformer = deformer; }
 
 public:
-    /* 0x00 */ f32 mMaxAngle;
-    /* 0x04 */ f32 mMinAngle;
+    /* 0x00 */ BE(f32) mMaxAngle;
+    /* 0x04 */ BE(f32) mMinAngle;
     /* 0x08 */ J3DClusterKey* mClusterKey;
     /* 0x0C */ u8 mFlags;
     /* 0x0D */ u8 field_0xd[0x10 - 0x0D];
-    /* 0x10 */ u16 mKeyNum;
-    /* 0x12 */ u16 mPosNum;
-    /* 0x14 */ u16 mNrmNum;
-    /* 0x16 */ u16 mClusterVertexNum;
-    /* 0x18 */ u16* mPosDstIdx;
+    /* 0x10 */ BE(u16) mKeyNum;
+    /* 0x12 */ BE(u16) mPosNum;
+    /* 0x14 */ BE(u16) mNrmNum;
+    /* 0x16 */ BE(u16) mClusterVertexNum;
+    /* 0x18 */ BE(u16)* mPosDstIdx;
     /* 0x1C */ J3DClusterVertex* mClusterVertex;
     /* 0x20 */ J3DDeformer* mDeformer;
 };  // Size: 0x24
@@ -56,10 +57,10 @@ public:
     }
 
 public:
-    /* 0x00 */ u16 mPosNum;
-    /* 0x02 */ u16 mNrmNum;
-    /* 0x04 */ u16* mPosFlag;
-    /* 0x08 */ u16* mNrmFlag;
+    /* 0x00 */ BE(u16) mPosNum;
+    /* 0x02 */ BE(u16) mNrmNum;
+    /* 0x04 */ BE(u16)* mPosFlag;
+    /* 0x08 */ BE(u16)* mNrmFlag;
 };  // Size: 0x0C
 
 class J3DDeformData {
@@ -79,8 +80,8 @@ public:
         J3D_ASSERT_RANGE(199, (i < mClusterKeyNum));
         return &mClusterKeyPointer[i];
     }
-    f32* getVtxPos() { return mVtxPos; }
-    f32* getVtxNrm() { return mVtxNrm; }
+    BE(f32)* getVtxPos() { return mVtxPos; }
+    BE(f32)* getVtxNrm() { return mVtxNrm; }
 
 private:
     friend class J3DClusterLoader;
@@ -94,8 +95,8 @@ private:
     /* 0x10 */ J3DClusterVertex* mClusterVertex;
     /* 0x14 */ u16 mVtxPosNum;
     /* 0x16 */ u16 mVtxNrmNum;
-    /* 0x18 */ f32* mVtxPos;
-    /* 0x1C */ f32* mVtxNrm;
+    /* 0x18 */ BE(f32)* mVtxPos;
+    /* 0x1C */ BE(f32)* mVtxNrm;
     /* 0x20 */ JUTNameTab* mClusterName;
     /* 0x24 */ JUTNameTab* mClusterKeyName;
 };  // Size: 0x28
@@ -109,9 +110,9 @@ public:
     }
 
 public:
-    /* 0x00 */ u16 mNum;
-    /* 0x04 */ u16* mSrcIdx;
-    /* 0x08 */ u16* mDstIdx;
+    /* 0x00 */ BE(u16) mNum;
+    /* 0x04 */ BE(u16)* mSrcIdx;
+    /* 0x08 */ BE(u16)* mDstIdx;
 };  // Size: 0x0C
 
 #endif /* J3DCLUSTER_H */

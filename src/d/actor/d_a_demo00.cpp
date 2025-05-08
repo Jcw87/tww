@@ -785,10 +785,10 @@ BOOL daDemo00_c::execute() {
                 }
             } else {
                 dDemo_prm_data* data = demo_actor->getPrm()->getData();
-                JStudio::stb::TParseData_fixed<51, TValueIterator_misaligned<u32> > sp68(data);
+                JStudio::stb::TParseData_fixed<51, TValueIterator_misaligned<BE(u32)> > sp68(data);
                 if (!sp68.isEnd() && sp68.isValid()) {
                     int r5 = -1;
-                    for (TValueIterator_misaligned<u32> it = sp68.begin(); it != sp68.end(); it++) {
+                    for (TValueIterator_misaligned<BE(u32)> it = sp68.begin(); it != sp68.end(); it++) {
                         if (r5 < 0) {
                             r5 = *it;
                         } else {

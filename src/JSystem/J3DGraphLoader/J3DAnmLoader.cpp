@@ -265,10 +265,10 @@ void J3DAnmFullLoader_v15::setAnmTransform(J3DAnmTransformFull* dst, const J3DAn
     dst->mFrameMax = data->mFrameMax;
     dst->mAttribute = data->field_0x8;
     dst->mFrame = 0.0f;
-    dst->mAnmTable = JSUConvertOffsetToPtr<J3DAnmTransformFullTable>(data, (void*)data->mTableOffset);
-    dst->mScaleData = JSUConvertOffsetToPtr<f32>(data, (void*)data->mScaleValOffset);
-    dst->mRotData = JSUConvertOffsetToPtr<s16>(data, (void*)data->mRotValOffset);
-    dst->mTransData = JSUConvertOffsetToPtr<f32>(data, (void*)data->mTransValOffset);
+    dst->mAnmTable = JSUConvertOffsetToPtr<J3DAnmTransformFullTable>(data, data->mTableOffset);
+    dst->mScaleData = JSUConvertOffsetToPtr<BE(f32)>(data, data->mScaleValOffset);
+    dst->mRotData = JSUConvertOffsetToPtr<BE(s16)>(data, data->mRotValOffset);
+    dst->mTransData = JSUConvertOffsetToPtr<BE(f32)>(data, data->mTransValOffset);
 }
 
 /* 802FFE90-802FFEB8       .text readAnmColor__20J3DAnmFullLoader_v15FPC19J3DAnmColorFullData */
@@ -282,13 +282,13 @@ void J3DAnmFullLoader_v15::setAnmColor(J3DAnmColorFull* dst, const J3DAnmColorFu
     dst->mAttribute = data->field_0x8;
     dst->mFrame = 0.0f;
     dst->mUpdateMaterialNum = data->mUpdateMaterialNum;
-    dst->mAnmTable = JSUConvertOffsetToPtr<J3DAnmColorFullTable>(data, (void*)data->mTableOffset);
-    dst->mColorR = JSUConvertOffsetToPtr<u8>(data, (void*)data->mRValuesOffset);
-    dst->mColorG = JSUConvertOffsetToPtr<u8>(data, (void*)data->mGValuesOffset);
-    dst->mColorB = JSUConvertOffsetToPtr<u8>(data, (void*)data->mBValuesOffset);
-    dst->mColorA = JSUConvertOffsetToPtr<u8>(data, (void*)data->mAValuesOffset);
-    dst->mUpdateMaterialID = JSUConvertOffsetToPtr<u16>(data, (void*)data->mUpdateMaterialIDOffset);
-    dst->mUpdateMaterialName.setResource(JSUConvertOffsetToPtr<ResNTAB>(data, (void*)data->mNameTabOffset));
+    dst->mAnmTable = JSUConvertOffsetToPtr<J3DAnmColorFullTable>(data, data->mTableOffset);
+    dst->mColorR = JSUConvertOffsetToPtr<u8>(data, data->mRValuesOffset);
+    dst->mColorG = JSUConvertOffsetToPtr<u8>(data, data->mGValuesOffset);
+    dst->mColorB = JSUConvertOffsetToPtr<u8>(data, data->mBValuesOffset);
+    dst->mColorA = JSUConvertOffsetToPtr<u8>(data, data->mAValuesOffset);
+    dst->mUpdateMaterialID = JSUConvertOffsetToPtr<BE(u16)>(data, data->mUpdateMaterialIDOffset);
+    dst->mUpdateMaterialName.setResource(JSUConvertOffsetToPtr<ResNTAB>(data, data->mNameTabOffset));
 }
 
 /* 802FFF84-802FFFAC       .text readAnmTexPattern__20J3DAnmFullLoader_v15FPC24J3DAnmTexPatternFullData */
@@ -303,10 +303,10 @@ void J3DAnmFullLoader_v15::setAnmTexPattern(J3DAnmTexPattern* dst, const J3DAnmT
     dst->mFrame = 0.0f;
     dst->mUpdateMaterialNum = data->field_0xc;
     dst->field_0x18 = data->field_0xe;
-    dst->mAnmTable = JSUConvertOffsetToPtr<J3DAnmTexPatternFullTable>(data, (void*)data->mTableOffset);
-    dst->mTextureIndex = JSUConvertOffsetToPtr<u16>(data, (void*)data->mValuesOffset);
-    dst->mUpdateMaterialID = JSUConvertOffsetToPtr<u16>(data, (void*)data->mUpdateMaterialIDOffset);
-    dst->mUpdateMaterialName.setResource(JSUConvertOffsetToPtr<ResNTAB>(data, (void*)data->mNameTabOffset));
+    dst->mAnmTable = JSUConvertOffsetToPtr<J3DAnmTexPatternFullTable>(data, data->mTableOffset);
+    dst->mTextureIndex = JSUConvertOffsetToPtr<BE(u16)>(data, data->mValuesOffset);
+    dst->mUpdateMaterialID = JSUConvertOffsetToPtr<BE(u16)>(data, data->mUpdateMaterialIDOffset);
+    dst->mUpdateMaterialName.setResource(JSUConvertOffsetToPtr<ResNTAB>(data, data->mNameTabOffset));
 }
 
 /* 80300050-80300078       .text readAnmVisibility__20J3DAnmFullLoader_v15FPC24J3DAnmVisibilityFullData */
@@ -321,8 +321,8 @@ void J3DAnmFullLoader_v15::setAnmVisibility(J3DAnmVisibilityFull* dst, const J3D
     dst->mFrame = 0.0f;
     dst->mUpdateMaterialNum = data->field_0xc;
     dst->field_0x12 = data->field_0xe;
-    dst->mAnmTable = JSUConvertOffsetToPtr<J3DAnmVisibilityFullTable>(data, (void*)data->mTableOffset);
-    dst->mVisibility = JSUConvertOffsetToPtr<u8>(data, (void*)data->mValuesOffset);
+    dst->mAnmTable = JSUConvertOffsetToPtr<J3DAnmVisibilityFullTable>(data, data->mTableOffset);
+    dst->mVisibility = JSUConvertOffsetToPtr<u8>(data, data->mValuesOffset);
 }
 
 /* 803000F4-8030011C       .text readAnmCluster__20J3DAnmFullLoader_v15FPC21J3DAnmClusterFullData */
@@ -335,8 +335,8 @@ void J3DAnmFullLoader_v15::setAnmCluster(J3DAnmClusterFull* dst, const J3DAnmClu
     dst->mFrameMax = data->mFrameMax;
     dst->mAttribute = data->field_0x8;
     dst->mFrame = 0.0f;
-    dst->mAnmTable = JSUConvertOffsetToPtr<J3DAnmClusterFullTable>(data, (void*)data->mTableOffset);
-    dst->mWeight = JSUConvertOffsetToPtr<f32>(data, (void*)data->mWeightOffset);
+    dst->mAnmTable = JSUConvertOffsetToPtr<J3DAnmClusterFullTable>(data, data->mTableOffset);
+    dst->mWeight = JSUConvertOffsetToPtr<BE(f32)>(data, data->mWeightOffset);
 }
 
 /* 80300188-803001B0       .text readAnmVtxColor__20J3DAnmFullLoader_v15FPC22J3DAnmVtxColorFullData */
@@ -351,22 +351,22 @@ void J3DAnmFullLoader_v15::setAnmVtxColor(J3DAnmVtxColorFull* dst, const J3DAnmV
     dst->mFrame = 0.0f;
     dst->mAnmTableNum[0] = data->mAnmTableNum[0];
     dst->mAnmTableNum[1] = data->mAnmTableNum[1];
-    dst->mpTable[0] = JSUConvertOffsetToPtr<J3DAnmColorFullTable>(data, (void*)data->mTableOffsets[0]);
-    dst->mpTable[1] = JSUConvertOffsetToPtr<J3DAnmColorFullTable>(data, (void*)data->mTableOffsets[1]);
-    dst->mAnmVtxColorIndexData[0] = JSUConvertOffsetToPtr<J3DAnmVtxColorIndexData>(data, (void*)data->mVtxColorIndexDataOffsets[0]);
-    dst->mAnmVtxColorIndexData[1] = JSUConvertOffsetToPtr<J3DAnmVtxColorIndexData>(data, (void*)data->mVtxColorIndexDataOffsets[1]);
-    void* indexPtr0 = JSUConvertOffsetToPtr<u16>(data, (void*)data->mVtxColorIndexPointerOffsets[0]);
-    void* indexPtr1 = JSUConvertOffsetToPtr<u16>(data, (void*)data->mVtxColorIndexPointerOffsets[1]);
+    dst->mpTable[0] = JSUConvertOffsetToPtr<J3DAnmColorFullTable>(data, data->mTableOffsets[0]);
+    dst->mpTable[1] = JSUConvertOffsetToPtr<J3DAnmColorFullTable>(data, data->mTableOffsets[1]);
+    dst->mAnmVtxColorIndexData[0] = JSUConvertOffsetToPtr<J3DAnmVtxColorIndexData>(data, data->mVtxColorIndexDataOffsets[0]);
+    dst->mAnmVtxColorIndexData[1] = JSUConvertOffsetToPtr<J3DAnmVtxColorIndexData>(data, data->mVtxColorIndexDataOffsets[1]);
+    void* indexPtr0 = JSUConvertOffsetToPtr<u16>(data, data->mVtxColorIndexPointerOffsets[0]);
+    void* indexPtr1 = JSUConvertOffsetToPtr<u16>(data, data->mVtxColorIndexPointerOffsets[1]);
 
     for (s32 i = 0; i < dst->mAnmTableNum[0]; i++)
         dst->mAnmVtxColorIndexData[0][i].mpData = (void*)((s32)indexPtr0 + (s32)dst->mAnmVtxColorIndexData[0][i].mpData * 2);
     for (s32 i = 0; i < dst->mAnmTableNum[1]; i++)
         dst->mAnmVtxColorIndexData[1][i].mpData = (void*)((s32)indexPtr1 + (s32)dst->mAnmVtxColorIndexData[1][i].mpData * 2);
 
-    dst->mColorR = JSUConvertOffsetToPtr<u8>(data, (void*)data->mRValuesOffset);
-    dst->mColorG = JSUConvertOffsetToPtr<u8>(data, (void*)data->mGValuesOffset);
-    dst->mColorB = JSUConvertOffsetToPtr<u8>(data, (void*)data->mBValuesOffset);
-    dst->mColorA = JSUConvertOffsetToPtr<u8>(data, (void*)data->mAValuesOffset);
+    dst->mColorR = JSUConvertOffsetToPtr<u8>(data, data->mRValuesOffset);
+    dst->mColorG = JSUConvertOffsetToPtr<u8>(data, data->mGValuesOffset);
+    dst->mColorB = JSUConvertOffsetToPtr<u8>(data, data->mBValuesOffset);
+    dst->mColorA = JSUConvertOffsetToPtr<u8>(data, data->mAValuesOffset);
 }
 
 /* 80300318-80300464       .text load__19J3DAnmKeyLoader_v15FPCv */
@@ -458,10 +458,10 @@ void J3DAnmKeyLoader_v15::setAnmTransform(J3DAnmTransformKey* dst, const J3DAnmT
     dst->mAttribute = data->mAttribute;
     dst->mDecShift = data->mDecShift;
     dst->mFrame = 0.0f;
-    dst->mAnmTable = JSUConvertOffsetToPtr<J3DAnmTransformKeyTable>(data, (void*)data->mTableOffset);
-    dst->mScaleData = JSUConvertOffsetToPtr<f32>(data, (void*)data->mScaleOffset);
-    dst->mRotData = JSUConvertOffsetToPtr<s16>(data, (void*)data->mRotOffset);
-    dst->mTransData = JSUConvertOffsetToPtr<f32>(data, (void*)data->mTransOffset);
+    dst->mAnmTable = JSUConvertOffsetToPtr<J3DAnmTransformKeyTable>(data, data->mTableOffset);
+    dst->mScaleData = JSUConvertOffsetToPtr<BE(f32)>(data, data->mScaleOffset);
+    dst->mRotData = JSUConvertOffsetToPtr<BE(s16)>(data, data->mRotOffset);
+    dst->mTransData = JSUConvertOffsetToPtr<BE(f32)>(data, data->mTransOffset);
 }
 
 /* 803006D4-803006FC       .text readAnmTextureSRT__19J3DAnmKeyLoader_v15FPC23J3DAnmTextureSRTKeyData */
@@ -480,28 +480,28 @@ void J3DAnmKeyLoader_v15::setAnmTextureSRT(J3DAnmTextureSRTKey* dst, const J3DAn
     dst->mScaleNum = data->field_0xe;
     dst->mRotNum = data->field_0x10;
     dst->mTransNum = data->field_0x12;
-    dst->mAnmTable = JSUConvertOffsetToPtr<J3DAnmTransformKeyTable>(data, (void*)data->mTableOffset);
-    dst->mUpdateMaterialID = JSUConvertOffsetToPtr<u16>(data, (void*)data->mUpdateMatIDOffset);
-    dst->mUpdateMaterialName.setResource(JSUConvertOffsetToPtr<ResNTAB>(data, (void*)data->mNameTab1Offset));
-    dst->mUpdateTexMtxID = JSUConvertOffsetToPtr<u8>(data, (void*)data->mUpdateTexMtxIDOffset);
-    dst->mSRTCenter = JSUConvertOffsetToPtr<Vec>(data, (void*)data->unkOffset);
-    dst->mScaleData = JSUConvertOffsetToPtr<f32>(data, (void*)data->mScaleValOffset);
-    dst->mRotData = JSUConvertOffsetToPtr<s16>(data, (void*)data->mRotValOffset);
-    dst->mTransData = JSUConvertOffsetToPtr<f32>(data, (void*)data->mTransValOffset);
+    dst->mAnmTable = JSUConvertOffsetToPtr<J3DAnmTransformKeyTable>(data, data->mTableOffset);
+    dst->mUpdateMaterialID = JSUConvertOffsetToPtr<BE(u16)>(data, data->mUpdateMatIDOffset);
+    dst->mUpdateMaterialName.setResource(JSUConvertOffsetToPtr<ResNTAB>(data, data->mNameTab1Offset));
+    dst->mUpdateTexMtxID = JSUConvertOffsetToPtr<u8>(data, data->mUpdateTexMtxIDOffset);
+    dst->mSRTCenter = JSUConvertOffsetToPtr<BE(Vec)>(data, data->unkOffset);
+    dst->mScaleData = JSUConvertOffsetToPtr<BE(f32)>(data, data->mScaleValOffset);
+    dst->mRotData = JSUConvertOffsetToPtr<BE(s16)>(data, data->mRotValOffset);
+    dst->mTransData = JSUConvertOffsetToPtr<BE(f32)>(data, data->mTransValOffset);
     if (data->mNameTab2Offset) {
-        dst->mPostUpdateMaterialName.setResource(JSUConvertOffsetToPtr<ResNTAB>(data, (void*)data->mNameTab2Offset));
+        dst->mPostUpdateMaterialName.setResource(JSUConvertOffsetToPtr<ResNTAB>(data, data->mNameTab2Offset));
     }
     dst->mPostTrackNum = data->field_0x34;
     dst->field_0x4c = data->field_0x36;
     dst->field_0x4e = data->field_0x38;
     dst->field_0x50 = data->field_0x3a;
-    dst->field_0x64 = JSUConvertOffsetToPtr<J3DAnmTransformKeyTable>(data, (void*)data->mInfoTable2Offset);
-    dst->mPostUpdateMaterialID = JSUConvertOffsetToPtr<u16>(data, (void*)data->field_0x40);
-    dst->mPostUpdateTexMtxID = JSUConvertOffsetToPtr<u8>(data, (void*)data->field_0x48);
-    dst->mPostSRTCenter = JSUConvertOffsetToPtr<Vec>(data, (void*)data->field_0x4c);
-    dst->field_0x54 = JSUConvertOffsetToPtr<f32>(data, (void*)data->field_0x50);
-    dst->field_0x58 = JSUConvertOffsetToPtr<s16>(data, (void*)data->field_0x54);
-    dst->field_0x5c = JSUConvertOffsetToPtr<f32>(data, (void*)data->field_0x58);
+    dst->field_0x64 = JSUConvertOffsetToPtr<J3DAnmTransformKeyTable>(data, data->mInfoTable2Offset);
+    dst->mPostUpdateMaterialID = JSUConvertOffsetToPtr<BE(u16)>(data, data->field_0x40);
+    dst->mPostUpdateTexMtxID = JSUConvertOffsetToPtr<u8>(data, data->field_0x48);
+    dst->mPostSRTCenter = JSUConvertOffsetToPtr<BE(Vec)>(data, data->field_0x4c);
+    dst->field_0x54 = JSUConvertOffsetToPtr<BE(f32)>(data, data->field_0x50);
+    dst->field_0x58 = JSUConvertOffsetToPtr<BE(s16)>(data, data->field_0x54);
+    dst->field_0x5c = JSUConvertOffsetToPtr<BE(f32)>(data, data->field_0x58);
     switch (data->field_0x5c) {
     case 0:
     case 1:
@@ -528,13 +528,13 @@ void J3DAnmKeyLoader_v15::setAnmColor(J3DAnmColorKey* dst, const J3DAnmColorKeyD
     dst->field_0x12 = data->field_0x12;
     dst->field_0x14 = data->field_0x14;
     dst->field_0x16 = data->field_0x16;
-    dst->mTable = JSUConvertOffsetToPtr<J3DAnmColorKeyTable>(data, (void*)data->mTableOffset);
-    dst->mColorR = JSUConvertOffsetToPtr<s16>(data, (void*)data->mRValOffset);
-    dst->mColorG = JSUConvertOffsetToPtr<s16>(data, (void*)data->mGValOffset);
-    dst->mColorB = JSUConvertOffsetToPtr<s16>(data, (void*)data->mBValOffset);
-    dst->mColorA = JSUConvertOffsetToPtr<s16>(data, (void*)data->mAValOffset);
-    dst->mUpdateMaterialID = JSUConvertOffsetToPtr<u16>(data, (void*)data->mUpdateMaterialIDOffset);
-    dst->mUpdateMaterialName.setResource(JSUConvertOffsetToPtr<ResNTAB>(data, (void*)data->mNameTabOffset));
+    dst->mTable = JSUConvertOffsetToPtr<J3DAnmColorKeyTable>(data, data->mTableOffset);
+    dst->mColorR = JSUConvertOffsetToPtr<BE(s16)>(data, data->mRValOffset);
+    dst->mColorG = JSUConvertOffsetToPtr<BE(s16)>(data, data->mGValOffset);
+    dst->mColorB = JSUConvertOffsetToPtr<BE(s16)>(data, data->mBValOffset);
+    dst->mColorA = JSUConvertOffsetToPtr<BE(s16)>(data, data->mAValOffset);
+    dst->mUpdateMaterialID = JSUConvertOffsetToPtr<BE(u16)>(data, data->mUpdateMaterialIDOffset);
+    dst->mUpdateMaterialName.setResource(JSUConvertOffsetToPtr<ResNTAB>(data, data->mNameTabOffset));
 }
 
 /* 803009EC-80300A14       .text readAnmCluster__19J3DAnmKeyLoader_v15FPC20J3DAnmClusterKeyData */
@@ -547,8 +547,8 @@ void J3DAnmKeyLoader_v15::setAnmCluster(J3DAnmClusterKey* dst, const J3DAnmClust
     dst->mFrameMax = data->mFrameMax;
     dst->mAttribute = data->field_0x8;
     dst->mFrame = 0.0f;
-    dst->mAnmTable = JSUConvertOffsetToPtr<J3DAnmClusterKeyTable>(data, (void*)data->mTableOffset);
-    dst->mWeight = JSUConvertOffsetToPtr<f32>(data, (void*)data->mWeightOffset);
+    dst->mAnmTable = JSUConvertOffsetToPtr<J3DAnmClusterKeyTable>(data, data->mTableOffset);
+    dst->mWeight = JSUConvertOffsetToPtr<BE(f32)>(data, data->mWeightOffset);
 }
 
 /* 80300A80-80300AA8       .text readAnmTevReg__19J3DAnmKeyLoader_v15FPC19J3DAnmTevRegKeyData */
@@ -562,29 +562,29 @@ void J3DAnmKeyLoader_v15::setAnmTevReg(J3DAnmTevRegKey* dst, const J3DAnmTevRegK
     dst->mAttribute = data->field_0x8;
     dst->mFrame = 0.0f;
     dst->mCRegUpdateMaterialNum = data->mCRegUpdateMaterialNum;
-    dst->mAnmCRegKeyTable = JSUConvertOffsetToPtr<J3DAnmCRegKeyTable>(data, (void*)data->mCRegTableOffset);
-    dst->mCRegUpdateMaterialID = JSUConvertOffsetToPtr<u16>(data, (void*)data->mCRegUpdateMaterialIDOffset);
-    dst->mCRegUpdateMaterialName.setResource(JSUConvertOffsetToPtr<ResNTAB>(data, (void*)data->mCRegNameTabOffset));
+    dst->mAnmCRegKeyTable = JSUConvertOffsetToPtr<J3DAnmCRegKeyTable>(data, data->mCRegTableOffset);
+    dst->mCRegUpdateMaterialID = JSUConvertOffsetToPtr<BE(u16)>(data, data->mCRegUpdateMaterialIDOffset);
+    dst->mCRegUpdateMaterialName.setResource(JSUConvertOffsetToPtr<ResNTAB>(data, data->mCRegNameTabOffset));
     dst->mKRegUpdateMaterialNum = data->mKRegUpdateMaterialNum;
-    dst->mAnmKRegKeyTable = JSUConvertOffsetToPtr<J3DAnmKRegKeyTable>(data, (void*)data->mKRegTableOffset);
-    dst->mKRegUpdateMaterialID = JSUConvertOffsetToPtr<u16>(data, (void*)data->mKRegUpdateMaterialIDOffset);
-    dst->mKRegUpdateMaterialName.setResource(JSUConvertOffsetToPtr<ResNTAB>(data, (void*)data->mKRegNameTabOffset));
+    dst->mAnmKRegKeyTable = JSUConvertOffsetToPtr<J3DAnmKRegKeyTable>(data, data->mKRegTableOffset);
+    dst->mKRegUpdateMaterialID = JSUConvertOffsetToPtr<BE(u16)>(data, data->mKRegUpdateMaterialIDOffset);
+    dst->mKRegUpdateMaterialName.setResource(JSUConvertOffsetToPtr<ResNTAB>(data, data->mKRegNameTabOffset));
     dst->mCRegDataCountR = data->field_0x10;
     dst->mCRegDataCountG = data->field_0x12;
     dst->mCRegDataCountB = data->field_0x14;
     dst->mCRegDataCountA = data->field_0x16;
-    dst->mAnmCRegDataR = JSUConvertOffsetToPtr<s16>(data, (void*)data->mCRValuesOffset);
-    dst->mAnmCRegDataG = JSUConvertOffsetToPtr<s16>(data, (void*)data->mCGValuesOffset);
-    dst->mAnmCRegDataB = JSUConvertOffsetToPtr<s16>(data, (void*)data->mCBValuesOffset);
-    dst->mAnmCRegDataA = JSUConvertOffsetToPtr<s16>(data, (void*)data->mCAValuesOffset);
+    dst->mAnmCRegDataR = JSUConvertOffsetToPtr<BE(s16)>(data, data->mCRValuesOffset);
+    dst->mAnmCRegDataG = JSUConvertOffsetToPtr<BE(s16)>(data, data->mCGValuesOffset);
+    dst->mAnmCRegDataB = JSUConvertOffsetToPtr<BE(s16)>(data, data->mCBValuesOffset);
+    dst->mAnmCRegDataA = JSUConvertOffsetToPtr<BE(s16)>(data, data->mCAValuesOffset);
     dst->mKRegDataCountR = data->field_0x18;
     dst->mKRegDataCountG = data->field_0x1a;
     dst->mKRegDataCountB = data->field_0x1c;
     dst->mKRegDataCountA = data->field_0x1e;
-    dst->mAnmKRegDataR = JSUConvertOffsetToPtr<s16>(data, (void*)data->mKRValuesOffset);
-    dst->mAnmKRegDataG = JSUConvertOffsetToPtr<s16>(data, (void*)data->mKGValuesOffset);
-    dst->mAnmKRegDataB = JSUConvertOffsetToPtr<s16>(data, (void*)data->mKBValuesOffset);
-    dst->mAnmKRegDataA = JSUConvertOffsetToPtr<s16>(data, (void*)data->mKAValuesOffset);
+    dst->mAnmKRegDataR = JSUConvertOffsetToPtr<BE(s16)>(data, data->mKRValuesOffset);
+    dst->mAnmKRegDataG = JSUConvertOffsetToPtr<BE(s16)>(data, data->mKGValuesOffset);
+    dst->mAnmKRegDataB = JSUConvertOffsetToPtr<BE(s16)>(data, data->mKBValuesOffset);
+    dst->mAnmKRegDataA = JSUConvertOffsetToPtr<BE(s16)>(data, data->mKAValuesOffset);
 }
 
 /* 80300C34-80300C5C       .text readAnmVtxColor__19J3DAnmKeyLoader_v15FPC21J3DAnmVtxColorKeyData */
@@ -601,20 +601,20 @@ void J3DAnmKeyLoader_v15::setAnmVtxColor(J3DAnmVtxColorKey* dst, const J3DAnmVtx
     dst->mFrame = 0.0f;
     dst->mAnmTableNum[0] = data->mAnmTableNum[0];
     dst->mAnmTableNum[1] = data->mAnmTableNum[1];
-    dst->mpTable[0] = JSUConvertOffsetToPtr<J3DAnmColorKeyTable>(data, (void*)data->mTableOffsets[0]);
-    dst->mpTable[1] = JSUConvertOffsetToPtr<J3DAnmColorKeyTable>(data, (void*)data->mTableOffsets[1]);
-    dst->mAnmVtxColorIndexData[0] = JSUConvertOffsetToPtr<J3DAnmVtxColorIndexData>(data, (void*)data->mVtxColorIndexDataOffsets[0]);
-    dst->mAnmVtxColorIndexData[1] = JSUConvertOffsetToPtr<J3DAnmVtxColorIndexData>(data, (void*)data->mVtxColorIndexDataOffsets[1]);
-    void* indexPtr0 = JSUConvertOffsetToPtr<u16>(data, (void*)data->mVtxColorIndexPointerOffsets[0]);
-    void* indexPtr1 = JSUConvertOffsetToPtr<u16>(data, (void*)data->mVtxColorIndexPointerOffsets[1]);
+    dst->mpTable[0] = JSUConvertOffsetToPtr<J3DAnmColorKeyTable>(data, data->mTableOffsets[0]);
+    dst->mpTable[1] = JSUConvertOffsetToPtr<J3DAnmColorKeyTable>(data, data->mTableOffsets[1]);
+    dst->mAnmVtxColorIndexData[0] = JSUConvertOffsetToPtr<J3DAnmVtxColorIndexData>(data, data->mVtxColorIndexDataOffsets[0]);
+    dst->mAnmVtxColorIndexData[1] = JSUConvertOffsetToPtr<J3DAnmVtxColorIndexData>(data, data->mVtxColorIndexDataOffsets[1]);
+    u16* indexPtr0 = JSUConvertOffsetToPtr<u16>(data, data->mVtxColorIndexPointerOffsets[0]);
+    u16* indexPtr1 = JSUConvertOffsetToPtr<u16>(data, data->mVtxColorIndexPointerOffsets[1]);
 
     for (s32 i = 0; i < dst->mAnmTableNum[0]; i++)
         dst->mAnmVtxColorIndexData[0][i].mpData = (void*)((s32)indexPtr0 + (s32)dst->mAnmVtxColorIndexData[0][i].mpData * 2);
     for (s32 i = 0; i < dst->mAnmTableNum[1]; i++)
         dst->mAnmVtxColorIndexData[1][i].mpData = (void*)((s32)indexPtr1 + (s32)dst->mAnmVtxColorIndexData[1][i].mpData * 2);
 
-    dst->mColorR = JSUConvertOffsetToPtr<s16>(data, (void*)data->mRValuesOffset);
-    dst->mColorG = JSUConvertOffsetToPtr<s16>(data, (void*)data->mGValuesOffset);
-    dst->mColorB = JSUConvertOffsetToPtr<s16>(data, (void*)data->mBValuesOffset);
-    dst->mColorA = JSUConvertOffsetToPtr<s16>(data, (void*)data->mAValuesOffset);
+    dst->mColorR = JSUConvertOffsetToPtr<BE(s16)>(data, data->mRValuesOffset);
+    dst->mColorG = JSUConvertOffsetToPtr<BE(s16)>(data, data->mGValuesOffset);
+    dst->mColorB = JSUConvertOffsetToPtr<BE(s16)>(data, data->mBValuesOffset);
+    dst->mColorA = JSUConvertOffsetToPtr<BE(s16)>(data, data->mAValuesOffset);
 }

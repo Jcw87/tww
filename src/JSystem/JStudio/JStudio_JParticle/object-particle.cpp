@@ -84,7 +84,7 @@ void TAdaptor_particle::adaptor_do_update(const JStudio::TObject* param_1, u32 p
 void TAdaptor_particle::adaptor_do_PARTICLE(JStudio::data::TEOperationData operation, const void* r5, u32) {
     switch (operation) {
     case JStudio::data::TEOD_Unknown_19:
-        field_0x1B0 = *(int*)r5;
+        field_0x1B0 = *(BE(int)*)r5;
         break;
     default:
         break;
@@ -120,7 +120,7 @@ void TAdaptor_particle::adaptor_do_PARENT_NODE(JStudio::data::TEOperationData op
         }
         break;
     case JStudio::data::TEOD_Unknown_19:
-        field_0x1C8 = *(u32*)param_2;
+        field_0x1C8 = *(BE(u32)*)param_2;
         break;
     default:
         break;
@@ -131,7 +131,7 @@ void TAdaptor_particle::adaptor_do_PARENT_NODE(JStudio::data::TEOperationData op
 void TAdaptor_particle::adaptor_do_PARENT_ENABLE(JStudio::data::TEOperationData operation, const void* param_2, u32 param_3) {
     switch (operation) {
     case JStudio::data::TEOD_Unknown_02:
-        field_0x1CC = *(u32*)param_2;
+        field_0x1CC = *(BE(u32)*)param_2;
         break;
     default:
         break;

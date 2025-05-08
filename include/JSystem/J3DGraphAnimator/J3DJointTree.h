@@ -4,12 +4,13 @@
 #include "JSystem/J3DGraphAnimator/J3DJoint.h"
 #include "dolphin/types.h"
 #include "global.h"
+#include "port/byteswap.h"
 
 class JUTNameTab;
 
 struct J3DModelHierarchy {
-    /* 0x0 */ u16 mType; // TODO enum
-    /* 0x2 */ u16 mValue;
+    /* 0x0 */ BE(u16) mType; // TODO enum
+    /* 0x2 */ BE(u16) mValue;
 };
 
 class J3DMaterialTable;
@@ -21,7 +22,7 @@ struct J3DDrawMtxData {
     /* 0x0 */ u16 mEntryNum;
     /* 0x2 */ u16 mDrawFullWgtMtxNum;
     /* 0x4 */ u8* mDrawMtxFlag;
-    /* 0x8 */ u16* mDrawMtxIndex;
+    /* 0x8 */ BE(u16)* mDrawMtxIndex;
 };  // Size: 0xC
 
 class J3DShape;
@@ -37,8 +38,8 @@ public:
     J3DDrawMtxData * getDrawMtxData() { return &mDrawMtxData; }
     u16 getWEvlpMtxNum() const { return mWEvlpMtxNum; }
     u8 getWEvlpMixMtxNum(u16 idx) const { return mWEvlpMixMtxNum[idx]; }
-    u16 * getWEvlpMixMtxIndex() { return mWEvlpMixMtxIndex; }
-    f32 * getWEvlpMixWeight() { return mWEvlpMixWeight; }
+    BE(u16)* getWEvlpMixMtxIndex() { return mWEvlpMixMtxIndex; }
+    BE(f32)* getWEvlpMixWeight() { return mWEvlpMixWeight; }
     u16 getDrawFullWgtMtxNum() const { return mDrawMtxData.mDrawFullWgtMtxNum; }
     u16 getJointNum() const { return mJointNum; }
     u16 getDrawMtxNum() const { return mDrawMtxData.mEntryNum; }
@@ -51,7 +52,7 @@ public:
     J3DJoint* getRootNode() { return mRootNode; }
     J3DJoint* getJointNodePointer(u16 idx) const { return mJointNodePointer[idx]; }
     J3DMtxCalc* getBasicMtxCalc() { return mBasicMtxCalc; }
-    Mtx& getInvJointMtx(int idx) { return mInvJointMtx[idx]; }
+    BE(Mtx)& getInvJointMtx(int idx) { return mInvJointMtx[idx]; }
     u32 getModelDataType() const { return mModelDataType; }
     void setModelDataType(u32 type) { mModelDataType = type; }
     bool checkFlag(u32 flag) { return mFlags & flag; }
@@ -69,9 +70,9 @@ private:
     /* 0x1C */ J3DJoint** mJointNodePointer;
     /* 0x20 */ u16 mWEvlpMtxNum;
     /* 0x24 */ u8* mWEvlpMixMtxNum;
-    /* 0x28 */ u16* mWEvlpMixMtxIndex;
-    /* 0x2C */ f32* mWEvlpMixWeight;
-    /* 0x30 */ Mtx* mInvJointMtx;
+    /* 0x28 */ BE(u16)* mWEvlpMixMtxIndex;
+    /* 0x2C */ BE(f32)* mWEvlpMixWeight;
+    /* 0x30 */ BE(Mtx)* mInvJointMtx;
     /* 0x34 */ J3DDrawMtxData mDrawMtxData;
     /* 0x40 */ u32 field_0x40;
     /* 0x44 */ JUTNameTab* mJointName;

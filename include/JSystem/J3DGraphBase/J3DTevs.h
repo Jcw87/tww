@@ -260,7 +260,7 @@ struct J3DNBTScale : public J3DNBTScaleInfo {
     explicit J3DNBTScale(const J3DNBTScaleInfo& info) {
         J3DNBTScaleInfo::operator=(info);
     }
-    Vec* getScale() { return &mScale; }
+    BE(Vec)* getScale() { return &mScale; }
 };
 
 struct J3DTexCoord;

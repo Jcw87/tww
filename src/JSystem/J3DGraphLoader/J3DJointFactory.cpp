@@ -8,11 +8,28 @@
 #include "JSystem/J3DGraphLoader/J3DJointFactory.h"
 #include "JSystem/JSupport/JSupport.h"
 #include "JSystem/J3DGraphAnimator/J3DJoint.h"
+#include "port/byteswap.h"
 
 /* 802FE1A4-802FE1FC       .text __ct__15J3DJointFactoryFRC13J3DJointBlock */
 J3DJointFactory::J3DJointFactory(const J3DJointBlock& jointBlock) {
     mJointInitData = JSUConvertOffsetToPtr<J3DJointInitData>(&jointBlock, (uintptr_t)jointBlock.mpJointInitData);
     mIndexTable = JSUConvertOffsetToPtr<u16>(&jointBlock, (uintptr_t)jointBlock.mpIndexTable);
+
+#if TARGET_LITTLE_ENDIAN
+    for (int i = 0; i < jointBlock.mJointNum; i++) {
+        auto& index = mIndexTable[i];
+        index = byteswap(index);
+
+        auto initData = &mJointInitData[index];
+        initData->mKind = byteswap(initData->mKind);
+        initData->mTransformInfo.mScale = byteswap(initData->mTransformInfo.mScale);
+        initData->mTransformInfo.mRotation = byteswap(initData->mTransformInfo.mRotation);
+        initData->mTransformInfo.mTranslate = byteswap(initData->mTransformInfo.mTranslate);
+        initData->mRadius = byteswap(initData->mRadius);
+        initData->mMin = byteswap(initData->mMin);
+        initData->mMax = byteswap(initData->mMax);
+    }
+#endif
 }
 
 /* 802FE1FC-802FE390       .text create__15J3DJointFactoryFi */
