@@ -1060,7 +1060,7 @@ JKRSolidHeap* mDoExt_createSolidHeapToCurrent(u32 i_size, JKRHeap* i_parent, u32
     if (!resultHeap) {
         return NULL;
     }
-#if VERSION > VERSION_DEMO
+#if VERSION > VERSION_DEMO && !TARGET_PC
     JUT_ASSERT(VERSION_SELECT(0, 2530, 2545, 2545), OSGetCurrentThread() == &mainThread);
 #endif
     JUT_ASSERT(VERSION_SELECT(2441, 2531, 2546, 2546), mDoExt_SaveCurrentHeap == NULL);
@@ -1107,7 +1107,7 @@ JKRHeap* mDoExt_getCurrentHeap() {
 
 /* 80011DDC-80011E98       .text mDoExt_restoreCurrentHeap__Fv */
 void mDoExt_restoreCurrentHeap() {
-#if VERSION > VERSION_DEMO
+#if VERSION > VERSION_DEMO && !TARGET_PC
     JUT_ASSERT(VERSION_SELECT(0, 2739, 2754, 2754), OSGetCurrentThread() == &mainThread);
 #endif
     JUT_ASSERT(VERSION_SELECT(2647, 2740, 2755, 2755), mDoExt_SaveCurrentHeap != NULL);
