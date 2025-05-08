@@ -533,7 +533,7 @@ OSThread mainThread;
 #endif
 
 /* 80006464-800065DC       .text main */
-int main(int argc, const char* argv[]) {
+int gc_main(int argc, const char* argv[]) {
 #if VERSION == VERSION_DEMO
     OSThread mainThread;
 #endif
@@ -582,9 +582,15 @@ int main(int argc, const char* argv[]) {
     parse_args(argc, argv);
 #endif
 
+#if TARGET_PC
+    // The event loop needs to be on the same thread that creates the window
+    main01();
+    return 0;
+#else
     OSPriority priority = OSGetThreadPriority(current_thread);
     OSCreateThread(&mainThread, (void*)main01, 0, stack + sizeof(stack), sizeof(stack), priority, 0);
     OSResumeThread(&mainThread);
     OSSetThreadPriority(current_thread, 0x1F);
     return OSSuspendThread(current_thread);
+#endif
 }
