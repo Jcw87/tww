@@ -14,6 +14,10 @@
 #include "dolphin/gx/GX.h"
 #include "dolphin/os/OS.h"
 #include "global.h"
+#if TARGET_PC
+#include "port/time.h"
+#include <chrono>
+#endif
 
 JFWDisplay* JFWDisplay::sManager = NULL;
 
@@ -343,9 +347,25 @@ void JFWDisplay::waitBlanking(int duration) {
     }
 }
 
+#if TARGET_PC
+constexpr auto FRAME_PERIOD = std::chrono::duration_cast<std::chrono::nanoseconds>(
+    std::chrono::duration<double>(1000.0 / 30000.0));
+constexpr auto RETRACE_PERIOD = FRAME_PERIOD / 2;
+
+static void waitPrecise(Limiter& limiter, Limiter::duration_t targetNs) {
+    const auto sleepTime = limiter.Sleep(targetNs);
+}
+#endif
+
 /* 80255D34-80255E54       .text waitForTick__FUlUs */
 void waitForTick(u32 p1, u16 p2) {
+#if TARGET_PC
+    static Limiter limiter;
+#endif
     if (p1 != 0) {
+#if TARGET_PC
+        waitPrecise(limiter, static_cast<Uint64>(OSTicksToMicroseconds(p1)) * 1000ULL);
+#else
         static s64 nextTick = OSGetTime();
         s64 time = OSGetTime();
         while (time < nextTick) {
@@ -353,10 +373,14 @@ void waitForTick(u32 p1, u16 p2) {
             time = OSGetTime();
         }
         nextTick = time + p1;
+#endif
     }
     else {
         static u32 nextCount = VIGetRetraceCount();
         u32 uVar1 = (p2 == 0) ? 1 : p2;
+#if TARGET_PC
+        waitPrecise(limiter, static_cast<Uint64>((RETRACE_PERIOD * uVar1).count()));
+#else
         OSMessage msg;
         do {
             if (!OSReceiveMessage(JUTVideo::getManager()->getMessageQueue(), &msg, OS_MESSAGE_BLOCK)) {
@@ -364,6 +388,7 @@ void waitForTick(u32 p1, u16 p2) {
             }
         } while (((int)msg - (int)nextCount) < 0);
         nextCount = (int)msg + uVar1;
+#endif
     }
 }
 

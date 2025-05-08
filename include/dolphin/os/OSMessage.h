@@ -3,10 +3,6 @@
 
 #include "dolphin/os/OSThread.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 typedef void* OSMessage;
 
 typedef struct OSMessageQueue {
@@ -25,6 +21,10 @@ typedef struct OSMessageQueue {
 typedef enum {
     OS_MSG_PERSISTENT = (1 << 0),
 } OSMessageFlags;
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 void OSInitMessageQueue(OSMessageQueue* queue, OSMessage* msgArray, s32 msgCount);
 BOOL OSSendMessage(OSMessageQueue* queue, OSMessage msg, s32 flags);

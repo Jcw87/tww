@@ -3,10 +3,6 @@
 
 #include "dolphin/os/OSThread.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 typedef struct OSMutex {
     /* 0x00 */ OSThreadQueue queue;
     /* 0x08 */ OSThread* thread;
@@ -17,6 +13,10 @@ typedef struct OSMutex {
 typedef struct OSCond {
     OSThreadQueue queue;
 } OSCond;
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 void OSInitMutex(OSMutex* mutex);
 void OSLockMutex(OSMutex* mutex);

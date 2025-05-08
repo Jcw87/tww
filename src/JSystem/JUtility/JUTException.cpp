@@ -93,6 +93,9 @@ OSMessage JUTException::sMessageBuffer[1] = {0};
 
 /* 802C4C14-802C4CEC       .text run__12JUTExceptionFv */
 void* JUTException::run() {
+#ifdef TARGET_PC
+    OSSetCurrentThreadName("JUTException");
+#endif
     PPCMtmsr(PPCMfmsr() & ~0x0900);
     OSInitMessageQueue(&sMessageQueue, sMessageBuffer, 1);
     OSMessage message;

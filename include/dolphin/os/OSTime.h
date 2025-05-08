@@ -11,7 +11,9 @@ extern "C" {
 typedef s64 OSTime;
 typedef u32 OSTick;
 
+#ifdef __MWERKS__
 OSTime OS_SYSTEM_TIME AT_ADDRESS(0x800030D8);
+#endif
 
 typedef struct OSCalendarTime {
     /* 0x00 */ s32 seconds;
@@ -33,10 +35,15 @@ OSTime __OSTimeToSystemTime(OSTime time);
 static void GetDates(s32 days, OSCalendarTime* ct);
 void OSTicksToCalendarTime(OSTime ticks, OSCalendarTime* ct);
 
+#ifdef __MWERKS__
 extern u32 __OSBusClock AT_ADDRESS(0x800000F8);
 
 #define OS_BUS_CLOCK (__OSBusClock)
 #define OS_CORE_CLOCK (*(u32*)0x800000FC)
+#else
+#define OS_CORE_CLOCK 486000000u
+#define OS_BUS_CLOCK 162000000u
+#endif
 #define OS_TIMER_CLOCK (OS_BUS_CLOCK / 4)
 #define OS_TIMER_CLOCK_MS (OS_TIMER_CLOCK / 1000)
 
