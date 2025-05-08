@@ -78,6 +78,7 @@ target_compile_definitions(dolphin_sdk PUBLIC
 target_link_libraries(dolphin_sdk PUBLIC ${AURORA_SDL3_TARGET})
 
 add_executable(tww
+    src/port/main.cpp
     src/port/time.cpp
     src/m_Do/m_Do_main.cpp
     src/m_Do/m_Do_printf.cpp
