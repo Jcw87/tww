@@ -7,6 +7,7 @@
 
 #include "JSystem/JGadget/binary.h"
 #include "dolphin/types.h"
+#include "port/byteswap.h"
 
 namespace JGadget {
 namespace binary {
@@ -17,19 +18,19 @@ const void* parseVariableUInt_16_32_following(const void* buffer, u32* param_1, 
     if (bit == NULL) {
         bit = &temp;
     }
-    u32 uVar1 = *(u16*)buffer;
+    u32 uVar1 = *(BE(u16)*)buffer;
     if ((uVar1 & 0x8000) == 0) {
         bit->value = 0x10;
         *param_1 = uVar1;
-        *param_2 = *(u16*)((u8*)buffer + 2);
+        *param_2 = *(BE(u16)*)((u8*)buffer + 2);
         return (u8*)buffer + 4;
     }
     bit->value = 0x20;
     uVar1 <<= 16;
     uVar1 &= 0x7fff0000;
-    uVar1 |= *(u16*)((u8*)buffer + 2);
+    uVar1 |= *(BE(u16)*)((u8*)buffer + 2);
     *param_1 = uVar1;
-    *param_2 = *(u32*)((u8*)buffer + 4);
+    *param_2 = *(BE(u32)*)((u8*)buffer + 4);
     return (u8*)buffer + 8;
 }
 

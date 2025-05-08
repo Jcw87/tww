@@ -302,7 +302,7 @@ u32 mDoMemCdRWm_CalcCheckSum(void* p_, u32 size) {
     u16 c0, c1;
 
     c0 = c1 = 0;
-    u16* p = (u16*)p_;
+    BE(u16)* p = (BE(u16)*)p_;
     for (int i = 0; i < size >> 1; i++, p++) {
         c0 += *p;
         c1 += ~*p;

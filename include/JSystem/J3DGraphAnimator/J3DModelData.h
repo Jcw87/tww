@@ -56,7 +56,7 @@ public:
     J3DJoint* getJointNodePointer(u16 idx) const { return mJointTree.getJointNodePointer(idx); }
     J3DJointTree& getJointTree() { return mJointTree; }
     JUTNameTab* getJointName() const { return mJointTree.getJointName(); }
-    Mtx& getInvJointMtx(int idx) { return mJointTree.getInvJointMtx(idx); }
+    BE(Mtx)& getInvJointMtx(int idx) { return mJointTree.getInvJointMtx(idx); }
     J3DTexture* getTexture() const { return mMaterialTable.getTexture(); }
     JUTNameTab* getTextureName() const { return mMaterialTable.getTextureName(); }
     void setTexture(J3DTexture* pTexture) { mMaterialTable.setTexture(pTexture); }
@@ -64,8 +64,8 @@ public:
     bool isLocked() { return mMaterialTable.isLocked(); }
     u16 getDrawFullWgtMtxNum() const { return mJointTree.getDrawFullWgtMtxNum(); }
     u16 getWEvlpMtxNum() const { return mJointTree.getWEvlpMtxNum(); }
-    u16* getWEvlpMixMtxIndex() { return mJointTree.getWEvlpMixMtxIndex(); }
-    f32* getWEvlpMixWeight() { return mJointTree.getWEvlpMixWeight(); }
+    BE(u16)* getWEvlpMixMtxIndex() { return mJointTree.getWEvlpMixMtxIndex(); }
+    BE(f32)* getWEvlpMixWeight() { return mJointTree.getWEvlpMixWeight(); }
     u8 getWEvlpMixMtxNum(u16 idx) const { return mJointTree.getWEvlpMixMtxNum(idx); }
     u32 getModelDataType() const { return mJointTree.getModelDataType(); }
     const J3DModelHierarchy* getHierarchy() const { return mJointTree.getHierarchy(); }

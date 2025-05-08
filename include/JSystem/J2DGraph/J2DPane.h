@@ -4,6 +4,7 @@
 #include "JSystem/JGeometry.h"
 #include "JSystem/JSupport/JSUList.h"
 #include "dolphin/mtx/mtx.h"
+#include "port/byteswap.h"
 
 class J2DGrafContext;
 class JSURandomInputStream;
@@ -27,15 +28,15 @@ enum J2DBasePosition {
 };
 
 struct J2DPaneHeader {
-    /* 0x0 */ u32 mMagic;
-    /* 0x4 */ u32 mSize;
+    /* 0x0 */ BE(u32) mMagic;
+    /* 0x4 */ BE(u32) mSize;
 };
 
 class J2DPane {
 public:
     struct J2DScrnBlockHeader {
-        /* 0x00 */ u32 mMagic;
-        /* 0x04 */ u32 mSize;
+        /* 0x00 */ BE(u32) mMagic;
+        /* 0x04 */ BE(u32) mSize;
     };
 
     J2DPane();

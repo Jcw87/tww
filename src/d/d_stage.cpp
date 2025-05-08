@@ -1732,7 +1732,7 @@ int dStage_tgscInfoInit(dStage_dt_c* i_stage, void* i_data, int i_num, void*) {
 /* 8004259C-80042628       .text dStage_roomReadInit__FP11dStage_dt_cPviPv */
 int dStage_roomReadInit(dStage_dt_c* i_stage, void* i_data, int i_num, void* i_file) {
     roomRead_class* rtbl = (roomRead_class*)((int*)i_data + 1);
-    roomRead_data_class** rtbl_entries = rtbl->m_entries;
+    OFFSET_PTR(roomRead_data_class)* rtbl_entries = rtbl->m_entries;
     i_stage->setRoom(rtbl);
 
     for (int i = 0; i < rtbl->num; i++) {
@@ -1815,7 +1815,7 @@ int dStage_memaInfoInit(dStage_dt_c* i_stage, void* i_data, int i_num, void*) {
     i_stage->setMemoryMap(pd);
 
     if (pd != NULL) {
-        u32* entry_p = pd->m_entries;
+        BE(u32)* entry_p = pd->m_entries;
 
         for (int i = 0; i < pd->num; i++) {
             JKRExpHeap* heap = dStage_roomControl_c::createMemoryBlock(i, *entry_p + 0x300);
@@ -1925,6 +1925,12 @@ bool dStage_chkTaura(int i_roomNo) {
 /* 80042B70-80042C38       .text dStage_shipInfoInit__FP11dStage_dt_cPviPv */
 int dStage_shipInfoInit(dStage_dt_c* i_stage, void* i_data, int i_num, void*) {
     dStage_Ship_c* ship_p = (dStage_Ship_c*)((char*)i_data + 4);
+#if TARGET_LITTLE_ENDIAN
+    for (int i = 0; i < ship_p->num; i++) {
+        Vec& pos = ship_p->m_entries[i].m_pos;
+        pos = byteswap(pos);
+    }
+#endif
     i_stage->setShip(ship_p);
 
     int shipId = dComIfGp_getShipId();

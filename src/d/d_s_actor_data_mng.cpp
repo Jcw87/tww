@@ -107,10 +107,10 @@ void dADM::SetData(void* pData) {
     u32 name, nameOffs;
     u32 dat_size, dataOffs;
 
-    mBlockCount = *((s32*)pData);
+    mBlockCount = *((BE(s32)*)pData);
     mpData = (u8*)pData + 4;
 
-    u32 *pHeader = (u32*)mpData;
+    BE(u32)* pHeader = (BE(u32)*)mpData;
     for (s32 i = 0; i < mBlockCount; i++) {
         pHeader[2] = pHeader[2] + (uintptr_t)pData;
         pHeader += 3;

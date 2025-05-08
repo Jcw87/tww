@@ -20,11 +20,11 @@ struct mesg_info;
 
 // BMG INF1 messageEntry
 struct JMSMesgEntry_c {
-    /* 0x00 */ u32 mDataOffs;
-    /* 0x04 */ u16 mMsgNo;
-    /* 0x06 */ s16 mItemPrice;
-    /* 0x08 */ u16 mNextMsgNo;
-    /* 0x0A */ u16 field_0x0a;
+    /* 0x00 */ BE(u32) mDataOffs;
+    /* 0x04 */ BE(u16) mMsgNo;
+    /* 0x06 */ BE(s16) mItemPrice;
+    /* 0x08 */ BE(u16) mNextMsgNo;
+    /* 0x0A */ BE(u16) field_0x0a;
     /* 0x0C */ u8 mTextboxType;
     /* 0x0D */ u8 mDrawType;
     /* 0x0E */ u8 mTextboxPosition;

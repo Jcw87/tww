@@ -9,17 +9,17 @@ struct dPnt {
     /* 0x01 */ u8 mArg1;
     /* 0x02 */ u8 mArg2;
     /* 0x03 */ u8 mArg3;
-    /* 0x04 */ Vec m_position;
+    /* 0x04 */ BE(Vec) m_position;
 };
 
 struct dPath {
-    /* 0x00 */ u16 m_num;
-    /* 0x02 */ u16 m_nextID;
+    /* 0x00 */ BE(u16) m_num;
+    /* 0x02 */ BE(u16) m_nextID;
     /* 0x04 */ u8 mArg0;
     /* 0x05 */ u8 m_closed;
     /* 0x06 */ u8 field4_0x6;
     /* 0x07 */ u8 field5_0x7;
-    /* 0x08 */ dPnt* m_points;
+    /* 0x08 */ OFFSET_PTR(dPnt) m_points;
 };
 
 inline BOOL dPath_ChkClose(dPath* i_path) { return (i_path->m_closed & 1) != 0; }

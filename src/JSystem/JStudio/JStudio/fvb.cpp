@@ -49,10 +49,10 @@ void TObject::prepare(data::TParse_TBlock const& rBlock, TControl* pControl) {
             }
             JGadget::TVector_pointer<TFunctionValue*>& rCnt = pfvaRefer->refer_referContainer();
             u8* content = (u8*)pContent;
-            u32 i = *(u32*)content;
+            u32 i = *(BE(u32)*)content;
             u8* ptr = content + 4;
             for (; i != 0; i--) {
-                u32 size = *(u32*)ptr;
+                u32 size = *(BE(u32)*)ptr;
                 TObject* pObject = pControl->getObject(ptr + 4, size);
                 if (pObject != NULL) {
                     rCnt.push_back(pObject->referFunctionValue());
@@ -74,9 +74,9 @@ void TObject::prepare(data::TParse_TBlock const& rBlock, TControl* pControl) {
 
             JGadget::TVector_pointer<TFunctionValue*>& rCnt = pfvaRefer->refer_referContainer();
             u8* ptr = (u8*)pContent;
-            u32 i = *(u32*)ptr;
+            u32 i = *(BE(u32)*)ptr;
             for (; ptr += 4, i != 0; i--) {
-                u32 index = *(u32*)ptr;
+                u32 index = *(BE(u32)*)ptr;
                 TObject* pObject = pControl->getObject_index(index);
                 if (pObject != NULL) {
                     rCnt.push_back(pObject->referFunctionValue());
@@ -94,7 +94,7 @@ void TObject::prepare(data::TParse_TBlock const& rBlock, TControl* pControl) {
                 // JGADGET_WARNMSG(127, "invalid paragraph");
                 break;
             }
-            f32* arr = (f32*)pContent;
+            BE(f32)* arr = (BE(f32)*)pContent;
             pfvaRange->range_set(arr[0], arr[1]);
         } break;
         case 0x13: {
@@ -107,7 +107,7 @@ void TObject::prepare(data::TParse_TBlock const& rBlock, TControl* pControl) {
                 break;
             }
 
-            TFunctionValue::TEProgress prog = *(TFunctionValue::TEProgress*)pContent;
+            TFunctionValue::TEProgress prog = *(BE(TFunctionValue::TEProgress)*)pContent;
             pfvaRange->range_setProgress(prog);
         } break;
         case 0x14: {
@@ -120,7 +120,7 @@ void TObject::prepare(data::TParse_TBlock const& rBlock, TControl* pControl) {
                 break;
             }
 
-            TFunctionValue::TEAdjust adjust = *(TFunctionValue::TEAdjust*)pContent;
+            TFunctionValue::TEAdjust adjust = *(BE(TFunctionValue::TEAdjust)*)pContent;
             pfvaRange->range_setAdjust(adjust);
         } break;
         case 0x15: {
@@ -133,9 +133,9 @@ void TObject::prepare(data::TParse_TBlock const& rBlock, TControl* pControl) {
                 break;
             }
 
-            u16* out = (u16*)pContent;
-            pfvaRange->range_setOutside((TFunctionValue::TEOutside)out[0],
-                                        (TFunctionValue::TEOutside)out[1]);
+            BE(u16)* out = (BE(u16)*)pContent;
+            pfvaRange->range_setOutside((TFunctionValue::TEOutside)(u16)out[0],
+                                        (TFunctionValue::TEOutside)(u16)out[1]);
         } break;
         case 0x16: {
             // JGADGET_ASSERTWARN(193, u32Size==4);
@@ -147,7 +147,7 @@ void TObject::prepare(data::TParse_TBlock const& rBlock, TControl* pControl) {
                 break;
             }
 
-            TFunctionValue::TEInterpolate interp = *(TFunctionValue::TEInterpolate*)pContent;
+            TFunctionValue::TEInterpolate interp = *(BE(TFunctionValue::TEInterpolate)*)pContent;
             pfvaInterpolate->interpolate_set(interp);
         } break;
         default:
@@ -171,32 +171,32 @@ TFunctionValue_composite::TData getCompositeData_raw_(const void* arg1) {
 
 /* 80273BDC-80273BE8       .text getCompositeData_index___Q37JStudio3fvb17@unnamed@fvb_cpp@FPCv */
 TFunctionValue_composite::TData getCompositeData_index_(const void* arg1) {
-    return TFunctionValue_composite::TData(*(unsigned int*)arg1);
+    return TFunctionValue_composite::TData(*(BE(unsigned int)*)arg1);
 }
 
 /* 80273BE8-80273BF4       .text getCompositeData_parameter___Q37JStudio3fvb17@unnamed@fvb_cpp@FPCv */
 TFunctionValue_composite::TData getCompositeData_parameter_(const void* arg1) {
-    return TFunctionValue_composite::TData(*(f32*)arg1);
+    return TFunctionValue_composite::TData(*(BE(f32)*)arg1);
 }
 
 /* 80273BF4-80273C00       .text getCompositeData_add___Q37JStudio3fvb17@unnamed@fvb_cpp@FPCv */
 TFunctionValue_composite::TData getCompositeData_add_(const void* arg1) {
-    return TFunctionValue_composite::TData(*(f32*)arg1);
+    return TFunctionValue_composite::TData(*(BE(f32)*)arg1);
 }
 
 /* 80273C00-80273C0C       .text getCompositeData_subtract___Q37JStudio3fvb17@unnamed@fvb_cpp@FPCv */
 TFunctionValue_composite::TData getCompositeData_subtract_(const void* arg1) {
-    return TFunctionValue_composite::TData(*(f32*)arg1);
+    return TFunctionValue_composite::TData(*(BE(f32)*)arg1);
 }
 
 /* 80273C0C-80273C18       .text getCompositeData_multiply___Q37JStudio3fvb17@unnamed@fvb_cpp@FPCv */
 TFunctionValue_composite::TData getCompositeData_multiply_(const void* arg1) {
-    return TFunctionValue_composite::TData(*(f32*)arg1);
+    return TFunctionValue_composite::TData(*(BE(f32)*)arg1);
 }
 
 /* 80273C18-80273C24       .text getCompositeData_divide___Q37JStudio3fvb17@unnamed@fvb_cpp@FPCv */
 TFunctionValue_composite::TData getCompositeData_divide_(const void* arg1) {
-    return TFunctionValue_composite::TData(*(f32*)arg1);
+    return TFunctionValue_composite::TData(*(BE(f32)*)arg1);
 }
 
 static const data::CompositeOperation saCompositeOperation_[data::COMPOSITE_ENUM_SIZE] = {
@@ -223,7 +223,7 @@ TObject_composite::TObject_composite(const data::TParse_TBlock& block) : TObject
 /* 80273CB8-80273D1C       .text prepare_data___Q37JStudio3fvb17TObject_compositeFRCQ57JStudio3fvb4data17TParse_TParagraph5TDataPQ37JStudio3fvb8TControl */
 void TObject_composite::prepare_data_(const data::TParse_TParagraph::TData& rData, TControl* control) {
     typedef struct {
-        JStudio::fvb::data::TEComposite _00;
+        BE(JStudio::fvb::data::TEComposite) _00;
         const void* _04;
     } unkOperation;
 
@@ -248,7 +248,7 @@ void TObject_constant::prepare_data_(const data::TParse_TParagraph::TData& rData
     u32 u32Size = rData.u32Size;
     JUT_EXPECT(u32Size == 4);
 
-    const f32* pContent = static_cast<const f32*>(rData.pContent);
+    const BE(f32)* pContent = static_cast<const BE(f32)*>(rData.pContent);
     ASSERT(pContent != NULL);
 
     fnValue.data_set(pContent[0]);
@@ -264,7 +264,7 @@ void TObject_transition::prepare_data_(const data::TParse_TParagraph::TData& rDa
     u32 u32Size = rData.u32Size;
     JUT_EXPECT(u32size == 8);
 
-    const f32* pContent = static_cast<const f32*>(rData.pContent);
+    const BE(f32)* pContent = static_cast<const BE(f32)*>(rData.pContent);
     ASSERT(pContent != NULL);
 
     fnValue.data_set(pContent[0], pContent[1]);

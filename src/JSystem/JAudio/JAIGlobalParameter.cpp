@@ -14,7 +14,7 @@
 
 /* 802920EC-80292100       .text setParamInitDataPointer__18JAIGlobalParameterFPv */
 void JAIGlobalParameter::setParamInitDataPointer(void* value) {
-    JAInter::InitData::aafPointer = (u32*)value;
+    JAInter::InitData::aafPointer = (BE(u32)*)value;
     JAIBasic::msBasic->initLoadFileSw = 4;
 }
 

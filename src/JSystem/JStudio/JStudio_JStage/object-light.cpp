@@ -130,7 +130,7 @@ void TAdaptor_light::adaptor_do_FACULTY(JStudio::data::TEOperationData op, const
     switch (op) {
     case JStudio::data::TEOD_Unknown_02:
         JStage::TELight lightType;
-        switch (((int*)data)[0]) {
+        switch (((BE(int)*)data)[0]) {
         case 0x301:
             lightType = JStage::TELIGHT_Unk1;
             break;

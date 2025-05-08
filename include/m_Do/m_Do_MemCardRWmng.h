@@ -29,16 +29,16 @@ STATIC_ASSERT(sizeof(card_pictdata) == 0x2000);
 struct card_gamedata
 {
     /* 0x000 */ u8 data[sizeof(dSv_save_c_PACKED)];
-    /* 0x768 */ u64 csum;
+    /* 0x768 */ BE(u64) csum;
 };  // Size: 0x770
 
 struct card_savedata
 {
-    /* 0x0000 */ u32 save_count;
-    /* 0x0004 */ u32 data_version;
+    /* 0x0000 */ BE(u32) save_count;
+    /* 0x0004 */ BE(u32) data_version;
     /* 0x0008 */ card_gamedata gamedata[3];
     /* 0x1658 */ u8 field_0x1658[0x1FFC - 0x1658];
-    /* 0x1FFC */ u32 csum;
+    /* 0x1FFC */ BE(u32) csum;
 };  // Size: 0x2000
 
 STATIC_ASSERT(sizeof(card_savedata) == 0x2000);

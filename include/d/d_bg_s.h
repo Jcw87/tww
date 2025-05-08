@@ -230,6 +230,6 @@ public:
 };
 
 u32 dBgS_GetRoomPathPntNo(u32 polyinfo2);
-void dBgS_ChangeAttributeCode(u32 code, u32* dst);
+void dBgS_ChangeAttributeCode(u32 code, BE(u32)* dst);
 
 #endif /* D_BG_D_BG_S_H */

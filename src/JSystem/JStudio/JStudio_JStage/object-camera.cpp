@@ -123,7 +123,7 @@ void TAdaptor_camera::adaptor_do_PARENT_NODE(JStudio::data::TEOperationData oper
         }
         break;
     case JStudio::data::TEOD_Unknown_19:
-        mF4 = *(u32*)p2;
+        mF4 = *(BE(u32)*)p2;
         break;
     default:
         break;
@@ -136,7 +136,7 @@ void TAdaptor_camera::adaptor_do_PARENT_ENABLE(JStudio::data::TEOperationData op
     case JStudio::data::TEOD_Unknown_02: {
         JStage::TObject* parent = NULL;
         u32 idx                 = -1;
-        if (*(u32*)p2 != 0) {
+        if (*(BE(u32)*)p2 != 0) {
             parent = mF0;
             idx    = mF4;
         }

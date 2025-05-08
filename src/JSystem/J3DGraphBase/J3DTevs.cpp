@@ -131,7 +131,7 @@ bool isTexNoReg(void* param_0) {
 
 /* 802EC37C-802EC388       .text getTexNoReg__FPv */
 u16 getTexNoReg(void* param_0) {
-    return *(u32*)((u8*)param_0 + 1);
+    return *(BE(u32)*)((u8*)param_0 + 1);
 }
 
 /* 802EC388-802EC530       .text loadTexNo__FUlRCUs */
@@ -212,7 +212,7 @@ const J3DFogInfo j3dDefaultFogInfo = {
 
 const J3DNBTScaleInfo j3dDefaultNBTScaleInfo = {
     0,
-    1.0f, 1.0f, 1.0f
+    {1.0f, 1.0f, 1.0f},
 };
 
 static u8 j3dTexCoordTable[7623];

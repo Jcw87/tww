@@ -46,12 +46,17 @@ JASystem::TBasicBank* JASystem::BNKParser::createBasicBank(void* stream) {
                         JUT_ASSERT(72, osc != NULL);
                         osc->field_0x0 = oscRaw->field_0x0;
                         osc->field_0x4 = oscRaw->field_0x4;
-                        s16* oscTable = oscRaw->field_0x8.ptr(header);
+                        BE(s16)* oscTable = oscRaw->field_0x8.ptr(header);
                         if (oscTable != NULL) {
                             s32 tableLength = getOscTableEndPtr(oscTable) - oscTable;
                             osc->table = new (heap, 0) s16[tableLength];
                             JUT_ASSERT(82, osc->table != NULL);
                             Calc::bcopy(oscTable, osc->table, tableLength * sizeof(s16));
+#if TARGET_LITTLE_ENDIAN
+                            for (u32 i = 0; i < tableLength; i++) {
+                                osc->table[i] = byteswap(osc->table[i]);
+                            }
+#endif
                         } else {
                             osc->table = NULL;
                         }
@@ -61,6 +66,11 @@ JASystem::TBasicBank* JASystem::BNKParser::createBasicBank(void* stream) {
                             osc->rel_table = new (heap, 0) s16[tableLength];
                             JUT_ASSERT(94, osc->rel_table != NULL);
                             Calc::bcopy(oscTable, osc->rel_table, tableLength * sizeof(s16));
+#if TARGET_LITTLE_ENDIAN
+                            for (u32 i = 0; i < tableLength; i++) {
+                                osc->rel_table[i] = byteswap(osc->rel_table[i]);
+                            }
+#endif
                         } else {
                             osc->rel_table = NULL;
                         }
@@ -185,7 +195,7 @@ JASystem::TOscillator::Osc_* JASystem::BNKParser::findOscPtr(JASystem::TBasicBan
 }
 
 /* 80287AEC-80287B00       .text getOscTableEndPtr__Q28JASystem9BNKParserFPs */
-s16* JASystem::BNKParser::getOscTableEndPtr(s16* param_1) {
+BE(s16)* JASystem::BNKParser::getOscTableEndPtr(BE(s16)* param_1) {
     s16 v1;
     do {
         v1 = *param_1;
