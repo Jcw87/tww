@@ -433,6 +433,9 @@ void mDoMemCd_Ctrl_c::setCardState(s32 state) {
 
 /* 800198C4-80019918       .text mDoMemCd_main__FPv */
 int mDoMemCd_main(void*) {
+#ifdef TARGET_PC
+    OSSetCurrentThreadName("mDoMemCardThread");
+#endif
 #if VERSION > VERSION_DEMO
     { JKRThread thread(OSGetCurrentThread(), 0); }
 

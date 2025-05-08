@@ -157,7 +157,11 @@ u32 SIGetType(s32 chan);
 u32 SIGetTypeAsync(s32 chan, SITypeCallback callback);
 u32 SIProbe(s32 chan);
 
+#ifdef __MWERKS__
 vu32 __SIRegs[64] AT_ADDRESS(0xCC006400);
+#else
+extern vu32 __SIRegs[64];
+#endif
 
 #ifdef __cplusplus
 }

@@ -28,15 +28,46 @@ if(MSVC)
     )
 endif()
 
-add_library(dolphin_sdk STATIC
+add_library(dolphin_sdk SHARED
+    src/port/gba.cpp
+    src/port/PPCArch.cpp
+    src/port/OS.cpp
+    src/port/OSAlarm_win32.cpp
     src/dolphin/os/OSAlloc.c
     src/dolphin/os/OSArena.c
-    src/dolphin/os/OSFont.c
+    src/port/OSCache.cpp
+    src/port/OSContext_null.cpp
+    src/port/OSError.cpp
+    src/port/OSInterrupt.cpp
+    src/port/OSLink.cpp
+    src/port/OSMessage_win32.cpp
+    src/port/OSMemory.cpp
+    src/port/OSMutex_win32.cpp
+    src/port/OSReboot.cpp
+    src/port/OSReset.cpp
+    src/port/OSResetSW.cpp
+    src/port/OSRtc.cpp
+    src/port/OSThread_win32.cpp
+    src/port/OSTime.cpp
+    src/port/si.cpp
     src/dolphin/mtx/mtx.c
     src/dolphin/mtx/mtxvec.c
     src/dolphin/mtx/mtx44.c
     src/dolphin/mtx/vec.c
     src/dolphin/mtx/quat.c
+    src/port/dvd.cpp
+    src/port/dvd_fs.cpp
+    src/port/dvd_iso.cpp
+    src/port/vi.cpp
+    src/port/pad.cpp
+    src/port/ai.cpp
+    src/port/ar.cpp
+    src/port/arq.cpp
+    src/port/dsp.cpp
+    src/port/card.cpp
+    src/port/gx.cpp
+    src/port/gd.cpp
+    src/port/sdk.def
 )
 target_include_directories(dolphin_sdk PUBLIC include src assets/GZLE01 build/GZLE01/include)
 target_compile_definitions(dolphin_sdk PUBLIC

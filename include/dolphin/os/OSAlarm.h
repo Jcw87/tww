@@ -4,10 +4,6 @@
 #include "dolphin/os/OSError.h"
 #include "dolphin/os/OSTime.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 typedef struct OSAlarmLink {
     /* 0x0 */ struct OSAlarm* prev;
     /* 0x4 */ struct OSAlarm* next;
@@ -29,6 +25,10 @@ typedef struct OSAlarmQueue {
     OSAlarm* head;
     OSAlarm* tail;
 } OSAlarmQueue;
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 void OSInitAlarm(void);
 void OSCreateAlarm(OSAlarm* alarm);

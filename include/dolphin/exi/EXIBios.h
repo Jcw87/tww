@@ -10,7 +10,11 @@ extern "C" {
 
 typedef struct OSContext OSContext;
 
+#ifdef __MWERKS__
 vu32 __EXIRegs[16] AT_ADDRESS(0xCC006800);
+#else
+extern vu32 __EXIRegs[16];
+#endif
 
 #define EXI_MEMORY_CARD_59 0x00000004
 #define EXI_MEMORY_CARD_123 0x00000008

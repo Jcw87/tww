@@ -25,6 +25,7 @@
 extern "C" {
 #endif
 
+#ifdef __MWERKS__
 // Pack value into bitfield
 #define GX_BITFIELD_SET(field, pos, size, value)                                                   \
     (field) =                                                                                      \
@@ -332,6 +333,35 @@ static inline u32 __GXReadCPCounterU32(u32 regAddrL, u32 regAddrH) {
 
     return (ctrH0 << 0x10) | ctrL;
 }
+#else
+void GXCmd1u8(const u8 x);
+void GXCmd1u16(const u16 x);
+void GXCmd1u32(const u32 x);
+void GXPosition2f32(f32 x, f32 z);
+void GXPosition3f32(f32 x, f32 y, f32 z);
+void GXPosition2s8(s8 x, s8 y);
+void GXPosition3s8(s8 x, s8 y, s8 z);
+void GXPosition2u16(u16 x, u16 y);
+void GXPosition2s16(s16 x, s16 y);
+void GXPosition3s16(s16 x, s16 y, s16 z);
+void GXNormal3f32(f32 x, f32 y, f32 z);
+void GXColor1u32(u32 c);
+void GXTexCoord2f32(f32 s, f32 t);
+void GXTexCoord2u8(u8 s, u8 t);
+void GXTexCoord1x8(u8 s);
+void GXTexCoord2s8(s8 x, s8 y);
+void GXTexCoord2u16(u16 x, u16 y);
+void GXTexCoord2s16(const s16 u, const s16 v);
+void GXPosition1x8(u8 x);
+void GXPosition1x16(u16 x);
+void GXNormal1x8(u8 x);
+void GXNormal1x16(u16 x);
+void GXColor1x16(u16 x);
+void GXColor3x8(u8 r, u8 g, u8 b);
+void GXColor4x8(u8 r, u8 g, u8 b, u8 a);
+void GXTexCoord1x16(u16 x);
+void GXEnd();
+#endif
 
 #ifdef __cplusplus
 };

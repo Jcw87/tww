@@ -4,10 +4,6 @@
 #include "dolphin/os/OSContext.h"
 #include "dolphin/os/OSUtil.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 typedef u16 OSThreadState;
 typedef s32 OSPriority;  //  0 highest, 31 lowest
 
@@ -76,12 +72,21 @@ struct OSThread {
 
 typedef void (*OSSwitchThreadCallback)(OSThread* from, OSThread* to);
 
+#ifdef __MWERKS__
 OSThreadQueue OS_THREAD_QUEUE AT_ADDRESS(0x800000DC);
 OSThread* OS_CURRENT_THREAD AT_ADDRESS(0x800000E4);
+#else
+extern OSThreadQueue OS_THREAD_QUEUE;
+#endif
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 static void DefaultSwitchThreadCallback(OSThread* from, OSThread* to);
 OSSwitchThreadCallback OSSetSwitchThreadCallback(OSSwitchThreadCallback func);
 void __OSThreadInit(void);
+void OSInitMutexQueue(OSMutexQueue* queue);
 void OSInitThreadQueue(OSThreadQueue* queue);
 OSThread* OSGetCurrentThread(void);
 BOOL OSIsThreadTerminated(OSThread* thread);
@@ -108,6 +113,9 @@ OSPriority OSGetThreadPriority(OSThread* thread);
 static s32 CheckThreadQueue(OSThreadQueue* thread);
 s32 OSCheckActiveThreads(void);
 static void OSClearStack(u8 value);
+#ifdef TARGET_PC
+void OSSetCurrentThreadName(const char* name);
+#endif
 
 #ifdef __cplusplus
 };

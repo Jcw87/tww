@@ -5,6 +5,12 @@
 #include "dolphin/os/OSMutex.h"
 #include "global.h"
 
+#ifdef TARGET_PC
+#define THREAD_LOCAL thread_local
+#else
+#define THREAD_LOCAL
+#endif
+
 class JKRHeap;
 typedef void (*JKRErrorHandler)(void*, u32, int);
 
@@ -162,7 +168,7 @@ public:
     static JKRHeap* sRootHeap;
 
     static JKRHeap* sSystemHeap;
-    static JKRHeap* sCurrentHeap;
+    static THREAD_LOCAL JKRHeap* sCurrentHeap;
     static bool sDefaultFillFlag;
 
     static JKRErrorHandler mErrorHandler;
