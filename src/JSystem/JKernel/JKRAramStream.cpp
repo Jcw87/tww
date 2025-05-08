@@ -36,6 +36,9 @@ JKRAramStream::~JKRAramStream() {}
 
 /* 802B6304-802B6374       .text run__13JKRAramStreamFv */
 void* JKRAramStream::run() {
+#ifdef TARGET_PC
+    OSSetCurrentThreadName("JKRAramStream");
+#endif
     OSInitMessageQueue(&sMessageQueue, sMessageBuffer, ARRAY_SIZE(sMessageBuffer));
 
     for (;;) {

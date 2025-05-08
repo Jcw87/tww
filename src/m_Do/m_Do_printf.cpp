@@ -9,6 +9,11 @@
 #include "dolphin/base/PPCArch.h"
 #include "dolphin/os/OS.h"
 
+#if _WIN32
+#define WIN32_LEAN_AND_MEAN 1
+#include <windows.h>
+#endif
+
 u8 __OSReport_disable;
 u8 __OSReport_Error_disable;
 u8 __OSReport_Warning_disable;
@@ -31,6 +36,9 @@ extern "C" void* OSGetCallerPC(int param_0) {
 extern "C"
 #endif
 int OSGetActiveThreadID(OSThread* thread) {
+#ifdef _WIN32
+    return GetThreadId(GetCurrentThread());
+#else
     OSThread* r31;
     int id = -1;
     BOOL enable = OSDisableInterrupts();
@@ -41,6 +49,7 @@ int OSGetActiveThreadID(OSThread* thread) {
     }
     OSRestoreInterrupts(enable);
     return r31 ? id : -1;
+#endif
 }
 
 /* 800066B0-80006770       .text search_partial_address */
@@ -223,8 +232,10 @@ void OSPanic(const char* file, s32 line, const char* fmt, ...) {
         OSReport("0x%08x:   0x%08x    0x%08x\n", p, p[0], p[1]);
     }
 
+#ifdef __MWERKS
     tmp2 = 0x1234567;
     tmp = (u32*)tmp2;
     *tmp = tmp2;
+#endif
     PPCHalt();
 }

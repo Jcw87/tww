@@ -33,6 +33,9 @@ JKRDecomp::~JKRDecomp() {}
 
 /* 802BE9A0-802BEA68       .text run__9JKRDecompFv */
 void* JKRDecomp::run() {
+#ifdef TARGET_PC
+    OSSetCurrentThreadName("JKRDecomp");
+#endif
     OSInitMessageQueue(&sMessageQueue, sMessageBuffer, 4);
     while (true) {
         OSMessage message;

@@ -62,6 +62,7 @@ extern "C" {
 #define OS_CONSOLE_PC_EMULATOR 0x10000001
 #define OS_CONSOLE_EMULATOR 0x10000000
 
+#ifdef __MWERKS__
 volatile u16 __OSDeviceCode AT_ADDRESS(0x800030E6);
 
 volatile u32 OS_PI_INTR_CAUSE AT_ADDRESS(0xCC003000);
@@ -75,6 +76,7 @@ volatile u16 OS_DSP_INTR_MASK AT_ADDRESS(0xCC00500A);
 
 volatile u16 OS_ARAM_DMA_ADDR_HI AT_ADDRESS(0xCC005020);
 volatile u16 OS_ARAM_DMA_ADDR_LO AT_ADDRESS(0xCC005022);
+#endif
 
 BOOL OSIsThreadSuspended(OSThread* thread);
 
@@ -92,9 +94,11 @@ extern u8 __OSReport_enable;
 
 extern BOOL __OSIsGcam;
 
+#ifdef __MWERKS
 extern u32 BOOT_REGION_START AT_ADDRESS(0x812FDFF0);
 extern u32 BOOT_REGION_END AT_ADDRESS(0x812FDFEC);
 extern u8 __gUnknown800030E3 AT_ADDRESS(OS_BASE_CACHED | 0x30E3);
+#endif
 
 u8* OSGetStackPointer(void);
 void __OSFPRInit(void);
@@ -313,12 +317,21 @@ struct GLOBAL_MEMORY {
 #define ASSERTMSG2LINE(line, cond, msg, arg1, arg2) (void)0
 #define ASSERTMSGLINEV(line, cond, ...) (void)0
 
+#ifdef __MWERKS__
 #define OSPhysicalToCached(paddr) ((void*)((u32)(paddr) + OS_BASE_CACHED))
 #define OSPhysicalToUncached(paddr) ((void*)((u32)(paddr) + OS_BASE_UNCACHED))
 #define OSCachedToPhysical(caddr) ((u32)((u8*)(caddr)-OS_BASE_CACHED))
 #define OSUncachedToPhysical(ucaddr) ((u32)((u8*)(ucaddr)-OS_BASE_UNCACHED))
 #define OSCachedToUncached(caddr) ((void*)((u8*)(caddr) + (OS_BASE_UNCACHED - OS_BASE_CACHED)))
 #define OSUncachedToCached(ucaddr) ((void*)((u8*)(ucaddr) - (OS_BASE_UNCACHED - OS_BASE_CACHED)))
+#else
+void* OSPhysicalToCached(u32 paddr);
+void* OSPhysicalToUncached(u32 paddr);
+u32 OSCachedToPhysical(void* caddr);
+u32 OSUncachedToPhysical(void* ucaddr);
+void* OSCachedToUncached(void* caddr);
+void* OSUncachedToCached(void* ucaddr);
+#endif
 
 extern OSTime __OSStartTime;
 extern BOOL __OSInIPL;

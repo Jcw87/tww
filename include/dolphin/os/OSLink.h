@@ -24,8 +24,12 @@ struct OSModuleQueue {
     OSModuleInfo* tail;
 };
 
+#ifdef __MWERKS__
 OSModuleQueue __OSModuleList AT_ADDRESS(0x800030C8);
 void* __OSStringTable AT_ADDRESS(0x800030D0);
+#else
+extern OSModuleQueue __OSModuleList;
+#endif
 
 struct OSModuleLink {
     OSModuleInfo* next;

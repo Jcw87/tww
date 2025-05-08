@@ -22,6 +22,9 @@ u8 mDoDvdThd::sDefaultDirection = JKRArchive::DEFAULT_MOUNT_DIRECTION;
 
 /* 80017EF8-80017F54       .text main__9mDoDvdThdFPv */
 s32 mDoDvdThd::main(void* userData) {
+#ifdef TARGET_PC
+    OSSetCurrentThreadName("mDoDvdThread");
+#endif
 #if VERSION == VERSION_DEMO
     JKRThread thread(&l_thread, 0);
 #else

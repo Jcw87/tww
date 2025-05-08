@@ -5,8 +5,13 @@
 #include "dolphin/types.h"
 #include "dolphin/os/OSUtil.h"
 
+#ifdef __MWERKS__
 volatile u16 __DSPRegs[32] AT_ADDRESS(0xCC005000);
 volatile u32 __AIRegs[8] AT_ADDRESS(0xCC006C00);
+#else
+extern volatile u16 __DSPRegs[32];
+extern volatile u32 __AIRegs[8];
+#endif
 
 #ifdef __cplusplus
 extern "C" {
