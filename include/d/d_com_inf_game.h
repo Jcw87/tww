@@ -1565,9 +1565,15 @@ inline u8 dComIfGs_getPlayerPriestFlag() {
     return g_dComIfG_gameInfo.save.getPlayer().getPriest().getFlag();
 }
 
+#if TARGET_PC
+inline cXyz dComIfGs_getPlayerPriestPos() {
+    return g_dComIfG_gameInfo.save.getPlayer().getPriest().getPos();
+}
+#else
 inline cXyz& dComIfGs_getPlayerPriestPos() {
     return g_dComIfG_gameInfo.save.getPlayer().getPriest().getPos();
 }
+#endif
 
 inline s16 dComIfGs_getPlayerPriestRotate() {
     return g_dComIfG_gameInfo.save.getPlayer().getPriest().getRotate();

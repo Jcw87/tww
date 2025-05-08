@@ -2,6 +2,7 @@
 #define JAIANIMATION_H
 
 #include "dolphin/types.h"
+#include "port/byteswap.h"
 
 struct Vec;
 class JAISound;
@@ -12,11 +13,11 @@ namespace JAInter {
 
 // BAS sound entry
 struct JAIAnimeFrameSoundData {
-    /* 0x00 */ u32 mSoundID;
-    /* 0x04 */ f32 mStartFrame;
-    /* 0x08 */ f32 mEndFrame;
-    /* 0x0C */ f32 mPitch;
-    /* 0x10 */ u32 mPlayFlags;
+    /* 0x00 */ BE(u32) mSoundID;
+    /* 0x04 */ BE(f32) mStartFrame;
+    /* 0x08 */ BE(f32) mEndFrame;
+    /* 0x0C */ BE(f32) mPitch;
+    /* 0x10 */ BE(u32) mPlayFlags;
     /* 0x14 */ u8 mVolume;
     /* 0x15 */ s8 mPitchFactor;
     /* 0x16 */ u8 mLoopCount;
@@ -27,8 +28,8 @@ struct JAIAnimeFrameSoundData {
 
 // BAS header
 struct JAIAnimeSoundData {
-    /* 0x00 */ u16 datas; // Entry count
-    /* 0x02 */ u16 field_0x02;
+    /* 0x00 */ BE(u16) datas; // Entry count
+    /* 0x02 */ BE(u16) field_0x02;
     /* 0x04 */ void* field_0x04;
     /* 0x08 */ JAIAnimeFrameSoundData mAfsData[];
 };

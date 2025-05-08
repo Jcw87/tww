@@ -5,6 +5,7 @@
 #include "JSystem/JUtility/JUTAssert.h"
 #include "dolphin/gx/GX.h"
 #include "dolphin/types.h"
+#include "port/byteswap.h"
 
 // Perhaps move to a new J3DEnum.h?
 enum J3DError {
@@ -80,7 +81,7 @@ public:
     void setTexture(J3DTexture* pTex) { mTexture = pTex; }
     J3DTexture* getTexture() { return mTexture; }
 
-    void setNBTScale(Vec* scale) { mNBTScale = scale; }
+    void setNBTScale(BE(Vec)* scale) { mNBTScale = scale; }
 
     void onFlag(u32 flag) { mFlags |= flag; }
     void offFlag(u32 flag) { mFlags &= ~flag; }
@@ -114,7 +115,7 @@ public:
     J3DShapePacket* getShapePacket() { return mShapePacket; }
 
     J3DModel* getModel() { return mModel; }
-    Vec* getNBTScale() { return mNBTScale; }
+    BE(Vec)* getNBTScale() { return mNBTScale; }
 
     static Mtx mCurrentMtx;
     static Vec mCurrentS;
@@ -144,7 +145,7 @@ public:
     /* 0x118 */ GXColor* mVtxCol;
     /* 0x11C */ void* field_0x11c;
     /* 0x120 */ void* field_0x120;
-    /* 0x124 */ Vec* mNBTScale;
+    /* 0x124 */ BE(Vec)* mNBTScale;
 
     J3DSys();
     void loadPosMtxIndx(int, u16) const;

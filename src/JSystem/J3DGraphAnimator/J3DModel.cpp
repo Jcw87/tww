@@ -515,15 +515,19 @@ static f32 J3DUnit01[] = {0.0f, 1.0f};
 void J3DModel::calcWeightEnvelopeMtx() {
     __REGISTER MtxP weightAnmMtx;
     __REGISTER Mtx* worldMtx;
+#if !__MWERKS__
+    __REGISTER Mtx invMtx;
+#else
     __REGISTER Mtx* invMtx;
+#endif
     __REGISTER f32 weight;
     int idx;
     int j;
     int mixNum;
     int i;
     int max;
-    u16* indices;
-    f32* weights;
+    BE(u16)* indices;
+    BE(f32)* weights;
     u8* scaleFlags;
 
     #if !__MWERKS__
@@ -585,12 +589,13 @@ void J3DModel::calcWeightEnvelopeMtx() {
         mixNum = mModelData->getJointTree().getWEvlpMixMtxNum(i);
         do {
             idx = *++indices;
-            invMtx = &mModelData->getJointTree().getInvJointMtx((u16)idx);
             worldMtx = &mpNodeMtx[idx];
 
             #if !__MWERKS__
-            MTXConcat(*worldMtx, *invMtx, mtx);
+            mModelData->getJointTree().getInvJointMtx((u16)idx).to_host(invMtx);
+            MTXConcat(*worldMtx, invMtx, mtx);
             #else
+            invMtx = &mModelData->getJointTree().getInvJointMtx((u16)idx);
             asm {
                 psq_l var_f2, 0x0(invMtx), 0, 0 /* qr0 */
                 psq_l var_f1, 0x0(worldMtx), 0, 0 /* qr0 */

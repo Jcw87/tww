@@ -3,6 +3,7 @@
 
 #include "JSystem/JKernel/JKRCompression.h"
 #include "JSystem/JSupport/JSUList.h"
+#include "port/byteswap.h"
 
 enum JKRExpandSwitch {
     EXPAND_SWITCH_UNKNOWN0 = 0,
@@ -11,8 +12,8 @@ enum JKRExpandSwitch {
 };
 
 struct SYaz0Header {
-    u32 signature;
-    u32 length;
+    BE(u32) signature;
+    BE(u32) length;
 };
 
 class JKRDMCommand {

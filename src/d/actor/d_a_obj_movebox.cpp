@@ -1171,7 +1171,7 @@ void Act_c::path_save() {
         
         int pntIdx;
         for (pntIdx = 0; pntIdx < numPnts; pntIdx++) {
-            cXyz pntPos = dPath_GetPnt(mpPath, pntIdx)->m_position;
+            cXyz pntPos = Vec(dPath_GetPnt(mpPath, pntIdx)->m_position);
             if (current.pos.abs2(pntPos) < SQUARE(3.0f)) {
                 break;
             }

@@ -20,7 +20,7 @@
 #include "stdio.h"
 #include "string.h"
 
-u32* JAInter::InitData::aafPointer;
+BE(u32)* JAInter::InitData::aafPointer;
 
 /* 80292460-80292548       .text checkInitDataFile__Q27JAInter8InitDataFv */
 BOOL JAInter::InitData::checkInitDataFile() {
@@ -93,9 +93,9 @@ void JAInter::InitData::checkInitDataOnMemory() {
             r30 += 3;
             break;
         case 6: {
-            u32* r28 = (u32*)transInitDataFile((u8*)aafPointer + aafPointer[r30], aafPointer[r30 + 1]);
+            BE(u32)* r28 = (BE(u32)*)transInitDataFile((u8*)aafPointer + aafPointer[r30], aafPointer[r30 + 1]);
             JAIGlobalParameter::setParamSoundSceneMax(*r28);
-            JAIBasic::getInterface()->field_0x1c = (u8**)(r28 + 1);
+            JAIBasic::getInterface()->field_0x1c = (OFFSET_PTR(u8)*)(r28 + 1);
             for (int i = 0; i < JAIGlobalParameter::getParamSoundSceneMax(); i++) {
                 JAIBasic::getInterface()->field_0x1c[i] += u32(r28);
             }

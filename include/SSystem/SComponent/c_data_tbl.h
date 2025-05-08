@@ -2,15 +2,16 @@
 #define C_DATA_TBL
 
 #include "dolphin/types.h"
+#include "port/byteswap.h"
 
 struct cDT_NamePTbl {
     u32 mCount;
-    char ** mpNames;
+    OFFSET_PTR(char)* mpNames;
     
     cDT_NamePTbl();
     virtual ~cDT_NamePTbl();
     int GetIndex(const char *pName, int start) const;
-    void Set(u32 count, char** pNames);
+    void Set(u32 count, OFFSET_PTR(char)* pNames);
 };
 
 struct cDT_DataSrc {
@@ -40,7 +41,7 @@ public:
     ~cDT();
 
     u8 GetInf(int row, int col) const;
-    void Set(u32 fmtNum, char **pFmt, u32 nameNum, char **pName, u8* pData);
+    void Set(u32 fmtNum, OFFSET_PTR(char)* pFmt, u32 nameNum, OFFSET_PTR(char)* pName, u8* pData);
     
     int GetNameIndex(const char* pName, int start) const { return mName.GetIndex(pName, start); }
     int GetFormatIndex(const char* pName) const { return mFmt.GetIndex(pName, 0); }

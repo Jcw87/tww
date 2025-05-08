@@ -3,6 +3,7 @@
 
 #include "dolphin/gx/GXEnum.h"
 #include "dolphin/gx/GXStruct.h"
+#include "port/byteswap.h"
 
 class JUTPalette;
 
@@ -14,14 +15,14 @@ class JUTPalette;
 struct ResTIMG {
     /* 0x00 */ u8 format;
     /* 0x01 */ u8 alphaEnabled;
-    /* 0x02 */ u16 width;
-    /* 0x04 */ u16 height;
+    /* 0x02 */ BE(u16) width;
+    /* 0x04 */ BE(u16) height;
     /* 0x06 */ u8 wrapS;
     /* 0x07 */ u8 wrapT;
     /* 0x08 */ u8 indexTexture;
     /* 0x09 */ u8 colorFormat;
-    /* 0x0A */ u16 numColors;
-    /* 0x0C */ u32 paletteOffset;
+    /* 0x0A */ BE(u16) numColors;
+    /* 0x0C */ BE(u32) paletteOffset;
     /* 0x10 */ u8 mipmapEnabled;
     /* 0x11 */ u8 doEdgeLOD;
     /* 0x12 */ u8 biasClamp;
@@ -32,8 +33,8 @@ struct ResTIMG {
     /* 0x17 */ s8 maxLOD;
     /* 0x18 */ u8 mipmapCount;
     /* 0x19 */ u8 unknown;
-    /* 0x1A */ s16 LODBias;
-    /* 0x1C */ u32 imageOffset;
+    /* 0x1A */ BE(s16) LODBias;
+    /* 0x1C */ BE(u32) imageOffset;
 };  // Size: 0x20
 
 class JUTTexture {

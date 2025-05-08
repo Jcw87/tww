@@ -141,6 +141,11 @@ void dEvent_manager_c::setData(const char* data) {
         return;
 
     mList.setHeaderP((event_binary_data_header*)data);
+#if TARGET_PC
+    bool needSwap = mList.mHeaderP->unk[0] == 0;
+    JUT_ASSERT(0, mList.mHeaderP->unk[0] == 0 || mList.mHeaderP->unk[0] == 1);
+    mList.mHeaderP->unk[0] = 1;
+#endif
     if (mList.getEventNum() > 0)
         mList.setEventP((dEvDtEvent_c*)(data + mList.getEventTop()));
     if (mList.getStaffNum() > 0)
@@ -149,10 +154,28 @@ void dEvent_manager_c::setData(const char* data) {
         mList.setCutP((dEvDtCut_c*)(data + mList.getCutTop()));
     if (mList.getDataNum() > 0)
         mList.setDataP((dEvDtData_c*)(data + mList.getDataTop()));
-    if (mList.getFDataNum() > 0)
+    if (mList.getFDataNum() > 0) {
         mList.setFDataP((f32*)(data + mList.getFDataTop()));
-    if (mList.getIDataNum() > 0)
+#if TARGET_PC
+        if (needSwap) {
+            auto data = mList.mFDataP;
+            for (int i = 0; i < mList.getFDataNum(); i++) {
+                data[i] = byteswap(data[i]);
+            }
+        }
+#endif
+    }
+    if (mList.getIDataNum() > 0) {
         mList.setIDataP((int*)(data + mList.getIDataTop()));
+#if TARGET_PC
+        if (needSwap) {
+            auto data = mList.mIDataP;
+            for (int i = 0; i < mList.getIDataNum(); i++) {
+                data[i] = byteswap(data[i]);
+            }
+        }
+#endif
+    }
     if (mList.getSDataNum() > 0)
         mList.setSDataP((char*)(data + mList.getSDataTop()));
 }

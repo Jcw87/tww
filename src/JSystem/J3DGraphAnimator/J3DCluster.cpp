@@ -111,7 +111,7 @@ void J3DDeformer::deform(J3DVertexBuffer* vtx, u16 idx, f32* weightList) {
 
         if (checkFlag(1) && cluster->mFlags != 0 && vtx->getVertexData()->getVtxNrmType() == GX_F32) {
             f32* vtxNrmDst = (f32*)vtx->getVtxNrmArrayPointer(0);
-            f32* vtxNrmSrc = mDeformData->getVtxNrm();
+            BE(f32)* vtxNrmSrc = mDeformData->getVtxNrm();
             f32* nrmBuf = field_0x0c;
 
             for (u16 i = 0; i < cluster->mNrmNum; i++) {
@@ -122,7 +122,7 @@ void J3DDeformer::deform(J3DVertexBuffer* vtx, u16 idx, f32* weightList) {
 
                 for (u16 j = 0; j < cluster->mKeyNum; j++) {
                     u16 flag = key[j].mNrmFlag[i];
-                    f32* src = &vtxNrmSrc[(flag & 0x1FFF) * 3];
+                    BE(f32)* src = &vtxNrmSrc[(flag & 0x1FFF) * 3];
 
                     f32 srcX = src[0];
                     f32 srcY = src[1];
@@ -309,15 +309,15 @@ int J3DSkinDeform::initMtxIndexArray(J3DModelData* modelData) {
                 if (cmd != GX_TRIANGLEFAN && cmd != GX_TRIANGLESTRIP)
                     break;
 
-                int vtxCount = *(u16*)dl;
+                int vtxCount = *(BE(u16)*)dl;
                 dl += 2;
 
                 u16 useMtxIdxBuf[10];
                 for (int k = 0; k < vtxCount; k++) {
                     u8* src = &dl[vtxSize * k];
                     u8 pnmtxIdx = (u32)*(u8*)&src[pnmtxIdxOffs] / 3;
-                    u16 posIdx = *(u16*)&src[posOffs];
-                    u16 nrmIdx = *(u16*)&src[nrmOffs];
+                    u16 posIdx = *(BE(u16)*)&src[posOffs];
+                    u16 nrmIdx = *(BE(u16)*)&src[nrmOffs];
 
                     u16 useMtxIdx = shapeMtx->getUseMtxIndex(pnmtxIdx);
                     if (useMtxIdx == 0xFFFF) {

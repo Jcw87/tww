@@ -105,7 +105,7 @@ bool J2DScreen::set(JSURandomInputStream* pStream) {
 
 /* 802D0D70-802D0DE8       .text checkSignature__9J2DScreenFP20JSURandomInputStream */
 bool J2DScreen::checkSignature(JSURandomInputStream* pStream) {
-    u32 header[8];
+    BE(u32) header[8];
     pStream->read(header, sizeof(header));
     if (header[0] != 'SCRN' || header[1] != 'blo1') {
         JUT_WARN(0xd9, "%s", "SCRN resource is broken.\n");
@@ -118,11 +118,11 @@ bool J2DScreen::checkSignature(JSURandomInputStream* pStream) {
 /* 802D0DE8-802D0F2C       .text getScreenInformation__9J2DScreenFP20JSURandomInputStream */
 bool J2DScreen::getScreenInformation(JSURandomInputStream* pStream) {
     struct J2DScrnInfoHeader {
-        u32 mMagic;
-        u32 mSize;
-        u16 mWidth;
-        u16 mHeight;
-        u32 mColor;
+        BE(u32) mMagic;
+        BE(u32) mSize;
+        BE(u16) mWidth;
+        BE(u16) mHeight;
+        BE(u32) mColor;
     } header;
 
     pStream->read(&header, sizeof(header));

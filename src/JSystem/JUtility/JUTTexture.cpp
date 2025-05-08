@@ -87,7 +87,7 @@ void JUTTexture::initTexObj() {
         mipmapEnabled = 0;
     }
     u8* image = ((u8*)mTexInfo);
-    image += (mTexInfo->imageOffset ? mTexInfo->imageOffset : 0x20);
+    image += (mTexInfo->imageOffset ? u32(mTexInfo->imageOffset) : 0x20);
     GXInitTexObj(&mTexObj, image, mTexInfo->width, mTexInfo->height, (GXTexFmt)mTexInfo->format,
                  (GXTexWrapMode)mWrapS, (GXTexWrapMode)mWrapT, mipmapEnabled);
     GXInitTexObjLOD(&mTexObj, (GXTexFilter)mMinFilter, (GXTexFilter)mMagFilter, mMinLOD / 8.0f,
@@ -105,7 +105,7 @@ void JUTTexture::initTexObj(GXTlut tlut) {
     }
     mTlutName = tlut;
     u8* image = ((u8*)mTexInfo);
-    image += (mTexInfo->imageOffset ? mTexInfo->imageOffset : 0x20);
+    image += (mTexInfo->imageOffset ? u32(mTexInfo->imageOffset) : 0x20);
     GXInitTexObjCI(&mTexObj, image, mTexInfo->width, mTexInfo->height, (GXCITexFmt)mTexInfo->format,
                    (GXTexWrapMode)mWrapS, (GXTexWrapMode)mWrapT, mipmapEnabled, tlut);
     GXInitTexObjLOD(&mTexObj, (GXTexFilter)mMinFilter, (GXTexFilter)mMagFilter, mMinLOD / 8.0f,

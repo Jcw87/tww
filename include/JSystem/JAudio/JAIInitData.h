@@ -2,13 +2,14 @@
 #define JAIINITDATA_H
 
 #include "dolphin/types.h"
+#include "port/byteswap.h"
 
 namespace JAInter {
     namespace InitData {
         BOOL checkInitDataFile();
         void checkInitDataOnMemory();
 
-        extern u32* aafPointer;
+        extern BE(u32)* aafPointer;
     };
 }
 

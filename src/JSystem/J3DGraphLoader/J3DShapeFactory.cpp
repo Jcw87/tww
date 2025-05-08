@@ -13,17 +13,37 @@
 #include "JSystem/JKernel/JKRHeap.h"
 #include "dolphin/gx/GXAttr.h"
 #include "dolphin/os/OS.h"
+#include <algorithm>
 
 /* 802FE3A8-802FE458       .text __ct__15J3DShapeFactoryFRC13J3DShapeBlock */
 J3DShapeFactory::J3DShapeFactory(const J3DShapeBlock& block) {
     mpShapeInitData = JSUConvertOffsetToPtr<J3DShapeInitData>(&block, (uintptr_t)block.mpShapeInitData);
-    mpIndexTable = JSUConvertOffsetToPtr<u16>(&block, (uintptr_t)block.mpIndexTable);
+    mpIndexTable = JSUConvertOffsetToPtr<BE(u16)>(&block, (uintptr_t)block.mpIndexTable);
     mpVtxDescList = JSUConvertOffsetToPtr<GXVtxDescList>(&block, (uintptr_t)block.mpVtxDescList);
-    mpMtxTable = JSUConvertOffsetToPtr<u16>(&block, (uintptr_t)block.mpMtxTable);
+    mpMtxTable = JSUConvertOffsetToPtr<BE(u16)>(&block, (uintptr_t)block.mpMtxTable);
     mpDisplayListData = JSUConvertOffsetToPtr<u8>(&block, (uintptr_t)block.mpDisplayListData);
     mpMtxInitData = JSUConvertOffsetToPtr<J3DShapeMtxInitData>(&block, (uintptr_t)block.mpMtxInitData);
     mpDrawInitData = JSUConvertOffsetToPtr<J3DShapeDrawInitData>(&block, (uintptr_t)block.mpDrawInitData);
     mpVcdVatCmdBuffer = NULL;
+
+#if TARGET_LITTLE_ENDIAN
+    // mVtxDescList is in big endian, swap to little endian.
+    int maxVtxDescListStart = 0;
+    for (int shapeIdx = 0; shapeIdx < block.mShapeNum; shapeIdx++) {
+        u16 thisIndex = mpShapeInitData[mpIndexTable[shapeIdx]].mVtxDescListIndex;
+        maxVtxDescListStart = std::max(maxVtxDescListStart, (int)(thisIndex / sizeof(GXVtxDescList)));
+    }
+
+    GXVtxDescList* lastEntry = mpVtxDescList + maxVtxDescListStart;
+    while (byteswap(lastEntry->attr) != GX_VA_NULL) {
+        lastEntry++;
+    }
+
+    for (GXVtxDescList* entry = mpVtxDescList; entry <= lastEntry; entry++) {
+        entry->attr = byteswap(entry->attr);
+        entry->type = byteswap(entry->type);
+    }
+#endif
 }
 
 /* 802FE458-802FE614       .text create__15J3DShapeFactoryFiUlP14_GXVtxDescList */

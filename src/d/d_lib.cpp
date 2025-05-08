@@ -215,8 +215,8 @@ void dLib_pathMove(cXyz* pos, s8* pPntNo, dPath* pPath, f32 speed, int (*pCallBa
     } else {
         pnt_next_no = 0;
     }
-    cXyz pnt_pos = pPath->m_points[pnt_no].m_position;
-    cXyz pnt_next_pos = pPath->m_points[pnt_next_no].m_position;
+    cXyz pnt_pos = Vec(pPath->m_points[pnt_no].m_position);
+    cXyz pnt_next_pos = Vec(pPath->m_points[pnt_next_no].m_position);
 
     cXyz move = (pnt_next_pos - pnt_pos).normZP();
     if (pCallBack == NULL) {

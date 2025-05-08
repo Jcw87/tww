@@ -16,15 +16,15 @@ dADM_CharTbl::~dADM_CharTbl() {
 
 /* 800C2758-800C2844       .text SetData__12dADM_CharTblFUlUlUlUlUlUlUl */
 void dADM_CharTbl::SetData(u32 offs, u32 row_num, u32 row_offs, u32 colum_num, u32 colum_offs, u32 dat_size, u32 data_offs) {
-    char** pFmt = (char**)row_offs;
-    char** pName = (char**)colum_offs;
+    OFFSET_PTR(char)* pFmt = (OFFSET_PTR(char)*)row_offs;
+    OFFSET_PTR(char)* pName = (OFFSET_PTR(char)*)colum_offs;
     u8* pData = (u8*)data_offs;
 
-    u32* row = (u32*)pFmt;
+    BE(u32)* row = (BE(u32)*)pFmt;
     for (u32 i = 0; i < row_num; i++, row++)
         *row += offs;
 
-    u32* colum = (u32*)pName;
+    BE(u32)* colum = (BE(u32)*)pName;
     for (u32 i = 0; i < colum_num; i++, colum++)
         *colum += offs;
 
@@ -87,7 +87,7 @@ dADM::~dADM() {}
 
 /* 800C2C78-800C2CC0       .text FindTag__4dADMFUlPUlPUl */
 bool dADM::FindTag(u32 tag, u32* pSize, u32* pOffs) {
-    u32 *pData = (u32*)mpData;
+    BE(u32) *pData = (BE(u32)*)mpData;
     for (s32 i = 0; i < mBlockCount; i++) {
         if (tag == pData[0]) {
             *pSize = pData[1];
@@ -107,10 +107,10 @@ void dADM::SetData(void* pData) {
     u32 name, nameOffs;
     u32 dat_size, dataOffs;
 
-    mBlockCount = *((s32*)pData);
+    mBlockCount = *((BE(s32)*)pData);
     mpData = (u8*)pData + 4;
 
-    u32 *pHeader = (u32*)mpData;
+    BE(u32)* pHeader = (BE(u32)*)mpData;
     for (s32 i = 0; i < mBlockCount; i++) {
         pHeader[2] = pHeader[2] + (uintptr_t)pData;
         pHeader += 3;

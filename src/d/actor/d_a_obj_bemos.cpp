@@ -360,7 +360,7 @@ BOOL daBemos_c::CreateInit3() {
         home.pos = current.pos;
         shape_angle = csXyz::Zero;
         current.angle = shape_angle;
-        cXyz local_3C = pdVar3->m_points[1].m_position;
+        cXyz local_3C = Vec(pdVar3->m_points[1].m_position);
 
         fopAcM_createChild(fpcNm_Bemos_e, fopAcM_GetID(this), m6A8 | 0x2fff0000 | m6B9 << 8, &local_3C, tevStr.mRoomNo, NULL, NULL, 2);
         m29C.y = cLib_targetAngleY(&current.pos, &local_3C);

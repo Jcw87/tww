@@ -320,7 +320,7 @@ int dRes_info_c::loadResource() {
                 JUTDataFileHeader* fileHeader = (JUTDataFileHeader*)pRes;
                 void *pBasData;
                 if (fileHeader->mSeAnmOffset != -1)
-                    pBasData = (char*)fileHeader->mSeAnmOffset + (uintptr_t)pRes;
+                    pBasData = (void*)((u32)fileHeader->mSeAnmOffset + (uintptr_t)pRes);
                 else
                     pBasData = NULL;
 

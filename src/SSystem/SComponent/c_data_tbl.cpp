@@ -17,7 +17,7 @@ cDT_NamePTbl::~cDT_NamePTbl() {
 }
 
 /* 802549D8-802549E4       .text Set__12cDT_NamePTblFUlPPc */
-void cDT_NamePTbl::Set(u32 count, char** pNames) {
+void cDT_NamePTbl::Set(u32 count, OFFSET_PTR(char)* pNames) {
     mCount = count;
     mpNames = pNames;
 }
@@ -82,7 +82,7 @@ cDT::~cDT() {
 }
 
 /* 80254D00-80254D68       .text Set__3cDTFUlPPcUlPPcPUc */
-void cDT::Set(u32 fmtCount, char** pFmt, u32 nameCount, char** pName, u8* pData) {
+void cDT::Set(u32 fmtCount, OFFSET_PTR(char)* pFmt, u32 nameCount, OFFSET_PTR(char)* pName, u8* pData) {
     mFmt.Set(fmtCount, pFmt);
     mName.Set(nameCount, pName);
     mSrc.Set(fmtCount, nameCount, pData);
