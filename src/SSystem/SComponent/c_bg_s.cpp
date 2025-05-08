@@ -173,6 +173,13 @@ void* cBgS::ConvDzb(void* work) {
         pbgd->m_g_tbl[i].m_name = (char*)((u32)pbgd->m_g_tbl[i].m_name + (uintptr_t)pbgd);
     }
 
+#if TARGET_LITTLE_ENDIAN
+    for (int i = 0; i < pbgd->m_v_num; i++) {
+        Vec& vertex = pbgd->m_v_tbl[i];
+        vertex = byteswap(vertex);
+    }
+#endif
+
     return pbgd;
 }
 

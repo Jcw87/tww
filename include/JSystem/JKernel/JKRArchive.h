@@ -3,29 +3,30 @@
 
 #include "JSystem/JKernel/JKRCompression.h"
 #include "JSystem/JKernel/JKRFileLoader.h"
+#include "port/byteswap.h"
 
 class JKRArcFinder;
 class JKRHeap;
 
 struct SArcHeader {
-    /* 0x00 */ u32 signature;
-    /* 0x04 */ u32 file_length;
-    /* 0x08 */ u32 header_length;
-    /* 0x0C */ u32 file_data_offset;
-    /* 0x10 */ u32 file_data_length;
-    /* 0x14 */ u32 field_0x14;
-    /* 0x18 */ u32 field_0x18;
-    /* 0x1C */ u32 field_0x1c;
+    /* 0x00 */ BE(u32) signature;
+    /* 0x04 */ BE(u32) file_length;
+    /* 0x08 */ BE(u32) header_length;
+    /* 0x0C */ BE(u32) file_data_offset;
+    /* 0x10 */ BE(u32) file_data_length;
+    /* 0x14 */ BE(u32) field_0x14;
+    /* 0x18 */ BE(u32) field_0x18;
+    /* 0x1C */ BE(u32) field_0x1c;
 };
 
 struct SArcDataInfo {
-    /* 0x00 */ u32 num_nodes;
-    /* 0x04 */ u32 node_offset;
-    /* 0x08 */ u32 num_file_entries;
-    /* 0x0C */ u32 file_entry_offset;
-    /* 0x10 */ u32 string_table_length;
-    /* 0x14 */ u32 string_table_offset;
-    /* 0x18 */ u16 next_free_file_id;
+    /* 0x00 */ BE(u32) num_nodes;
+    /* 0x04 */ BE(u32) node_offset;
+    /* 0x08 */ BE(u32) num_file_entries;
+    /* 0x0C */ BE(u32) file_entry_offset;
+    /* 0x10 */ BE(u32) string_table_length;
+    /* 0x14 */ BE(u32) string_table_offset;
+    /* 0x18 */ BE(u16) next_free_file_id;
     /* 0x1A */ bool sync_file_ids_and_indices;
     /* 0x1B */ u8 field_1b[5];
 };
@@ -50,19 +51,19 @@ public:
     };
 
     struct SDIDirEntry {
-        u32 type;
-        u32 name_offset;
-        u16 field_0x8;
-        u16 num_entries;
-        u32 first_file_index;
+        BE(u32) type;
+        BE(u32) name_offset;
+        BE(u16) field_0x8;
+        BE(u16) num_entries;
+        BE(u32) first_file_index;
     };
 
     struct SDIFileEntry {
-        u16 file_id;
-        u16 name_hash;
-        u32 type_flags_and_name_offset;
-        u32 data_offset;
-        u32 data_size;
+        BE(u16) file_id;
+        BE(u16) name_hash;
+        BE(u32) type_flags_and_name_offset;
+        BE(u32) data_offset;
+        BE(u32) data_size;
         void* data;
 
         u32 getNameOffset() const { return type_flags_and_name_offset & 0xFFFFFF; }

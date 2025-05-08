@@ -2,6 +2,7 @@
 #define JSUINPUTSTREAM_H
 
 #include "JSystem/JSupport/JSUIosBase.h"
+#include "port/byteswap.h"
 
 enum JSUStreamSeekFrom {
     JSUStreamSeekFrom_SET = 0,  // absolute
@@ -19,31 +20,31 @@ public:
     /* vt[5] */ virtual u32 readData(void*, s32) = 0;
 
     u32 readU32() {
-        u32 val;
+        BE(u32) val;
         this->read(&val, sizeof(val));
         return val;
     }
 
     u32 read32b() {
-        u32 val;
+        BE(u32) val;
         this->read(&val, sizeof(val));
         return val;
     }
 
     s32 readS32() {
-        s32 val;
+        BE(s32) val;
         this->read(&val, sizeof(val));
         return val;
     }
 
     s16 readS16() {
-        s16 val;
+        BE(s16) val;
         this->read(&val, sizeof(val));
         return val;
     }
 
     u16 readU16() {
-        u16 val;
+        BE(u16) val;
         this->read(&val, sizeof(val));
         return val;
     }
@@ -61,7 +62,7 @@ public:
     }
 
     u16 read16b() {
-        u16 val;
+        BE(u16) val;
         this->read(&val, sizeof(val));
         return val;
     }

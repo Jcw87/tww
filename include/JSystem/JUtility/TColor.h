@@ -2,6 +2,7 @@
 #define TCOLOR_H
 
 #include "dolphin/gx/GXStruct.h"
+#include "port/byteswap.h"
 
 namespace JUtility {
 struct TColor : public GXColor {
@@ -17,7 +18,7 @@ struct TColor : public GXColor {
     }
 
     operator u32() const { return toUInt32(); }
-    u32 toUInt32() const { return *(u32*)&r; }
+    u32 toUInt32() const { return *(BE(u32)*)&r; }
 
     void set(u8 cR, u8 cG, u8 cB, u8 cA) {
         r = cR;
@@ -26,7 +27,7 @@ struct TColor : public GXColor {
         a = cA;
     }
 
-    void set(u32 u32Color) { *(u32*)&r = u32Color; }
+    void set(u32 u32Color) { *(BE(u32)*)&r = u32Color; }
     void set(GXColor gxColor) {
         GXColor* temp = this;
         *temp = gxColor;

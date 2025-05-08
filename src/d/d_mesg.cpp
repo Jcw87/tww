@@ -513,7 +513,7 @@ bool dMesg_tSequenceProcessor::do_tag(u32 param_1, const void* param_2, u32 para
             break;
         case 4:
             r29 = true;
-            mWaitRest = *(u16*)param_2;
+            mWaitRest = *(BE(u16)*)param_2;
             field_0x160 = 1;
             mStopFlag = 2;
             break;
@@ -523,7 +523,7 @@ bool dMesg_tSequenceProcessor::do_tag(u32 param_1, const void* param_2, u32 para
             break;
         case 7:
             r29 = true;
-            mWaitRest = *(u16*)param_2;
+            mWaitRest = *(BE(u16)*)param_2;
             field_0x160 = 1;
             break;
         case 8:

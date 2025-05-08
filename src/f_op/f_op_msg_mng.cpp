@@ -30,9 +30,9 @@ struct mesg_header : JUTDataFileHeader {
 };
 
 struct mesg_info : JUTDataBlockHeader {
-    /* 0x08 */ u16 mNumEntry;
-    /* 0x0A */ u16 mEntrySize;
-    /* 0x0C */ u16 mGroupID;
+    /* 0x08 */ BE(u16) mNumEntry;
+    /* 0x0A */ BE(u16) mEntrySize;
+    /* 0x0C */ BE(u16) mGroupID;
     /* 0x10 */ u8 mColor;
     /* 0x14 */ JMSMesgEntry_c mEntries[];
 };
@@ -568,7 +568,7 @@ char* fopMsgM_messageGet(char* i_dest, u32 i_msgNo) {
 
     while (*src != '\0') {
         if ((u8)*src == 0x1A) {
-            u32 next_as_int = *(u32*)(++src);
+            BE(u32) next_as_int = *(BE(u32)*)(++src);
             if ((next_as_int & 0xFFFFFF) == 0x1E) {
                 *dst = 0x1A;
                 dst++;

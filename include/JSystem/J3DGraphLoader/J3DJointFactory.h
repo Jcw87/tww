@@ -3,6 +3,13 @@
 
 #include "JSystem/J3DGraphBase/J3DTransform.h"
 #include "dolphin/types.h"
+#include "port/byteswap.h"
+
+#if TARGET_PC
+#define OFFSET_PTR_V0 BE(u32)
+#else
+#define OFFSET_PTR_V0 void*
+#endif
 
 class J3DJoint;
 struct ResNTAB;
@@ -17,15 +24,15 @@ struct J3DJointInitData {
 };  // Size: 0x30
 
 struct J3DJointBlock {
-    /* 0x00 */ u32 mMagic;
-    /* 0x04 */ u32 mSize;
+    /* 0x00 */ BE(u32) mMagic;
+    /* 0x04 */ BE(u32) mSize;
 
-    /* 0x08 */ u16 mJointNum;
+    /* 0x08 */ BE(u16) mJointNum;
     /* 0x0A */ u16 _pad;
 
-    /* 0x0C */ J3DJointInitData* mpJointInitData;
-    /* 0x10 */ u16* mpIndexTable;
-    /* 0x14 */ ResNTAB* mpNameTable;
+    /* 0x0C */ OFFSET_PTR_V0 mpJointInitData;
+    /* 0x10 */ OFFSET_PTR_V0 mpIndexTable;
+    /* 0x14 */ OFFSET_PTR_V0 mpNameTable;
 };  // Size: 0x18
 
 struct J3DJointFactory {

@@ -209,7 +209,7 @@ BOOL daPy_lk_c::dProcTool() {
                 || id == 4
 #endif
             ) {
-                JStudio::stb::TParseData_fixed<50, TValueIterator_misaligned<u16> > spC4(data);
+                JStudio::stb::TParseData_fixed<50, TValueIterator_misaligned<BE(u16)> > spC4(data);
                 r29 = spC4.front();
                 JStudio::stb::TParseData_fixed<49, TValueIterator_raw<u8> > spB0(spC4.getNext());
                 if (spB0.size() == 3) {
@@ -235,10 +235,10 @@ BOOL daPy_lk_c::dProcTool() {
                 || id == 5
 #endif
             ) {
-                JStudio::stb::TParseData_fixed<50, TValueIterator_misaligned<u16> > sp9C(data);
+                JStudio::stb::TParseData_fixed<50, TValueIterator_misaligned<BE(u16)> > sp9C(data);
                 r29 = sp9C.front();
                 // setDemoTextureAnime(*(sp9C.begin() + 1), sp9C.back(), 0, r28); // Seems more real, but doesn't match?
-                setDemoTextureAnime(*(u16*)(sp9C.begin() + 1).get(), sp9C.back(), 0, r28); // Fakematch?
+                setDemoTextureAnime(*(BE(u16)*)(sp9C.begin() + 1).get(), sp9C.back(), 0, r28); // Fakematch?
                 JStudio::stb::TParseData_fixed<49, TValueIterator_raw<u8> > sp88(sp9C.getNext());
                 if (sp88.size() == 3) {
                     mLeftHandIdx = sp88.front();

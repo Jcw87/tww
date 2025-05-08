@@ -373,7 +373,7 @@ int JUTResFont::getFontCode(int chr) const {
                 ret = *(&mpMapBlocks[i]->mLeading + (chr - mpMapBlocks[i]->startCode));
                 break;
             } else if (map->mappingMethod == 3) {
-                u16* leading_temp = &map->mLeading;
+                BE(u16)* leading_temp = &map->mLeading;
                 int phi_r5 = 0;
                 int phi_r6_2 = map->numEntries - 1;
 
@@ -394,7 +394,7 @@ int JUTResFont::getFontCode(int chr) const {
                     break;
                 }
             } else if (map->mappingMethod == 1) {
-                u16* phi_r5_2 = NULL;
+                BE(u16)* phi_r5_2 = NULL;
                 if (map->numEntries == 1) {
                     phi_r5_2 = &map->mLeading;
                 }
@@ -449,7 +449,7 @@ void JUTResFont::loadImage(int code, GXTexMapID id) {
 }
 
 /* 802C3248-802C328C       .text convertSjis__10JUTResFontCFiPUs */
-int JUTResFont::convertSjis(int inChar, u16* inLead) const {
+int JUTResFont::convertSjis(int inChar, BE(u16)* inLead) const {
     int hi = JSUHiByte(inChar);
     int lo = JSULoByte(inChar) - 0x40;
     if (0x40 <= lo) {

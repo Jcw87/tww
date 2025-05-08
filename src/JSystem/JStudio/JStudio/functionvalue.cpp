@@ -612,7 +612,7 @@ f64 TFunctionValue_list::update_INTERPOLATE_LINEAR_(const TFunctionValue_list& r
 
 /* 8027264C-8027269C       .text update_INTERPOLATE_PLATEAU___Q27JStudio19TFunctionValue_listFRCQ27JStudio19TFunctionValue_listRCQ37JStudio19TFunctionValue_list11TIndexData_ */
 f64 TFunctionValue_list::update_INTERPOLATE_PLATEAU_(const TFunctionValue_list& rThis, const TFunctionValue_list::TIndexData_& data) {
-    const f32* arr = rThis._44;
+    const BE(f32)* arr = rThis._44;
     return functionvalue::interpolateValue_plateau(data._0, data._8, arr[data._10], 1.0 + data._8, arr[data._10 + 1]);
 }
 
@@ -654,7 +654,7 @@ TFunctionValueAttributeSet TFunctionValue_list_parameter::getAttributeSet() {
 }
 
 /* 802727CC-802727FC       .text data_set__Q27JStudio29TFunctionValue_list_parameterFPCfUl */
-void TFunctionValue_list_parameter::data_set(const f32* pf, u32 u) {
+void TFunctionValue_list_parameter::data_set(const BE(f32)* pf, u32 u) {
     ASSERT((pf != NULL) || (u == 0));
 
     pfData_ = pf;
@@ -723,7 +723,7 @@ f64 TFunctionValue_list_parameter::getValue(f64 pfData_) {
         return dat3.get()[1];
     } 
 
-    const f32* pf = dat3.get();
+    const BE(f32)* pf = dat3.get();
     const int suData_size = 1;
     // JUT_ASSERT(1411, (pfData_<=pf-suData_size)&&(pf<pfData_+suData_size*uData_));
     // JUT_ASSERT(1412, pfnUpdate_!=0);
@@ -737,20 +737,20 @@ f64 TFunctionValue_list_parameter::update_INTERPOLATE_NONE_(const TFunctionValue
 
 /* 802729E8-80272A18       .text update_INTERPOLATE_LINEAR___Q27JStudio29TFunctionValue_list_parameterFRCQ27JStudio29TFunctionValue_list_parameterd */
 f64 TFunctionValue_list_parameter::update_INTERPOLATE_LINEAR_(const TFunctionValue_list_parameter& rThis, f64 d) {
-    const f32* a = rThis.dat3.get();
+    const BE(f32)* a = rThis.dat3.get();
     return functionvalue::interpolateValue_linear(d, a[-2], a[-1], a[0], a[1]);
 }
 
 /* 80272A18-80272A54       .text update_INTERPOLATE_PLATEAU___Q27JStudio29TFunctionValue_list_parameterFRCQ27JStudio29TFunctionValue_list_parameterd */
 f64 TFunctionValue_list_parameter::update_INTERPOLATE_PLATEAU_(const TFunctionValue_list_parameter& rThis, f64 d) {
-    const f32* a = rThis.dat3.get();
+    const BE(f32)* a = rThis.dat3.get();
     return functionvalue::interpolateValue_plateau(d, a[-2], a[-1], a[0], a[1]);
 }
 
 /* 80272A54-80272CB8       .text update_INTERPOLATE_BSPLINE_dataMore3___Q27JStudio29TFunctionValue_list_parameterFRCQ27JStudio29TFunctionValue_list_parameterd */
 f64 TFunctionValue_list_parameter::update_INTERPOLATE_BSPLINE_dataMore3_(const TFunctionValue_list_parameter& rThis, f64 d) {
     // JUT_ASSERT(1457, rThis.uData_>=3)
-    const f32* pfVar2 = rThis.dat3.get();
+    const BE(f32)* pfVar2 = rThis.dat3.get();
     f64 local_68[4];
     f64 local_48[6];
     local_68[1] = pfVar2[-1];
@@ -838,7 +838,7 @@ TFunctionValueAttributeSet TFunctionValue_hermite::getAttributeSet() {
 }
 
 /* 80272D60-80272DB0       .text data_set__Q27JStudio22TFunctionValue_hermiteFPCfUlUl */
-void TFunctionValue_hermite::data_set(const f32* pf, u32 u, u32 uSize) {
+void TFunctionValue_hermite::data_set(const BE(f32)* pf, u32 u, u32 uSize) {
     ASSERT((pf != NULL) || (u == 0));
     ASSERT((uSize == 3) || (uSize == 4));
 
@@ -884,8 +884,8 @@ f64 TFunctionValue_hermite::getValue(f64 pfData_) {
         return dat3.get()[1];
     }
 
-    const f32* pfVar5 = dat3.get();
-    const f32* pfVar7 = pfVar5 - uSize_;
+    const BE(f32)* pfVar5 = dat3.get();
+    const BE(f32)* pfVar7 = pfVar5 - uSize_;
     return functionvalue::interpolateValue_hermite(
         pfData_, pfVar7[0], pfVar7[1],
         pfVar7[uSize_ - 1], pfVar5[0],

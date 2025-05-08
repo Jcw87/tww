@@ -36,10 +36,10 @@ class J3DModelData;
 class daItem_c;
 
 struct fopAcM_prmBase_class {
-    /* 0x00 */ u32 parameters;
-    /* 0x04 */ cXyz position;
-    /* 0x10 */ csXyz angle;
-    /* 0x16 */ u16 setID;
+    /* 0x00 */ BE(u32) parameters;
+    /* 0x04 */ BE(cXyz) position;
+    /* 0x10 */ BE(csXyz) angle;
+    /* 0x16 */ BE(u16) setID;
 };  // Size = 0x18
 
 struct fopAcM_prmScale_class {

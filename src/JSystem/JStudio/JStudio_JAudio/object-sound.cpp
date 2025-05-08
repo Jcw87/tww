@@ -72,7 +72,7 @@ void TAdaptor_sound::adaptor_do_update(const JStudio::TObject* object, u32) {
 void TAdaptor_sound::adaptor_do_SOUND(JStudio::data::TEOperationData op, const void* data, u32) {
     switch (op) {
     case JStudio::data::TEOD_Unknown_19: {
-        u32 soundID = *(s32*)data;
+        u32 soundID = *(BE(s32)*)data;
         if (mpBasic->checkEnablePrepare(soundID)) {
             if (mpSound) {
                 mpSound->stop(0);
@@ -83,7 +83,7 @@ void TAdaptor_sound::adaptor_do_SOUND(JStudio::data::TEOperationData op, const v
                 return;
             }
         } else {
-            mSoundID = *(s32*)data;
+            mSoundID = *(BE(s32)*)data;
         }
         break;
     }
@@ -96,7 +96,7 @@ void TAdaptor_sound::adaptor_do_SOUND(JStudio::data::TEOperationData op, const v
 void TAdaptor_sound::adaptor_do_LOCATED(JStudio::data::TEOperationData op, const void* data, u32 flag) {
     switch (op) {
     case JStudio::data::TEOD_Unknown_02: {
-        Vec* pos  = *(Vec**)data;
+        BE(Vec)* pos  = *(BE(Vec)**)data;
         mPosition = NULL;
         if (!pos)
             return;

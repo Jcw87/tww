@@ -2,6 +2,7 @@
 #define JAIBANKWAVE_H
 
 #include "dolphin/types.h"
+#include "port/byteswap.h"
 
 namespace JAInter {
     namespace BankWave {
@@ -18,9 +19,9 @@ namespace JAInter {
         bool checkAllWaveLoadStatus();
 
         struct initOnCode_s {
-            u8* field_0x0;
-            int field_0x4;
-            u32 field_0x8;
+            OFFSET_PTR(u8) field_0x0;
+            BE(int) field_0x4;
+            BE(u32) field_0x8;
         };
         struct flags_t {
             u8 flag1 : 1;

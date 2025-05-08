@@ -36,6 +36,14 @@ void JASystem::DSPInterface::setFilterTable(s16* dest, s16* src, u32 size) {
     }
 }
 
+#if TARGET_LITTLE_ENDIAN
+void JASystem::DSPInterface::setFilterTable(s16* dest, BE<s16>* src, u32 size) {
+    for (int i = 0; i < size; i++) {
+        *dest++ = *src++;
+    }
+}
+#endif
+
 /* 8028A168-8028A19C       .text flushBuffer__Q28JASystem12DSPInterfaceFv */
 void JASystem::DSPInterface::flushBuffer() {
     DCFlushRange(CH_BUF, sizeof(DSPBuffer) * 64);
@@ -99,7 +107,7 @@ bool JASystem::DSPInterface::FXBuffer::setFXLine(s16* buffer, JASystem::DSPInter
         field_0xe = config->field_0x8;
         field_0xc = SEND_TABLE[config->field_0x6];
         field_0x2 = config->field_0xc;
-        OSReport("FX LINE Buffer %x/ SIZE %d\n", buffer, config->field_0xc);
+        OSReport("FX LINE Buffer %x/ SIZE %d\n", buffer, int(config->field_0xc));
         setFilterTable(field_0x10, config->field_0x10, 8);
     }
     if (buffer && config) {

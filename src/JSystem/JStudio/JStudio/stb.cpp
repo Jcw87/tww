@@ -218,13 +218,13 @@ void TObject::process_sequence_() {
 void TObject::process_paragraph_reserved_(u32 arg1, const void* pContent, u32 uSize) {
     switch (arg1) {
     case 0x1:
-        setFlag_operation_(*(u32*)pContent);
+        setFlag_operation_(*(BE(u32)*)pContent);
         break;
     case 0x2:
-        setWait(*(u32*)pContent);
+        setWait(*(BE(u32)*)pContent);
         break;
     case 0x3: {
-        const void* seq = getSequence_offset(*(s32*)pContent);
+        const void* seq = getSequence_offset(*(BE(s32)*)pContent);
         setSequence_next(seq);
         break;
     }

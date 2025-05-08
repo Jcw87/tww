@@ -19,7 +19,7 @@
 namespace JAISeMgr = JAInter::SeMgr;
 
 JAInter::SeMgr::seTrackUpdate_s* JAInter::SeMgr::seTrackUpdate;
-u8** JAInter::SeMgr::categoryInfoTable;
+OFFSET_PTR(u8)* JAInter::SeMgr::categoryInfoTable;
 JAISound*** JAInter::SeMgr::sePlaySound;
 JAInter::SeParameter* JAInter::SeMgr::seParameterFreeStartPointer;
 JAInter::SeParameter* JAInter::SeMgr::seParameterUsedEndPointer;
@@ -82,7 +82,7 @@ void JAInter::SeMgr::init() {
     if (JAIBasic::getInterface()->field_0x1c) {
         categoryInfoTable = JAIBasic::getInterface()->field_0x1c;
     } else {
-        categoryInfoTable = new (JAIBasic::getCurrentJAIHeap(), 0x20) u8*[JAIGlobalParameter::getParamSoundSceneMax()];
+        categoryInfoTable = new (JAIBasic::getCurrentJAIHeap(), 0x20) OFFSET_PTR(u8)[JAIGlobalParameter::getParamSoundSceneMax()];
         JUT_ASSERT_MSG(124, categoryInfoTable, "JAIData::initHeap Cannot Alloc Heap!!\n");
         for (int i = 0; i < JAIGlobalParameter::getParamSoundSceneMax(); i++) {
             categoryInfoTable[i] = Const::sCInfos_0;

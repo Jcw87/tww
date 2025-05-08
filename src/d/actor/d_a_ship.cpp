@@ -991,9 +991,9 @@ void daShip_c::setYPos() {
 BOOL daShip_c::checkOutRange() {
     dPnt* pnt;
     dPath* path;
-    Vec* closestPoint;
-    Vec* nextPoint;
-    Vec* prevPoint;
+    BE(Vec)* closestPoint;
+    BE(Vec)* nextPoint;
+    BE(Vec)* prevPoint;
     int lastIndex;
     int closestIndex;
     int pathIndex;

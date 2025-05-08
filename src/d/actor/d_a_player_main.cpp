@@ -577,6 +577,13 @@ JKRHeap* daPy_lk_c::setItemHeap() {
 /* 80104240-80104280       .text setBlurPosResource__9daPy_lk_cFUs */
 void daPy_lk_c::setBlurPosResource(u16 i_resIdx) {
     JKRReadIdxResource(mSwBlur.mpPosBuffer, sizeof(Vec) * 2 * 0x300, i_resIdx, dComIfGp_getAnmArchive());
+#if TARGET_PC
+    for (int i = 0; i < 2 * 0x300; i++) {
+        mSwBlur.mpPosBuffer[i].x = byteswap(mSwBlur.mpPosBuffer[i].x);
+        mSwBlur.mpPosBuffer[i].y = byteswap(mSwBlur.mpPosBuffer[i].y);
+        mSwBlur.mpPosBuffer[i].z = byteswap(mSwBlur.mpPosBuffer[i].z);
+    }
+#endif
 }
 
 /* 80104280-80104364       .text getItemAnimeResource__9daPy_lk_cFUs */

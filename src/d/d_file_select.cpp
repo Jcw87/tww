@@ -3249,7 +3249,7 @@ void dFile_select_c::setSaveData() {
             else {
                 strcpy(field_0x38f4[i], (char*)(&data[0x157]));
                 OSCalendarTime time;
-                OSTicksToCalendarTime(*(u64*)(data + 0x18), &time);
+                OSTicksToCalendarTime(*(BE(u64)*)(data + 0x18), &time);
                 sprintf(
                     field_0x3900[i],
 #if VERSION <= VERSION_JPN

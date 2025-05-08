@@ -6,6 +6,7 @@
 #include "dolphin/mtx/mtx44.h"
 #include "dolphin/mtx/vec.h"
 #include "global.h"
+#include "port/byteswap.h"
 
 class J3DLightInfo {
 public:
@@ -139,7 +140,7 @@ struct J3DFogInfo {
 
 struct J3DNBTScaleInfo {
     /* 0x0 */ u8 mbHasScale;
-    /* 0x4 */ Vec mScale;
+    /* 0x4 */ BE(Vec) mScale;
 
     inline void operator=(const J3DNBTScaleInfo & other) { mbHasScale = other.mbHasScale; mScale = other.mScale; }
 };  // Size: 0x10

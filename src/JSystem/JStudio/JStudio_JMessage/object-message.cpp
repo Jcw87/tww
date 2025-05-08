@@ -22,7 +22,7 @@ JStudio_JMessage::TAdaptor_message::~TAdaptor_message() {}
 void JStudio_JMessage::TAdaptor_message::adaptor_do_MESSAGE(JStudio::data::TEOperationData operation, const void* param_2, u32 param_3) {
     switch (operation) {
     case JStudio::data::TEOD_Unknown_19:
-        mControl->setMessageCode(*(u32*)param_2);
+        mControl->setMessageCode(*(BE(u32)*)param_2);
         break;
     default:
         break;

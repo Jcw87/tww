@@ -2,6 +2,7 @@
 #define JAISEMGR_H
 
 #include "JSystem/JAudio/JAISoundParams.h"
+#include "port/byteswap.h"
 
 namespace JAInter {
     class Actor;
@@ -68,7 +69,7 @@ namespace JAInter {
         };
 
         extern seTrackUpdate_s* seTrackUpdate;
-        extern u8** categoryInfoTable;
+        extern OFFSET_PTR(u8)* categoryInfoTable;
         extern JAISound*** sePlaySound;
         extern SeParameter* seParameterFreeStartPointer;
         extern SeParameter* seParameterUsedEndPointer;
