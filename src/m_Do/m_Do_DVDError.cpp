@@ -31,8 +31,10 @@ void mDoDvdErr_ThdInit() {
         OSCreateThread(&DvdErr_thread, (void*)mDoDvdErr_Watch, NULL, DvdErr_stack + sizeof(DvdErr_stack),
                        sizeof(DvdErr_stack), priority - 3, 1);
         OSResumeThread(&DvdErr_thread);
+#ifndef TARGET_PC
         OSCreateAlarm(&Alarm);
         OSSetPeriodicAlarm(&Alarm, time, OS_BUS_CLOCK / 4, AlarmHandler);
+#endif
 
         mDoDvdErr_initialized = true;
     }
@@ -49,6 +51,9 @@ void mDoDvdErr_ThdCleanup() {
 
 /* 80018CE8-80018D44       .text mDoDvdErr_Watch__FPv */
 void mDoDvdErr_Watch(void*) {
+#ifdef TARGET_PC
+    OSSetCurrentThreadName("mDoDvdErrThread");
+#endif
 #if VERSION > VERSION_DEMO
     {
         JKRThread thread(OSGetCurrentThread(), 0);

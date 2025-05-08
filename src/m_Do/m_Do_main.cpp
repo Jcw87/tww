@@ -402,6 +402,9 @@ void debug() {
 
 /* 80006338-80006464       .text main01__Fv */
 void main01() {
+#ifdef TARGET_PC
+    OSSetCurrentThreadName("MainThread");
+#endif
     // Setup heaps, setup exception manager, set RNG seed, setup DVDError Thread, setup Memory card
     // Thread
     mDoMch_Create();

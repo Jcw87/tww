@@ -13,7 +13,7 @@
 
 bool JKRHeap::sDefaultFillFlag = true;
 JKRHeap* JKRHeap::sSystemHeap;
-JKRHeap* JKRHeap::sCurrentHeap;
+THREAD_LOCAL JKRHeap* JKRHeap::sCurrentHeap;
 JKRHeap* JKRHeap::sRootHeap;
 JKRErrorHandler JKRHeap::mErrorHandler;
 

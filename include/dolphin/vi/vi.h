@@ -144,7 +144,11 @@ u32 VIGetDTVStatus();
 u32 VIGetTvFormat();
 u32 VIGetNextField(void);
 
+#ifdef __MWERKS__
 vu16 __VIRegs[59] AT_ADDRESS(0xCC002000);
+#else
+extern vu16 __VIRegs[59];
+#endif
 
 #ifdef __cplusplus
 };

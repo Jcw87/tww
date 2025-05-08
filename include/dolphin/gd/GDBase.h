@@ -33,6 +33,7 @@ void GDPadCurr32(void);
 void GDOverflowed(void);
 void GDSetVtxDescv(GXVtxDescList*);
 
+#ifdef __MWERKS__
 inline void __GDWrite(u8 data) {
     *__GDCurrentDL->ptr++ = data;
 }
@@ -90,6 +91,19 @@ inline void GDWrite_u8(u8 v) {
     GDOverflowCheck(1);
     __GDWrite(v);
 }
+#else
+void __GDWrite(u8 data);
+void GDSetCurrent(GDLObj* obj);
+u32 GDGetGDLObjOffset(GDLObj* obj);
+u8* GDGetCurrPointer();
+s32 GDGetCurrOffset();
+void GDSetCurrOffset(s32 offs);
+void GDAdvCurrOffset(s32 offs);
+void GDOverflowCheck(u32 len);
+void GDWrite_u32(u32 v);
+void GDWrite_u16(u16 v);
+void GDWrite_u8(u8 v);
+#endif
 
 inline static void GDWriteXFCmdHdr(u16 addr, u8 len) {
     GDWrite_u8(GX_LOAD_XF_REG);

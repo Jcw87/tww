@@ -1,0 +1,577 @@
+LIBRARY dolphin_sdk.dll
+EXPORTS
+
+; GBA.c
+GBAInit
+GBAGetStatusAsync
+GBAGetStatus
+GBAResetAsync
+GBAReset
+
+; GBAGetProcessStatus.c
+GBAGetProcessStatus
+
+; GBAJoyBoot.c
+GBAJoyBootAsync
+GBAJoyBoot
+
+; GBARead.c
+GBAReadAsync
+GBARead
+
+; GBAWrite.c
+GBAWriteAsync
+GBAWrite
+
+; PPCArch.c
+__cntlzw
+__dcbz
+PPCMfmsr
+PPCMtmsr
+PPCSync
+PPCHalt
+PPCMfhid2
+
+; OS.c
+OSGetConsoleType
+OSInit
+OSPhysicalToCached
+OSPhysicalToUncached
+OSCachedToPhysical
+OSUncachedToPhysical
+OSCachedToUncached
+OSUncachedToCached
+OSInitRAM
+
+; OSAlarm.c
+OSInitAlarm
+OSCreateAlarm
+OSSetAlarm
+OSSetPeriodicAlarm
+OSCancelAlarm
+
+; OSAlloc.c
+OSInitAlloc
+OSCreateHeap
+OSDestroyHeap
+OSSetCurrentHeap
+OSAllocFromHeap
+OSFreeToHeap
+OSCheckHeap
+OSDumpHeap
+OSReferentSize
+
+; OSArena.c
+OSGetArenaHi
+OSGetArenaLo
+OSSetArenaHi
+OSSetArenaLo
+OSAllocFromArenaLo
+
+; OSCache.c
+DCInvalidateRange
+DCFlushRange
+DCStoreRange
+DCFlushRangeNoSync
+DCStoreRangeNoSync
+DCZeroRange
+ICInvalidateRange
+LCEnable
+LCDisable
+LCStoreBlocks
+LCStoreData
+LCQueueWait
+
+; OSContext.c
+OSSaveFPUContext
+OSSetCurrentContext
+OSGetCurrentContext
+OSSaveContext
+OSLoadContext
+OSGetStackPointer
+OSClearContext
+OSInitContext
+OSDumpContext
+OSFillFPUContext
+
+; OSError.c
+;OSPanic
+;OSReport
+OSSetErrorHandler
+
+; OSInterrupt.c
+OSDisableInterrupts
+OSEnableInterrupts
+OSRestoreInterrupts
+
+; OSLink.c
+__OSModuleList
+OSNotifyLink
+OSNotifyUnlink
+OSSetStringTable
+OSLink
+OSLinkFixed
+OSUnlink
+
+; OSMessage.c
+OSInitMessageQueue
+OSSendMessage
+OSReceiveMessage
+
+; OSMemory.c
+OSGetConsoleSimulatedMemSize
+OSProtectRange
+
+; OSMutex.c
+OSInitMutex
+OSLockMutex
+OSUnlockMutex
+OSTryLockMutex
+OSInitCond
+OSWaitCond
+OSSignalCond
+
+; OSReset.c
+OSRegisterResetFunction
+OSResetSystem
+OSGetResetCode
+OSSetSaveRegion
+
+; OSResetSW.c
+OSGetResetSwitchState
+
+; OSRtc.c
+OSGetSoundMode
+OSSetSoundMode
+OSGetProgressiveMode
+OSSetProgressiveMode
+
+; OSThread.c
+OSSetSwitchThreadCallback
+OSInitThreadQueue
+OSGetCurrentThread
+OSIsThreadTerminated
+OSDisableScheduler
+OSEnableScheduler
+OSYieldThread
+OSCreateThread
+OSExitThread
+OSCancelThread
+OSJoinThread
+OSDetachThread
+OSResumeThread
+OSSuspendThread
+OSSleepThread
+OSWakeupThread
+OSSetThreadPriority
+OSGetThreadPriority
+OSCheckActiveThreads
+OSSetCurrentThreadName
+
+; OSTime.c
+OSGetTick
+OSGetTime
+OSCalendarTimeToTicks
+OSTicksToCalendarTime
+
+; SIBios.c
+SIProbe
+
+; mtx.c
+C_MTXIdentity
+C_MTXCopy
+C_MTXConcat
+C_MTXConcatArray
+C_MTXTranspose
+C_MTXInverse
+C_MTXInvXpose
+C_MTXRotRad
+C_MTXRotTrig
+C_MTXRotAxisRad
+C_MTXTrans
+C_MTXTransApply
+C_MTXScale
+C_MTXScaleApply
+C_MTXQuat
+C_MTXLookAt
+C_MTXLightFrustum
+C_MTXLightPerspective
+C_MTXLightOrtho
+
+; mtxvec.c
+C_MTXMultVec
+C_MTXMultVecArray
+C_MTXMultVecSR
+C_MTXMultVecArraySR
+
+; mtx44.c
+C_MTXFrustum
+C_MTXPerspective
+C_MTXOrtho
+
+
+; vec.c
+C_VECAdd
+C_VECSubtract
+C_VECScale
+C_VECNormalize
+C_VECSquareMag
+C_VECMag
+C_VECDotProduct
+C_VECCrossProduct
+C_VECHalfAngle
+C_VECReflect
+C_VECSquareDistance
+C_VECDistance
+
+; quat.c
+C_QUATMultiply
+C_QUATNormalize
+C_QUATInverse
+C_QUATRotAxisRad
+C_QUATSlerp
+
+; dvdfs.c
+DVDConvertPathToEntrynum
+DVDFastOpen
+DVDOpen
+DVDClose
+DVDChangeDir
+DVDReadAsyncPrio
+DVDReadPrio
+DVDOpenDir
+DVDReadDir
+DVDCloseDir
+DVDPrepareStreamAsync
+
+; dvd.c
+DVDInit
+DVDCancelStreamAsync
+DVDStopStreamAtEndAsync
+DVDGetStreamPlayAddrAsync
+DVDGetCommandBlockStatus
+DVDGetDriveStatus
+DVDCancel
+DVDGetCurrentDiskID
+DVDCheckDisk
+
+; vi.c
+VISetPreRetraceCallback
+VISetPostRetraceCallback
+VIInit
+VIWaitForRetrace
+VIConfigure
+VIFlush
+VISetNextFrameBuffer
+VISetBlack
+VIGetRetraceCount
+VIGetNextField
+VIGetTvFormat
+VIGetDTVStatus
+
+; Padclamp.c
+PADClamp
+
+; Pad.c
+PADReset
+PADRecalibrate
+PADInit
+PADRead
+PADControlMotor
+PADSetSpec
+PADSetAnalogMode
+
+; ai.c
+AIRegisterDMACallback
+AIInitDMA
+AIStartDMA
+AIResetStreamSampleCount
+AISetStreamPlayState
+AISetDSPSampleRate
+AIGetDSPSampleRate
+AISetStreamSampleRate
+AISetStreamVolLeft
+AISetStreamVolRight
+AIInit
+
+; ar.c
+ARAlloc
+ARInit
+ARGetBaseAddress
+ARGetSize
+
+; arq.c
+ARQInit
+ARQPostRequest
+
+; dsp.c
+DSPCheckMailToDSP
+DSPCheckMailFromDSP
+DSPReadMailFromDSP
+DSPSendMailToDSP
+DSPAssertInt
+DSPInit
+__DSP_exec_task
+__DSP_boot_task
+__DSP_insert_task
+__DSP_remove_task
+
+; CARDBios.c
+CARDInit
+CARDFreeBlocks
+
+; CARDCheck.c
+CARDCheck
+
+; CARDMount.c
+CARDProbe
+CARDProbeEx
+CARDMount
+CARDUnmount
+
+; CARDFormat.c
+CARDFormat
+
+; CARDOpen.c
+CARDOpen
+CARDClose
+
+; CARDCreate.c
+CARDCreate
+
+; CARDRead.c
+CARDRead
+
+; CARDWrite.c
+CARDWrite
+
+; CARDStat.c
+CARDGetStatus
+CARDSetStatus
+
+; CARDNet.c
+CARDGetSerialNo
+
+; GXInit.c
+GXInit
+
+; GXFifo.c
+GXInitFifoBase
+GXInitFifoPtrs
+GXSetCPUFifo
+GXSetGPFifo
+GXSaveCPUFifo
+GXGetGPStatus
+GXSetCurrentGXThread
+GXGetCurrentGXThread
+GXGetCPUFifo
+GXGetGPFifo
+
+; GXAttr.c
+GXSetVtxDesc
+GXClearVtxDesc
+GXSetVtxAttrFmt
+GXSetVtxAttrFmtv
+GXGetVtxAttrFmt
+GXGetVtxAttrFmtv
+GXSetArray
+GXInvalidateVtxCache
+GXSetTexCoordGen2
+GXSetNumTexGens
+
+; GXMisc.c
+GXSetMisc
+GXFlush
+GXAbortFrame
+GXSetDrawSync
+GXSetDrawDone
+GXDrawDone
+GXPixModeSync
+GXPokeAlphaMode
+GXPokeAlphaRead
+GXPokeAlphaUpdate
+GXPokeBlendMode
+GXPokeColorUpdate
+GXPokeDstAlpha
+GXPokeDither
+GXPokeZMode
+GXPeekARGB
+GXPeekZ
+GXSetDrawSyncCallback
+GXSetDrawDoneCallback
+
+; GXGeometry.c
+GXBegin
+GXEnd
+GXSetLineWidth
+GXSetPointSize
+GXEnableTexOffsets
+GXSetCullMode
+GXSetCoPlanar
+
+; GXFrameBuf.c
+GXNtsc480IntDf
+GXNtsc480Int
+GXSetDispCopySrc
+GXSetTexCopySrc
+GXSetDispCopyDst
+GXSetTexCopyDst
+GXSetDispCopyFrame2Field
+GXSetCopyClamp
+GXGetNumXfbLines
+GXGetYScaleFactor
+GXSetDispCopyYScale
+GXSetCopyClear
+GXSetCopyFilter
+GXSetDispCopyGamma
+GXCopyDisp
+GXCopyTex
+GXClearBoundingBox
+
+; GXLight.c
+GXInitLightAttn
+GXInitLightSpot
+GXInitLightDistAttn
+GXInitLightPos
+GXInitLightDir
+GXInitLightColor
+GXLoadLightObjImm
+GXSetChanAmbColor
+GXSetChanMatColor
+GXSetNumChans
+GXSetChanCtrl
+
+; GXTexture.c
+GXGetTexBufferSize
+GXInitTexObj
+GXInitTexObjCI
+GXInitTexObjLOD
+GXGetTexObjData
+GXGetTexObjWidth
+GXGetTexObjHeight
+GXGetTexObjFmt
+GXGetTexObjWrapS
+GXGetTexObjWrapT
+GXGetTexObjTlut
+GXLoadTexObj
+GXInitTlutObj
+GXLoadTlut
+GXInitTexCacheRegion
+GXInitTlutRegion
+GXInvalidateTexAll
+GXSetTexRegionCallback
+GXSetTlutRegionCallback
+GXSetTexCoordScaleManually
+GXSetTexCoordBias
+
+; GXBump.c
+GXSetTevIndirect
+GXSetIndTexMtx
+GXSetIndTexCoordScale
+GXSetIndTexOrder
+GXSetNumIndStages
+GXSetTevDirect
+GXSetTevIndWarp
+
+; GXTev.c
+GXSetTevOp
+GXSetTevColorIn
+GXSetTevAlphaIn
+GXSetTevColorOp
+GXSetTevAlphaOp
+GXSetTevColor
+GXSetTevColorS10
+GXSetTevKColor
+GXSetTevKColorSel
+GXSetTevKAlphaSel
+GXSetTevSwapMode
+GXSetTevSwapModeTable
+GXSetAlphaCompare
+GXSetZTexture
+GXSetTevOrder
+GXSetNumTevStages
+
+; GXPixel.c
+GXSetFog
+GXSetFogRangeAdj
+GXSetBlendMode
+GXSetColorUpdate
+GXSetAlphaUpdate
+GXSetZMode
+GXSetZCompLoc
+GXSetPixelFmt
+GXSetDither
+GXSetDstAlpha
+GXSetFieldMask
+GXSetFieldMode
+
+; GXDisplayList.c
+GXCallDisplayList
+
+; GXTransform.c
+GXProject
+GXSetProjection
+GXSetProjectionv
+GXGetProjectionv
+GXLoadPosMtxImm
+GXLoadNrmMtxImm
+GXSetCurrentMtx
+GXLoadTexMtxImm
+GXSetViewport
+GXGetViewportv
+GXSetScissor
+GXGetScissor
+GXSetScissorBoxOffset
+GXSetClipMode
+
+; GXPerf.c
+GXSetGPMetric
+GXClearGPMetric
+GXReadXfRasMetric
+
+; GX
+GXCmd1u8
+GXCmd1u16
+GXCmd1u32
+GXPosition2f32
+GXPosition3f32
+GXPosition2s8
+GXPosition3s8
+GXPosition2u16
+GXPosition2s16
+GXPosition3s16
+GXNormal3f32
+GXColor1u32
+GXTexCoord2f32
+GXTexCoord2u8
+GXTexCoord1x8
+GXTexCoord2s8
+GXTexCoord2u16
+GXTexCoord2s16
+GXPosition1x8
+GXPosition1x16
+GXNormal1x8
+GXNormal1x16
+GXColor1x16
+GXColor4x8
+GXTexCoord1x16
+
+; GDBase.c
+GDInitGDLObj
+GDFlushCurrToMem
+GDPadCurr32
+GDOverflowed
+
+; GDGeometry
+GDSetVtxDescv
+GDSetArray
+GDSetArrayRaw
+
+; GD
+__GDWrite
+GDSetCurrent
+GDGetGDLObjOffset
+GDGetCurrPointer
+GDGetCurrOffset
+GDSetCurrOffset
+GDOverflowCheck

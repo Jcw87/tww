@@ -82,6 +82,9 @@ JKRAram::~JKRAram() {
 
 /* 802B4568-802B45D4       .text run__7JKRAramFv */
 void* JKRAram::run() {
+#ifdef TARGET_PC
+    OSSetCurrentThreadName("JKRAram");
+#endif
     int result;
     JKRAMCommand* command;
     JKRAramPiece::Message* message;

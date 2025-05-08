@@ -224,6 +224,9 @@ BOOL JUTGba::resultGetStatus(int param_1, u8* param_2) {
 
 /* 802CCA08-802CCC6C       .text gbaThreadMain__6JUTGbaFPv */
 void* JUTGba::gbaThreadMain(void* param_1) {
+#if TARGET_PC
+    OSSetCurrentThreadName("GBAThread");
+#endif
     JUTGbaParam* param = (JUTGbaParam*)param_1;
     { JKRThread jkrThread(OSGetCurrentThread(), 0); }
 #if VERSION > VERSION_DEMO
