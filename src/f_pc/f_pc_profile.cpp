@@ -5,7 +5,12 @@
 
 #include "f_pc/f_pc_profile.h"
 
+#if __MWERKS__
 process_profile_definition** g_fpcPf_ProfileList_p;
+#else
+process_profile_definition* g_fpcPfLst_ProfileList[];
+process_profile_definition** g_fpcPf_ProfileList_p = g_fpcPfLst_ProfileList;
+#endif
 
 /* 8004003C-80040050       .text fpcPf_Get__Fs */
 process_profile_definition* fpcPf_Get(s16 i_profName) {
