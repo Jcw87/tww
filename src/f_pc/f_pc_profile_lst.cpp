@@ -517,11 +517,11 @@ process_profile_definition* g_fpcPfLst_ProfileList[] = {
 };
 
 /* 00000078-0000008C       .text ModuleProlog */
-void ModuleProlog() {
+static void ModuleProlog() {
     g_fpcPf_ProfileList_p = g_fpcPfLst_ProfileList;
 }
 
 /* 0000008C-0000009C       .text ModuleEpilog */
-void ModuleEpilog() {
+static void ModuleEpilog() {
     g_fpcPf_ProfileList_p = NULL;
 }

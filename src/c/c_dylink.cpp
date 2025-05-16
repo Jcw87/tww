@@ -26,6 +26,7 @@ volatile BOOL cDyl_Initialized = false;
 mDoDvdThd_callback_c * cDyl_DVD = NULL;
 
 const cDyl_DynamicName_t DynamicNameTable[] = {
+#if !TARGET_PC
     {fpcNm_ALLDIE_e,         "d_a_alldie"},
     {fpcNm_TAG_EVSW_e,       "d_a_tag_evsw"},
     {fpcNm_Obj_Swpush_e,     "d_a_obj_swpush"},
@@ -458,7 +459,7 @@ const cDyl_DynamicName_t DynamicNameTable[] = {
     {fpcNm_ARROW_ICEEFF_e,   "d_a_arrow_iceeff"},
     {fpcNm_ARROW_LIGHTEFF_e, "d_a_arrow_lighteff"},
     {fpcNm_Obj_Timer_e,      "d_a_obj_timer"},
-
+#endif
     {0xFFFF, NULL},
 };
 
@@ -611,9 +612,10 @@ BOOL cDyl_InitCallback(void*) {
     JKRDetachResource(strTbl, loader);
     JKRUnmountDvdDrive(loader);
     OSSetStringTable(strTbl);
-
+#ifdef __MWERKS__
     DynamicModuleControl dmc("f_pc_profile_lst");
     dmc.link();
+#endif
 #if VERSION == VERSION_DEMO
     cCc_Init();
 #endif
