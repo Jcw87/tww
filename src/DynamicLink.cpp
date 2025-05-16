@@ -542,11 +542,11 @@ const char* DynamicModuleControl::getModuleTypeString() const {
     return strings[mResourceType & 3];
 }
 
-extern "C" void ModuleProlog() {
+extern "C" static void ModuleProlog() {
     /* empty function */
 }
 
-extern "C" void ModuleEpilog() {
+extern "C" static void ModuleEpilog() {
     /* empty function */
 }
 
