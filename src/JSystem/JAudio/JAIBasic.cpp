@@ -217,8 +217,12 @@ void JAIBasic::processFrameWork() {
 
 /* 802904B4-802904EC       .text startSoundVec__8JAIBasicFUlPP8JAISoundP3VecUlUlUc */
 void JAIBasic::startSoundVec(u32 soundID, JAISound** param_2, Vec* param_3, u32 param_4, u32 param_5, u8 param_6) {
+#if TARGET_PC
+    NOT_IMPLEMENTED_CONTINUE;
+#else
     JAInter::Actor actor(param_3, param_3, param_5, param_3);
     startSoundActor(soundID, param_2, &actor, param_4, param_6);
+#endif
 }
 
 /* 802904EC-8029050C       .text startSoundActor__8JAIBasicFUlPP8JAISoundPQ27JAInter5ActorUlUc */

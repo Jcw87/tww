@@ -459,7 +459,7 @@ void main01() {
             mDoMch_HeapCheckAll();
         }
 #endif
-        if (mDoDvdThd::SyncWidthSound) {
+        if (mDoDvdThd::SyncWidthSound || TARGET_PC) {
             mDoMemCd_UpDate();
         }
 
