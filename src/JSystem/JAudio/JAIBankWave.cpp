@@ -125,10 +125,14 @@ s32 JAInter::BankWave::getWaveLoadStatus(s32 param_1) {
 
 /* 802916C0-80291704       .text checkAllWaveLoadStatus__Q27JAInter8BankWaveFv */
 bool JAInter::BankWave::checkAllWaveLoadStatus() {
+#ifdef TARGET_PC
+    NOT_IMPLEMENTED_CONTINUE;
+#else
     for (int i = 0; initOnCodeWs[i].field_0x0; i++) {
         if (wsLoadStatus[i] == 1) {
             return true;
         }
     }
+#endif
     return false;
 }

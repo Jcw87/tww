@@ -19,6 +19,9 @@ void JAIZelAnime::setAnimSound(Vec* pos, f32 frame, f32 rate, u32 mtrlSndId, s8 
 /* 802AC888-802ACD34       .text startAnimSound__11JAIZelAnimeFPvUlPP8JAISoundPQ27JAInter5ActorUc */
 // NONMATCHING - 1 missing reg move
 void JAIZelAnime::startAnimSound(void* i_basic, u32 i_soundID, JAISound** i_sound, JAInter::Actor* i_actor, u8 param_4) {
+#if TARGET_PC
+    NOT_IMPLEMENTED_CONTINUE;
+#else
     JAIZelBasic* basic = (JAIZelBasic*)i_basic;
 
     if ((int)basic->field_0x0207 != 0) {
@@ -151,6 +154,7 @@ void JAIZelAnime::startAnimSound(void* i_basic, u32 i_soundID, JAISound** i_soun
     if (*i_sound) {
         (*i_sound)->setPortData(9, var_r27);
     }
+#endif
 }
 
 /* 802ACD34-802ACFA0       .text setSpeedModifySound__11JAIZelAnimeFP8JAISoundP22JAIAnimeFrameSoundDataf */
