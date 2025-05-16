@@ -133,6 +133,9 @@ static mDoDvdThd_mountArchive_c* l_arcCommand;
 
 /* 80007090-80007224       .text mDoAud_Create__Fv */
 void mDoAud_Create() {
+#ifdef TARGET_PC
+    NOT_IMPLEMENTED_CONTINUE;
+#else
     if (!l_affCommand) {
 #if VERSION == VERSION_DEMO
         l_affCommand = mDoDvdThd_toMainRam_c::create("/Audiores/JaiInit.aaf", JKRArchive::DEFAULT_MOUNT_DIRECTION, NULL);
@@ -187,6 +190,7 @@ void mDoAud_Create() {
         mDoAud_zelAudio_c::onInitFlag();
         mDoDvdThd::SyncWidthSound = 1;
     }
+#endif
 }
 
 /* 80007224-80007268       .text mDoAud_Execute__Fv */
@@ -254,10 +258,14 @@ int mDoAud_getTactDirection(int stick, int oldDir) {
 
 /* 800073D8-80007424       .text mDoAud_setSceneName__FPCcll */
 void mDoAud_setSceneName(const char* i_name, s32 i_roomNo, s32 i_layer) {
+#ifdef TARGET_PC
+    NOT_IMPLEMENTED_CONTINUE;
+#else
     if (mDoAud_zelAudio_c::getLoadTimer() == 0) {
         mDoAud_zelAudio_c::getInterface()->setSceneName((char*)i_name, i_roomNo, i_layer);
         mDoAud_zelAudio_c::setLoadTimer(36);
     }
+#endif
 }
 
 /* 80007424-80007478       .text mDoAud_load1stDynamicWave__Fv */
