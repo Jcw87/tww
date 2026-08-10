@@ -114,6 +114,8 @@ static cPhs_State daMant_Create(fopAc_ac_c*) {
             /* Radius */ 30.0f,
         }},
     };
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 static actor_method_class l_daMant_Method = {
