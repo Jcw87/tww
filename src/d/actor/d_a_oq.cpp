@@ -231,6 +231,8 @@ static cPhs_State daOQ_Create(fopAc_ac_c*) {
             /* Radius */ 15.0f,
         }},
     };
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 static actor_method_class l_daOQ_Method = {

@@ -313,6 +313,8 @@ static cPhs_State daGnd_Create(fopAc_ac_c*) {
             /* Radius */ 70.0f,
         }},
     };
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 static actor_method_class l_daGnd_Method = {
