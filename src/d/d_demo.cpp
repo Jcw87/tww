@@ -54,7 +54,7 @@ void dDemo_actor_c::setActor(fopAc_ac_c* ac) {
 
 /* 80069434-80069550       .text getP_BtpData__13dDemo_actor_cFPCc */
 J3DAnmTexPattern* dDemo_actor_c::getP_BtpData(const char* name) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
     if (!checkEnable(ENABLE_UNK_e))
         return NULL;
 }

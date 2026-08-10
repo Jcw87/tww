@@ -130,6 +130,8 @@ static cPhs_State daKlft_Create(fopAc_ac_c*) {
             /* Height */ 60.0f,
         }},
     };
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 static actor_method_class l_daKlft_Method = {

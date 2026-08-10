@@ -550,6 +550,8 @@ static cPhs_State daPW_Create(fopAc_ac_c* i_actor) {
         }},
     };
     fopAcM_ct(i_actor, pw_class);
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 static actor_method_class l_daPW_Method = {

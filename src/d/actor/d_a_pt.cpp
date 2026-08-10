@@ -176,6 +176,8 @@ static cPhs_State daPt_Create(fopAc_ac_c*) {
             /* Radius */ 25.0f,
         }},
     };
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 static actor_method_class l_daPt_Method = {
