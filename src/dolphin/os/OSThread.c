@@ -410,7 +410,7 @@ void OSYieldThread(void) {
     OSRestoreInterrupts(enabled);
 }
 
-BOOL OSCreateThread(OSThread* thread_, void* func, void* param, void* stackBase, u32 stackSize,
+BOOL OSCreateThread(OSThread* thread_, void* (*func)(void*), void* param, void* stackBase, u32 stackSize,
                     OSPriority priority, u16 attribute) {
     BOOL enabled;
     u32 i;
