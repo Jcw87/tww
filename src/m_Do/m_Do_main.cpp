@@ -588,7 +588,7 @@ int gc_main(int argc, const char* argv[]) {
     return 0;
 #else
     OSPriority priority = OSGetThreadPriority(current_thread);
-    OSCreateThread(&mainThread, (void*)main01, 0, stack + sizeof(stack), sizeof(stack), priority, 0);
+    OSCreateThread(&mainThread, (void*(*)(void*))main01, 0, stack + sizeof(stack), sizeof(stack), priority, 0);
     OSResumeThread(&mainThread);
     OSSetThreadPriority(current_thread, 0x1F);
     return OSSuspendThread(current_thread);
