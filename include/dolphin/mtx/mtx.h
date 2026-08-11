@@ -24,6 +24,8 @@ void C_MTXConcat(const Mtx a, const Mtx b, Mtx ab);
 void PSMTXConcat(const Mtx a, const Mtx b, Mtx ab);
 u32 C_MTXInverse(const Mtx src, Mtx inv);
 u32 PSMTXInverse(const Mtx src, Mtx inv);
+u32 C_MTXInvXpose(const Mtx src, Mtx invX);
+u32 PSMTXInvXpose(const Mtx src, Mtx invX);
 void C_MTXRotRad(Mtx m, u8 axis, f32 rad);
 void PSMTXRotRad(Mtx m, u8 axis, f32 rad);
 void C_MTXRotTrig(Mtx m, u8 axis, f32 sin, f32 cos);
@@ -57,6 +59,7 @@ void C_MTXLightOrtho(Mtx m, f32 top, f32 bottom, f32 left, f32 right, f32 scale_
 #define MTXCopy C_MTXCopy
 #define MTXConcat C_MTXConcat
 #define MTXInverse C_MTXInverse
+#define MTXInvXpose C_MTXInvXpose
 #define MTXRotRad C_MTXRotRad
 #define MTXRotTrig C_MTXRotTrig
 #define MTXRotAxisRad C_MTXRotAxisRad
@@ -70,6 +73,7 @@ void C_MTXLightOrtho(Mtx m, f32 top, f32 bottom, f32 left, f32 right, f32 scale_
 #define MTXCopy PSMTXCopy
 #define MTXConcat PSMTXConcat
 #define MTXInverse PSMTXInverse
+#define MTXInvXpose PSMTXInvXpose
 #define MTXRotRad PSMTXRotRad
 #define MTXRotTrig PSMTXRotTrig
 #define MTXRotAxisRad PSMTXRotAxisRad

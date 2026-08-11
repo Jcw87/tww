@@ -28,7 +28,7 @@ void mDoDvdErr_ThdInit() {
         OSThread* curThread = OSGetCurrentThread();
         OSPriority priority = OSGetThreadPriority(curThread);
 
-        OSCreateThread(&DvdErr_thread, (void*)mDoDvdErr_Watch, NULL, DvdErr_stack + sizeof(DvdErr_stack),
+        OSCreateThread(&DvdErr_thread, (void*(*)(void*))mDoDvdErr_Watch, NULL, DvdErr_stack + sizeof(DvdErr_stack),
                        sizeof(DvdErr_stack), priority - 3, 1);
         OSResumeThread(&DvdErr_thread);
 #ifndef TARGET_PC

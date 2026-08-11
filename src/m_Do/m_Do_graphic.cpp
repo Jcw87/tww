@@ -1528,7 +1528,7 @@ bool mDoGph_screenCapture() {
     OSSetAlarm(&mCaptureTimeOutAlarm, mCaptureTimeOutTicks, mCaptureGXDrawSyncTimeOut);
 #endif
     mCaptureStep++;
-    GXSetDrawSync(GX_FALSE);
+    GXSetDrawSync(0);
     GXSetProjectionv(projv);
     GXSetViewport(viewv[0], viewv[1], viewv[2], viewv[3], viewv[4], viewv[5]);
     GXSetScissor(left, top, width, height);
@@ -1793,7 +1793,7 @@ bool mDoGph_Painter() {
                     mCaptureStep = 5;
                 } else {
                     u8* captureThreadStackBase = mCaptureThreadStackHead + mCaptureThreadStackSize;
-                    OSCreateThread(&mCaptureThread, (void*)mCaptureProc, NULL, captureThreadStackBase, mCaptureThreadStackSize, mCaptureThreadPriority, 0);
+                    OSCreateThread(&mCaptureThread, (void*(*)(void*))mCaptureProc, NULL, captureThreadStackBase, mCaptureThreadStackSize, mCaptureThreadPriority, 0);
                     OSResumeThread(&mCaptureThread);
                     mCaptureStep++;
                 }
