@@ -119,7 +119,11 @@ static cPhs_State dWaterMark_Create(kankyo_class* kankyo) {
 
 /* 8023DFA0-8023E29C       .text create__12dWaterMark_cFv */
 cPhs_State dWaterMark_c::create() {
+#if TARGET_PC
+    new (this) dWaterMark_c;
+#else
     new (this) dWaterMark_c();
+#endif
     
     field_0x12e = mParam >> 0x10;
     mParam &= 0xFFFF;
