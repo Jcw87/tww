@@ -29,6 +29,15 @@ typedef struct base_process_class {
     /* 0xAC */ void* mpUserData;
     /* 0xB0 */ u32 mParameters;
     /* 0xB4 */ int mSubType;
+
+#if TARGET_PC
+    // MSVC places vtables at the start of a class, *even* if that class inherits from something
+    // without vtable. This breaks everything.
+    // TO avoid issues with pointer casting, we make base_process_class also have a vtable and
+    // ensure we're using inheritance on it.
+
+    virtual ~base_process_class() {}
+#endif
 } base_process_class;  // Size: 0xB8
 
 BOOL fpcBs_Is_JustOfType(int pType1, int pType2);

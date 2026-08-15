@@ -13,8 +13,7 @@ typedef struct leafdraw_method_class {
     /* 0x10 */ process_method_func mpDrawFunc;
 } leafdraw_method_class;
 
-typedef struct leafdraw_class {
-    /* 0x00 */ base_process_class base;
+typedef struct leafdraw_class : public base_process_class {
     /* 0xB8 */ leafdraw_method_class* mpDrawMtd;
     /* 0xBC */ s8 mbUnk0;
     /* 0xBD */ u8 mbUnk1;
