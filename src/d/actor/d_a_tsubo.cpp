@@ -3482,7 +3482,7 @@ void Act_c::set_senv(int arg1, int arg2) const {
 
 /* 00007840-00007878       .text cam_lockoff__Q27daTsubo5Act_cCFv */
 void Act_c::cam_lockoff() const {
-    dComIfGp_getCamera(0)->mCamera.ForceLockOff(base.base.mBsPcId);
+    dComIfGp_getCamera(0)->mCamera.ForceLockOff(mBsPcId);
 }
 
 /* 00007878-00007B08       .text _execute__Q27daTsubo5Act_cFv */
