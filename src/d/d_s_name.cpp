@@ -1525,7 +1525,11 @@ static BOOL dScnName_Delete(dScnName_c* i_this) {
 
 /* 802323A8-802323F8       .text dScnName_Create__FP11scene_class */
 static cPhs_State dScnName_Create(scene_class* i_scn) {
+#if TARGET_PC
+    dScnName_c* i_this = new (i_scn) dScnName_c;
+#else
     dScnName_c* i_this = new (i_scn) dScnName_c();
+#endif
     return i_this->create();
 }
 
