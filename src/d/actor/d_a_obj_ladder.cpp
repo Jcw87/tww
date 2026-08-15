@@ -84,7 +84,7 @@ BOOL daObjLadder::Act_c::Create() {
     mDoMtx_stack_c::pop();
 
     mGndChk.SetPos(&pos);
-    mGndChk.SetActorPid(base.base.mBsPcId);
+    mGndChk.SetActorPid(mBsPcId);
     mGndY = dComIfG_Bgsp()->GroundCross(&mGndChk);
     unk346 = 0;
 
