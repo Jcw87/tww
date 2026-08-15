@@ -128,7 +128,11 @@ static BOOL dWpillar_Delete(dWpillar_c* i_this) {
 
 /* 8023EE28-8023F5B0       .text create__10dWpillar_cFv */
 cPhs_State dWpillar_c::create() {
+#if TARGET_PC
+    new (this) dWpillar_c;
+#else
     new (this) dWpillar_c();
+#endif
 
     J3DModelData* modelData;
     BOOL is_anm_init;

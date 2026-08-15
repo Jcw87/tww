@@ -109,7 +109,11 @@ static BOOL dWindArrow_Delete(dWindArrow_c* i_this) {
 }
 
 cPhs_State dWindArrow_c::create() {
+#if TARGET_PC
+    new (this) dWindArrow_c;
+#else
     new (this) dWindArrow_c();
+#endif
     
     J3DModelData* modelData = (J3DModelData*)dComIfG_getObjectRes("Always", dRes_INDEX_ALWAYS_BDL_YA_e);
     JUT_ASSERT(0x56, modelData != NULL);

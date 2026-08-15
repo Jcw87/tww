@@ -61,7 +61,11 @@ static BOOL dWpotWater_Delete(dWpotWater_c* i_this) {
 }
 
 cPhs_State dWpotWater_c::create() {
+#if TARGET_PC
+    new (this) dWpotWater_c;
+#else
     new (this) dWpotWater_c();
+#endif
     dComIfGp_particle_set(dPa_name::ID_IT_SN_WPOT_BITYA, &mPos);
     dComIfGp_particle_set(dPa_name::ID_IT_SN_WPOT_SHIBUKI, &mPos);
     emtr = dComIfGp_particle_set(dPa_name::ID_IT_SN_WPOT_YUKA, &mPos, NULL, NULL, 0xAA, &dWpotWater_c::mEcallback);
