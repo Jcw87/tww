@@ -11,10 +11,16 @@
 #include "d/d_save.h"
 #include "d/d_event.h"
 
+#if __MWERKS__
+#define fopAcM_ct_placement(ptr, ClassName) new (ptr) ClassName()
+#else
+#define fopAcM_ct_placement(ptr, ClassName) new (ptr) ClassName
+#endif
+
 // The name of this macro is official and comes from a TP debug assert: "fopAcM_ct No Call !!"
 #define fopAcM_ct(ptr, ClassName)                                                                  \
     if (!fopAcM_CheckCondition(ptr, fopAcCnd_INIT_e)) {                                            \
-        new (ptr) ClassName();                                                                     \
+        fopAcM_ct_placement(ptr, ClassName);                                                       \
         fopAcM_OnCondition(ptr, fopAcCnd_INIT_e);                                                  \
     }
 
