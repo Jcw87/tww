@@ -80,11 +80,13 @@ daNpc_Tc_HIO_c::daNpc_Tc_HIO_c() {
         field_0x7F[i] = dComIfGs_isCollectMapTriforce(i+1);
     }
 
+    /*
     field_0x8F = dComIfGs_isStageTbox(dSv_save_c::STAGE_DRC, 0xf);
     field_0x90 = dComIfGs_isStageTbox(dSv_save_c::STAGE_FW, 0xf);
     field_0x91 = dComIfGs_isStageTbox(dSv_save_c::STAGE_TOTG, 0xf);
     field_0x92 = dComIfGs_isStageTbox(dSv_save_c::STAGE_WT, 0xf);
     field_0x93 = dComIfGs_isStageTbox(dSv_save_c::STAGE_ET, 0xf);
+    */
 
     mNpc.m04 = -20.0f;
     mNpc.mMaxHeadX = 0x1FFE;
