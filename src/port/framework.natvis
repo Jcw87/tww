@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="node_lists_tree_class">
+    <Expand>
+      <ArrayItems>
+        <Size>mNumLists</Size>
+        <ValuePointer>mpLists</ValuePointer>
+      </ArrayItems>
+    </Expand>
+  </Type>
+  <Type Name="node_list_class">
+    <DisplayString>{{mSize: {mSize}}}</DisplayString>
+    <Expand>
+      <LinkedListItems>
+        <Size>mSize</Size>
+        <HeadPointer>mpHead</HeadPointer>
+        <NextPointer>mpNextNode</NextPointer>
+        <ValueNode>this</ValueNode>
+      </LinkedListItems>
+    </Expand>
+  </Type>
+  <Type Name="node_class">
+    <Expand>
+      <Item Condition="mpData == &amp;g_fpcCtTg_Queue" Name="create_request">(create_request*)this</Item>
+      <Item Condition="mpData == &amp;g_fpcDtTg_Queue" Name="delete_tag_class">(delete_tag_class*)this</Item>
+      <Item Condition="mpData &gt;= &amp;g_fpcLn_Queue[0] &amp;&amp; mpData &lt;= &amp;g_fpcLn_Queue[15]" Name="create_tag_class">(create_tag_class*)this</Item>
+      <Item Condition="mpData == &amp;l_fpcPi_Queue" Name="process_priority_class">(process_priority_class*)this</Item>
+      <Item Condition="mpData == &amp;l_fpcLy_LayerList" Name="layer_class">(layer_class*)this</Item>
+    </Expand>
+  </Type>
+  <Type Name="base_process_class">
+    <Expand>
+      <Item Condition="mProcName == fpcNm_ROOM_SCENE_e" Name="room_of_scene_class">(room_of_scene_class*)this</Item>
+      <Item Condition="mProcName == fpcNm_SEA_e" Name="sea_class">(sea_class*)this</Item>
+    </Expand>
+  </Type>
+<Type Name="dEvDtBase_c">
+  <Expand>
+    <Item Name="mEventP">mEventP,[byteswap_u32(mHeaderP->eventNum.inner)]</Item>
+    <Item Name="mStaffP">mStaffP,[byteswap_u32(mHeaderP->staffNum.inner)]</Item>
+    <Item Name="mCutP">mCutP,[byteswap_u32(mHeaderP->cutNum.inner)]</Item>
+    <Item Name="mDataP">mDataP,[byteswap_u32(mHeaderP->dataNum.inner)]</Item>
+    <Item Name="mFDataP">mFDataP,[byteswap_u32(mHeaderP->fDataNum.inner)]</Item>
+    <Item Name="mIDataP">mIDataP,[byteswap_u32(mHeaderP->iDataNum.inner)]</Item>
+    <Item Name="mSDataP">mSDataP,[byteswap_u32(mHeaderP->sDataNum.inner)]</Item>
+  </Expand>
+</Type>
+</AutoVisualizer>

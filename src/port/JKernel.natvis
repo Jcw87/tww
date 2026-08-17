@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="JKRHeap">
+    <Expand>
+      <Item Name="Name" Condition="this == zeldaHeap">"zeldaHeap"</Item>
+    </Expand>
+  </Type>
+  <Type Name="JKRExpHeap">
+    <Expand>
+      <Item Name="Name" Condition="this == zeldaHeap">"zeldaHeap"</Item>
+      <Item Name="Name" Condition="this == gameHeap">"gameHeap"</Item>
+      <Item Name="Name" Condition="this == archiveHeap">"archiveHeap"</Item>
+      <Item Name="Name" Condition="this == commandHeap">"commandHeap"</Item>
+      <Synthetic Name="Used Blocks">
+        <Expand>
+          <CustomListItems>
+            <Variable Name="iter" InitialValue="mHeadUsedList"/>
+            <Loop>
+              <Break Condition="iter == nullptr"/>
+              <Item>iter</Item>
+              <Exec>iter = iter-&gt;mNext</Exec>
+            </Loop>
+          </CustomListItems>
+        </Expand>
+      </Synthetic>
+      <Synthetic Name="Free Blocks">
+        <Expand>
+          <CustomListItems>
+            <Variable Name="iter" InitialValue="mHeadFreeList"/>
+            <Loop>
+              <Break Condition="iter == nullptr"/>
+              <Item>iter</Item>
+              <Exec>iter = iter-&gt;mNext</Exec>
+            </Loop>
+          </CustomListItems>
+        </Expand>
+      </Synthetic>
+    </Expand>
+  </Type>
+  <Type Name="JKRExpHeap::CMemBlock">
+    <DisplayString Condition="size &lt; 1024">{size} B</DisplayString>
+    <DisplayString Condition="size &lt; 1024 * 1024">{(float)size / 1024} KB</DisplayString>
+    <DisplayString>{(float)size / 1024 / 1024} MB</DisplayString>
+  </Type>
+  <Type Name="JKRArchive">
+    <Expand>
+      <Item Condition="mArcInfoBlock &amp;&amp; mNodes" Name="mNodes">mNodes,[byteswap_u32(mArcInfoBlock->num_nodes.inner)]</Item>
+      <Synthetic Condition="mArcInfoBlock &amp;&amp; mNodes &amp;&amp; mStringTable" Name="Node Names">
+        <Expand>
+          <IndexListItems>
+            <Size>byteswap_u32(mArcInfoBlock->num_nodes.inner)</Size>
+            <ValueNode>&amp;mStringTable[byteswap_u32(mNodes[$i].name_offset.inner)]</ValueNode>
+          </IndexListItems>
+        </Expand>
+      </Synthetic>
+      <Item Condition="mArcInfoBlock &amp;&amp; mFiles" Name="mFiles">mFiles,[byteswap_u32(mArcInfoBlock->num_file_entries.inner)]</Item>
+      <Synthetic Condition="mArcInfoBlock &amp;&amp; mFiles" Name="File Names">
+        <Expand>
+          <IndexListItems>
+            <Size>byteswap_u32(mArcInfoBlock->num_file_entries.inner)</Size>
+            <ValueNode>&amp;mStringTable[byteswap_u32(mFiles[$i].type_flags_and_name_offset.inner) &amp; 0x00FFFFFF]</ValueNode>
+          </IndexListItems>
+        </Expand>
+      </Synthetic>
+    </Expand>
+  </Type>
+</AutoVisualizer>

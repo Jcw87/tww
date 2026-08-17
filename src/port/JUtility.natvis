@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="JUTNameTab">
+    <Expand>
+      <IndexListItems>
+        <Size>mNameNum</Size>
+        <ValueNode>(const char*)mNameTable + byteswap_u16(mNameTable->mEntries[$i].mOffs.inner)</ValueNode>
+      </IndexListItems>
+    </Expand>
+  </Type>
+  <Type Name="JUTDataBlockHeader">
+    <Expand>
+      <Item Name="mType">(char*)&amp;mType,[4]</Item>
+      <Item Name="mSize">mSize</Item>
+    </Expand>
+  </Type>
+  <Type Name="ResTIMG">
+    <Expand>
+      <Item Condition="!indexTexture" Name="format">(GXTexFmt)format</Item>
+      <Item Condition="indexTexture" Name="format">(GXCITexFmt)format</Item>
+      <Item Name="alphaEnabled">alphaEnabled</Item>
+      <Item Name="width">width</Item>
+      <Item Name="height">height</Item>
+      <Item Name="wrapS">(GXTexWrapMode)wrapS</Item>
+      <Item Name="wrapT">(GXTexWrapMode)wrapT</Item>
+      <Item Name="indexTexture">indexTexture</Item>
+      <Item Condition="indexTexture" Name="colorFormat">(GXTlutFmt)colorFormat</Item>
+      <Item Condition="indexTexture" Name="numColors">numColors</Item>
+      <Item Condition="indexTexture" Name="paletteOffset">paletteOffset</Item>
+      <Item Name="mipmapEnabled">mipmapEnabled</Item>
+      <Item Name="doEdgeLOD">doEdgeLOD</Item>
+      <Item Name="biasClamp">biasClamp</Item>
+      <Item Name="maxAnisotropy">(GXAnisotropy)maxAnisotropy</Item>
+      <Item Name="minFilter">(GXTexFilter)minFilter</Item>
+      <Item Name="magFilter">(GXTexFilter)magFilter</Item>
+      <Item Name="minLOD">minLOD</Item>
+      <Item Name="maxLOD">maxLOD</Item>
+      <Item Name="mipmapCount">mipmapCount</Item>
+      <Item Name="LODBias">LODBias</Item>
+      <Item Name="imageOffset">imageOffset</Item>
+    </Expand>
+  </Type>
+</AutoVisualizer>

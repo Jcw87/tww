@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="DVDIso">
+    <Expand>
+      <Synthetic Name="Fst">
+        <Expand>
+          <ArrayItems>
+            <Size>MaxEntryNum</Size>
+            <ValuePointer>FstStart</ValuePointer>
+          </ArrayItems>
+        </Expand>
+      </Synthetic>
+    </Expand>
+  </Type>
+  <Type Name="FSTEntry">
+    <Expand>
+      <Item Name="name">((DVDIso*)DVD)->FstStringStart + (isDirAndStringOff &amp; 0x00FFFFFF)</Item>
+      <Item Condition="(isDirAndStringOff &amp; 0xFF000000) &amp;&amp; parentOrPosition" Name="parent_directory">((DVDIso*)DVD)->FstStart + parentOrPosition</Item>
+      <Item Condition="(isDirAndStringOff &amp; 0xFF000000) &amp;&amp; nextEntryOrLength &lt; ((DVDIso*)DVD)->MaxEntryNum" Name="next_directory">((DVDIso*)DVD)->FstStart + nextEntryOrLength</Item>
+      <Item Condition="!(isDirAndStringOff &amp; 0xFF000000)" Name="offset">parentOrPosition</Item>
+      <Item Condition="!(isDirAndStringOff &amp; 0xFF000000)" Name="length">nextEntryOrLength</Item>
+    </Expand>
+  </Type>
+  <Intrinsic Name="gx_bp_reg_id" Expression="byteswap_u32(v) &gt;&gt; 24">
+    <Parameter Name="v" Type="unsigned long"/>
+  </Intrinsic>
+  <Intrinsic Name="gx_bp_reg_value" Expression="byteswap_u32(v) &amp; 0x00FFFFFF">
+    <Parameter Name="v" Type="unsigned long"/>
+  </Intrinsic>
+  <Type Name="GXBPCmd">
+    <Expand>
+      <Item Condition="gx_bp_reg_id(v1) &gt;= 128 &amp;&amp; gx_bp_reg_id(v1) &lt; 156" Name="reg">(GXTexMapID)(gx_bp_reg_id(v1) &amp; 3)</Item>
+      <Item Condition="gx_bp_reg_id(v1) &gt;= 128 &amp;&amp; gx_bp_reg_id(v1) &lt; 132" Name="wrap_s">(GXTexWrapMode)((gx_bp_reg_value(v1) &lt;&lt; 0) &amp; 3)</Item>
+      <Item Condition="gx_bp_reg_id(v1) &gt;= 128 &amp;&amp; gx_bp_reg_id(v1) &lt; 132" Name="wrap_t">(GXTexWrapMode)((gx_bp_reg_value(v1) &lt;&lt; 2) &amp; 3)</Item>
+      <Item Condition="gx_bp_reg_id(v1) &gt;= 148 &amp;&amp; gx_bp_reg_id(v1) &lt; 152" Name="ptr">(void*)(gx_bp_reg_value(v1) &lt;&lt; 5)</Item>
+      <Item Condition="gx_bp_reg_id(v1) &gt;= 224 &amp;&amp; gx_bp_reg_id(v1) &lt; 232 &amp;&amp; (gx_bp_reg_value(v1) &amp; 0x800000) == 0" Name="reg">(GXTevRegID)((gx_bp_reg_id(v1) - 224) / 2)</Item>
+      <Item Condition="gx_bp_reg_id(v1) &gt;= 224 &amp;&amp; gx_bp_reg_id(v1) &lt; 232 &amp;&amp; (gx_bp_reg_value(v1) &amp; 0x800000) == 0 &amp;&amp; (gx_bp_reg_id(v1) &amp; 1) == 0" Name="r">gx_bp_reg_value(v1) &amp; 0x7FF</Item>
+      <Item Condition="gx_bp_reg_id(v1) &gt;= 224 &amp;&amp; gx_bp_reg_id(v1) &lt; 232 &amp;&amp; (gx_bp_reg_value(v1) &amp; 0x800000) == 0 &amp;&amp; (gx_bp_reg_id(v1) &amp; 1) == 0" Name="a">(gx_bp_reg_value(v1) &gt;&gt; 12) &amp; 0x7FF</Item>
+      <Item Condition="gx_bp_reg_id(v1) &gt;= 224 &amp;&amp; gx_bp_reg_id(v1) &lt; 232 &amp;&amp; (gx_bp_reg_value(v1) &amp; 0x800000) == 0 &amp;&amp; (gx_bp_reg_id(v1) &amp; 1) == 1" Name="b">gx_bp_reg_value(v1) &amp; 0x7FF</Item>
+      <Item Condition="gx_bp_reg_id(v1) &gt;= 224 &amp;&amp; gx_bp_reg_id(v1) &lt; 232 &amp;&amp; (gx_bp_reg_value(v1) &amp; 0x800000) == 0 &amp;&amp; (gx_bp_reg_id(v1) &amp; 1) == 1" Name="g">(gx_bp_reg_value(v1) &gt;&gt; 12) &amp; 0x7FF</Item>
+      <Item Condition="gx_bp_reg_id(v1) &gt;= 224 &amp;&amp; gx_bp_reg_id(v1) &lt; 232 &amp;&amp; (gx_bp_reg_value(v1) &amp; 0x800000) != 0" Name="reg">(GXTevKColorID)((gx_bp_reg_id(v1) - 224) / 2)</Item>
+      <Item Condition="gx_bp_reg_id(v1) &gt;= 224 &amp;&amp; gx_bp_reg_id(v1) &lt; 232 &amp;&amp; (gx_bp_reg_value(v1) &amp; 0x800000) != 0 &amp;&amp; (gx_bp_reg_id(v1) &amp; 1) == 0" Name="r">gx_bp_reg_value(v1) &amp; 0xFF</Item>
+      <Item Condition="gx_bp_reg_id(v1) &gt;= 224 &amp;&amp; gx_bp_reg_id(v1) &lt; 232 &amp;&amp; (gx_bp_reg_value(v1) &amp; 0x800000) != 0 &amp;&amp; (gx_bp_reg_id(v1) &amp; 1) == 0" Name="a">(gx_bp_reg_value(v1) &gt;&gt; 12) &amp; 0xFF</Item>
+      <Item Condition="gx_bp_reg_id(v1) &gt;= 224 &amp;&amp; gx_bp_reg_id(v1) &lt; 232 &amp;&amp; (gx_bp_reg_value(v1) &amp; 0x800000) != 0 &amp;&amp; (gx_bp_reg_id(v1) &amp; 1) == 1" Name="b">gx_bp_reg_value(v1) &amp; 0xFF</Item>
+      <Item Condition="gx_bp_reg_id(v1) &gt;= 224 &amp;&amp; gx_bp_reg_id(v1) &lt; 232 &amp;&amp; (gx_bp_reg_value(v1) &amp; 0x800000) != 0 &amp;&amp; (gx_bp_reg_id(v1) &amp; 1) == 1" Name="g">(gx_bp_reg_value(v1) &gt;&gt; 12) &amp; 0xFF</Item>
+      <Item Name="reg_id">gx_bp_reg_id(v1)</Item>
+      <Item Name="reg_value">gx_bp_reg_value(v1)</Item>
+    </Expand>
+  </Type>
+  <Type Name="GXXFCmd">
+    <Expand>
+      <Item Name="cmd">(GXXFRegs)byteswap_u16(v2)</Item>
+      <Item Name="len">byteswap_u16(v1)</Item>
+    </Expand>
+  </Type>
+  <Type Name="_GDLObj">
+    <Expand>
+      <CustomListItems>
+        <Variable Name="offset" InitialValue="0"/>
+        <Variable Name="decoded" InitialValue="false"/>
+        <Loop>
+          <Exec>decoded = false</Exec>
+          <If Condition="start[offset] == 97">
+            <Item>*(dolphin_sdk.dll!GXBPCmd*)&amp;start[offset]</Item>
+            <Exec>offset += sizeof(dolphin_sdk.dll!GXBPCmd)</Exec>
+            <Exec>decoded = true</Exec>
+          </If>
+          <Break Condition="offset &gt;= length"/>
+          <If Condition="start[offset] == 8">
+            <Item>*(dolphin_sdk.dll!GXCPCmd*)&amp;start[offset]</Item>
+            <Exec>offset += sizeof(dolphin_sdk.dll!GXCPCmd)</Exec>
+            <Exec>decoded = true</Exec>
+          </If>
+          <Break Condition="offset &gt;= length"/>
+          <If Condition="start[offset] == 16">
+            <Item>*(dolphin_sdk.dll!GXXFCmd*)&amp;start[offset]</Item>
+            <Exec>offset += byteswap_u16(*(u16*)(&amp;start[offset + 1])) * 4</Exec>
+            <Exec>offset += sizeof(dolphin_sdk.dll!GXXFCmd)</Exec>
+            <Exec>decoded = true</Exec>
+          </If>
+          <Break Condition="offset &gt;= length"/>
+          <If Condition="!decoded">
+            <Item>&amp;start[offset],[length - offset]</Item>
+            <Break/>
+          </If>
+        </Loop>
+      </CustomListItems>
+    </Expand>
+  </Type>
+</AutoVisualizer>
