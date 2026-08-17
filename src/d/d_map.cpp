@@ -2340,22 +2340,22 @@ void dMap_c::drawPointSingle(u8 param_1, f32 param_2, f32 param_3, f32 param_4, 
 
 /* 8004D0A4-8004D260       .text drawActorPointMiniMap__6dMap_cFP10fopAc_ac_c */
 void dMap_c::drawActorPointMiniMap(fopAc_ac_c*) {
-    NOT_IMPLEMENTED;
+    NOT_IMPLEMENTED_CONTINUE;
 }
 
 /* 8004D260-8004D364       .text mapBufferSendAGB_commonCursor__6dMap_cFv */
 void dMap_c::mapBufferSendAGB_commonCursor() {
-    NOT_IMPLEMENTED;
+    NOT_IMPLEMENTED_CONTINUE;
 }
 
 /* 8004D364-8004D4CC       .text mapBufferSendAGB_ocean__6dMap_cFv */
 void dMap_c::mapBufferSendAGB_ocean() {
-    NOT_IMPLEMENTED;
+    NOT_IMPLEMENTED_CONTINUE;
 }
 
 /* 8004D4CC-8004D4F8       .text mapBufferSendAGB_dungeon__6dMap_cFv */
 void dMap_c::mapBufferSendAGB_dungeon() {
-    NOT_IMPLEMENTED;
+    NOT_IMPLEMENTED_CONTINUE;
 }
 
 /* 8004D4F8-8004D5F8       .text mapSetPointAll__6dMap_cFv */
@@ -2383,12 +2383,12 @@ void dMap_c::mapSetPointAll() {
 
 /* 8004D5F8-8004D9BC       .text mapBufferSendAGB__6dMap_cFi */
 void dMap_c::mapBufferSendAGB(int) {
-    NOT_IMPLEMENTED;
+    NOT_IMPLEMENTED_CONTINUE;
 }
 
 /* 8004D9BC-8004DA54       .text checkFloorMoveImageChangeRoom__19dMap_RoomInfoCtrl_cFUcUcissf */
 void dMap_RoomInfoCtrl_c::checkFloorMoveImageChangeRoom(u8, u8, int, s16, s16, f32) {
-    NOT_IMPLEMENTED;
+    NOT_IMPLEMENTED_CONTINUE;
 }
 
 /* 8004DA54-8004DBE0       .text init__22dMap_2DMtMapSpcl_tex_cFP7ResTIMGUlRC8_GXColor */
@@ -2610,7 +2610,7 @@ void dMap_2DAGBScrDsp_c::calc_standard_prm(u16 param_1, u16 param_2, f32 param_3
 
 /* 8004E698-8004EE30       .text draw__18dMap_2DAGBScrDsp_cFv */
 void dMap_2DAGBScrDsp_c::draw() {
-    NOT_IMPLEMENTED;
+    NOT_IMPLEMENTED_CONTINUE;
 }
 
 /* 8004EE30-8004EE44       .text setPos__18dMap_2DAGBScrDsp_cFssss */
@@ -2639,7 +2639,7 @@ void dMap_2DTri_c::init(s16 i_posX, s16 i_posY, const GXColor& i_color, f32 i_sc
 
 /* 8004EE88-8004F080       .text draw__12dMap_2DTri_cFv */
 void dMap_2DTri_c::draw() {
-    NOT_IMPLEMENTED;
+    NOT_IMPLEMENTED_CONTINUE;
 }
 
 /* 8004F080-8004F08C       .text setPos__12dMap_2DTri_cFss */
@@ -2687,12 +2687,12 @@ void dMap_2DAGBCursor_c::init(s16 param_1, s16 param_2, const GXColor& param_3, 
 
 /* 8004F214-8004F3C0       .text draw__18dMap_2DAGBCursor_cFv */
 void dMap_2DAGBCursor_c::draw() {
-    NOT_IMPLEMENTED;
+    NOT_IMPLEMENTED_CONTINUE;
 }
 
 /* 8004F3C0-8004F778       .text draw__11dMap_2DT2_cFv */
 void dMap_2DT2_c::draw() {
-    NOT_IMPLEMENTED;
+    NOT_IMPLEMENTED_CONTINUE;
 }
 
 /* 8004F778-8004F8B4       .text init__11dMap_2DT2_cFP7ResTIMGffffUcUcUcffs */
