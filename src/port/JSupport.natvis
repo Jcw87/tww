@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="JSUList&lt;*&gt;">
+    <Expand>
+      <LinkedListItems>
+        <Size>mLength</Size>
+        <HeadPointer>mHead</HeadPointer>
+        <NextPointer>mNext</NextPointer>
+        <ValueNode>($T1*)mObject</ValueNode>
+      </LinkedListItems>
+    </Expand>
+  </Type>
+  <Type Name="JSULink&lt;*&gt;">
+    <Expand>
+      <Item Name="mList">(JSUList&lt;$T1&gt;*)mList</Item>
+      <Item Name="mObject">($T1*)mObject</Item>
+    </Expand>
+  </Type>
+  <Type Name="JSUTree&lt;*&gt;">
+    <Expand>
+      <Item Name="mObject">($T1*)mObject</Item>
+      <Synthetic Name="Children">
+        <Expand>
+          <LinkedListItems>
+            <Size>mLength</Size>
+            <HeadPointer>mHead</HeadPointer>
+            <NextPointer>mNext</NextPointer>
+            <ValueNode>(JSUTree&lt;$T1&gt;*)this</ValueNode>
+          </LinkedListItems>
+        </Expand>
+      </Synthetic>
+    </Expand>
+  </Type>
+</AutoVisualizer>

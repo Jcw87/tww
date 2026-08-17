@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="J2DPane">
+    <Expand>
+      <Item Name="mMagic">(char*)&amp;mMagic,[4]</Item>
+      <Item Name="mTag">(char*)&amp;mTag,[4]</Item>
+      <Item Name="mBounds">mBounds</Item>
+      <Item Name="mGlobalBounds">mGlobalBounds</Item>
+      <Item Name="mDrawBounds">mDrawBounds</Item>
+      <Item Name="mMtx">mMtx</Item>
+      <Item Name="mDrawMtx">mDrawMtx</Item>
+      <Item Name="mBasePosition">mBasePosition</Item>
+      <Item Name="mRotation">mRotation</Item>
+      <Item Name="mRotationAxis">mRotationAxis</Item>
+      <Item Name="m2DBasePosition">m2DBasePosition</Item>
+      <Item Name="mVisible">mVisible</Item>
+      <Item Name="mCullMode">mCullMode</Item>
+      <Item Name="mAlpha">mAlpha</Item>
+      <Item Name="mDrawAlpha">mDrawAlpha</Item>
+      <Item Name="mInfluencedAlpha">mInfluencedAlpha</Item>
+      <Item Name="mIsConnectParent">mIsConnectParent</Item>
+      <Item Name="mPaneTree">mPaneTree</Item>
+    </Expand>
+  </Type>
+</AutoVisualizer>
