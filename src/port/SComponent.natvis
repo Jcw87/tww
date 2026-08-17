@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="cXyz">
+    <DisplayString>{(Vec)*this}</DisplayString>
+  </Type>
+  <Type Name="csXyz">
+    <DisplayString>{(SVec)*this}</DisplayString>
+  </Type>
+  <Type Name="cBgD_t">
+    <Expand>
+      <Synthetic Name="m_v_tbl">
+        <DisplayString>{{num={byteswap_u32(m_v_num.inner)}}}</DisplayString>
+        <Expand>
+          <ArrayItems>
+            <Size>byteswap_u32(m_v_num.inner)</Size>
+            <ValuePointer>(cBgD_Vtx_t*)byteswap_u32(m_v_tbl.value.inner)</ValuePointer>
+          </ArrayItems>
+        </Expand>
+      </Synthetic>
+      <Synthetic Name="m_t_tbl">
+        <DisplayString>{{num={byteswap_u32(m_t_num.inner)}}}</DisplayString>
+        <Expand>
+          <ArrayItems>
+            <Size>byteswap_u32(m_t_num.inner)</Size>
+            <ValuePointer>(cBgD_Tri_t*)byteswap_u32(m_t_tbl.value.inner)</ValuePointer>
+          </ArrayItems>
+        </Expand>
+      </Synthetic>
+    </Expand>
+  </Type>
+  <Type Name="cBgD_Vtx_t">
+    <DisplayString>{(Vec)*this}</DisplayString>
+  </Type>
+</AutoVisualizer>

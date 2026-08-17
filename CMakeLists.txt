@@ -68,6 +68,7 @@ add_library(dolphin_sdk SHARED
     src/port/gx.cpp
     src/port/gd.cpp
     src/port/sdk.def
+    src/port/sdk.natvis
 )
 target_include_directories(dolphin_sdk PUBLIC include src assets/GZLE01 build/GZLE01/include)
 target_compile_definitions(dolphin_sdk PUBLIC
@@ -78,6 +79,7 @@ set_property(TARGET dolphin_sdk PROPERTY CXX_STANDARD 23)
 
 add_library(tww_byteswap SHARED
     src/port/byteswap.cpp
+    src/port/byteswap.natvis
 )
 target_link_libraries(tww_byteswap dolphin_sdk)
 set_property(TARGET tww_byteswap PROPERTY CXX_STANDARD 23)
@@ -317,6 +319,7 @@ add_executable(tww
     src/d/d_wpillar.cpp
     src/d/d_wpot_water.cpp
     src/DynamicLink.cpp
+    src/port/framework.natvis
 )
 target_link_libraries(tww
     SComponent
@@ -395,6 +398,7 @@ add_library(SComponent STATIC
     src/SSystem/SComponent/c_lib.cpp
     src/SSystem/SComponent/c_angle.cpp
     src/SSystem/SComponent/c_data_tbl.cpp
+    src/port/SComponent.natvis
 )
 target_link_libraries(SComponent dolphin_sdk)
 
@@ -653,6 +657,7 @@ add_library(JKernel STATIC
     src/JSystem/JKernel/JKRDvdRipper.cpp
     src/JSystem/JKernel/JKRDvdAramRipper.cpp
     src/JSystem/JKernel/JKRDecomp.cpp
+    src/port/JKernel.natvis
 )
 target_link_libraries(JKernel dolphin_sdk)
 target_precompile_headers(JKernel PRIVATE "include/JSystem/JSystem.h")
@@ -662,6 +667,7 @@ add_library(JSupport STATIC
     src/JSystem/JSupport/JSUInputStream.cpp
     src/JSystem/JSupport/JSUMemoryStream.cpp
     src/JSystem/JSupport/JSUFileStream.cpp
+    src/port/JSupport.natvis
 )
 target_link_libraries(JSupport dolphin_sdk)
 target_precompile_headers(JSupport PRIVATE "include/JSystem/JSystem.h")
@@ -696,6 +702,7 @@ add_library(JUtility STATIC
     src/JSystem/JUtility/JUTDirectFile.cpp
     src/JSystem/JUtility/JUTGba.cpp
     src/JSystem/JUtility/JUTFontData_Ascfont_fix12.cpp
+    src/port/JUtility.natvis
 )
 target_link_libraries(JUtility dolphin_sdk)
 target_precompile_headers(JUtility PRIVATE "include/JSystem/JSystem.h")
@@ -709,6 +716,7 @@ add_library(J2DGraph STATIC
     src/JSystem/J2DGraph/J2DWindow.cpp
     src/JSystem/J2DGraph/J2DPicture.cpp
     src/JSystem/J2DGraph/J2DTextBox.cpp
+    src/port/J2DGraph.natvis
 )
 target_link_libraries(J2DGraph dolphin_sdk)
 target_precompile_headers(J2DGraph PRIVATE "include/JSystem/JSystem.h")
@@ -731,6 +739,7 @@ add_library(J3DGraphBase STATIC
     src/JSystem/J3DGraphBase/J3DMatBlock.cpp
     src/JSystem/J3DGraphBase/J3DTevs.cpp
     src/JSystem/J3DGraphBase/J3DDrawBuffer.cpp
+    src/port/J3DGraphBase.natvis
 )
 target_link_libraries(J3DGraphBase dolphin_sdk)
 target_precompile_headers(J3DGraphBase PRIVATE "include/JSystem/JSystem.h")
@@ -745,6 +754,7 @@ add_library(J3DGraphAnimator STATIC
     src/JSystem/J3DGraphAnimator/J3DJoint.cpp
     src/JSystem/J3DGraphAnimator/J3DNode.cpp
     src/JSystem/J3DGraphAnimator/J3DMaterialAttach.cpp
+    src/port/J3DGraphAnimator.natvis
 )
 target_link_libraries(J3DGraphAnimator dolphin_sdk)
 target_precompile_headers(J3DGraphAnimator PRIVATE "include/JSystem/JSystem.h")
