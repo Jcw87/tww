@@ -1087,7 +1087,7 @@ void dPa_ripplePcallBack::execute(JPABaseEmitter* emitter, JPABaseParticle* ptcl
 
 /* 8007DE94-8007E254       .text draw__19dPa_ripplePcallBackFP14JPABaseEmitterP15JPABaseParticle */
 void dPa_ripplePcallBack::draw(JPABaseEmitter* emitter, JPABaseParticle* particle) {
-    NOT_IMPLEMENTED;
+    NOT_IMPLEMENTED_CONTINUE;
 }
 
 /* 8007E254-8007E288       .text setup__17dPa_waveEcallBackFP14JPABaseEmitterPC4cXyzPC5csXyzSc */
@@ -1310,7 +1310,7 @@ void dPa_cutTurnEcallBack_c::end() {
 
 /* 8007EB00-8007F028       .text draw__20dPa_stripesEcallBackFP14JPABaseEmitter */
 void dPa_stripesEcallBack::draw(JPABaseEmitter* emitter) {
-    NOT_IMPLEMENTED;
+    NOT_IMPLEMENTED_CONTINUE;
 }
 
 /* 8007F028-8007F05C       .text draw__19dPa_kageroEcallBackFP14JPABaseEmitter */
