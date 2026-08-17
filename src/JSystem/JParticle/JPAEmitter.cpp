@@ -110,8 +110,10 @@ void JPABaseEmitter::calcVolumeCylinder() {
         rad = 1.0f - rad * rad;
     rad = emtrInfo.mVolumeSize * (mVolumeMinRad + rad * (1.0f - mVolumeMinRad));
 
+#if __MWERKS__
     // Fakematch, needed to force mRandomSeed.value to be reloaded before the third random call
     *(f32*)NULL = *(f32*)NULL;
+#endif
 
     emtrInfo.mVolumePos.set(rad * JMASSin(angle), emtrInfo.mVolumeSize * getRandomRF(), rad * JMASCos(angle));
     emtrInfo.mVelOmni.mul(emtrInfo.mVolumePos, emtrInfo.mEmitterGlobalScale);
