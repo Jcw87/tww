@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Intrinsic Name="byteswap_u16" Expression="u16((v &gt;&gt; 8) | (v &lt;&lt; 8))">
+    <Parameter Name="v" Type="unsigned short"/>
+  </Intrinsic>
+  <Intrinsic Name="byteswap_u32" Expression="u32((v &gt;&gt; 24) | ((v &gt;&gt; 8) &amp; 0xFF00) | ((v &lt;&lt; 8) &amp; 0xFF0000) | (v &lt;&lt; 24))">
+    <Parameter Name="v" Type="unsigned long"/>
+  </Intrinsic>
+  <Type Name="BE&lt;short,short&gt;">
+    <DisplayString>{(short)byteswap_u16(inner)}</DisplayString>
+  </Type>
+  <Type Name="BE&lt;unsigned short,unsigned short&gt;">
+    <DisplayString>{byteswap_u16(inner)}</DisplayString>
+  </Type>
+  <Type Name="BE&lt;long,long&gt;">
+    <DisplayString>{(long)byteswap_u32(inner)}</DisplayString>
+  </Type>
+  <Type Name="BE&lt;unsigned long,unsigned long&gt;">
+    <DisplayString>{byteswap_u32(inner)}</DisplayString>
+  </Type>
+  <Type Name="BE&lt;int,int&gt;">
+    <DisplayString>{(int)byteswap_u32(inner)}</DisplayString>
+  </Type>
+  <Type Name="OffsetPtrT&lt;*&gt;">
+    <DisplayString>{($T1*)byteswap_u32(value.inner)}</DisplayString>
+    <Expand>
+      <Item Name="value">($T1*)byteswap_u32(value.inner)</Item>
+    </Expand>
+  </Type>
+</AutoVisualizer>

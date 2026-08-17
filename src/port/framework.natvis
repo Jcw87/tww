@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="node_lists_tree_class">
+    <Expand>
+      <ArrayItems>
+        <Size>mNumLists</Size>
+        <ValuePointer>mpLists</ValuePointer>
+      </ArrayItems>
+    </Expand>
+  </Type>
+  <Type Name="node_list_class">
+    <DisplayString>{{mSize: {mSize}}}</DisplayString>
+    <Expand>
+      <LinkedListItems>
+        <Size>mSize</Size>
+        <HeadPointer>mpHead</HeadPointer>
+        <NextPointer>mpNextNode</NextPointer>
+        <ValueNode>this</ValueNode>
+      </LinkedListItems>
+    </Expand>
+  </Type>
+  <Type Name="node_class">
+    <Expand>
+      <Item Condition="mpData == &amp;g_fpcCtTg_Queue" Name="create_request">(create_request*)this</Item>
+      <Item Condition="mpData == &amp;g_fpcDtTg_Queue" Name="delete_tag_class">(delete_tag_class*)this</Item>
+      <Item Condition="mpData == &amp;l_fpcPi_Queue" Name="process_priority_class">(process_priority_class*)this</Item>
+    </Expand>
+  </Type>
+  <Type Name="base_process_class">
+    <Expand>
+      <Item Condition="mProcName == fpcNm_ROOM_SCENE_e" Name="room_of_scene_class">(room_of_scene_class*)this</Item>
+      <Item Condition="mProcName == fpcNm_SEA_e" Name="sea_class">(sea_class*)this</Item>
+    </Expand>
+  </Type>
+</AutoVisualizer>

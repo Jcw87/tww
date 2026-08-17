@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="J3DTexCoordInfo">
+    <Expand>
+      <Item Name="mTexGenType">(GXTexGenType)mTexGenType</Item>
+      <Item Name="mTexGenSrc">(GXTexGenSrc)mTexGenSrc</Item>
+      <Item Name="mTexGenMtx" Condition="mTexGenMtx &lt;= 27">(GXPosNrmMtx)mTexGenMtx</Item>
+      <Item Name="mTexGenMtx" Condition="30 &lt;= mTexGenMtx &amp;&amp; mTexGenMtx &lt;= 60">(GXTexMtx)mTexGenMtx</Item>
+    </Expand>
+  </Type>
+  <Type Name="J3DTexture">
+    <DisplayString>{(void*)mpRes} {{size={mNum}}}</DisplayString>
+    <Expand>
+      <ArrayItems>
+        <Size>mNum</Size>
+        <ValuePointer>mpRes</ValuePointer>
+      </ArrayItems>
+    </Expand>
+  </Type>
+  <Type Name="J3DDrawBuffer">
+    <Expand>
+      <CustomListItems>
+        <Variable Name="i" InitialValue="0" />
+        <Variable Name="packet" InitialValue="mpBuffer[0]" />
+        <Loop>
+          <Break Condition="i &gt;= mEntryTableSize"/>
+          <Exec>packet = mpBuffer[i]</Exec>
+          <Loop>
+            <Break Condition="!packet"/>
+            <Item>packet</Item>
+            <Exec>packet = packet->mpNextPacket</Exec>
+          </Loop>
+          <Exec>i++</Exec>
+        </Loop>
+      </CustomListItems>
+    </Expand>
+  </Type>
+  <Type Name="J3DVertexData">
+    <Expand>
+      <Synthetic Name="mVtxAttrFmtList">
+        <DisplayString>{mVtxAttrFmtList}</DisplayString>
+        <Expand>
+          <CustomListItems>
+            <Variable Name="i" InitialValue="0"/>
+            <Loop>
+              <Break Condition="mVtxAttrFmtList[i].attr == GX_VA_NULL || i >= 12"/>
+              <Item>mVtxAttrFmtList[i]</Item>
+              <Exec>i++</Exec>
+            </Loop>
+          </CustomListItems>
+        </Expand>
+      </Synthetic>
+      <Synthetic Name="mVtxPosArray">
+        <DisplayString>{mVtxPosArray} {{size = {mVtxNum}}}</DisplayString>
+        <Expand>
+          <CustomListItems>
+            <Variable Name="fmtIdx" InitialValue="0"/>
+            <Variable Name="cnt" InitialValue="-1"/>
+            <Variable Name="type" InitialValue="-1"/>
+            <Variable Name="i" InitialValue="0"/>
+            <Loop>
+              <Break Condition="mVtxAttrFmtList[fmtIdx].attr == GX_VA_NULL || i >= 12"/>
+              <If Condition="mVtxAttrFmtList[fmtIdx].attr == GX_VA_POS">
+                <Exec>cnt = mVtxAttrFmtList[fmtIdx].cnt</Exec>
+                <Exec>type = mVtxAttrFmtList[fmtIdx].type</Exec>
+              </If>
+              <Exec>fmtIdx++</Exec>
+            </Loop>
+            <Loop>
+              <Break Condition="i >= mVtxNum"/>
+              <Item Condition="cnt == GX_POS_XYZ &amp;&amp; type == GX_F32">((Vec*)mVtxPosArray)[i]</Item>
+              <Exec>i++</Exec>
+            </Loop>
+          </CustomListItems>
+        </Expand>
+      </Synthetic>
+      <Synthetic Name="mVtxNrmArray">
+        <DisplayString>{mVtxNrmArray} {{size = {mNrmNum}}}</DisplayString>
+        <Expand>
+          <CustomListItems>
+            <Variable Name="fmtIdx" InitialValue="0"/>
+            <Variable Name="cnt" InitialValue="-1"/>
+            <Variable Name="type" InitialValue="-1"/>
+            <Variable Name="i" InitialValue="0"/>
+            <Loop>
+              <Break Condition="mVtxAttrFmtList[fmtIdx].attr == GX_VA_NULL || i >= 12"/>
+              <If Condition="mVtxAttrFmtList[fmtIdx].attr == GX_VA_NRM">
+                <Exec>cnt = mVtxAttrFmtList[fmtIdx].cnt</Exec>
+                <Exec>type = mVtxAttrFmtList[fmtIdx].type</Exec>
+              </If>
+              <Exec>fmtIdx++</Exec>
+            </Loop>
+            <Loop>
+              <Break Condition="i >= mNrmNum"/>
+              <Item Condition="cnt == GX_NRM_XYZ &amp;&amp; type == GX_F32">((Vec*)mVtxNrmArray)[i]</Item>
+              <Exec>i++</Exec>
+            </Loop>
+          </CustomListItems>
+        </Expand>
+      </Synthetic>
+      <Item Name="mVtxNBTArray">mVtxNBTArray</Item>
+      <Item Name="mVtxColorArray">mVtxColorArray</Item>
+      <Item Name="mVtxTexCoordArray">mVtxTexCoordArray</Item>
+    </Expand>
+  </Type>
+</AutoVisualizer>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="J3DMaterialTable">
+    <Expand>
+      <Item Name="mMaterialNodePointer">mMaterialNodePointer,[mMaterialNum]</Item>
+      <Item Name="mMaterialName">mMaterialName</Item>
+      <Item Condition="mMaterialBase" Name="mMaterialBase">mMaterialBase,[mUniqueMatNum]</Item>
+      <Item Name="mTexture">mTexture</Item>
+      <Item Name="mTextureName">mTextureName</Item>
+      <Item Name="mbIsLocked">mbIsLocked</Item>
+    </Expand>
+  </Type>
+  <Type Name="J3DShapeTable">
+    <DisplayString>{(void*)mShapeNodePointer} {{size={mShapeNum}}}</DisplayString>
+    <Expand>
+      <ArrayItems>
+        <Size>mShapeNum</Size>
+        <ValuePointer>mShapeNodePointer</ValuePointer>
+      </ArrayItems>
+    </Expand>
+  </Type>
+  <Type Name="J3DModel">
+    <Expand>
+      <Item Name="mModelData">mModelData</Item>
+      <Item Name="mFlags">mFlags</Item>
+      <Item Name="mDiffFlag">mDiffFlag</Item>
+      <Item Name="mCalcCallBack">mCalcCallBack</Item>
+      <Item Name="mUserArea">mUserArea</Item>
+      <Item Name="mBaseScale">mBaseScale</Item>
+      <Item Name="mBaseTransformMtx">mBaseTransformMtx</Item>
+      <Item Name="mViewBaseMtx">mViewBaseMtx</Item>
+      <Item Name="mpScaleFlagArr">mpScaleFlagArr,[mModelData->mJointTree.mJointNum]</Item>
+      <Item Name="mpEvlpScaleFlagArr">mpEvlpScaleFlagArr,[mModelData->mJointTree.mWEvlpMtxNum]</Item>
+      <Item Name="mpNodeMtx">mpNodeMtx,[mModelData->mJointTree.mJointNum]</Item>
+      <Item Name="mpWeightEnvMtx">mpWeightEnvMtx,[mModelData->mJointTree.mWEvlpMtxNum]</Item>
+      <Item Name="mpDrawMtxBuf">mpDrawMtxBuf</Item>
+      <Item Name="mpNrmMtxBuf">mpNrmMtxBuf</Item>
+      <Item Name="mpBumpMtxArr">mpBumpMtxArr</Item>
+      <Item Name="mMtxBufferFlag">mMtxBufferFlag</Item>
+      <Item Name="mCurrentViewNo">mCurrentViewNo</Item>
+      <Item Name="mpMatPacket">mpMatPacket</Item>
+      <Item Name="mpShapePacket">mpShapePacket</Item>
+      <Item Name="mpDeformData">mpDeformData</Item>
+      <Item Name="mpSkinDeform">mpSkinDeform</Item>
+      <Item Name="field_0xc4">field_0xc4</Item>
+      <Item Name="field_0xc8">field_0xc8</Item>
+      <Item Name="mVertexBuffer">mVertexBuffer</Item>
+      <Item Name="mpVisibilityManager">mpVisibilityManager</Item>
+    </Expand>
+  </Type>
+</AutoVisualizer>

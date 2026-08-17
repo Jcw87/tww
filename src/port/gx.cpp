@@ -374,3 +374,28 @@ void GXNormal1x16(u16 x) { }
 void GXColor1x16(u16 x) { }
 void GXColor4x8(u8 r, u8 g, u8 b, u8 a) { }
 void GXTexCoord1x16(u16 x) { }
+
+// Some structs for natvis
+#pragma push
+#pragma pack(1)
+struct GXBPCmd {
+    u8 cmd;
+    u32 v1;
+};
+struct GXCPCmd {
+    u8 cmd;
+    u8 v1;
+    u32 v2;
+};
+struct GXXFCmd {
+    u8 cmd;
+    u16 v1;
+    u16 v2;
+    u32 v3;
+};
+#pragma pack()
+#pragma pop
+
+GXBPCmd debug_bp;
+GXCPCmd debug_cp;
+GXXFCmd debug_xf;
