@@ -28,6 +28,25 @@ if(MSVC)
     )
 endif()
 
+add_subdirectory(extern)
+
+# aurora needs to be in its own module, to prevent the operator new override from interfering
+add_library(aurora_shared SHARED
+    extern/aurora_stubs.cpp
+    extern/aurora.def
+)
+target_compile_definitions(aurora_shared PRIVATE TARGET_PC)
+target_link_libraries(aurora_shared PRIVATE
+    aurora_card
+    aurora_core
+    aurora_gd
+    aurora_gx
+    aurora_main
+    aurora_pad
+    aurora_si
+    aurora_vi
+)
+
 add_library(dolphin_sdk SHARED
     src/port/gba.cpp
     src/port/PPCArch.cpp
@@ -322,6 +341,8 @@ add_executable(tww
     src/port/framework.natvis
 )
 target_link_libraries(tww
+    ${AURORA_SDL3_TARGET}
+    aurora_shared
     SComponent
     SStandard
     JFramework

@@ -232,7 +232,11 @@ enum {
 #define CARDIsValidBlockNo(card, blockNo) ((blockNo) >= CARD_NUM_SYSTEM_BLOCK && (blockNo) < (card)->cBlock)
 #define CARDGetDirCheck(dir) ((CARDDirCheck*)&(dir)[CARD_MAX_FILE])
 
+#if TARGET_PC
+void CARDInit(const char* game, const char* maker);
+#else
 void CARDInit();
+#endif
 BOOL CARDProbe(s32);
 s32 CARDGetStatus(s32, s32, CARDStat*);
 s32 CARDSetStatus(s32, s32, CARDStat*);

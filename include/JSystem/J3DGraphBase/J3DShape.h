@@ -75,9 +75,13 @@ public:
         initialize();
     }
 
+#if TARGET_PC
+    static const int kVcdVatDLSize = 0x180;
+#else
     enum {
         kVcdVatDLSize = 0xC0,
     };
+#endif
 
     void initialize();
     void addTexMtxIndexInDL(GXAttr, u32);

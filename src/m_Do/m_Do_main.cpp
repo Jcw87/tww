@@ -27,6 +27,7 @@
 #include "m_Do/m_Do_machine.h"
 #include "m_Do/m_Do_printf.h"
 #include <stdio.h>
+#include "aurora.h"
 
 /* 800056E0-80005748       .text version_check__Fv */
 void version_check() {
@@ -453,6 +454,20 @@ void main01() {
 #endif
 
     do {
+        const AuroraEvent* event = aurora_update();
+        while (event != NULL && event->type != AURORA_NONE) {
+            switch (event->type) {
+            case AURORA_EXIT:
+                return;
+            }
+            event++;
+        }
+
+        if (!aurora_begin_frame()) {
+            OSReport("aurora_begin_frame returned false, skipping draw this frame");
+            continue;
+        }
+
 #if VERSION > VERSION_DEMO
         frame++;
         if (fillcheck_check_frame != 0 && frame % fillcheck_check_frame == 0) {
@@ -494,6 +509,7 @@ void main01() {
 #else
         debug();           // run debugger
 #endif
+        aurora_end_frame();
     } while (true);
 }
 
