@@ -3,6 +3,9 @@
 #include "dolphin/gx/GX.h"
 #include "dolphin/gx/GXInit.h"
 
+#undef GXBegin
+#undef GXEnd
+
 // GXInit
 GXFifoObj* GXInit(void* base, u32 size) { return 0; }
 

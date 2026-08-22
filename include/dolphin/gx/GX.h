@@ -231,8 +231,6 @@ inline void GXTexCoord1x16(u16 x) {
     GXFIFO.u16 = x;
 }
 
-inline void GXEnd() {}
-
 #define GX_WRITE_U8(ub)     \
     GXFIFO.u8 = (u8)(ub)
 
@@ -360,7 +358,6 @@ void GXColor1x16(u16 x);
 void GXColor3x8(u8 r, u8 g, u8 b);
 void GXColor4x8(u8 r, u8 g, u8 b, u8 a);
 void GXTexCoord1x16(u16 x);
-void GXEnd();
 #endif
 
 #ifdef __cplusplus
