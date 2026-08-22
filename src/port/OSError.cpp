@@ -5,6 +5,7 @@
 
 u32 __OSFpscrEnableBits;
 
+#if 0
 void OSReport(const char* msg, ...) {
     va_list marker;
     va_start(marker, msg);
@@ -30,5 +31,6 @@ void OSPanic(const char* file, s32 line, const char* msg, ...) {
 
     PPCHalt();
 }
+#endif
 
 OSErrorHandler OSSetErrorHandler(OSError error, OSErrorHandler handler) { return NULL; }

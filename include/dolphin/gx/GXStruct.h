@@ -37,6 +37,9 @@ typedef struct _GXRenderModeObj {
 STATIC_ASSERT(sizeof(GXRenderModeObj) == 60);
 
 typedef struct _GXTexObj {
+#ifdef TARGET_PC
+    u32 dummy[16];
+#else
     /* 0x00 */ u32 texture_filter;
     /* 0x04 */ u32 texture_lod;
     /* 0x08 */ u32 texture_size;
@@ -47,12 +50,17 @@ typedef struct _GXTexObj {
     /* 0x1C */ u16 texture_time_count;
     /* 0x1E */ u8 texture_tile_type;
     /* 0x1F */ u8 texture_flags;
+#endif
 } GXTexObj;
 
 typedef struct _GXTlutObj {
+#ifdef TARGET_PC
+    u32 dummy[10];
+#else
     /* 0x0 */ u32 format;
     /* 0x4 */ u32 address;
     /* 0x8 */ u32 numEntries;
+#endif
 } GXTlutObj;
 
 typedef struct _GXLightObj {

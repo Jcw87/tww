@@ -267,6 +267,10 @@ void J3DModelLoader::readInformation(const J3DModelInfoBlock* i_block, u32 i_fla
     mpModelData->mVertexData.mPacketNum = i_block->mPacketNum;
     mpModelData->getVertexData().mVtxNum = i_block->mVtxNum;
     mpModelData->setHierarchy(JSUConvertOffsetToPtr<J3DModelHierarchy>(i_block, i_block->mpHierarchy));
+
+#if TARGET_PC
+    mpModelData->getVertexData().mHasReadInformation = true;
+#endif
 }
 
 #if TARGET_PC
@@ -482,6 +486,10 @@ auto StrideForData(GXAttr attr, GXCompType type, GXCompCnt cnt) -> std::pair<u32
 }
 
 void J3DModelLoader::readVertexData(const J3DVertexBlock& block, J3DVertexData& data) {
+    if (!data.mHasReadInformation) {
+        OSPanic(__FILE__, __LINE__, "Model has VTX1 before INF1?");
+    }
+
     const BE(u32)* attrPtrBase = &block.mpVtxPosArray;
     for (int i = 0; i < ARRAY_SIZE(VertexBlockAttrOrder); i++) {
         GXAttr attr = VertexBlockAttrOrder[i];
@@ -496,9 +504,11 @@ void J3DModelLoader::readVertexData(const J3DVertexBlock& block, J3DVertexData& 
         void* endAddr = GetDataEnd(block, i);
         auto [compCnt, compStride] = StrideForData(attr, fmt.type, fmt.cnt);
         u32 vertStride = compStride * compCnt;
+        data.mVtxArrStride[attr - GX_VA_POS] = vertStride;
 
         u32 addrDiff = u32((u8*)endAddr - (u8*)startAddr);
         u32 num = addrDiff / vertStride;
+        data.mVtxArrNum[attr - GX_VA_POS] = num;
         FixArrayEndian(startAddr, endAddr, compStride);
 
         if (attr == GX_VA_POS) {

@@ -510,6 +510,10 @@ void GDSetVtxDescv(GXVtxDescList*);
 void GDSetArray(GXAttr attr, void* data, u8 stride);
 void GDSetArrayRaw(GXAttr attr, u32 data, u8 stride);
 
+#ifdef TARGET_PC
+void GDSetArraySized(GXAttr attr, void* base_ptr, u32 size, u8 stride, bool le);
+#endif
+
 #ifdef __cplusplus
 };
 #endif
