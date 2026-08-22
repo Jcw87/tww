@@ -1,5 +1,6 @@
 
 #include <dolphin/os/OS.h>
+#include <dolphin/gx/GXGeometry.h>
 #include "aurora.h"
 #include <string>
 
@@ -7,6 +8,28 @@
 #define WIN32_LEAN_AND_MEAN 1
 #include <windows.h>
 #endif
+
+#undef GXBegin
+#undef GXEnd
+
+static bool sBegin = false;
+static const char* sFile = NULL;
+static int sLine = 0;
+void GXBeginDebug(GXPrimitive type, GXVtxFmt fmt, u16 vert_num, const char* file, int line) {
+    if (sBegin) {
+        OSReport("GXBegin without end %s:%d\n", sFile, sLine);
+    }
+    sBegin = true;
+    sFile = file;
+    sLine = line;
+    GXBegin(type, fmt, vert_num);
+}
+void GXEndDebug() {
+    sBegin = false;
+    sFile = NULL;
+    sLine = 0;
+    GXEnd();
+}
 
 void OSInitRAM(u32 size);
 int gc_main(int argc, const char* argv[]);
