@@ -24,7 +24,16 @@ mDoMemCd_Ctrl_c::mDoMemCd_Ctrl_c() {
 
 /* 80018D70-80018E18       .text ThdInit__15mDoMemCd_Ctrl_cFv */
 void mDoMemCd_Ctrl_c::ThdInit() {
+#if TARGET_PC
+    DVDDiskID* disk_id = DVDGetCurrentDiskID();
+    char version[5] = {};
+    char maker[3] = {};
+    std::memcpy(version, disk_id->game_name, 4);
+    std::memcpy(maker, disk_id->company, 2);
+    CARDInit(version, maker);
+#else
     CARDInit();
+#endif
     mPictDataPtr = NULL;
     mPictDataWritePtr = NULL;
     mCopyToPos = 0;

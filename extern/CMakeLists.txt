@@ -1,0 +1,20 @@
+
+add_subdirectory(aurora)
+
+set_target_properties(fmt PROPERTIES FOLDER "aurora/deps")
+set_target_properties(imgui PROPERTIES FOLDER "aurora/deps")
+set_target_properties(imgui_backends PROPERTIES FOLDER "aurora/deps")
+set_target_properties(libzstd_static PROPERTIES FOLDER "aurora/deps")
+set_target_properties(sqlite3 PROPERTIES FOLDER "aurora/deps")
+set_target_properties(TracyClient PROPERTIES FOLDER "aurora/deps")
+set_target_properties(xxhash PROPERTIES FOLDER "aurora/deps")
+target_compile_definitions(aurora_gx PRIVATE "$<$<CONFIG:DEBUG>:DEBUG>")
+
+set_target_properties(dvd_tests PROPERTIES FOLDER "aurora/tests")
+set_target_properties(gtest PROPERTIES FOLDER "aurora/tests")
+set_target_properties(gtest_main PROPERTIES FOLDER "aurora/tests")
+set_target_properties(gx_fifo_tests PROPERTIES FOLDER "aurora/tests")
+set_target_properties(gx_texture_cache_tests PROPERTIES FOLDER "aurora/tests")
+set_target_properties(os_alloc_tests PROPERTIES FOLDER "aurora/tests")
+set_target_properties(render_worker_tests PROPERTIES FOLDER "aurora/tests")
+set_target_properties(texture_replacement_streaming_tests PROPERTIES FOLDER "aurora/tests")
