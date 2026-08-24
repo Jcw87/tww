@@ -1127,6 +1127,9 @@ void daNpc_Mk_c::visitSetEvent() {
 /* 00002C90-00002F2C       .text visit01__10daNpc_Mk_cFv */
 bool daNpc_Mk_c::visit01() {
     f32 temp;
+#if TARGET_PC
+    temp = 0.0f;
+#endif
     if (chkFlag(0x1)) {
         mPrevState = mState;
         mState = visitTalkInit();
