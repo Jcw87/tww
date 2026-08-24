@@ -13,6 +13,9 @@
 /* 8002A454-8002A4A4       .text fopKy_Draw__FPv */
 static BOOL fopKy_Draw(void* i_ky) {
     BOOL ret;
+#if TARGET_PC
+    ret = TRUE;
+#endif
     kankyo_class* i_this = (kankyo_class*)i_ky;
 
     if (!dMenu_flag()) {
@@ -25,6 +28,9 @@ static BOOL fopKy_Draw(void* i_ky) {
 /* 8002A4A4-8002A514       .text fopKy_Execute__FPv */
 static BOOL fopKy_Execute(void* i_ky) {
     BOOL ret;
+#if TARGET_PC
+    ret = TRUE;
+#endif
     kankyo_class* i_this = (kankyo_class*)i_ky;
 
     if (!dScnPly_ply_c::isPause() && (!dMenu_flag() || fpcM_GetName(i_ky) == fpcNm_ENVSE_e || fpcM_GetName(i_ky) == fpcNm_LEVEL_SE_e)) {

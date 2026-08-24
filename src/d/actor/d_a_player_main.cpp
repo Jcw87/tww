@@ -3114,7 +3114,7 @@ void daPy_lk_c::setBlendMoveAnime(f32 i_morf) {
             anm0 = ANM_WAITS;
             int r24;
             f32 in_f27; // Bug? This variable is uninitialized in some paths. TODO: Look into this.
-            #ifdef __clang__
+            #ifdef TARGET_PC
             // Just a quick hack to hide clangd's warning for now.
             in_f27 = 0.0f;
             #endif

@@ -286,6 +286,10 @@ void dMsg_screenDataSetTalk(sub_msg_class* i_Msg) {
     fopMsgM_blendInit(&i_Msg->m01FC, "cursor_00_02.bti");
     fopMsgM_blendInit(&i_Msg->m0234, "cursor_00_02.bti");
     J2DTextBox::TFontSize rubySize;
+#if TARGET_PC
+    rubySize.mSizeX = 0.0f;
+    rubySize.mSizeY = 0.0f;
+#endif
     ((J2DTextBox*)i_Msg->m0544[0].pane)->getFontSize(fontSize);
     i_Msg->m110C = (int)fontSize.mSizeX;
     i_Msg->m1110 = (int)rubySize.mSizeX; // !@bug uninitialized use

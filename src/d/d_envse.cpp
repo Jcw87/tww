@@ -96,6 +96,9 @@ BOOL dEnvSe_c::execute() {
         } else if (sound_data->field_0x17 == 1) {
             f32 f31 = FLOAT_MAX;
             int r27;
+#ifdef TARGET_PC
+            r27 = 0;
+#endif
             mPos = sp2c;
             path = dPath_GetRoomPath(sound_data->field_0x18, roomNo);
             while (path != NULL) {

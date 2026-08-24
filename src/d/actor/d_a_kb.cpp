@@ -631,7 +631,7 @@ void target_set(kb_class* i_this, u8 param_1) {
     fopAc_ac_c* actor = (fopAc_ac_c*)&i_this->actor;
     daPy_py_c* pPlayer = daPy_getPlayerActorClass();
 
-    s16 temp;
+    s16 temp = 0;
     cXyz temp2;
     switch(param_1) {
         case 0:
