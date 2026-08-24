@@ -712,10 +712,13 @@ void JAIZelBasic::initSe() {
 
 /* 802A6720-802A8550       .text seStart__11JAIZelBasicFUlP3VecUlScffffUc */
 JAISound** JAIZelBasic::seStart(u32 i_seNum, Vec*, u32, s8, f32, f32, f32, f32, u8) {
-    NOT_IMPLEMENTED;
+#if TARGET_PC
+    NOT_IMPLEMENTED_CONTINUE;
+#else
     // "Kurobo voices should be played in monsSeStart!\n"
     OSReport("クロボーの声は monsSeStartで！\n");
     OSReport("[JAIZelBasic::seStart] overflow JAISound pointer\n");
+#endif
     return NULL;
 }
 
