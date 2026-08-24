@@ -32,11 +32,25 @@ void JUTFader::control() {
         mColor.a = 0xFF;
         break;
     case FadeIn:
+#if TARGET_PC
+        if (mFadeTime == 0) {
+            mColor.a = 0;
+            mStatus = WaitIn;
+            break;
+        }
+#endif
         mColor.a = 0xFF - ((++mTimer * 0xFF) / mFadeTime);
         if (mTimer >= mFadeTime)
             mStatus = WaitIn;
         break;
     case FadeOut:
+#if TARGET_PC
+        if (mFadeTime == 0) {
+            mColor.a = 255;
+            mStatus = WaitOut;
+            break;
+        }
+#endif
         mColor.a = ((++mTimer * 0xFF) / mFadeTime);
         if (mTimer >= mFadeTime)
             mStatus = WaitOut;

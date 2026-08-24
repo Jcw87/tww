@@ -23,6 +23,9 @@ BOOL fopCam_Draw(camera_class* camera) {
 /* 800292CC-80029328       .text fopCam_Execute__FP12camera_class */
 BOOL fopCam_Execute(camera_class* camera) {
     BOOL ret;
+#if TARGET_PC
+    ret = TRUE;
+#endif
 
     if (!dMenu_flag() && !dScnPly_ply_c::isPause()) {
         ret = fpcMtd_Execute((process_method_class*)camera->mpMtd, camera);

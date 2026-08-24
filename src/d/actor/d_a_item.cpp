@@ -1385,6 +1385,9 @@ BOOL daItem_c::initAction() {
     // In practice only daItem_c::CreateInit calls daItem_c::initAction, which means y_speed will
     // be set to the item's collision height if the action is 0, 5, or 0xA.
     f32 y_speed;
+#if TARGET_PC
+    y_speed = dItem_data::getH(m_itemNo);
+#endif
     switch (mAction) {
     case daItemAct_1_e:
         y_speed = getData()->mLaunchSpeed + cM_rndFX(5.0f);
