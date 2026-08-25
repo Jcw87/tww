@@ -943,8 +943,14 @@ cPhs_State phase_2(dScnLogo_c* i_this) {
     mDoAud_loadStaticWaves();
     mDoGph_gInf_c::setTickRate((OS_BUS_CLOCK / 4) / 60);
     mDoGph_gInf_c::waitBlanking(0);
+#if TARGET_PC
+    // Skip logos
+    i_this->mTimer = 0;
+    i_this->mAction = ACT_dolbyOutDraw;
+#else
     mDoGph_gInf_c::startFadeIn(30);
     i_this->mTimer = 90;
+#endif
 
 #if VERSION > VERSION_JPN
     mDoRst::offReset();
