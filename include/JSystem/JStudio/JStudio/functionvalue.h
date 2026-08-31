@@ -338,7 +338,12 @@ public:
             return r1.pf_ == r2.pf_;
         }
 
+#if TARGET_PC
+        f32 operator*() const {
+#else
+        // This should be const, but it breaks matching
         f32 operator*() {
+#endif
 #ifdef DEBUG
             JUT_ASSERT(947, pf_!=0);
 #endif
@@ -446,7 +451,12 @@ public:
             return r1.pf_ == r2.pf_;
         }
 
+#if TARGET_PC
+        f32 operator*() const {
+#else
+        // This should be const, but it breaks matching
         f32 operator*() {
+#endif
 #ifdef DEBUG
             JUT_ASSERT(1098, pf_!=0);
 #endif
