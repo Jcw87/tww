@@ -341,6 +341,7 @@ public:
 #ifdef __MWERKS__
         f32 operator*() {
 #else
+        // This is the correct signature, but it breaks matching
         f32 operator*() const {
 #endif
 #ifdef DEBUG
@@ -453,6 +454,7 @@ public:
 #ifdef __MWERKS__
         f32 operator*() {
 #else
+        // This is the correct signature, but it breaks matching
         f32 operator*() const {
 #endif
 #ifdef DEBUG
