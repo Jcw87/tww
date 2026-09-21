@@ -1113,7 +1113,7 @@ void dPa_waveEcallBack::remove() {
 
 /* 8007E2BC-8007E484       .text executeAfter__17dPa_waveEcallBackFP14JPABaseEmitter */
 void dPa_waveEcallBack::executeAfter(JPABaseEmitter* emitter) {
-    emitter->getEmitterAxis(reinterpret_cast<JGeometry::TVec3<f32>&>(mRotMtx[0]), reinterpret_cast<JGeometry::TVec3<f32>&>(mRotMtx[1]), reinterpret_cast<JGeometry::TVec3<f32>&>(mRotMtx[2]));
+    emitter->getEmitterAxis(mRotMtx[0], mRotMtx[1], mRotMtx[2]);
 
     if (mState != 0) {
         emitter->setDirectionalSpeed(0.0f);
@@ -1154,6 +1154,64 @@ void dPa_waveEcallBack::executeAfter(JPABaseEmitter* emitter) {
 /* 8007E484-8007E804       .text draw__17dPa_waveEcallBackFP14JPABaseEmitter */
 void dPa_waveEcallBack::draw(JPABaseEmitter* emitter) {
     /* Nonmatching */
+    int r26 = emitter->getParticleList()->getNumLinks();
+    JGeometry::TVec3<f32> globalTranslation;
+    emitter->getGlobalTranslation(globalTranslation);
+    if (r26 < 2) {
+        return;
+    }
+    GXSetCullMode(GX_CULL_NONE);
+    GXSetClipMode(GX_CLIP_ENABLE);
+    GXSetMisc(GX_MT_XF_FLUSH, 8);
+    GXColor local_ec;
+    GXColor local_f0;
+    dKy_get_seacolor(&local_ec, &local_f0);
+    local_ec.a = 255;
+    local_f0.a = 255;
+    GXSetTevColor(GX_TEVREG0, local_ec);
+    GXSetTevColor(GX_TEVREG1, local_f0);
+    GXVtxAttrFmtList fmt[GX_VA_MAX_ATTR + 1];
+    GXGetVtxAttrFmtv(GX_VTXFMT0, fmt);
+    for (int i = 0; i < 2; i++) {
+        f32 f28 = 0.0f;
+        Vec local_c4 = {
+            mRotMtx[2].x * mCollapsePos->z,
+            mRotMtx[2].y * mCollapsePos->z,
+            mRotMtx[2].z * mCollapsePos->z,
+        };
+        Vec local_dc = {
+            mRotMtx[1].x * mCollapsePos->y,
+            mRotMtx[1].y * mCollapsePos->y,
+            mRotMtx[1].z * mCollapsePos->y,
+        };
+        Vec local_d0 = {
+            mRotMtx[0].x * mCollapsePos->x,
+            mRotMtx[0].y * mCollapsePos->x,
+            mRotMtx[0].z * mCollapsePos->x,
+        };
+        Vec local_e8 = {
+            local_d0.x + local_dc.x,
+            local_d0.y + local_dc.y,
+            local_d0.z + local_dc.z,
+        };
+        Vec local_b8 = {
+            local_e8.x + local_c4.x,
+            local_e8.y + local_c4.y,
+            local_e8.z + local_c4.z,
+        };
+
+        GXBegin(GX_TRIANGLEFAN, GX_VTXFMT0, r26 + 1);
+        GXPosition3f32(globalTranslation.x + local_b8.x, globalTranslation.y + local_b8.y, globalTranslation.z + local_b8.z);
+        GXTexCoord2f32(0.5f, 0.5f);
+        for (JSULink<JPABaseParticle>* link = emitter->getParticleList()->getFirst(); link != emitter->getParticleList()->getEnd(); link = link->getNext()) {
+            JPABaseParticle* particle = link->getObject();
+            GXPosition3f32(particle->mGlobalPosition.x, particle->mGlobalPosition.y, particle->mGlobalPosition.z);
+            GXTexCoord2f32(f28, 1.0f);
+            f28 += 1.0f / r26;
+        }
+        GXEnd();
+    }
+    GXSetMisc(GX_MT_XF_FLUSH, 0);
 }
 
 /* 8007E804-8007E81C       .text setup__19dPa_splashEcallBackFP14JPABaseEmitterPC4cXyzPC5csXyzSc */
