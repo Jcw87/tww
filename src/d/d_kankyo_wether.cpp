@@ -60,12 +60,24 @@ J3DPacket* dKyw_setDrawPacketListXluZPos(J3DPacket* i_packet, cXyz* param_1) {
 
 /* 80087130-80087168       .text draw__18dKankyo_sun_PacketFv */
 void dKankyo_sun_Packet::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("dKankyo_sun_Packet");
+#endif
     dKyr_drawSun(j3dSys.getViewMtx(), mPos, mColor, mpTextureData);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 80087168-800871A0       .text draw__22dKankyo_sunlenz_PacketFv */
 void dKankyo_sunlenz_Packet::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("dKankyo_sunlenz_Packet");
+#endif
     dKyr_drawLenzflare(j3dSys.getViewMtx(), mPositions, mColorTmp, &mpTexSnow01);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 800871A0-800871DC       .text __dt__8RAIN_EFFFv */
@@ -76,8 +88,14 @@ RAIN_EFF::RAIN_EFF() {}
 
 /* 800871E0-80087228       .text draw__19dKankyo_rain_PacketFv */
 void dKankyo_rain_Packet::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("dKankyo_rain_Packet");
+#endif
     dKyr_drawSibuki(j3dSys.getViewMtx(), &mpTxSnow01);
     dKyr_drawRain(j3dSys.getViewMtx(), &mpTxSnow01);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 80087228-80087264       .text __dt__8SNOW_EFFFv */
@@ -88,7 +106,13 @@ SNOW_EFF::SNOW_EFF() {}
 
 /* 80087268-80087298       .text draw__19dKankyo_snow_PacketFv */
 void dKankyo_snow_Packet::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("dKankyo_snow_Packet");
+#endif
     dKyr_drawSnow(j3dSys.getViewMtx(), &mpTexture);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 80087298-800872D4       .text __dt__8STAR_EFFFv */
@@ -99,7 +123,13 @@ STAR_EFF::STAR_EFF() {}
 
 /* 800872D8-80087308       .text draw__19dKankyo_star_PacketFv */
 void dKankyo_star_Packet::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("dKankyo_star_Packet");
+#endif
     dKyr_drawStar(j3dSys.getViewMtx(), &mpTexture);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 80087308-80087344       .text __dt__10POISON_EFFFv */
@@ -110,7 +140,13 @@ POISON_EFF::POISON_EFF() {}
 
 /* 80087348-8008737C       .text draw__21dKankyo_poison_PacketFv */
 void dKankyo_poison_Packet::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("dKankyo_poison_Packet");
+#endif
     drawPoison(j3dSys.getViewMtx(), &mpTexture);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 8008737C-800873B8       .text __dt__9CLOUD_EFFFv */
@@ -121,7 +157,13 @@ CLOUD_EFF::CLOUD_EFF() {}
 
 /* 800873BC-800873EC       .text draw__20dKankyo_cloud_PacketFv */
 void dKankyo_cloud_Packet::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("dKankyo_cloud_Packet");
+#endif
     drawCloudShadow(j3dSys.getViewMtx(), &mpTexture);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 800873EC-80087428       .text __dt__9HOUSI_EFFFv */
@@ -132,7 +174,13 @@ HOUSI_EFF::HOUSI_EFF() {}
 
 /* 8008742C-8008745C       .text draw__20dKankyo_housi_PacketFv */
 void dKankyo_housi_Packet::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("dKankyo_housi_Packet");
+#endif
     dKyr_drawHousi(j3dSys.getViewMtx(), &mpTex);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 8008745C-80087498       .text __dt__10VRKUMO_EFFFv */
@@ -143,7 +191,13 @@ VRKUMO_EFF::VRKUMO_EFF() {}
 
 /* 8008749C-800874D0       .text draw__21dKankyo_vrkumo_PacketFv */
 void dKankyo_vrkumo_Packet::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("dKankyo_vrkumo_Packet");
+#endif
     drawVrkumo(j3dSys.getViewMtx(), mColorTmp, &mpCloudTx1);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 800874D0-8008750C       .text __dt__8WAVE_EFFFv */
@@ -154,7 +208,13 @@ WAVE_EFF::WAVE_EFF() {}
 
 /* 80087510-80087540       .text draw__19dKankyo_wave_PacketFv */
 void dKankyo_wave_Packet::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("dKankyo_wave_Packet");
+#endif
     drawWave(j3dSys.getViewMtx(), &mpTexUsonami);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 80087540-80087570       .text dKyw_drawSun__Fi */

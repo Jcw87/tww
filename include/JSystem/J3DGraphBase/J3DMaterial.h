@@ -147,6 +147,9 @@ public:
     /* 0x3C */ J3DMaterialAnm* mMaterialAnm;
     /* 0x40 */ J3DCurrentMtx mCurrentMtx;
     /* 0x48 */ J3DDisplayListObj* mSharedDLObj;
+#if TARGET_PC
+    const char* mMaterialName;
+#endif
 };
 
 class J3DPatchedMaterial : public J3DMaterial {

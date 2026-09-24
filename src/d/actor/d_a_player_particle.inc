@@ -114,6 +114,9 @@ void daPy_swimTailEcallBack_c::draw(JPABaseEmitter*) {
 
 /* 80129348-8012952C       .text draw__18daPy_sightPacket_cFv */
 void daPy_sightPacket_c::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("daPy_sightPacket_c");
+#endif
 #if VERSION > VERSION_JPN
     j3dSys.reinitGX();
     GXSetNumIndStages(0);
@@ -157,6 +160,9 @@ void daPy_sightPacket_c::draw() {
 
 #if VERSION > VERSION_JPN
     J3DShape::resetVcdVatCache();
+#endif
+#if TARGET_PC
+    GXPopDebugGroup();
 #endif
 }
 
@@ -265,6 +271,9 @@ void daPy_swBlur_c::copySwBlur(MtxP mtx, int param_2) {
 
 /* 80129A78-80129DD0       .text draw__13daPy_swBlur_cFv */
 void daPy_swBlur_c::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("daPy_swBlur_c");
+#endif
 #if VERSION > VERSION_JPN
     j3dSys.reinitGX();
     GXSetNumIndStages(0);
@@ -337,6 +346,9 @@ void daPy_swBlur_c::draw() {
 
 #if VERSION > VERSION_JPN
     J3DShape::resetVcdVatCache();
+#endif
+#if TARGET_PC
+    GXPopDebugGroup();
 #endif
 }
 

@@ -320,6 +320,9 @@ void dFlower_packet_c::draw() {
     j3dSys.reinitGX();
     GXSetNumIndStages(0);
 #endif
+#if TARGET_PC
+    GXPushDebugGroup("d_flower");
+#endif
 
     GXClearVtxDesc();
     GXSetVtxDesc(GX_VA_POS, GX_INDEX8);
@@ -387,6 +390,9 @@ void dFlower_packet_c::draw() {
 
 #if VERSION > VERSION_JPN
     J3DShape::resetVcdVatCache();
+#endif
+#if TARGET_PC
+    GXPopDebugGroup();
 #endif
 }
 
