@@ -389,6 +389,10 @@ void dTree_packet_c::draw() {
 
     static u8 l_modelStatus[2][3] = {0, 1, 2, 3, 1, 4};
 
+#if TARGET_PC
+    GXPushDebugGroup("d_tree");
+#endif
+
     j3dSys.reinitGX();
 #if VERSION > VERSION_JPN
     GXSetNumIndStages(0);
@@ -448,6 +452,9 @@ void dTree_packet_c::draw() {
 
 #if VERSION > VERSION_JPN
     J3DShape::resetVcdVatCache();
+#endif
+#if TARGET_PC
+    GXPopDebugGroup();
 #endif
 }
 

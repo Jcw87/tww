@@ -116,8 +116,14 @@ void JUTProcBar::adjustMeterLength(u32 param_0, f32* param_1, f32 param_2, f32 p
 
 /* 802C8DB0-802C8DE4       .text draw__10JUTProcBarFv */
 void JUTProcBar::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("JUTProcBar");
+#endif
     drawProcessBar();
     drawHeapBar();
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 802C8DE4-802C9CE4       .text drawProcessBar__10JUTProcBarFv */

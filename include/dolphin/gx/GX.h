@@ -358,6 +358,9 @@ void GXColor1x16(u16 x);
 void GXColor3x8(u8 r, u8 g, u8 b);
 void GXColor4x8(u8 r, u8 g, u8 b, u8 a);
 void GXTexCoord1x16(u16 x);
+
+void GXPushDebugGroup(const char* label);
+void GXPopDebugGroup();
 #endif
 
 #ifdef __cplusplus

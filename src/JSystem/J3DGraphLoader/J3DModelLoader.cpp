@@ -16,6 +16,16 @@
 #include "dolphin/os/OS.h"
 #include <utility>
 
+#if TARGET_PC
+static void AssignMaterialNames(const J3DMaterialTable& table) {
+    auto materialName = table.getMaterialName();
+    for (int i = 0; i < table.getMaterialNum(); i++) {
+        auto mat = table.getMaterialNodePointer(i);
+        mat->mMaterialName = materialName->getName(i);
+    }
+}
+#endif
+
 /* 802FB758-802FB8A4       .text load__22J3DModelLoaderDataBaseFPCvUl */
 J3DModelData* J3DModelLoaderDataBase::load(const void* i_data, u32 i_flags) {
     if (i_data == NULL) {
@@ -116,6 +126,9 @@ J3DModelData* J3DModelLoader::load(const void* i_data, u32 i_flags) {
             mpModelData->getShapeNodePointer(shape_no)->onFlag(0x200);
         }
     }
+#if TARGET_PC
+    AssignMaterialNames(*mpMaterialTable);
+#endif
     return mpModelData;
 }
 
@@ -145,6 +158,9 @@ J3DMaterialTable* J3DModelLoader::loadMaterialTable(const void* i_data) {
     if (mpMaterialTable->getTexture() == NULL) {
         mpMaterialTable->setTexture(new J3DTexture(0, NULL));
     }
+#if TARGET_PC
+    AssignMaterialNames(*mpMaterialTable);
+#endif
     return mpMaterialTable;
 }
 
@@ -207,6 +223,9 @@ J3DModelData* J3DModelLoader::loadBinaryDisplayList(const void* i_data, u32 i_fl
     mpModelData->sortVcdVatCmd();
     setupBBoardInfo();
     mpModelData->indexToPtr();
+#if TARGET_PC
+    AssignMaterialNames(*mpMaterialTable);
+#endif
     return mpModelData;
 }
 

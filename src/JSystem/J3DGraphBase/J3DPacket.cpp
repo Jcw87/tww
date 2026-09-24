@@ -10,6 +10,7 @@
 #include "JSystem/J3DGraphBase/J3DSys.h"
 #include "JSystem/J3DGraphAnimator/J3DModel.h"
 #include "JSystem/JKernel/JKRHeap.h"
+#include "stdio.h"
 #include "string.h"
 #include "dolphin/gx/GX.h"
 #include "dolphin/os/OS.h"
@@ -222,6 +223,13 @@ void J3DMatPacket::draw() {
     j3dSys.setMatPacket(this);
 
     mpMaterial->load();
+#if _DEBUG && TARGET_PC
+    if (mpMaterial->mMaterialName != nullptr) {
+        char buf[64];
+        snprintf(buf, sizeof(buf), "Mat: %s", mpMaterial->mMaterialName);
+        GXPushDebugGroup(buf);
+    }
+#endif
     J3DShapePacket* packet = getShapePacket();
 
     J3DShape* shape = packet->getShape();
@@ -237,6 +245,12 @@ void J3DMatPacket::draw() {
     }
 
     shape->resetVcdVatCache();
+
+#if _DEBUG && TARGET_PC
+    if (mpMaterial->mMaterialName != nullptr) {
+        GXPopDebugGroup();
+    }
+#endif
 }
 
 /* 802DB524-802DB584       .text __ct__14J3DShapePacketFv */

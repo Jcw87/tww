@@ -824,12 +824,18 @@ void dPa_control_c::draw(JPADrawInfo* param_1, u8 param_2) {
     if (!mEmitterMng) {
         return;
     }
+#if TARGET_PC
+    GXPushDebugGroup("dPa_control_c");
+#endif
     j3dSys.reinitGX();
     dKy_setLight_again();
     mEmitterMng->draw(param_1, param_2);
     GXSetAlphaUpdate(GX_DISABLE);
 #if VERSION != VERSION_DEMO
     GXSetNumIndStages(0);
+#endif
+#if TARGET_PC
+    GXPopDebugGroup();
 #endif
 }
 

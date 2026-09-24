@@ -1069,6 +1069,9 @@ void dMeter_recollect_boss_data() {
 
 /* 801F0608-801F06CC       .text draw__16dDlst_2DMETER1_cFv */
 void dDlst_2DMETER1_c::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("dDlst_2DMETER1_c");
+#endif
     J2DOrthoGraph* graf = dComIfGp_getCurrentGrafPort();
     graf->setPort();
     sMainParts3->draw(0.0f, 0.0f, graf);
@@ -1081,13 +1084,22 @@ void dDlst_2DMETER1_c::draw() {
         sScrTimer2->draw(0.0f, 0.0f, graf);
     }
     sChoiceRoad->draw(0.0f, 0.0f, graf);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 801F06CC-801F0724       .text draw__16dDlst_2DMETER2_cFv */
 void dDlst_2DMETER2_c::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("dDlst_2DMETER2_c");
+#endif
     J2DOrthoGraph* graf = dComIfGp_getCurrentGrafPort();
     graf->setPort();
     sMainParts2->draw(0.0f, 0.0f, graf);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 void dMeter_setNowHeartScaleXY(fopMsgM_pane_class*);

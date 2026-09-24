@@ -656,6 +656,10 @@ void daSea_packet_c::draw() {
 
     JUT_ASSERT(VERSION_SELECT(0x519, 0x519, 0x518, 0x518), m_draw_vtx != NULL); // Redundant assert
 
+#if TARGET_PC
+    GXPushDebugGroup("daSea_packet_c");
+#endif
+
 #if VERSION > VERSION_JPN
     j3dSys.reinitGX();
 #endif
@@ -1134,6 +1138,9 @@ void daSea_packet_c::draw() {
     GXSetNumIndStages(0);
 #if VERSION > VERSION_JPN
     J3DShape::resetVcdVatCache();
+#endif
+#if TARGET_PC
+    GXPopDebugGroup();
 #endif
 }
 

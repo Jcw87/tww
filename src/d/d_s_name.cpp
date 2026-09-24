@@ -1542,12 +1542,18 @@ void dDlst_BTICN_c::draw() {
 
 /* 8023245C-80232518       .text draw__19dDlst_FLSEL_CLOTH_cFv */
 void dDlst_FLSEL_CLOTH_c::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("dDlst_FLSEL_CLOTH_c");
+#endif
     Mtx44 mtx;
     view_port_class* viewport = dComIfGp_getCurrentViewport();
     C_MTXPerspective(mtx, 30.0f, fapGmHIO_getAspectRatio() * (viewport->mWidth / viewport->mHeight), 1.0f, 100000.0f);
     GXSetProjection(mtx, GX_PERSPECTIVE);
     cloth_c->draw(0.0f, COMPOUND_LITERAL(GXColor){0xe3, 0xff, 0xb3, 0xff}, COMPOUND_LITERAL(GXColor){0x00, 0x00, 0x00, 0x00}, 0);
     dComIfGp_getCurrentGrafPort()->setPort();
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 static scene_method_class l_dScnName_Method = {

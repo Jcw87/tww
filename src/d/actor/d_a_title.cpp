@@ -462,9 +462,15 @@ void daTitle_proc_c::model_draw() {
 void daTitle_proc_c::proc_draw() {
     JKRHeap* oldHeap = mDoExt_setCurrentHeap(m_exp_heap);
 
+#if TARGET_PC
+    GXPushDebugGroup("daTitle_proc_c");
+#endif
     J2DOrthoGraph* graf = dComIfGp_getCurrentGrafPort();
     graf->setPort();
     m_Screen->draw(0.0f, 0.0f, graf);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 
     mDoExt_setCurrentHeap(oldHeap);
 }
