@@ -501,6 +501,9 @@ void dDlst_2Dm_c::setScroll(int idx, s16 x, s16 y) {
 
 /* 80081888-80081DA4       .text draw__11dDlst_2Dm_cFv */
 void dDlst_2Dm_c::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("dDlst_2Dm_c");
+#endif
     GXVtxAttrFmtList fmtList[GX_VA_MAX_ATTR + 1];
 
     s16 tex0_s0 = mTex[0].mScrollX;
@@ -578,6 +581,9 @@ void dDlst_2Dm_c::draw() {
     GXEnd();
 
     GXSetVtxAttrFmtv(GX_VTXFMT0, fmtList);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 80081DA4-80082130       .text draw__12dDlst_2DMt_cFv */
@@ -661,8 +667,14 @@ dDlst_2D_c::dDlst_2D_c(ResTIMG* timg, s16 x, s16 y, u8 alpha) {
 
 /* 800821B0-80082264       .text draw__10dDlst_2D_cFv */
 void dDlst_2D_c::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("dDlst_2D_c");
+#endif
     mPicture.setAlpha(mAlpha);
     mPicture.draw(mX, mY, false, false, false);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 80082264-80082274       .text init__8cM_rnd_cFiii */
@@ -1522,6 +1534,9 @@ void dDlst_shadowControl_c::reset() {
 void dDlst_shadowControl_c::imageDraw(Mtx mtx) {
     #include "assets/l_matDL__imageDraw__21dDlst_shadowControl_cFPA4_f.h"
 
+#if TARGET_PC
+    GXPushDebugGroup("dDlst_shadowControl_c::imageDraw");
+#endif
     GXSetViewport(0.0f, 0.0f, 256.0f, 256.0f, 0.0f, 1.0f);
     GXSetScissor(0, 0, 0x100, 0x100);
     GXCallDisplayList(l_matDL, 0x80);
@@ -1535,10 +1550,16 @@ void dDlst_shadowControl_c::imageDraw(Mtx mtx) {
     for (s32 i = 0; i < (s32)ARRAY_SIZE(mReal); i++, pReal++)
         pReal->imageDraw(mtx);
     GXSetClipMode(GX_CLIP_ENABLE);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 80084EF0-800850D4       .text draw__21dDlst_shadowControl_cFPA4_f */
 void dDlst_shadowControl_c::draw(Mtx drawMtx) {
+#if TARGET_PC
+    GXPushDebugGroup("dDlst_shadowControl_c::draw");
+#endif
     j3dSys.reinitGX();
 #if VERSION > VERSION_JPN
     GXSetNumIndStages(0);
@@ -1572,6 +1593,9 @@ void dDlst_shadowControl_c::draw(Mtx drawMtx) {
 
     GXSetColorUpdate(GX_TRUE);
     GXSetAlphaUpdate(0);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 800850D4-80085170       .text setReal__21dDlst_shadowControl_cFUlScP8J3DModelP4cXyzffP12dKy_tevstr_c */

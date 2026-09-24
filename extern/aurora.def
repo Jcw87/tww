@@ -7,6 +7,8 @@ aurora_update
 aurora_begin_frame
 aurora_end_frame
 GDSetArraySized
+GXPushDebugGroup
+GXPopDebugGroup
 
 ; CARDBios.c
 CARDInit

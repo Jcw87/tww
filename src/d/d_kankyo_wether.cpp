@@ -60,7 +60,13 @@ J3DPacket* dKyw_setDrawPacketListXluZPos(J3DPacket* i_packet, cXyz* param_1) {
 
 /* 80087130-80087168       .text draw__18dKankyo_sun_PacketFv */
 void dKankyo_sun_Packet::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("dKankyo_sun_Packet");
+#endif
     dKyr_drawSun(j3dSys.getViewMtx(), mPos, mColor, mpTextureData);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 80087168-800871A0       .text draw__22dKankyo_sunlenz_PacketFv */
@@ -143,7 +149,13 @@ VRKUMO_EFF::VRKUMO_EFF() {}
 
 /* 8008749C-800874D0       .text draw__21dKankyo_vrkumo_PacketFv */
 void dKankyo_vrkumo_Packet::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("dKankyo_vrkumo_Packet");
+#endif
     drawVrkumo(j3dSys.getViewMtx(), mColorTmp, &mpCloudTx1);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 800874D0-8008750C       .text __dt__8WAVE_EFFFv */
@@ -154,7 +166,13 @@ WAVE_EFF::WAVE_EFF() {}
 
 /* 80087510-80087540       .text draw__19dKankyo_wave_PacketFv */
 void dKankyo_wave_Packet::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("dKankyo_wave_Packet");
+#endif
     drawWave(j3dSys.getViewMtx(), &mpTexUsonami);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 80087540-80087570       .text dKyw_drawSun__Fi */

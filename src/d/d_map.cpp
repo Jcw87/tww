@@ -1198,6 +1198,9 @@ BOOL dMap_c::setNowRoom(int param_1) {
 
 /* 80048660-80048A20       .text draw__11dMap_2DSQ_cFv */
 void dMap_2DSQ_c::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("dMap_2DSQ_c");
+#endif
     GXVtxAttrFmtList fmt[GX_VA_MAX_ATTR + 1];
     GXGetVtxAttrFmtv(GX_VTXFMT0, fmt);
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_POS, GX_POS_XYZ, GX_F32, 0);
@@ -1244,6 +1247,9 @@ void dMap_2DSQ_c::draw() {
     GXSetAlphaUpdate(GX_DISABLE);
     GXSetDstAlpha(GX_DISABLE, 0xff);
     GXSetVtxAttrFmtv(GX_VTXFMT0, fmt);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 80048A20-80048B54       .text mapDrawIconFree__6dMap_cFssUc */
@@ -2433,6 +2439,9 @@ void dMap_2DMtMapSpcl_c::setPos(s16 param_1, s16 param_2, s16 param_3, s16 param
 /* 8004DC1C-8004E068       .text draw__18dMap_2DMtMapSpcl_cFv */
 void dMap_2DMtMapSpcl_c::draw() {
     /* Nonmatching */
+#if TARGET_PC
+    GXPushDebugGroup("dMap_2DMtMapSpcl_c");
+#endif
     GXVtxAttrFmtList fmtList[GX_VA_MAX_ATTR + 1];
     GXGetVtxAttrFmtv(GX_VTXFMT0, fmtList);
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_POS, GX_POS_XYZ, GX_S16, 0);
@@ -2520,6 +2529,9 @@ void dMap_2DMtMapSpcl_c::draw() {
     GXSetDstAlpha(GX_DISABLE, 0);
     GXSetAlphaUpdate(GX_DISABLE);
     GXSetVtxAttrFmtv(GX_VTXFMT0, fmtList);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 8004E068-8004E1CC       .text setImage__18dMap_2DAGBScrDsp_cFP7ResTIMGP8map_dt_c */

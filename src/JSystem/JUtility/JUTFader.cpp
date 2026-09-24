@@ -50,10 +50,15 @@ void JUTFader::draw() {
     if (mColor.a == 0) {
         return;
     }
-
+#if TARGET_PC
+    GXPushDebugGroup("JUTFader");
+#endif
     J2DOrthoGraph graf;
     graf.setColor(mColor);
     graf.fillBox(mBox);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 802C8780-802C87B0       .text startFadeIn__8JUTFaderFi */
