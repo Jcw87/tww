@@ -435,6 +435,9 @@ static void dummy() {
 
 /* 80008880-80008B0C       .text drawAlphaBuffer__FP10view_class8_GXColor */
 void drawAlphaBuffer(view_class* view, GXColor color) {
+#if TARGET_PC
+    GXPushDebugGroup("drawAlphaBuffer");
+#endif
 #if VERSION == VERSION_DEMO
     #include "assets/l_matDL__drawAlphaBuffer__FP10view_class8_GXColor.h"
     #include "assets/l_DL__drawAlphaBuffer__FP10view_class8_GXColor.h"
@@ -510,6 +513,9 @@ void drawAlphaBuffer(view_class* view, GXColor color) {
     GXSetAlphaUpdate(GX_FALSE);
     GXSetDstAlpha(GX_FALSE, 0);
     GXSetProjection(view->mProjMtx, GX_PERSPECTIVE);
+#endif
+#if TARGET_PC
+    GXPopDebugGroup();
 #endif
 }
 
@@ -611,6 +617,9 @@ void drawSpot(view_class* view) {
 
 /* 80008F34-8000990C       .text drawDepth__FP10view_classP15view_port_classi */
 void drawDepth(view_class* view, view_port_class* viewport, int depth) {
+#if TARGET_PC
+    GXPushDebugGroup("drawDepth");
+#endif
     if (mDoGph_gInf_c::isAutoForcus()) {
         f32 projv[7];
         f32 viewv[6];
@@ -804,11 +813,17 @@ void drawDepth(view_class* view, view_port_class* viewport, int depth) {
 
     GXSetScissor(viewport->mScissor.mXOrig, viewport->mScissor.mYOrig, viewport->mScissor.mWidth, viewport->mScissor.mHeight);
     GXSetProjection(view->mProjMtx, GX_PERSPECTIVE);
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 80009914-80009BBC       .text motionBlure__FP10view_class */
 void motionBlure(view_class* view) {
     if (mDoGph_gInf_c::isBlure()) {
+#if TARGET_PC
+        GXPushDebugGroup("motionBlure");
+#endif
         GXLoadTexObj(mDoGph_gInf_c::getFrameBufferTexObj(), GX_TEXMAP0);
         GXColor color;
         color.a = mDoGph_gInf_c::getBlureRate();
@@ -851,6 +866,9 @@ void motionBlure(view_class* view) {
         GXTexCoord2s8(0, 1);
         GXEnd();
         GXSetProjection(view->mProjMtx, GX_PERSPECTIVE);
+#if TARGET_PC
+        GXPopDebugGroup();
+#endif
     }
 }
 

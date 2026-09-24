@@ -404,6 +404,10 @@ void JFWDisplay::clearEfb(int param_0, int param_1, int param_2, int param_3, GX
     u16 height = mpRenderMode->efbHeight;
     u16 width = mpRenderMode->fbWidth;
 
+#if TARGET_PC
+    GXPushDebugGroup("clearEfb");
+#endif
+
     C_MTXOrtho(mtx, 0.0f, height, 0.0f, width, 0.0f, 1.0f);
     GXSetProjection(mtx, GX_ORTHOGRAPHIC);
     GXSetViewport(0.0f, 0.0f, width, height, 0.0f, 1.0f);
@@ -460,6 +464,9 @@ void JFWDisplay::clearEfb(int param_0, int param_1, int param_2, int param_3, GX
     if (mEnableAlpha) {
         GXSetDstAlpha(GX_DISABLE, 0x00);
     }
+#if TARGET_PC
+    GXPopDebugGroup();
+#endif
 }
 
 /* 8025631C-802563A8       .text calcCombinationRatio__10JFWDisplayFv */

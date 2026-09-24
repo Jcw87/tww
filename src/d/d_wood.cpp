@@ -882,6 +882,10 @@ void dWood::Packet_c::draw() {
     };
     static GXColor l_shadowColor = {0x00, 0x00, 0x00, 0x64};
 
+#if TARGET_PC
+    GXPushDebugGroup("d_wood");
+#endif
+
     // Assign the shadow material and draw state
     GFSetVtxDescv(l_shadowVtxDescList);
     GFSetVtxAttrFmtv(GX_VTXFMT0, l_shadowVtxAttrFmtList);
@@ -955,6 +959,9 @@ void dWood::Packet_c::draw() {
 
 #if VERSION > VERSION_JPN
     J3DShape::resetVcdVatCache();
+#endif
+#if TARGET_PC
+    GXPopDebugGroup();
 #endif
 }
 

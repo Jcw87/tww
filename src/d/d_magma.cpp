@@ -275,6 +275,9 @@ dMagma_packet_c::~dMagma_packet_c() {
 
 /* 800763CC-800764EC       .text draw__15dMagma_packet_cFv */
 void dMagma_packet_c::draw() {
+#if TARGET_PC
+    GXPushDebugGroup("dMagma_packet_c");
+#endif
     j3dSys.reinitGX();
 #if VERSION >= VERSION_USA
     GXSetNumIndStages(0);
@@ -304,6 +307,9 @@ void dMagma_packet_c::draw() {
 
 #if VERSION > VERSION_DEMO
     J3DShape::resetVcdVatCache();
+#endif
+#if TARGET_PC
+    GXPopDebugGroup();
 #endif
 }
 
