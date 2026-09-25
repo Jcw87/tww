@@ -837,7 +837,7 @@ void daSea_packet_c::draw() {
     GXSetVtxAttrFmt(GX_VTXFMT0,GX_VA_POS,GX_POS_XYZ,GX_F32,0);
     GXSetVtxAttrFmt(GX_VTXFMT0,GX_VA_TEX0,GX_TEX_ST,GX_F32,0);
 
-    GXSetArray(GX_VA_POS, this->m_draw_vtx, sizeof(cXyz));
+    GXSETARRAY(GX_VA_POS, this->m_draw_vtx, sizeof(cXyz) * GRID_CELLS * GRID_CELLS, sizeof(cXyz), true);
 
     // TODO: Remove magic numbers
 

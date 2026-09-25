@@ -174,9 +174,9 @@ void daPirate_Flag_packet_c::draw() {
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_NRM, GX_NRM_XYZ, GX_F32, 0);
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_TEX0, GX_TEX_ST, GX_F32, 0);
 
-    GXSetArray(GX_VA_POS, mPos[m87E], sizeof(cXyz));
-    GXSetArray(GX_VA_NRM, mNrm[m87E], sizeof(cXyz));
-    GXSetArray(GX_VA_TEX0, l_texCoord, sizeof(*l_texCoord));
+    GXSETARRAY(GX_VA_POS, mPos[m87E], sizeof(mPos[0]), sizeof(cXyz), true);
+    GXSETARRAY(GX_VA_NRM, mNrm[m87E], sizeof(mNrm[0]), sizeof(cXyz), true);
+    GXSETARRAY(GX_VA_TEX0, l_texCoord, sizeof(l_texCoord), sizeof(*l_texCoord), true);
 
     GXTexObj texObj;
     ResTIMG* timg = static_cast<ResTIMG*>(dComIfG_getObjectRes("Kaizokusen", dRes_INDEX_KAIZOKUSEN_BTI_TXA_KAIZOKU_HATA_e));
@@ -248,7 +248,7 @@ void daPirate_Flag_packet_c::draw() {
     GXCallDisplayList(l_pirate_flag_DL, sizeof(l_pirate_flag_DL) - 0x04);
 
     GXSetCullMode(GX_CULL_FRONT);
-    GXSetArray(GX_VA_NRM, mBackNrm[m87E], sizeof(cXyz));
+    GXSETARRAY(GX_VA_NRM, mBackNrm[m87E], sizeof(mBackNrm[0]), sizeof(cXyz), true);
     GXCallDisplayList(l_pirate_flag_DL, sizeof(l_pirate_flag_DL) - 0x04);
 
 #if VERSION > VERSION_JPN

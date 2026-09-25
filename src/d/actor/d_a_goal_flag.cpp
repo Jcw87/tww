@@ -120,9 +120,9 @@ void daGFlag_packet_c::draw() {
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_NRM, GX_NRM_XYZ, GX_F32, 0);
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_TEX0, GX_TEX_ST, GX_F32, 0);
 
-    GXSetArray(GX_VA_POS, &mDPos[mCurrArr], sizeof(cXyz));
-    GXSetArray(GX_VA_NRM, &mNrm[mCurrArr], sizeof(cXyz));
-    GXSetArray(GX_VA_TEX0, l_texCoord, sizeof(cXy));
+    GXSETARRAY(GX_VA_POS, &mDPos[mCurrArr], sizeof(mDPos[0]), sizeof(cXyz), true);
+    GXSETARRAY(GX_VA_NRM, &mNrm[mCurrArr], sizeof(mNrm[0]), sizeof(cXyz), true);
+    GXSETARRAY(GX_VA_TEX0, l_texCoord, sizeof(l_texCoord), sizeof(cXy), true);
 
     GXLoadTexObj(getTexObjP(), GX_TEXMAP0);
     GXLoadTexObj(getToonTexObjP(), GX_TEXMAP1);
@@ -196,7 +196,7 @@ void daGFlag_packet_c::draw() {
     GXSetCullMode(GX_CULL_BACK);
     GXCallDisplayList(l_goal_flag_DL, 256);
     GXSetCullMode(GX_CULL_FRONT);
-    GXSetArray(GX_VA_NRM, &mBackNrm[mCurrArr], sizeof(cXyz));
+    GXSETARRAY(GX_VA_NRM, &mBackNrm[mCurrArr], sizeof(mBackNrm[0]), sizeof(cXyz), true);
     GXCallDisplayList(l_goal_flag_DL, 256);
 #if VERSION > VERSION_JPN
     J3DShape::sOldVcdVatCmd = 0;

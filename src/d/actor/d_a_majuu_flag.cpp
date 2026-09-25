@@ -395,9 +395,9 @@ void daMajuu_Flag_packet_c::draw() {
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_NRM, GX_NRM_XYZ, GX_F32, 0);
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_TEX0, GX_TEX_ST, GX_F32, 0);
 
-    GXSetArray(GX_VA_POS, getPos(), sizeof(cXyz) * 1);
-    GXSetArray(GX_VA_NRM, getNrm(), sizeof(cXyz) * 1);
-    GXSetArray(GX_VA_TEX0, l_texCoord, sizeof(l_texCoord[0]));
+    GXSETARRAY(GX_VA_POS, getPos(), sizeof(mpPosArr[0]), sizeof(cXyz), true);
+    GXSETARRAY(GX_VA_NRM, getNrm(), sizeof(mpNrmArr[0]), sizeof(cXyz), true);
+    GXSETARRAY(GX_VA_TEX0, l_texCoord, sizeof(l_texCoord), sizeof(l_texCoord[0]), true);
 
     GXLoadTexObj(getImageTexObj(), GX_TEXMAP0);
     GXLoadTexObj(getToonTexObj(), GX_TEXMAP1);
@@ -477,7 +477,7 @@ void daMajuu_Flag_packet_c::draw() {
     GXSetCullMode(GX_CULL_BACK);
     GXCallDisplayList(l_majuu_flagDL, 0x80);
     GXSetCullMode(GX_CULL_FRONT);
-    GXSetArray(GX_VA_NRM, mpNrmArrBack[mCurArr], sizeof(cXyz) * 1);
+    GXSETARRAY(GX_VA_NRM, mpNrmArrBack[mCurArr], sizeof(mpNrmArrBack[0]), sizeof(cXyz), true);
     GXCallDisplayList(l_majuu_flagDL, 0x80);
 #if VERSION > VERSION_JPN
     J3DShape::resetVcdVatCache();
