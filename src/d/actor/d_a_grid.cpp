@@ -234,9 +234,9 @@ void daHo_packet_c::draw() {
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_POS, GX_POS_XYZ, GX_F32, 0);
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_NRM, GX_NRM_XYZ, GX_F32, 0);
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_TEX0, GX_TEX_ST, GX_F32, 0);
-    GXSetArray(GX_VA_POS, mPos[field_0x18a2], sizeof(cXyz));
-    GXSetArray(GX_VA_NRM, mNrm[field_0x18a2], sizeof(cXyz));
-    GXSetArray(GX_VA_TEX0, l_texCoord, sizeof(cXy));
+    GXSETARRAY(GX_VA_POS, mPos[field_0x18a2], sizeof(mPos[0]), sizeof(cXyz), true);
+    GXSETARRAY(GX_VA_NRM, mNrm[field_0x18a2], sizeof(mNrm[0]), sizeof(cXyz), true);
+    GXSETARRAY(GX_VA_TEX0, l_texCoord, sizeof(l_texCoord), sizeof(cXy), true);
 
     GXTexObj texObj;
     GXTlutObj tlutObj;
@@ -341,7 +341,7 @@ void daHo_packet_c::draw() {
     GXCallDisplayList(l_DL, 0x220);
 
     GXSetCullMode(GX_CULL_FRONT);
-    GXSetArray(GX_VA_NRM, mBackNrm[field_0x18a2], sizeof(cXyz));
+    GXSETARRAY(GX_VA_NRM, mBackNrm[field_0x18a2], sizeof(mBackNrm[0]), sizeof(cXyz), true);
     GXCallDisplayList(l_DL, 0x220);
 
     #if VERSION >= VERSION_USA

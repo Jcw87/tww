@@ -331,9 +331,9 @@ void dFlower_packet_c::draw() {
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_POS, GX_POS_XYZ, GX_F32, 0);
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_CLR0, GX_CLR_RGBA, GX_RGBA8, 0);
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_TEX0, GX_TEX_ST, GX_F32, 0);
-    GXSetArray(GX_VA_POS, l_pos, sizeof(l_pos[0]));
-    GXSetArray(GX_VA_CLR0, l_color, sizeof(l_color[0]));
-    GXSetArray(GX_VA_TEX0, l_texCoord, sizeof(l_texCoord[0]));
+    GXSETARRAY(GX_VA_POS, l_pos, sizeof(l_pos), sizeof(*l_pos), true);
+    GXSETARRAY(GX_VA_CLR0, l_color, sizeof(l_color), sizeof(*l_color), true);
+    GXSETARRAY(GX_VA_TEX0, l_texCoord, sizeof(l_texCoord), sizeof(*l_texCoord), true);
     GXCallDisplayList(l_matDL, 0xA0);
 
     dFlower_room_c* pRoom = &mRoom[0];
@@ -360,9 +360,9 @@ void dFlower_packet_c::draw() {
         }
     }
 
-    GXSetArray(GX_VA_POS, mPosArray, sizeof(*mPosArray));
-    GXSetArray(GX_VA_CLR0, mColorArray, sizeof(*mColorArray));
-    GXSetArray(GX_VA_TEX0, mTexCoordArray, sizeof(*mTexCoordArray));
+    GXSETARRAY(GX_VA_POS, mPosArray, mPosSize, sizeof(*mPosArray), true);
+    GXSETARRAY(GX_VA_CLR0, mColorArray, mColorSize, sizeof(*mColorArray), true);
+    GXSETARRAY(GX_VA_TEX0, mTexCoordArray, mTexCoordSize, sizeof(*mTexCoordArray), true);
     GXCallDisplayList(mDL1, mDL1Size);
 
     pRoom = &mRoom[0];
@@ -513,6 +513,11 @@ void dFlower_packet_c::setData(dFlower_data_c* param_1, int param_2, s8 param_3,
             mPosArray = l_pos3;
             mColorArray = l_color3;
             mTexCoordArray = l_texCoord3;
+#if TARGET_PC
+            mPosSize = sizeof(l_pos3);
+            mColorSize = sizeof(l_color3);
+            mTexCoordSize = sizeof(l_texCoord3);
+#endif
             mDL1 = l_matDL3;
             mDL1Size = 0xA0;
             mDL2 = l_QbsfwDL;
@@ -524,6 +529,11 @@ void dFlower_packet_c::setData(dFlower_data_c* param_1, int param_2, s8 param_3,
             mPosArray = l_pos2;
             mColorArray = l_color2;
             mTexCoordArray = l_texCoord2;
+#if TARGET_PC
+            mPosSize = sizeof(l_pos2);
+            mColorSize = sizeof(l_color2);
+            mTexCoordSize = sizeof(l_texCoord2);
+#endif
             mDL1 = l_matDL2;
             mDL1Size = 0xA0;
             mDL2 = l_Ohana_highDL;

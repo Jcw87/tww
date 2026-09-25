@@ -771,8 +771,8 @@ void dMCloth_c::draw(float, GXColor clothColor, GXColor shadowColor, unsigned ch
         GXLoadNrmMtxImm(mDoMtx_stack_c::get(), GX_PNMTX0);
         GXSetCullMode(GX_CULL_FRONT);
         GXSetCurrentMtx(GX_PNMTX0);
-        GXSetArray(GX_VA_POS, getPos(), sizeof(cXyz));
-        GXSetArray(GX_VA_NRM, getNrm(), sizeof(cXyz));
+        GXSETARRAY(GX_VA_POS, getPos(), sizeof(mPosArr[0]), sizeof(cXyz), true);
+        GXSETARRAY(GX_VA_NRM, getNrm(), sizeof(mNrmArr[0]), sizeof(cXyz), true);
         ShadowTevSetting();
         plot(0.0f, 0.0f, 10.0f, 10.0f);
     } break;
@@ -788,19 +788,19 @@ void dMCloth_c::draw(float, GXColor clothColor, GXColor shadowColor, unsigned ch
     GXLoadNrmMtxImm(mDoMtx_stack_c::get(), GX_PNMTX0);
     GXSetCullMode(GX_CULL_FRONT);
     GXSetCurrentMtx(GX_PNMTX0);
-    GXSetArray(GX_VA_POS, getPos(), sizeof(cXyz));
-    GXSetArray(GX_VA_NRM, getNrm(), sizeof(cXyz));
+    GXSETARRAY(GX_VA_POS, getPos(), sizeof(mPosArr[0]), sizeof(cXyz), true);
+    GXSETARRAY(GX_VA_NRM, getNrm(), sizeof(mNrmArr[0]), sizeof(cXyz), true);
     TevSetting();
     plot(0.0f, 0.0f, 10.0f, 10.0f);
 
     GXSetCullMode(GX_CULL_BACK);
     ShadowTevSetting();
-    GXSetArray(GX_VA_POS, mShadowPosArr, sizeof(cXyz));
+    GXSETARRAY(GX_VA_POS, mShadowPosArr, sizeof(mShadowPosArr), sizeof(cXyz), true);
     plot_shadow(0.0f, 0.0f, 1.0f, 1.0f);
 
     TevSetting();
-    GXSetArray(GX_VA_POS, getPos(), sizeof(cXyz));
-    GXSetArray(GX_VA_NRM, getBackNrm(), sizeof(cXyz));
+    GXSETARRAY(GX_VA_POS, getPos(), sizeof(mPosArr[0]), sizeof(cXyz), true);
+    GXSETARRAY(GX_VA_NRM, getBackNrm(), sizeof(mBackNrmArr), sizeof(cXyz), true);
     plot(0.0f, 0.0f, 10.0f, 10.0f);
 
     j3dSys.reinitGX();

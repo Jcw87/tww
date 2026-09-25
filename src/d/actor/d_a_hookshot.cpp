@@ -41,8 +41,8 @@ void daHookshot_shape::draw() {
     GXSetVtxDesc(GX_VA_TEX0, GX_INDEX8);
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_POS, GX_POS_XYZ, GX_F32, 0);
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_TEX0, GX_TEX_ST, GX_F32, 0);
-    GXSetArray(GX_VA_POS, &l_pos, sizeof(l_pos[0]));
-    GXSetArray(GX_VA_TEX0, &l_texCoord, sizeof(l_texCoord[0]));
+    GXSETARRAY(GX_VA_POS, &l_pos, sizeof(l_pos), sizeof(l_pos[0]), true);
+    GXSETARRAY(GX_VA_TEX0, &l_texCoord, sizeof(l_texCoord), sizeof(l_texCoord[0]), true);
     dKy_GxFog_set();
     // Not sure why the size passed here is smaller than l_matDL's size in the symbol maps.
     GXCallDisplayList(&l_matDL, sizeof(l_matDL) - 0x08);
