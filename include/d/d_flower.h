@@ -97,6 +97,11 @@ public:
     /* 0x4620 */ u32 mDL2Size;
     /* 0x4624 */ void* mDL3;
     /* 0x4628 */ u32 mDL3Size;
+#if TARGET_PC
+    u32 mPosSize;
+    u32 mColorSize;
+    u32 mTexCoordSize;
+#endif
 }; // Size: 0x462C
 
 #endif /* D_FLOWER_H */

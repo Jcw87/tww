@@ -179,9 +179,9 @@ void daSail_packet_c::draw() {
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_NRM, GX_NRM_XYZ, GX_F32, 0);
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_TEX0, GX_TEX_ST, GX_F32, 0);
 
-    GXSetArray(GX_VA_POS, mPos[m1C3A], sizeof(cXyz));
-    GXSetArray(GX_VA_NRM, mNrm[m1C3A], sizeof(cXyz));
-    GXSetArray(GX_VA_TEX0, l_texCoord, sizeof(*l_texCoord));
+    GXSETARRAY(GX_VA_POS, mPos[m1C3A], sizeof(mPos[0]), sizeof(cXyz), true);
+    GXSETARRAY(GX_VA_NRM, mNrm[m1C3A], sizeof(mNrm[0]), sizeof(cXyz), true);
+    GXSETARRAY(GX_VA_TEX0, l_texCoord, sizeof(l_texCoord), sizeof(*l_texCoord), true);
 
     GXTexObj texObj;
 
@@ -284,7 +284,7 @@ void daSail_packet_c::draw() {
     GXCallDisplayList(l_sail_DL, 0x200);
 
     GXSetCullMode(GX_CULL_FRONT);
-    GXSetArray(GX_VA_NRM, mBackNrm[m1C3A], sizeof(cXyz));
+    GXSETARRAY(GX_VA_NRM, mBackNrm[m1C3A], sizeof(mBackNrm[0]), sizeof(cXyz), true);
     GXCallDisplayList(l_sail_DL, 0x200);
 
 #if VERSION > VERSION_JPN

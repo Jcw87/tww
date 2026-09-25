@@ -100,7 +100,7 @@ void dMagma_ballPath_c::setup(f32 offsY, u8 pathNo, int roomNo) {
 
 /* 80075A6C-80075CB8       .text draw__14dMagma_floor_cFv */
 void dMagma_floor_c::draw() {
-    GXSetArray(GX_VA_POS, l_YfloorPos, sizeof(*l_YfloorPos));
+    GXSETARRAY(GX_VA_POS, l_YfloorPos, sizeof(l_YfloorPos), sizeof(*l_YfloorPos), true);
     GXLoadTexMtxImm(mTexMtx0, GX_TEXMTX2, GX_MTX3x4);
     GXLoadTexMtxImm(dMagma_packet_c::getKuroMtx(), (u32)GX_PTTEXMTX0, GX_MTX3x4);
     GXSetTexCoordGen2(GX_TEXCOORD0, GX_TG_MTX3x4, GX_TG_POS, GX_TEXMTX2, GX_FALSE, GX_PTTEXMTX0);
@@ -117,7 +117,7 @@ void dMagma_floor_c::draw() {
     GXSetTevOrder(GX_TEVSTAGE0, GX_TEXCOORD0, GX_TEXMAP0, GX_COLOR_NULL);
     GXLoadPosMtxImm(mPosMtx, GX_PNMTX0);
     GXCallDisplayList(&l_YfloorDL, 0x20);
-    GXSetArray(GX_VA_POS, l_YballPos, sizeof(*l_YballPos));
+    GXSETARRAY(GX_VA_POS, l_YballPos, sizeof(l_YballPos), sizeof(*l_YballPos), true);
     GXSetTevOrder(GX_TEVSTAGE0, GX_TEXCOORD0, GX_TEXMAP0, GX_COLOR_NULL);
     GXSetTevColorIn(GX_TEVSTAGE0, GX_CC_TEXA, GX_CC_HALF, GX_CC_ONE, GX_CC_ZERO);
     GXSetTevColorOp(GX_TEVSTAGE0, GX_TEV_COMP_RGB8_GT, GX_TB_ZERO, GX_CS_SCALE_1, GX_TRUE, GX_TEVPREV);

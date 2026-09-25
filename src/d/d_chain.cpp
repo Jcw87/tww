@@ -40,8 +40,8 @@ void dChain_packet_c::draw() {
     GXSetVtxDesc(GX_VA_TEX0, GX_INDEX8);
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_POS, GX_POS_XYZ, GX_F32, 0);
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_TEX0, GX_TEX_ST, GX_F32, 0);
-    GXSetArray(GX_VA_POS, l_pos, sizeof(*l_pos));
-    GXSetArray(GX_VA_TEX0, l_texCoord, sizeof(*l_texCoord));
+    GXSETARRAY(GX_VA_POS, l_pos, sizeof(l_pos), sizeof(*l_pos), true);
+    GXSETARRAY(GX_VA_TEX0, l_texCoord, sizeof(l_texCoord), sizeof(*l_texCoord), true);
     dKy_GxFog_tevstr_set(mpTevStr);
     GXCallDisplayList(l_matDL, 0xa0);
     GXSetTevColorS10(GX_TEVREG0, mpTevStr->mColorC0);
