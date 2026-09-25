@@ -815,7 +815,11 @@ void dDlst_alphaModelData_c::draw(Mtx viewMtx) {
 
     if (mType == 0) {
         /* Bonbori */
+#if TARGET_PC
+        GXSetArray(GX_VA_POS, l_bonboriPos, sizeof(l_bonboriPos), sizeof(*l_bonboriPos), true);
+#else
         GFSetArray(GX_VA_POS, l_bonboriPos, sizeof(*l_bonboriPos));
+#endif
         GXCallDisplayList(l_backRevZMat, 0x40);
         GXCallDisplayList(l_bonboriDL, 0xa0);
         GXCallDisplayList(l_frontZMat, 0x20);
@@ -824,7 +828,11 @@ void dDlst_alphaModelData_c::draw(Mtx viewMtx) {
         GXCallDisplayList(l_bonboriDL, 0xa0);
     } else if (mType == 1) {
         /* Bonborix2 */
+#if TARGET_PC
+        GXSetArray(GX_VA_POS, l_bonboriPos, sizeof(l_bonboriPos), sizeof(*l_bonboriPos), true);
+#else
         GFSetArray(GX_VA_POS, l_bonboriPos, sizeof(*l_bonboriPos));
+#endif
         Mtx tmp;
         MTXScale(tmp, 0.8f, 0.8f, 0.8f);
         MTXConcat(mtx, tmp, tmp);
@@ -848,7 +856,11 @@ void dDlst_alphaModelData_c::draw(Mtx viewMtx) {
         GXCallDisplayList(l_bonboriDL, 0xa0);
     } else if (mType == 5) {
         /* Bonborix3 */
+#if TARGET_PC
+        GXSetArray(GX_VA_POS, l_bonboriPos, sizeof(l_bonboriPos), sizeof(*l_bonboriPos), true);
+#else
         GFSetArray(GX_VA_POS, l_bonboriPos, sizeof(*l_bonboriPos));
+#endif
         Mtx tmp;
         MTXScale(tmp, 0.8f, 0.8f, 0.8f);
         MTXConcat(mtx, tmp, tmp);
@@ -882,7 +894,11 @@ void dDlst_alphaModelData_c::draw(Mtx viewMtx) {
         GXCallDisplayList(l_bonboriDL, 0xa0);
     } else if (mType == 2) {
         /* BeamCheck */
+#if TARGET_PC
+        GXSetArray(GX_VA_POS, l_s_beam_checkPos, sizeof(l_s_beam_checkPos), sizeof(*l_s_beam_checkPos), true);
+#else
         GFSetArray(GX_VA_POS, l_s_beam_checkPos, sizeof(*l_s_beam_checkPos));
+#endif
         GXCallDisplayList(l_backRevZMat, 0x40);
         GXCallDisplayList(l_s_beam_checkDL, 0xe0);
         GXCallDisplayList(l_frontZMat, 0x20);
@@ -892,13 +908,21 @@ void dDlst_alphaModelData_c::draw(Mtx viewMtx) {
     } else if (mType == 3) {
         /* Cube */
         /* BeamCheck */
+#if TARGET_PC
+        GXSetArray(GX_VA_POS, l_cubePos, sizeof(l_cubePos), sizeof(*l_cubePos), true);
+#else
         GFSetArray(GX_VA_POS, l_cubePos, sizeof(*l_cubePos));
+#endif
         GXCallDisplayList(l_backRevZMat, 0x40);
         GXCallDisplayList(l_frontZMat, 0x20);
         GXCallDisplayList(l_cubeDL, 0x40);
     } else if (mType == 4) {
         /* Bonbori2 */
+#if TARGET_PC
+        GXSetArray(GX_VA_POS, l_bonbori2Pos, sizeof(l_bonbori2Pos), sizeof(*l_bonbori2Pos), true);
+#else
         GFSetArray(GX_VA_POS, l_bonbori2Pos, sizeof(*l_bonbori2Pos));
+#endif
         GXCallDisplayList(l_backRevZMat, 0x40);
         GXCallDisplayList(l_bonbori2DL, 0x2a0);
         GXCallDisplayList(l_frontZMat, 0x20);
@@ -1026,16 +1050,16 @@ void dDlst_alphaModelPacket::draw() {
     GXSetCurrentMtx(GX_PNMTX0);
 
     if (mType == 0) {
-        GXSetArray(GX_VA_POS, l_bonboriPos, sizeof(*l_bonboriPos));
+        GXSETARRAY(GX_VA_POS, l_bonboriPos, sizeof(l_bonboriPos), sizeof(*l_bonboriPos), true);
         GXCallDisplayList(l_bonboriDL, 0xa0);
     } else if (mType == 1) {
-        GXSetArray(GX_VA_POS, l_bonboriPos, sizeof(*l_bonboriPos));
+        GXSETARRAY(GX_VA_POS, l_bonboriPos, sizeof(l_bonboriPos), sizeof(*l_bonboriPos), true);
         GXCallDisplayList(l_bonboriDL, 0xa0);
     } else if (mType == 2) {
-        GXSetArray(GX_VA_POS, l_s_beam_checkPos, sizeof(*l_s_beam_checkPos));
+        GXSETARRAY(GX_VA_POS, l_s_beam_checkPos, sizeof(l_s_beam_checkPos), sizeof(*l_s_beam_checkPos), true);
         GXCallDisplayList(l_s_beam_checkDL, 0xe0);
     } else if (mType == 3) {
-        GXSetArray(GX_VA_POS, l_cubePos, sizeof(*l_cubePos));
+        GXSETARRAY(GX_VA_POS, l_cubePos, sizeof(l_cubePos), sizeof(*l_cubePos), true);
         GXCallDisplayList(l_cubeDL, 0x40);
     }
 }
@@ -1573,7 +1597,7 @@ void dDlst_shadowControl_c::draw(Mtx drawMtx) {
     dKy_GxFog_set();
     GXSetChanCtrl(GX_ALPHA0, GX_FALSE, GX_SRC_REG, GX_SRC_REG, 0, GX_DF_NONE, GX_AF_NONE);
     GXSetChanMatColor(GX_ALPHA0, COMPOUND_LITERAL(GXColor){ 0x00, 0x00, 0x00, 0x20 });
-    GXSetArray(GX_VA_POS, l_shadowVolPos, sizeof(*l_shadowVolPos));
+    GXSETARRAY(GX_VA_POS, l_shadowVolPos, sizeof(l_shadowVolPos), sizeof(*l_shadowVolPos), true);
     GXSetTexCoordGen(GX_TEXCOORD0, GX_TG_MTX3x4, GX_TG_POS, GX_TEXMTX0);
     GXSetNumTevStages(1);
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_POS, GX_POS_XYZ, GX_F32, 0);
@@ -1588,7 +1612,7 @@ void dDlst_shadowControl_c::draw(Mtx drawMtx) {
         real->draw();
 
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_TEX0, GX_TEX_ST, GX_S8, 0);
-    GXSetArray(GX_VA_POS, l_simpleShadowPos, sizeof(*l_simpleShadowPos));
+    GXSETARRAY(GX_VA_POS, l_simpleShadowPos, sizeof(l_simpleShadowPos), sizeof(*l_simpleShadowPos), true);
     GXSetTexCoordGen(GX_TEXCOORD0, GX_TG_MTX2x4, GX_TG_TEX0, GX_IDENTITY);
     GXSetTevOrder(GX_TEVSTAGE0, GX_TEXCOORD0, GX_TEXMAP0, GX_COLOR_NULL);
     GXSetAlphaCompare(GX_ALWAYS, 0, GX_AOP_OR, GX_ALWAYS, 0);
@@ -1706,7 +1730,7 @@ void dDlst_mirrorPacket::draw() {
     GXSetVtxDesc(GX_VA_POS, GX_INDEX8);
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_POS, GX_POS_XYZ, GX_F32, 0);
     GXLoadPosMtxImm(j3dSys.getViewMtx(), GX_PNMTX0);
-    GXSetArray(GX_VA_POS, l_shadowVolPos, sizeof(cXyz));
+    GXSETARRAY(GX_VA_POS, l_shadowVolPos, sizeof(l_shadowVolPos), sizeof(*l_shadowVolPos), true);
     GXLoadPosMtxImm(mPosMtx, GX_PNMTX1);
     GXSetCurrentMtx(GX_PNMTX1);
     GXCallDisplayList(l_shadowVolDL, 0x40);
@@ -1833,7 +1857,7 @@ void dDlst_alphaVolPacket::draw() {
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_POS, GX_POS_XYZ, GX_F32, 0);
     GXClearVtxDesc();
     GXSetVtxDesc(GX_VA_POS, GX_INDEX8);
-    GXSetArray(GX_VA_POS, l_simpleShadowPos, sizeof(*l_simpleShadowPos));
+    GXSETARRAY(GX_VA_POS, l_simpleShadowPos, sizeof(l_simpleShadowPos), sizeof(*l_simpleShadowPos), true);
     GXLoadPosMtxImm(mtx, GX_PNMTX0);
     GXSetCurrentMtx(GX_PNMTX0);
     GXCallDisplayList(l_frontMat, 0x40);
@@ -1854,7 +1878,7 @@ void dDlst_alphaInvVolPacket::draw() {
     GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_POS, GX_POS_XYZ, GX_F32, 0);
     GXClearVtxDesc();
     GXSetVtxDesc(GX_VA_POS, GX_INDEX8);
-    GXSetArray(GX_VA_POS, l_simpleShadowPos, sizeof(*l_simpleShadowPos));
+    GXSETARRAY(GX_VA_POS, l_simpleShadowPos, sizeof(l_simpleShadowPos), sizeof(*l_simpleShadowPos), true);
     GXLoadPosMtxImm(mtx, GX_PNMTX0);
     GXSetCurrentMtx(GX_PNMTX0);
     GXSetTevColor(GX_TEVREG0, g_whiteColor);

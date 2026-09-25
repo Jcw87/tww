@@ -46,9 +46,15 @@ void daBwdg_packet_c::draw() {
     dKy_setLight_mine(mpTevStr);
     GFSetVtxDescv(l_vtxDescList);
     GFSetVtxAttrFmtv(GX_VTXFMT0, l_vtxAttrFmtList);
+#if TARGET_PC
+    GXSetArray(GX_VA_POS, mPos[m00010], sizeof(mPos[0]), sizeof(mPos[0][0]), true);
+    GXSetArray(GX_VA_NRM, mNrm[m00010], sizeof(mNrm[0]), sizeof(mNrm[0][0]), true);
+    GXSetArray(GX_VA_TEX0, l_texCoord, sizeof(l_texCoord), sizeof(*l_texCoord), true);
+#else
     GFSetArray(GX_VA_POS, mPos[m00010], sizeof(cXyz));
     GFSetArray(GX_VA_NRM, mNrm[m00010], sizeof(cXyz));
     GFSetArray(GX_VA_TEX0, l_texCoord, sizeof(cXy));
+#endif
     GFSetTevColorS10(GX_TEVREG0, mpTevStr->mColorC0);
     GFSetTevColor(GX_TEVREG1, mpTevStr->mColorK0);
     GXCallDisplayList(l_matDL, 0xA0);
