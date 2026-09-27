@@ -4,87 +4,96 @@
 //
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_obj_hami2.h"
 #include "m_Do/m_Do_ext.h"
 
 /* 00000078-0000012C       .text nodeCallBack__FP7J3DNodei */
 static BOOL nodeCallBack(J3DNode*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 0000012C-0000032C       .text CreateHeap__Q210daObjHami25Act_cFv */
 BOOL daObjHami2::Act_c::CreateHeap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 0000032C-0000042C       .text Create__Q210daObjHami25Act_cFv */
 BOOL daObjHami2::Act_c::Create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 0000042C-00000540       .text Mthd_Create__Q210daObjHami25Act_cFv */
 cPhs_State daObjHami2::Act_c::Mthd_Create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000540-00000548       .text Delete__Q210daObjHami25Act_cFv */
 BOOL daObjHami2::Act_c::Delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000548-000005E8       .text Mthd_Delete__Q210daObjHami25Act_cFv */
 BOOL daObjHami2::Act_c::Mthd_Delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000005E8-00000678       .text set_mtx__Q210daObjHami25Act_cFv */
 void daObjHami2::Act_c::set_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000678-000006B4       .text init_mtx__Q210daObjHami25Act_cFv */
 void daObjHami2::Act_c::init_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000006B4-00000730       .text daObjHami2_close_stop__Q210daObjHami25Act_cFv */
 void daObjHami2::Act_c::daObjHami2_close_stop() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000730-00000810       .text daObjHami2_open_demo_wait__Q210daObjHami25Act_cFv */
 void daObjHami2::Act_c::daObjHami2_open_demo_wait() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000810-000008A0       .text daObjHami2_open_demo__Q210daObjHami25Act_cFv */
 void daObjHami2::Act_c::daObjHami2_open_demo() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000008A0-0000091C       .text daObjHami2_open_stop__Q210daObjHami25Act_cFv */
 void daObjHami2::Act_c::daObjHami2_open_stop() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000091C-0000096C       .text daObjHami2_close_demo_wait__Q210daObjHami25Act_cFv */
 void daObjHami2::Act_c::daObjHami2_close_demo_wait() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000096C-00000A08       .text daObjHami2_close_demo__Q210daObjHami25Act_cFv */
 void daObjHami2::Act_c::daObjHami2_close_demo() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000A08-00000AB8       .text Execute__Q210daObjHami25Act_cFPPA3_A4_f */
 BOOL daObjHami2::Act_c::Execute(Mtx**) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000AB8-00000B58       .text Draw__Q210daObjHami25Act_cFv */
 BOOL daObjHami2::Act_c::Draw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 namespace daObjHami2 {

@@ -4,6 +4,7 @@
  */
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_npc_sarace.h"
 #include "m_Do/m_Do_ext.h"
 #include "d/d_cc_d.h"
@@ -41,132 +42,138 @@ static dCcD_SrcCyl l_cyl_src = {
 
 /* 000000EC-00000198       .text __ct__18daNpc_Sarace_HIO_cFv */
 daNpc_Sarace_HIO_c::daNpc_Sarace_HIO_c() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000198-00000328       .text nodeCallBack__FP7J3DNodei */
 static BOOL nodeCallBack(J3DNode*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000364-00000478       .text initTexPatternAnm__14daNpc_Sarace_cFb */
 void daNpc_Sarace_c::initTexPatternAnm(bool) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000478-00000504       .text playTexPatternAnm__14daNpc_Sarace_cFv */
 void daNpc_Sarace_c::playTexPatternAnm() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000504-0000060C       .text setAnm__14daNpc_Sarace_cFScf */
 void daNpc_Sarace_c::setAnm(signed char, float) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000060C-00000760       .text chkAttention__14daNpc_Sarace_cF4cXyzs */
 void daNpc_Sarace_c::chkAttention(cXyz, short) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000760-000007D8       .text eventOrder__14daNpc_Sarace_cFv */
 void daNpc_Sarace_c::eventOrder() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000007D8-000008E8       .text checkOrder__14daNpc_Sarace_cFv */
 void daNpc_Sarace_c::checkOrder() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000008E8-00000A6C       .text next_msgStatus__14daNpc_Sarace_cFPUl */
 void daNpc_Sarace_c::next_msgStatus(unsigned long*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000A6C-00000B50       .text getMsg__14daNpc_Sarace_cFv */
 void daNpc_Sarace_c::getMsg() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000B50-00000BEC       .text anmAtr__14daNpc_Sarace_cFUs */
 void daNpc_Sarace_c::anmAtr(unsigned short) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000BEC-00000E24       .text CreateInit__14daNpc_Sarace_cFv */
 void daNpc_Sarace_c::CreateInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000E24-00000E68       .text setAttention__14daNpc_Sarace_cFv */
 void daNpc_Sarace_c::setAttention() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000E68-00000FF4       .text lookBack__14daNpc_Sarace_cFv */
 void daNpc_Sarace_c::lookBack() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000FF4-00001024       .text wait01__14daNpc_Sarace_cFv */
 void daNpc_Sarace_c::wait01() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001024-000014B8       .text talk01__14daNpc_Sarace_cFv */
 void daNpc_Sarace_c::talk01() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000014B8-000014E0       .text dummy_action__14daNpc_Sarace_cFPv */
 void daNpc_Sarace_c::dummy_action(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000014E0-000015BC       .text wait_action__14daNpc_Sarace_cFPv */
 void daNpc_Sarace_c::wait_action(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000015BC-0000173C       .text event_endCheck_action__14daNpc_Sarace_cFPv */
 void daNpc_Sarace_c::event_endCheck_action(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000173C-000017E0       .text set_mtx__14daNpc_Sarace_cFv */
 void daNpc_Sarace_c::set_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000017E0-00001938       .text _draw__14daNpc_Sarace_cFv */
 BOOL daNpc_Sarace_c::_draw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001938-00001A68       .text _execute__14daNpc_Sarace_cFv */
 BOOL daNpc_Sarace_c::_execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001A68-00001AE0       .text _delete__14daNpc_Sarace_cFv */
 BOOL daNpc_Sarace_c::_delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001AE0-00001B00       .text CallbackCreateHeap__FP10fopAc_ac_c */
 static BOOL CallbackCreateHeap(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001B00-00001D1C       .text _create__14daNpc_Sarace_cFv */
 cPhs_State daNpc_Sarace_c::_create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000020CC-00002498       .text CreateHeap__14daNpc_Sarace_cFv */
 void daNpc_Sarace_c::CreateHeap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002498-000024B8       .text daNpc_Sarace_Create__FP10fopAc_ac_c */

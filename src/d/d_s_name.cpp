@@ -4,6 +4,7 @@
 //
 
 #include "d/dolzel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/d_s_name.h"
 #include "d/d_com_inf_game.h"
 #include "d/d_com_lib_game.h"
@@ -251,14 +252,14 @@ void dScnName_c::bmg_data_read_all() {
 
 #if VERSION == VERSION_PAL
 void dScnName_c::bmg_data_set() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 #endif
 
 #if VERSION == VERSION_PAL
 void dScnName_c::tex_data_set() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 #endif
 
@@ -308,31 +309,31 @@ void dScnName_c::buttonIconCreate() {
 
 #if VERSION == VERSION_PAL
 void dScnName_c::buttonIconTexChange(u8, u8) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 #endif
 
 #if VERSION == VERSION_PAL
 void dScnName_c::PaneAlphaLangTxt(s16, u8) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 #endif
 
 #if VERSION == VERSION_PAL
 void dScnName_c::languageTexChange() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 #endif
 
 #if VERSION == VERSION_PAL
 void dScnName_c::langTexChg() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 #endif
 
 #if VERSION == VERSION_PAL
 void dScnName_c::langTexChgFast() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 #endif
 

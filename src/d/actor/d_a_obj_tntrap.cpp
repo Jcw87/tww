@@ -4,6 +4,7 @@
 //
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_obj_tntrap.h"
 #include "d/d_cc_d.h"
 
@@ -44,142 +45,146 @@ static const dCcD_SrcTri l_tri_src = {
 
 /* 00000078-000002AC       .text chk_appear__13daObjTnTrap_cFv */
 void daObjTnTrap_c::chk_appear() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000002AC-00000344       .text set_mtx__13daObjTnTrap_cFv */
 void daObjTnTrap_c::set_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000344-00000368       .text solidHeapCB__13daObjTnTrap_cFP10fopAc_ac_c */
 void daObjTnTrap_c::solidHeapCB(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000368-000003E4       .text create_heap__13daObjTnTrap_cFv */
 void daObjTnTrap_c::create_heap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000003E4-000005F8       .text particle_set__13daObjTnTrap_cFif */
 void daObjTnTrap_c::particle_set(int, float) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000005F8-000006A4       .text particle_delete__13daObjTnTrap_cFi */
 void daObjTnTrap_c::particle_delete(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000006A4-0000072C       .text set_se__13daObjTnTrap_cFv */
 void daObjTnTrap_c::set_se() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000072C-000008A0       .text set_tri__13daObjTnTrap_cFi */
 void daObjTnTrap_c::set_tri(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000008A0-00000A10       .text chk_event_flg__13daObjTnTrap_cFv */
 void daObjTnTrap_c::chk_event_flg() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000A10-00000A98       .text set_em_set_offsetY__13daObjTnTrap_cFv */
 void daObjTnTrap_c::set_em_set_offsetY() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000A98-00000C78       .text _create__13daObjTnTrap_cFv */
 cPhs_State daObjTnTrap_c::_create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000F8C-00001050       .text _delete__13daObjTnTrap_cFv */
 bool daObjTnTrap_c::_delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001050-00001150       .text trap_off_wait_act_proc__13daObjTnTrap_cFv */
 void daObjTnTrap_c::trap_off_wait_act_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001150-00001384       .text trap_on_wait_act_proc__13daObjTnTrap_cFv */
 void daObjTnTrap_c::trap_on_wait_act_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001384-00001448       .text demo_regist_wait_act_proc__13daObjTnTrap_cFv */
 void daObjTnTrap_c::demo_regist_wait_act_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001448-000014F0       .text demo_wait_act_proc__13daObjTnTrap_cFv */
 void daObjTnTrap_c::demo_wait_act_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000014F0-000015B4       .text demo_wait2_act_proc__13daObjTnTrap_cFv */
 void daObjTnTrap_c::demo_wait2_act_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000015B4-000016A8       .text demo_end_wait_act_proc__13daObjTnTrap_cFv */
 void daObjTnTrap_c::demo_end_wait_act_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000016A8-00001740       .text hide_wait_act_proc__13daObjTnTrap_cFv */
 void daObjTnTrap_c::hide_wait_act_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001740-00001744       .text dummy_proc__13daObjTnTrap_cFv */
 void daObjTnTrap_c::dummy_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001744-00001790       .text trap_off_wait_act_init_proc__13daObjTnTrap_cFv */
 void daObjTnTrap_c::trap_off_wait_act_init_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001790-000017CC       .text trap_on_wait_act_init_proc__13daObjTnTrap_cFv */
 void daObjTnTrap_c::trap_on_wait_act_init_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000017CC-00001860       .text demo_regist_wait_act_init_proc__13daObjTnTrap_cFv */
 void daObjTnTrap_c::demo_regist_wait_act_init_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001860-00001890       .text demo_wait2_act_init_proc__13daObjTnTrap_cFv */
 void daObjTnTrap_c::demo_wait2_act_init_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001890-000018DC       .text demo_end_wait_act_init_proc__13daObjTnTrap_cFv */
 void daObjTnTrap_c::demo_end_wait_act_init_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000018DC-00001AE4       .text setup_action__13daObjTnTrap_cFi */
 void daObjTnTrap_c::setup_action(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001AE4-00001BE8       .text _execute__13daObjTnTrap_cFv */
 bool daObjTnTrap_c::_execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001BE8-00001BF0       .text _draw__13daObjTnTrap_cFv */
 bool daObjTnTrap_c::_draw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001BF0-00001C10       .text daObjTnTrap_Create__FP10fopAc_ac_c */

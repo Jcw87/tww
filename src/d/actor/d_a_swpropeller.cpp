@@ -4,6 +4,7 @@
 //
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_swpropeller.h"
 #include "m_Do/m_Do_ext.h"
 #include "d/d_cc_d.h"
@@ -41,47 +42,53 @@ static dCcD_SrcCyl l_cyl_src = {
 
 /* 00000078-000000B8       .text _delete__10daSwProp_cFv */
 bool daSwProp_c::_delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000000B8-000000D8       .text CheckCreateHeap__FP10fopAc_ac_c */
 static BOOL CheckCreateHeap(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000000D8-000001B8       .text CreateHeap__10daSwProp_cFv */
 void daSwProp_c::CreateHeap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000001B8-00000350       .text CreateInit__10daSwProp_cFv */
 void daSwProp_c::CreateInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000350-00000404       .text nodeCallBack__FP7J3DNodei */
 static BOOL nodeCallBack(J3DNode*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000404-00000590       .text _create__10daSwProp_cFv */
 cPhs_State daSwProp_c::_create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000007B8-00000838       .text set_mtx__10daSwProp_cFv */
 void daSwProp_c::set_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000838-00000B60       .text _execute__10daSwProp_cFv */
 bool daSwProp_c::_execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000B60-00000C00       .text _draw__10daSwProp_cFv */
 bool daSwProp_c::_draw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000C00-00000C20       .text daSwProp_Create__FPv */

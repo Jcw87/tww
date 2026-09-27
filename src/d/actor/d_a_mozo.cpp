@@ -4,6 +4,7 @@
  */
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_mozo.h"
 #include "res/Object/Mozo.h"
 #include "f_op/f_op_actor_mng.h"
@@ -73,12 +74,14 @@ daMozo_HIO_c::daMozo_HIO_c() {
 
 /* 000002D0-00000568       .text daMozo_nodeCallBackBeam__FP8daMozo_cP8J3DModelP7J3DNodei */
 static BOOL daMozo_nodeCallBackBeam(daMozo_c*, J3DModel*, J3DNode*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000568-00000728       .text daMozo_nodeCallBackFire__FP8daMozo_cP8J3DModelP7J3DNodei */
 static BOOL daMozo_nodeCallBackFire(daMozo_c*, J3DModel*, J3DNode*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000728-0000078C       .text daMozo_nodeCallBack__FP7J3DNodei */
@@ -148,57 +151,57 @@ void daMozo_c::set_mtx() {
 
 /* 00000AAC-00000C38       .text anime_proc__8daMozo_cFv */
 void daMozo_c::anime_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000C38-00000C90       .text wait_proc_init__8daMozo_cFv */
 void daMozo_c::wait_proc_init() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000C90-00000D58       .text wait_proc__8daMozo_cFv */
 void daMozo_c::wait_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000D58-00000DE0       .text search_beam_proc_init__8daMozo_cFv */
 void daMozo_c::search_beam_proc_init() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000DE0-00001230       .text search_beam_proc__8daMozo_cFv */
 void daMozo_c::search_beam_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001230-000012C0       .text search_fire_proc_init__8daMozo_cFv */
 void daMozo_c::search_fire_proc_init() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000012C0-000017F4       .text search_fire_proc__8daMozo_cFv */
 void daMozo_c::search_fire_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000017F4-00001874       .text towait_proc_init__8daMozo_cFv */
 void daMozo_c::towait_proc_init() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001874-00001B3C       .text towait_proc__8daMozo_cFv */
 void daMozo_c::towait_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001B3C-00001D8C       .text checkRange__8daMozo_cFi */
 void daMozo_c::checkRange(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001D8C-00001F70       .text setAnm__8daMozo_cFif */
 void daMozo_c::setAnm(int, float) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001F70-00002228       .text CreateInit__8daMozo_cFv */
@@ -257,7 +260,8 @@ cPhs_State daMozo_c::_create() {
 
 /* 000023B0-0000242C       .text _delete__8daMozo_cFv */
 bool daMozo_c::_delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 0000242C-00002498       .text getBeamActor__8daMozo_cFUi */
@@ -272,7 +276,7 @@ fopAc_ac_c* daMozo_c::getBeamActor(fpc_ProcID apid) {
 
 /* 00002498-00002588       .text event_move__8daMozo_cFv */
 void daMozo_c::event_move() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002588-000025DC       .text _execute__8daMozo_cFv */

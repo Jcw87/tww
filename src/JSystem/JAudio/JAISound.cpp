@@ -4,6 +4,7 @@
 //
 
 #include "JSystem/JSystem.h" // IWYU pragma: keep
+#include "global.h"
 
 #include "JSystem/JAudio/JAISound.h"
 #include "JSystem/JAudio/JAISoundTable.h"
@@ -253,12 +254,14 @@ f32 JAISound::setDistanceVolumeCommon(f32 param_1, u8 param_2) {
 
 /* 80298E30-80298F8C       .text setDistancePanCommon__8JAISoundFv */
 f32 JAISound::setDistancePanCommon() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 80298F8C-80299178       .text setPositionDopplarCommon__8JAISoundFUl */
 f32 JAISound::setPositionDopplarCommon(u32) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 80299178-8029925C       .text setSeqInterVolume__8JAISoundFUcfUl */
@@ -438,72 +441,72 @@ void JAISound::setTrackInterruptSwitch(u8 param_1, u8 param_2) {
 
 /* 80299BAC-80299CD4       .text setTrackPortData__8JAISoundFUcUcUs */
 void JAISound::setTrackPortData(u8, u8, u16) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 80299CD4-80299DE8       .text setSeInterRandomPara__8JAISoundFPfUlff */
 void JAISound::setSeInterRandomPara(f32*, u32, f32, f32) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 80299DE8-80299E88       .text setSeInterVolume__8JAISoundFUcfUlUc */
 void JAISound::setSeInterVolume(u8, f32, u32, u8) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 80299E88-80299F28       .text setSeInterPan__8JAISoundFUcfUlUc */
 void JAISound::setSeInterPan(u8, f32, u32, u8) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 80299F28-80299FE0       .text setSeInterPitch__8JAISoundFUcfUlf */
 void JAISound::setSeInterPitch(u8, f32, u32, f32) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 80299FE0-8029A080       .text setSeInterFxmix__8JAISoundFUcfUlUc */
 void JAISound::setSeInterFxmix(u8, f32, u32, u8) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 8029A080-8029A120       .text setSeInterDolby__8JAISoundFUcfUlUc */
 void JAISound::setSeInterDolby(u8, f32, u32, u8) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 8029A120-8029A1C4       .text setSePortData__8JAISoundFUcUs */
 void JAISound::setSePortData(u8, u16) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 8029A1C4-8029A2E4       .text setSeDistanceParameters__8JAISoundFv */
 void JAISound::setSeDistanceParameters() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 8029A2E4-8029A364       .text setSeDistanceVolume__8JAISoundFUc */
 void JAISound::setSeDistanceVolume(u8) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 8029A364-8029A3BC       .text setSeDistancePan__8JAISoundFUc */
 void JAISound::setSeDistancePan(u8) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 8029A3BC-8029A544       .text setSeDistancePitch__8JAISoundFUc */
 void JAISound::setSeDistancePitch(u8) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 8029A544-8029A5CC       .text setSePositionDopplar__8JAISoundFv */
 void JAISound::setSePositionDopplar() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 8029A5CC-8029A6B0       .text setSeDistanceFxmix__8JAISoundFUc */
 void JAISound::setSeDistanceFxmix(u8) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 8029A6B0-8029A6B4       .text setSeDistanceFir__8JAISoundFUc */
@@ -511,22 +514,22 @@ void JAISound::setSeDistanceFir(u8) {}
 
 /* 8029A6B4-8029A788       .text setSeDistanceDolby__8JAISoundFUc */
 void JAISound::setSeDistanceDolby(u8) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 8029A788-8029A86C       .text setStreamInterVolume__8JAISoundFUcfUl */
 void JAISound::setStreamInterVolume(u8, f32, u32) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 8029A86C-8029A950       .text setStreamInterPitch__8JAISoundFUcfUl */
 void JAISound::setStreamInterPitch(u8, f32, u32) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 8029A950-8029AA34       .text setStreamInterPan__8JAISoundFUcfUl */
 void JAISound::setStreamInterPan(u8, f32, u32) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 8029AA34-8029AA84       .text setStreamPrepareFlag__8JAISoundFUc */

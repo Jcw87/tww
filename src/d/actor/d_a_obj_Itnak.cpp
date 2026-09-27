@@ -4,6 +4,7 @@
  */
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_obj_Itnak.h"
 #include "d/d_cc_d.h"
 
@@ -44,52 +45,56 @@ const dCcD_SrcCyl M_cyl_src = {
 
 /* 00000078-0000009C       .text solidHeapCB__Q210daObjItnak5Act_cFP10fopAc_ac_c */
 void daObjItnak::Act_c::solidHeapCB(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000009C-0000016C       .text create_heap__Q210daObjItnak5Act_cFv */
 void daObjItnak::Act_c::create_heap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000016C-000003A0       .text _create__Q210daObjItnak5Act_cFv */
 cPhs_State daObjItnak::Act_c::_create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000D10-00000D40       .text _delete__Q210daObjItnak5Act_cFv */
 bool daObjItnak::Act_c::_delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000D40-00000DEC       .text set_mtx__Q210daObjItnak5Act_cFv */
 void daObjItnak::Act_c::set_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000DEC-00000EB0       .text set_co_se__Q210daObjItnak5Act_cFP8dCcD_Cyl */
 void daObjItnak::Act_c::set_co_se(dCcD_Cyl*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000EB0-00000F94       .text manage_draw_flag__Q210daObjItnak5Act_cFv */
 void daObjItnak::Act_c::manage_draw_flag() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000F94-00001118       .text set_collision__Q210daObjItnak5Act_cFv */
 void daObjItnak::Act_c::set_collision() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001118-00001158       .text _execute__Q210daObjItnak5Act_cFv */
 bool daObjItnak::Act_c::_execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001158-0000123C       .text _draw__Q210daObjItnak5Act_cFv */
 bool daObjItnak::Act_c::_draw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 namespace daObjItnak {

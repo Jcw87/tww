@@ -4,63 +4,67 @@
 //
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_ss.h"
 #include "m_Do/m_Do_ext.h"
 #include "d/d_cc_d.h"
 
 /* 000000EC-000001DC       .text nodeCallBack__FP7J3DNodei */
 static BOOL nodeCallBack(J3DNode*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000218-00000290       .text hand_draw__FP8ss_class */
 void hand_draw(ss_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000290-00000308       .text daSs_Draw__FP8ss_class */
 static BOOL daSs_Draw(ss_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000308-00000438       .text anm_init__FP8ss_classifUcfi */
 void anm_init(ss_class*, int, float, unsigned char, float, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000438-000008D0       .text hand_1_set__FP8ss_classP4ss_s */
 void hand_1_set(ss_class*, ss_s*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000D08-000011BC       .text hand_1_set_2__FP8ss_classP4ss_s */
 void hand_1_set_2(ss_class*, ss_s*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000011BC-0000152C       .text hand_1_move__FP8ss_classP4ss_s */
 void hand_1_move(ss_class*, ss_s*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000152C-00001D30       .text hand_1_cut__FP8ss_classP4ss_s */
 void hand_1_cut(ss_class*, ss_s*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001EC8-0000236C       .text hand_move__FP8ss_class */
 void hand_move(ss_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000236C-00002B84       .text core_move__FP8ss_class */
 void core_move(ss_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002B84-00002F1C       .text daSs_Execute__FP8ss_class */
 static BOOL daSs_Execute(ss_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00002F1C-00002F24       .text daSs_IsDelete__FP8ss_class */
@@ -70,12 +74,14 @@ static BOOL daSs_IsDelete(ss_class*) {
 
 /* 00002F24-00002F58       .text daSs_Delete__FP8ss_class */
 static BOOL daSs_Delete(ss_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00002F58-000030D4       .text useHeapInit__FP10fopAc_ac_c */
 static BOOL useHeapInit(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000030D4-0000339C       .text daSs_Create__FP10fopAc_ac_c */

@@ -4,6 +4,7 @@
 //
 
 #include "d/dolzel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/d_demo.h"
 #include "f_op/f_op_camera.h"
 #include "d/d_com_inf_game.h"
@@ -60,12 +61,14 @@ J3DAnmTexPattern* dDemo_actor_c::getP_BtpData(const char* name) {
 
 /* 80069550-800695E8       .text getP_BrkData__13dDemo_actor_cFPCc */
 void* dDemo_actor_c::getP_BrkData(const char*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800695E8-8006969C       .text getP_BtkData__13dDemo_actor_cFPCc */
 J3DAnmTextureSRTKey* dDemo_actor_c::getP_BtkData(const char*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 8006969C-80069838       .text getPrm_Morf__13dDemo_actor_cFv */

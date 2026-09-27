@@ -4,6 +4,7 @@
 //
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_obj_light.h"
 #include "d/d_cc_d.h"
 
@@ -40,97 +41,101 @@ const dCcD_SrcCyl daObjLight::Act_c::M_cyl_src = {
 
 /* 000000EC-00000110       .text solidHeapCB__Q210daObjLight5Act_cFP10fopAc_ac_c */
 void daObjLight::Act_c::solidHeapCB(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000110-00000344       .text create_heap__Q210daObjLight5Act_cFv */
 void daObjLight::Act_c::create_heap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000344-000003C0       .text init_collision__Q210daObjLight5Act_cFv */
 void daObjLight::Act_c::init_collision() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000003C0-00000468       .text set_collision__Q210daObjLight5Act_cFv */
 void daObjLight::Act_c::set_collision() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000004A4-0000070C       .text _create__Q210daObjLight5Act_cFv */
 cPhs_State daObjLight::Act_c::_create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000008C4-00000964       .text _delete__Q210daObjLight5Act_cFv */
 bool daObjLight::Act_c::_delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000964-00000A9C       .text set_fire__Q210daObjLight5Act_cFi */
 void daObjLight::Act_c::set_fire(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000A9C-00000B04       .text draw_fire__Q210daObjLight5Act_cFv */
 void daObjLight::Act_c::draw_fire() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000B04-00000C28       .text exe_fire__Q210daObjLight5Act_cFv */
 void daObjLight::Act_c::exe_fire() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000C28-00000C60       .text delete_fire__Q210daObjLight5Act_cFv */
 void daObjLight::Act_c::delete_fire() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000C60-00000C8C       .text now_event__Q210daObjLight5Act_cFs */
 void daObjLight::Act_c::now_event(short) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000C8C-00000CB4       .text set_event__Q210daObjLight5Act_cFs */
 void daObjLight::Act_c::set_event(short) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000CB4-00000D84       .text exe_event__Q210daObjLight5Act_cFv */
 void daObjLight::Act_c::exe_event() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000D84-00001084       .text set_mtx__Q210daObjLight5Act_cFv */
 void daObjLight::Act_c::set_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001084-000011C4       .text renew_angle__Q210daObjLight5Act_cFv */
 void daObjLight::Act_c::renew_angle() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000011C4-00001330       .text control_light__Q210daObjLight5Act_cFv */
 void daObjLight::Act_c::control_light() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001330-00001398       .text control_treasure__Q210daObjLight5Act_cFv */
 void daObjLight::Act_c::control_treasure() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001398-00001400       .text _execute__Q210daObjLight5Act_cFv */
 bool daObjLight::Act_c::_execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001400-00001528       .text _draw__Q210daObjLight5Act_cFv */
 bool daObjLight::Act_c::_draw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 namespace daObjLight {
