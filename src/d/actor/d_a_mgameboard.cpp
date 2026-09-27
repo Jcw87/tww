@@ -4,71 +4,76 @@
  */
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_mgameboard.h"
 
 /* 000000EC-0000010C       .text CheckCreateHeap__FP10fopAc_ac_c */
 static BOOL CheckCreateHeap(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 0000010C-000007BC       .text CreateHeap__11daMgBoard_cFv */
 void daMgBoard_c::CreateHeap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000804-00000904       .text set_2dposition__11daMgBoard_cFv */
 void daMgBoard_c::set_2dposition() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000904-000009E0       .text CreateInit__11daMgBoard_cFv */
 void daMgBoard_c::CreateInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000009E0-00000AE8       .text MiniGameInit__11daMgBoard_cFv */
 void daMgBoard_c::MiniGameInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000AE8-00000DEC       .text set_mtx__11daMgBoard_cFv */
 void daMgBoard_c::set_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000E28-00000FD8       .text _execute__11daMgBoard_cFv */
 bool daMgBoard_c::_execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000FD8-00001040       .text execGameMain__11daMgBoard_cFv */
 void daMgBoard_c::execGameMain() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001040-00001060       .text execEndGame__11daMgBoard_cFv */
 void daMgBoard_c::execEndGame() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001060-00001250       .text MinigameMain__11daMgBoard_cFv */
 void daMgBoard_c::MinigameMain() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001250-000013C4       .text CursorMove__11daMgBoard_cFv */
 void daMgBoard_c::CursorMove() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000013C4-000014C8       .text daMgBoard_Create__FPv */
 static cPhs_State daMgBoard_Create(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000014C8-00001518       .text daMgBoard_Delete__FPv */
 static BOOL daMgBoard_Delete(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001518-0000153C       .text daMgBoard_Draw__FPv */
@@ -78,7 +83,8 @@ static BOOL daMgBoard_Draw(void* i_this) {
 
 /* 0000153C-00001850       .text _draw__11daMgBoard_cFv */
 bool daMgBoard_c::_draw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001850-00001874       .text daMgBoard_Execute__FPv */

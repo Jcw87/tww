@@ -4,6 +4,7 @@
 //
 
 #include "d/dolzel.h" // IWYU pragma: keep
+#include "global.h"
 #include "JSystem/J2DGraph/J2DOrthoGraph.h"
 #include "JSystem/J2DGraph/J2DPicture.h"
 #include "JSystem/J2DGraph/J2DTextBox.h"
@@ -1129,12 +1130,12 @@ void dMenu_Fmap2_c::gsMoonAnimeInit() {
 
 /* 801BFCEC-801C002C       .text gsMoonAnime__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::gsMoonAnime() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C002C-801C0378       .text gsShipAnime__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::gsShipAnime() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 #if VERSION > VERSION_JPN
@@ -1147,7 +1148,7 @@ void dMenu_Fmap2_c::gsIconAnimeInit() {
 
 /* 801C039C-801C04CC       .text gsIconAnime__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::gsIconAnime() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 #endif
 
@@ -1238,7 +1239,7 @@ void dMenu_Fmap2_c::trTrifAnimeInit() {
 
 /* 801C0AF8-801C0C0C       .text trTrifAnime__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::trTrifAnime() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 #endif
 
@@ -1680,102 +1681,104 @@ void dMenu_Fmap2_c::changeSelCmap() {
 
 /* 801C3070-801C3210       .text changeSelCmap2__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::changeSelCmap2() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C3210-801C3354       .text cmapAlphaSet__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::cmapAlphaSet() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C3354-801C33B0       .text changeZoomCmap__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::changeZoomCmap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C33B0-801C36C8       .text ChangeProcMode__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::ChangeProcMode() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C36C8-801C376C       .text _open__13dMenu_Fmap2_cFv */
 bool dMenu_Fmap2_c::_open() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 801C376C-801C3858       .text _close__13dMenu_Fmap2_cFv */
 bool dMenu_Fmap2_c::_close() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 801C3858-801C38E0       .text _draw__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::_draw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C38E0-801C39A4       .text _delete__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::_delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C39A4-801C39EC       .text fCursorInit__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::fCursorInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C39EC-801C3CCC       .text fCursorMove__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::fCursorMove() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C3CCC-801C3D5C       .text fCursorAnime__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::fCursorAnime() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C3D5C-801C3D9C       .text cCursorAnimeInit__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::cCursorAnimeInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C3D9C-801C3E2C       .text cCursorAnime__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::cCursorAnime() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C3E2C-801C3E54       .text cCursorHide__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::cCursorHide() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C3E54-801C3E6C       .text cSelCursorInit__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::cSelCursorInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C3E6C-801C3E88       .text cSelCursorAnimeInit__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::cSelCursorAnimeInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C3E88-801C3F90       .text cSelCursorAnime__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::cSelCursorAnime() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C3F90-801C3FA8       .text cSelCursorHide__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::cSelCursorHide() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C3FA8-801C3FC4       .text playerPointGridAnimeInit__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::playerPointGridAnimeInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C3FC4-801C4290       .text playerPointGridAnime__13dMenu_Fmap2_cFP18fopMsgM_pane_class */
 void dMenu_Fmap2_c::playerPointGridAnime(fopMsgM_pane_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C4290-801C43C4       .text changeFmapTexture__13dMenu_Fmap2_cFv */
@@ -1792,37 +1795,37 @@ void dMenu_Fmap2_c::changeFmapTexture() {
 
 /* 801C43C4-801C44E8       .text changeIslandName__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::changeIslandName() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C44E8-801C4634       .text fmapPlayerPosDisp__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::fmapPlayerPosDisp() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C4634-801C4834       .text fmapPlayerPosDispCheck__13dMenu_Fmap2_cFPfPf */
 void dMenu_Fmap2_c::fmapPlayerPosDispCheck(f32*, f32*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C4834-801C4B1C       .text changeCmapName__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::changeCmapName() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C4B1C-801C4CF4       .text cmapPlayerPosDisp__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::cmapPlayerPosDisp() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C4CF4-801C4F80       .text cmapSalvagePosDisp__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::cmapSalvagePosDisp() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C4F80-801C50FC       .text cmapPlayerPosDispCheck__13dMenu_Fmap2_cFPfPf */
 void dMenu_Fmap2_c::cmapPlayerPosDispCheck(f32*, f32*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 801C50FC-801C5350       .text paneTransBase__13dMenu_Fmap2_cFsUcffUcUci */
@@ -1974,7 +1977,8 @@ BOOL dMenu_Fmap2_c::paneAlphaMessage2(s16 param_1, u8 param_2, u8 param_3, int p
 
 /* 801C57C0-801C5AEC       .text paneTranceMessage__13dMenu_Fmap2_cFsUcffffUcUci */
 BOOL dMenu_Fmap2_c::paneTranceMessage(s16, u8, f32, f32, f32, f32, u8, u8, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 801C5AEC-801C5BF4       .text paneScaleXYChild__13dMenu_Fmap2_cFP18fopMsgM_pane_classf */
@@ -2020,67 +2024,80 @@ BOOL dMenu_Fmap2_c::paneTransSelCmapCle(s16 param_1, u8 param_2, f32 param_3, f3
 
 /* 801C5D6C-801C5EE4       .text paneTransSelCmapOpn__13dMenu_Fmap2_cFsUcffffUcUci */
 BOOL dMenu_Fmap2_c::paneTransSelCmapOpn(s16, u8, f32, f32, f32, f32, u8, u8, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 801C5EE4-801C609C       .text paneAlphaGostShipMap__13dMenu_Fmap2_cFsUcUci */
 BOOL dMenu_Fmap2_c::paneAlphaGostShipMap(s16, u8, u8, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 801C609C-801C61F0       .text paneAlphaTingleMap__13dMenu_Fmap2_cFsUcUci */
 BOOL dMenu_Fmap2_c::paneAlphaTingleMap(s16, u8, u8, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 801C61F0-801C6338       .text paneAlphaTreasureMap__13dMenu_Fmap2_cFsUcUci */
 BOOL dMenu_Fmap2_c::paneAlphaTreasureMap(s16, u8, u8, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 801C6338-801C64A0       .text paneAlphaSubdanMap__13dMenu_Fmap2_cFsUcUci */
 BOOL dMenu_Fmap2_c::paneAlphaSubdanMap(s16, u8, u8, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 801C64A0-801C663C       .text paneAlphaHeartMMap__13dMenu_Fmap2_cFsUcUci */
 BOOL dMenu_Fmap2_c::paneAlphaHeartMMap(s16, u8, u8, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 801C663C-801C6790       .text paneAlphaYaguraMap__13dMenu_Fmap2_cFsUcUci */
 BOOL dMenu_Fmap2_c::paneAlphaYaguraMap(s16, u8, u8, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 801C6790-801C68B0       .text paneAlphaDfaliyMap__13dMenu_Fmap2_cFsUcUci */
 BOOL dMenu_Fmap2_c::paneAlphaDfaliyMap(s16, u8, u8, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 801C68B0-801C6A34       .text paneAlphaHeartPMap__13dMenu_Fmap2_cFsUcUci */
 BOOL dMenu_Fmap2_c::paneAlphaHeartPMap(s16, u8, u8, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 801C6A34-801C6B54       .text paneAlphaTerryMap__13dMenu_Fmap2_cFsUcUci */
 BOOL dMenu_Fmap2_c::paneAlphaTerryMap(s16, u8, u8, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 801C6B54-801C6C74       .text paneAlphaSubMaMap__13dMenu_Fmap2_cFsUcUci */
 BOOL dMenu_Fmap2_c::paneAlphaSubMaMap(s16, u8, u8, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 801C6C74-801C6DC8       .text paneAlphaMoonMap__13dMenu_Fmap2_cFsUcUci */
 BOOL dMenu_Fmap2_c::paneAlphaMoonMap(s16, u8, u8, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 801C6DC8-801C6EFC       .text paneAlphaDoctaMap__13dMenu_Fmap2_cFsUcUci */
 BOOL dMenu_Fmap2_c::paneAlphaDoctaMap(s16, u8, u8, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 801C6EFC-801C6F60       .text setPaneOnOff__13dMenu_Fmap2_cFP9J2DScreenUlb */

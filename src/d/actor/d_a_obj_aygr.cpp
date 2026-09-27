@@ -4,51 +4,59 @@
  */
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_obj_aygr.h"
 
 /* 00000078-000002A4       .text CreateHeap__Q29daObjAygr5Act_cFv */
 BOOL daObjAygr::Act_c::CreateHeap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000002A4-00000310       .text Create__Q29daObjAygr5Act_cFv */
 BOOL daObjAygr::Act_c::Create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000310-000004D4       .text Mthd_Create__Q29daObjAygr5Act_cFv */
 cPhs_State daObjAygr::Act_c::Mthd_Create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000004D4-000004DC       .text Delete__Q29daObjAygr5Act_cFv */
 BOOL daObjAygr::Act_c::Delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000004DC-0000054C       .text Mthd_Delete__Q29daObjAygr5Act_cFv */
 BOOL daObjAygr::Act_c::Mthd_Delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 0000054C-000005F8       .text set_mtx__Q29daObjAygr5Act_cFv */
 void daObjAygr::Act_c::set_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000005F8-00000674       .text init_mtx__Q29daObjAygr5Act_cFv */
 void daObjAygr::Act_c::init_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000674-000006B0       .text Execute__Q29daObjAygr5Act_cFPPA3_A4_f */
 BOOL daObjAygr::Act_c::Execute(Mtx**) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000006B0-0000079C       .text Draw__Q29daObjAygr5Act_cFv */
 BOOL daObjAygr::Act_c::Draw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 namespace daObjAygr {

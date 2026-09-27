@@ -4,6 +4,7 @@
  */
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_obj_kanoke.h"
 #include "d/d_cc_d.h"
 
@@ -71,122 +72,127 @@ static dCcD_SrcCps l_cps_src_huta = {
 
 /* 000000EC-000002F4       .text __ct__13daObjKanoke_cFv */
 daObjKanoke_c::daObjKanoke_c() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000644-00000664       .text CheckCreateHeap__FP10fopAc_ac_c */
 static BOOL CheckCreateHeap(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000664-00000700       .text _create__13daObjKanoke_cFv */
 cPhs_State daObjKanoke_c::_create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000700-000008BC       .text createHeap__13daObjKanoke_cFv */
 void daObjKanoke_c::createHeap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000008BC-00000B28       .text createInit__13daObjKanoke_cFv */
 void daObjKanoke_c::createInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000B28-00000C0C       .text _delete__13daObjKanoke_cFv */
 BOOL daObjKanoke_c::_delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000C0C-00000CE0       .text _draw__13daObjKanoke_cFv */
 BOOL daObjKanoke_c::_draw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000CE0-00000E7C       .text _execute__13daObjKanoke_cFv */
 BOOL daObjKanoke_c::_execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000E7C-0000122C       .text executeNormal__13daObjKanoke_cFv */
 void daObjKanoke_c::executeNormal() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000122C-00001358       .text executeYureYoko__13daObjKanoke_cFv */
 void daObjKanoke_c::executeYureYoko() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001358-00001544       .text executeOpenYoko__13daObjKanoke_cFv */
 void daObjKanoke_c::executeOpenYoko() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001544-000015F8       .text executeEffectYoko__13daObjKanoke_cFv */
 void daObjKanoke_c::executeEffectYoko() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000015F8-00001764       .text executeYureTate__13daObjKanoke_cFv */
 void daObjKanoke_c::executeYureTate() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001764-00001A6C       .text executeOpenTate__13daObjKanoke_cFv */
 void daObjKanoke_c::executeOpenTate() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001A6C-00001B24       .text executeEffectTate__13daObjKanoke_cFv */
 void daObjKanoke_c::executeEffectTate() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001B24-00001B28       .text executeWait__13daObjKanoke_cFv */
 void daObjKanoke_c::executeWait() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001B28-00001B54       .text getPrmType__13daObjKanoke_cFv */
 void daObjKanoke_c::getPrmType() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001B54-00001B80       .text getPrmSearch__13daObjKanoke_cFv */
 void daObjKanoke_c::getPrmSearch() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001B80-00001BAC       .text getPrmYure__13daObjKanoke_cFv */
 void daObjKanoke_c::getPrmYure() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001BAC-00001BD8       .text getPrmSwNo__13daObjKanoke_cFv */
 void daObjKanoke_c::getPrmSwNo() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001BD8-00001C04       .text getPrmSwNo2__13daObjKanoke_cFv */
 void daObjKanoke_c::getPrmSwNo2() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001C04-00001C9C       .text setMtx__13daObjKanoke_cFv */
 void daObjKanoke_c::setMtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001C9C-00001D38       .text setMtxHontai__13daObjKanoke_cFv */
 void daObjKanoke_c::setMtxHontai() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001D38-00001E4C       .text setMtxHuta__13daObjKanoke_cFP4cXyz */
 void daObjKanoke_c::setMtxHuta(cXyz*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001E4C-00001E6C       .text daObjKanokeCreate__FPv */

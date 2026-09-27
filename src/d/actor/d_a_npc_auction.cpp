@@ -4,212 +4,224 @@
 //
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_npc_auction.h"
 #include "m_Do/m_Do_ext.h"
 
 /* 000000EC-00000268       .text __ct__14daNpcAuction_cFv */
 daNpcAuction_c::daNpcAuction_c() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000618-00000730       .text daNpc_Auction_nodeCallBack1__FP7J3DNodei */
 static BOOL daNpc_Auction_nodeCallBack1(J3DNode*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000730-00000848       .text daNpc_Auction_nodeCallBack2__FP7J3DNodei */
 static BOOL daNpc_Auction_nodeCallBack2(J3DNode*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000848-00000868       .text CheckCreateHeap__FP10fopAc_ac_c */
 static BOOL CheckCreateHeap(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000868-00000ACC       .text phase_1__FP14daNpcAuction_c */
 void phase_1(daNpcAuction_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000ACC-00000B4C       .text phase_2__FP14daNpcAuction_c */
 void phase_2(daNpcAuction_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000B4C-00000E74       .text createHeap__14daNpcAuction_cFv */
 void daNpcAuction_c::createHeap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000E74-00000E94       .text daNpcAuction_XyCheckCB__FPvi */
 static s16 daNpcAuction_XyCheckCB(void*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000E94-00000EB4       .text daNpcAuction_XyEventCB__FPvi */
 static s16 daNpcAuction_XyEventCB(void*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000EB4-00001038       .text createInit__14daNpcAuction_cFv */
 void daNpcAuction_c::createInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001038-0000105C       .text wait_action_init__14daNpcAuction_cFv */
 void daNpcAuction_c::wait_action_init() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000105C-00001194       .text wait_action__14daNpcAuction_cFv */
 void daNpcAuction_c::wait_action() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001194-000011EC       .text checkOrder__14daNpcAuction_cFv */
 void daNpcAuction_c::checkOrder() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000011EC-00001270       .text eventOrder__14daNpcAuction_cFv */
 void daNpcAuction_c::eventOrder() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001270-000013FC       .text eventMove__14daNpcAuction_cFv */
 void daNpcAuction_c::eventMove() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000013FC-00001548       .text privateCut__14daNpcAuction_cFv */
 void daNpcAuction_c::privateCut() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001548-00001554       .text eventMainInit__14daNpcAuction_cFv */
 void daNpcAuction_c::eventMainInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001554-00001888       .text eventMain__14daNpcAuction_cFv */
 void daNpcAuction_c::eventMain() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001888-000018FC       .text eventMesSetInit__14daNpcAuction_cFi */
 void daNpcAuction_c::eventMesSetInit(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000018FC-00001930       .text eventMesSet__14daNpcAuction_cFv */
 void daNpcAuction_c::eventMesSet() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001930-00001938       .text XyCheckCB__14daNpcAuction_cFi */
 void daNpcAuction_c::XyCheckCB(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001938-000019F8       .text XyEventCB__14daNpcAuction_cFi */
 void daNpcAuction_c::XyEventCB(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000019F8-00001CD4       .text next_msgStatus__14daNpcAuction_cFPUl */
 u16 daNpcAuction_c::next_msgStatus(u32*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001CD4-00001F04       .text getMsg__14daNpcAuction_cFv */
 u32 daNpcAuction_c::getMsg() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001F04-00002070       .text setAnmFromMsgTag__14daNpcAuction_cFv */
 void daNpcAuction_c::setAnmFromMsgTag() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002070-00002090       .text getPrmNpcNo__14daNpcAuction_cFv */
 void daNpcAuction_c::getPrmNpcNo() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002090-00002118       .text setMtx__14daNpcAuction_cFv */
 void daNpcAuction_c::setMtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002118-00002488       .text lookBack__14daNpcAuction_cFv */
 void daNpcAuction_c::lookBack() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002488-000025AC       .text initTexPatternAnm__14daNpcAuction_cFb */
 void daNpcAuction_c::initTexPatternAnm(bool) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000025AC-00002624       .text playTexPatternAnm__14daNpcAuction_cFv */
 void daNpcAuction_c::playTexPatternAnm() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002624-000026CC       .text playAnm__14daNpcAuction_cFv */
 void daNpcAuction_c::playAnm() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000026CC-0000278C       .text setAnm__14daNpcAuction_cFUcif */
 void daNpcAuction_c::setAnm(unsigned char, int, float) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000278C-000027DC       .text setAnm2__14daNpcAuction_cFUcif */
 void daNpcAuction_c::setAnm2(unsigned char, int, float) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000027DC-00002874       .text setAnmTbl__14daNpcAuction_cFP7sAnmDat */
 void daNpcAuction_c::setAnmTbl(sAnmDat*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002874-00002928       .text isExecute__14daNpcAuction_cFv */
 void daNpcAuction_c::isExecute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002928-0000298C       .text getRand__14daNpcAuction_cFi */
 void daNpcAuction_c::getRand(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000298C-000029DC       .text clrEmitter__14daNpcAuction_cFv */
 void daNpcAuction_c::clrEmitter() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000029DC-00002A0C       .text daNpc_AuctionCreate__FPv */
 static cPhs_State daNpc_AuctionCreate(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00002A0C-00002A70       .text daNpc_AuctionDelete__FPv */
 static BOOL daNpc_AuctionDelete(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00002A70-00002C70       .text daNpc_AuctionExecute__FPv */
 static BOOL daNpc_AuctionExecute(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00002C70-00002EB8       .text daNpc_AuctionDraw__FPv */
 static BOOL daNpc_AuctionDraw(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00002EB8-00002EC0       .text daNpc_AuctionIsDelete__FPv */

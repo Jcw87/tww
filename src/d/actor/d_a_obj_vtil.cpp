@@ -4,6 +4,7 @@
  */
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_obj_vtil.h"
 #include "d/d_cc_d.h"
 
@@ -40,167 +41,171 @@ const dCcD_SrcCyl daObjVtil_c::M_co_cyl_data = {
 
 /* 00000078-00000098       .text solidHeapCB__11daObjVtil_cFP10fopAc_ac_c */
 void daObjVtil_c::solidHeapCB(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000098-0000016C       .text create_heap__11daObjVtil_cFv */
 void daObjVtil_c::create_heap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000016C-000003C0       .text _create__11daObjVtil_cFv */
 cPhs_State daObjVtil_c::_create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000006CC-00000718       .text _delete__11daObjVtil_cFv */
 bool daObjVtil_c::_delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000718-00000750       .text check_ev_bit__11daObjVtil_cCFv */
 void daObjVtil_c::check_ev_bit() const {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000750-00000770       .text tell_agb_attack__11daObjVtil_cFv */
 void daObjVtil_c::tell_agb_attack() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000770-00000790       .text tell_agb_sink__11daObjVtil_cFv */
 void daObjVtil_c::tell_agb_sink() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000790-0000082C       .text init_mtx__11daObjVtil_cFv */
 void daObjVtil_c::init_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000082C-000008CC       .text init_co__11daObjVtil_cFv */
 void daObjVtil_c::init_co() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000008CC-000009A4       .text init_bgc__11daObjVtil_cFv */
 void daObjVtil_c::init_bgc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000009A4-000009CC       .text renew_attention_pos__11daObjVtil_cFv */
 void daObjVtil_c::renew_attention_pos() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000009CC-000009F8       .text make_smoke__11daObjVtil_cFv */
 void daObjVtil_c::make_smoke() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000009F8-00000A88       .text se_smoke__11daObjVtil_cFv */
 void daObjVtil_c::se_smoke() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000A88-00000AD8       .text make_splash__11daObjVtil_cFv */
 void daObjVtil_c::make_splash() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000AD8-00000BCC       .text se_splash__11daObjVtil_cFv */
 void daObjVtil_c::se_splash() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000BCC-00000C20       .text set_sound__11daObjVtil_cCFii */
 void daObjVtil_c::set_sound(int, int) const {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000C20-00000CA0       .text to_wait_mode__11daObjVtil_cFv */
 void daObjVtil_c::to_wait_mode() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000CA0-00000D70       .text mode_wait__11daObjVtil_cFv */
 void daObjVtil_c::mode_wait() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000D70-00000DAC       .text to_carry_mode__11daObjVtil_cFv */
 void daObjVtil_c::to_carry_mode() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000DAC-00000E7C       .text mode_carry__11daObjVtil_cFv */
 void daObjVtil_c::mode_carry() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000E7C-00000F14       .text to_throw_mode__11daObjVtil_cFv */
 void daObjVtil_c::to_throw_mode() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000F14-00000FDC       .text calc_throw__11daObjVtil_cCFPfPfPf */
 void daObjVtil_c::calc_throw(float*, float*, float*) const {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000FDC-00001054       .text mode_throw__11daObjVtil_cFv */
 void daObjVtil_c::mode_throw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001054-000011C8       .text to_sink_mode__11daObjVtil_cFv */
 void daObjVtil_c::to_sink_mode() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000011C8-0000122C       .text mode_sink__11daObjVtil_cFv */
 void daObjVtil_c::mode_sink() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000122C-000012F8       .text hit_co__11daObjVtil_cFv */
 void daObjVtil_c::hit_co() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000012F8-00001330       .text check_sink__11daObjVtil_cFv */
 void daObjVtil_c::check_sink() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001330-00001374       .text check_sink_end__11daObjVtil_cFv */
 void daObjVtil_c::check_sink_end() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001374-000014E0       .text hit_bg__11daObjVtil_cFv */
 void daObjVtil_c::hit_bg() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000014E0-0000153C       .text make_vib__11daObjVtil_cFv */
 void daObjVtil_c::make_vib() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000153C-00001634       .text check_circle__11daObjVtil_cFv */
 void daObjVtil_c::check_circle() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001634-000017CC       .text _execute__11daObjVtil_cFv */
 bool daObjVtil_c::_execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000017CC-00001864       .text _draw__11daObjVtil_cFv */
 bool daObjVtil_c::_draw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 namespace {

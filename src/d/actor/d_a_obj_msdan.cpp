@@ -4,21 +4,25 @@
 //
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_obj_msdan.h"
 
 /* 00000078-000003D4       .text Mthd_Create__Q210daObjMsdan5Act_cFv */
 cPhs_State daObjMsdan::Act_c::Mthd_Create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000003D4-000005C0       .text Mthd_Execute__Q210daObjMsdan5Act_cFv */
 BOOL daObjMsdan::Act_c::Mthd_Execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000005C0-000005F0       .text Mthd_Delete__Q210daObjMsdan5Act_cFv */
 BOOL daObjMsdan::Act_c::Mthd_Delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 namespace daObjMsdan {

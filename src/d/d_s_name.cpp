@@ -4,6 +4,7 @@
 //
 
 #include "d/dolzel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/d_s_name.h"
 #include "d/d_com_inf_game.h"
 #include "d/d_com_lib_game.h"

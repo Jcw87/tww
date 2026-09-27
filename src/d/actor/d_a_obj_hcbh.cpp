@@ -4,6 +4,7 @@
  */
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_obj_hcbh.h"
 #include "d/d_cc_d.h"
 
@@ -74,82 +75,86 @@ static const dCcD_SrcSph l_sph_src = {
 
 /* 00000078-000000D8       .text chk_appear__11daObjHcbh_cFv */
 void daObjHcbh_c::chk_appear() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000000D8-0000029C       .text set_mtx__11daObjHcbh_cFv */
 void daObjHcbh_c::set_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000029C-0000030C       .text init_mtx__11daObjHcbh_cFv */
 void daObjHcbh_c::init_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000030C-00000330       .text solidHeapCB__11daObjHcbh_cFP10fopAc_ac_c */
 void daObjHcbh_c::solidHeapCB(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000330-00000500       .text create_heap__11daObjHcbh_cFv */
 void daObjHcbh_c::create_heap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000500-000005E8       .text setup_break_condition__11daObjHcbh_cFP10fopAc_ac_c */
 void daObjHcbh_c::setup_break_condition(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000005E8-00000724       .text checkCollision__11daObjHcbh_cFv */
 void daObjHcbh_c::checkCollision() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000724-0000077C       .text co_hitCallback__11daObjHcbh_cFP10fopAc_ac_cP12dCcD_GObjInfP10fopAc_ac_cP12dCcD_GObjInf */
 void daObjHcbh_c::co_hitCallback(fopAc_ac_c*, dCcD_GObjInf*, fopAc_ac_c*, dCcD_GObjInf*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000077C-000008F8       .text particle_set__11daObjHcbh_cFv */
 void daObjHcbh_c::particle_set() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000008F8-000009E4       .text make_item__11daObjHcbh_cFv */
 void daObjHcbh_c::make_item() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000A20-00000E30       .text _create__11daObjHcbh_cFv */
 cPhs_State daObjHcbh_c::_create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000011F4-000012F4       .text _delete__11daObjHcbh_cFv */
 bool daObjHcbh_c::_delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000012F4-000013BC       .text wait_act_proc__11daObjHcbh_cFv */
 void daObjHcbh_c::wait_act_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000013BC-000017D8       .text fall_act_proc__11daObjHcbh_cFv */
 void daObjHcbh_c::fall_act_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000017D8-000018D8       .text _execute__11daObjHcbh_cFv */
 bool daObjHcbh_c::_execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000018D8-0000197C       .text _draw__11daObjHcbh_cFv */
 bool daObjHcbh_c::_draw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 0000197C-0000199C       .text daObjHcbh_Create__FP10fopAc_ac_c */

@@ -4,6 +4,7 @@
 //
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_obj_flame.h"
 #include "d/d_cc_d.h"
 
@@ -40,157 +41,163 @@ const dCcD_SrcCps daObjFlame::Act_c::M_cps_src = {
 
 /* 00000078-00000110       .text set_switch__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::set_switch() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000110-00000134       .text solidHeapCB__Q210daObjFlame5Act_cFP10fopAc_ac_c */
 void daObjFlame::Act_c::solidHeapCB(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000134-00000414       .text create_heap__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::create_heap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000045C-000007D8       .text create_mode_init__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::create_mode_init() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000007D8-00000930       .text set_mtx__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::set_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000930-00000950       .text init_mtx__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::init_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000950-00000B3C       .text em_position__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::em_position() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000B3C-00000CAC       .text em_simple_set__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::em_simple_set() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000CAC-00000CEC       .text em_simple_inv__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::em_simple_inv() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000CEC-00000F04       .text em_manual_set__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::em_manual_set() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000F04-00001010       .text em_manual_inv__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::em_manual_inv() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001010-00001070       .text ki_init__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::ki_init() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001070-00001194       .text ki_make__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::ki_make() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001194-000011E4       .text eff_hase__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::eff_hase() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000011E4-00001254       .text se_fireblast_omen__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::se_fireblast_omen() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001254-00001610       .text liftup_magmarock__Q210daObjFlame5Act_cFPvPv */
 void daObjFlame::Act_c::liftup_magmarock(void*, void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001610-00001884       .text liftup_mflft__Q210daObjFlame5Act_cFPvPv */
 void daObjFlame::Act_c::liftup_mflft(void*, void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001884-00001988       .text mode_wait__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::mode_wait() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001988-00001A08       .text mode_wait2__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::mode_wait2() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001A08-00001A98       .text mode_l_before__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::mode_l_before() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001A98-00001AE8       .text mode_l_u__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::mode_l_u() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001AE8-00001B20       .text mode_u__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::mode_u() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001B20-00001B74       .text mode_u_l__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::mode_u_l() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001B74-00001BEC       .text mode_l_after__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::mode_l_after() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001BEC-00001EAC       .text mode_proc_call__Q210daObjFlame5Act_cFv */
 void daObjFlame::Act_c::mode_proc_call() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001EAC-00001ECC       .text Create__Q210daObjFlame6MethodFPv */
 cPhs_State daObjFlame::Method::Create(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001ECC-00002200       .text _create__Q210daObjFlame5Act_cFv */
 cPhs_State daObjFlame::Act_c::_create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00002484-000024B4       .text Delete__Q210daObjFlame6MethodFPv */
 BOOL daObjFlame::Method::Delete(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000024B4-00002638       .text Execute__Q210daObjFlame6MethodFPv */
 BOOL daObjFlame::Method::Execute(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00002638-00002710       .text Draw__Q210daObjFlame6MethodFPv */
 BOOL daObjFlame::Method::Draw(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00002710-000027B0       .text IsDelete__Q210daObjFlame6MethodFPv */
 BOOL daObjFlame::Method::IsDelete(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 actor_method_class daObjFlame::Method::Table = {
