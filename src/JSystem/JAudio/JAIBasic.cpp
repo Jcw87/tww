@@ -4,6 +4,7 @@
 //
 
 #include "JSystem/JSystem.h" // IWYU pragma: keep
+#include "global.h"
 
 #include "JSystem/JAudio/JAIBasic.h"
 #include "JSystem/JAudio/JAIBankWave.h"
@@ -529,7 +530,7 @@ u16 JAIBasic::setParameterSeqSync(JASystem::TTrack* track, u16 param_2) {
 
 /* 80291034-80291114       .text setSeExtParameter__8JAIBasicFP8JAISound */
 void JAIBasic::setSeExtParameter(JAISound* param_1) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 80291114-802911A8       .text makeSound__8JAIBasicFUl */

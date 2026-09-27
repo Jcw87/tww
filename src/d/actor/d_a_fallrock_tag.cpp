@@ -4,6 +4,7 @@
 //
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_fallrock_tag.h"
 #include "d/d_com_inf_game.h"
 #include "d/d_kankyo.h"

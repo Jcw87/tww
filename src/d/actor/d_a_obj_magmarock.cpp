@@ -4,141 +4,149 @@
  */
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_obj_magmarock.h"
 
 /* 00000078-00000128       .text set_mtx__Q214daObjMagmarock5Act_cFv */
 void daObjMagmarock::Act_c::set_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000128-00000258       .text demo_move__Q214daObjMagmarock5Act_cFv */
 void daObjMagmarock::Act_c::demo_move() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000258-00000410       .text ControlEffect__Q214daObjMagmarock5Act_cFv */
 void daObjMagmarock::Act_c::ControlEffect() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000044C-00000560       .text play_anim__Q214daObjMagmarock5Act_cFv */
 void daObjMagmarock::Act_c::play_anim() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000560-0000058C       .text appear_proc_init__Q214daObjMagmarock5Act_cFv */
 void daObjMagmarock::Act_c::appear_proc_init() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000058C-000005EC       .text appear_proc__Q214daObjMagmarock5Act_cFv */
 void daObjMagmarock::Act_c::appear_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000005EC-00000618       .text wait_proc_init__Q214daObjMagmarock5Act_cFv */
 void daObjMagmarock::Act_c::wait_proc_init() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000618-00000644       .text wait_proc__Q214daObjMagmarock5Act_cFv */
 void daObjMagmarock::Act_c::wait_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000644-000006E0       .text stay_proc_init__Q214daObjMagmarock5Act_cFv */
 void daObjMagmarock::Act_c::stay_proc_init() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000006E0-00000720       .text stay_proc__Q214daObjMagmarock5Act_cFv */
 void daObjMagmarock::Act_c::stay_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000720-000007B8       .text quake_proc_init__Q214daObjMagmarock5Act_cFv */
 void daObjMagmarock::Act_c::quake_proc_init() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000007B8-0000084C       .text quake_proc__Q214daObjMagmarock5Act_cFv */
 void daObjMagmarock::Act_c::quake_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000084C-00000878       .text vanish_proc_init__Q214daObjMagmarock5Act_cFv */
 void daObjMagmarock::Act_c::vanish_proc_init() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000878-000008F8       .text vanish_proc__Q214daObjMagmarock5Act_cFv */
 void daObjMagmarock::Act_c::vanish_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000008F8-00000AEC       .text ride_call_back__14daObjMagmarockFP4dBgWP10fopAc_ac_cP10fopAc_ac_c */
 void daObjMagmarock::ride_call_back(dBgW*, fopAc_ac_c*, fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000AEC-00000B0C       .text CheckCreateHeap__14daObjMagmarockFP10fopAc_ac_c */
 BOOL daObjMagmarock::CheckCreateHeap(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000B0C-00000DA0       .text CreateHeap__Q214daObjMagmarock5Act_cFv */
 void daObjMagmarock::Act_c::CreateHeap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000DA0-000013B4       .text CreateInit__Q214daObjMagmarock5Act_cFv */
 void daObjMagmarock::Act_c::CreateInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000013B4-00001560       .text LiftUpRequest__Q214daObjMagmarock5Act_cFR4cXyz */
 void daObjMagmarock::Act_c::LiftUpRequest(cXyz&) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001560-0000167C       .text BeforeLiftRequest__Q214daObjMagmarock5Act_cFR4cXyz */
 void daObjMagmarock::Act_c::BeforeLiftRequest(cXyz&) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000167C-000017DC       .text calc_ground_quat__Q214daObjMagmarock5Act_cFv */
 void daObjMagmarock::Act_c::calc_ground_quat() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000017DC-0000198C       .text Create__Q214daObjMagmarock6MethodFPv */
 cPhs_State daObjMagmarock::Method::Create(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001A90-00001B14       .text Delete__Q214daObjMagmarock6MethodFPv */
 BOOL daObjMagmarock::Method::Delete(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001B14-00001B38       .text Execute__Q214daObjMagmarock6MethodFPv */
 BOOL daObjMagmarock::Method::Execute(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001B38-00001EC0       .text _execute__Q214daObjMagmarock5Act_cFv */
 bool daObjMagmarock::Act_c::_execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001EC0-00002128       .text Draw__Q214daObjMagmarock6MethodFPv */
 BOOL daObjMagmarock::Method::Draw(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00002128-00002130       .text IsDelete__Q214daObjMagmarock6MethodFPv */
 BOOL daObjMagmarock::Method::IsDelete(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 actor_method_class daObjMagmarock::Method::Table = {

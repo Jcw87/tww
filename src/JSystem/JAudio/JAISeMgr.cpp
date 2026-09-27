@@ -4,6 +4,7 @@
 //
 
 #include "JSystem/JSystem.h" // IWYU pragma: keep
+#include "global.h"
 
 #include "JSystem/JAudio/JAISeMgr.h"
 #include "JSystem/JAudio/JAIBasic.h"
@@ -116,7 +117,7 @@ void JAInter::SeMgr::processGFrameSe() {
 
 /* 80293530-80293C94       .text checkNextFrameSe__Q27JAInter5SeMgrFv */
 void JAInter::SeMgr::checkNextFrameSe() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 80293C94-802941DC       .text checkPlayingSe__Q27JAInter5SeMgrFv */

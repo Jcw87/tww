@@ -4,6 +4,7 @@
 //
 
 #include "JSystem/JSystem.h" // IWYU pragma: keep
+#include "global.h"
 
 #include "JSystem/JAudio/JAIStreamMgr.h"
 #include "JSystem/JAudio/JAIBasic.h"
@@ -503,7 +504,7 @@ void JAInter::StreamLib::__DecodePCM() {
 
 /* 8029CD8C-8029D134       .text __DecodeADPCM__Q27JAInter9StreamLibFv */
 void JAInter::StreamLib::__DecodeADPCM() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 8029D134-8029D1C8       .text __Decode__Q27JAInter9StreamLibFv */
@@ -530,7 +531,7 @@ void JAInter::StreamLib::__LoadFin(s32, DVDFileInfo*) {
 
 /* 8029D1E8-8029D328       .text LoadADPCM__Q27JAInter9StreamLibFv */
 void JAInter::StreamLib::LoadADPCM() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 8029D328-8029D338       .text setVolume__Q27JAInter9StreamLibFf */
@@ -638,10 +639,11 @@ void JAInter::StreamLib::start(char* param_1, u32 param_2, void* param_3) {
 
 /* 8029D560-8029D7C0       .text __start__Q27JAInter9StreamLibFv */
 void JAInter::StreamLib::__start() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 8029D7C0-8029E14C       .text callBack__Q27JAInter9StreamLibFPv */
 s32 JAInter::StreamLib::callBack(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }

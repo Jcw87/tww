@@ -4,6 +4,7 @@
  */
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_obj_trap.h"
 #include "d/d_cc_d.h"
 
@@ -40,102 +41,106 @@ static dCcD_SrcCyl l_daObjTrap_cyl_data = {
 
 /* 000000EC-0000010C       .text solidHeapCB__11daObjTrap_cFP10fopAc_ac_c */
 void daObjTrap_c::solidHeapCB(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000010C-000002A4       .text create_heap__11daObjTrap_cFv */
 void daObjTrap_c::create_heap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000002A4-00000510       .text _create__11daObjTrap_cFv */
 cPhs_State daObjTrap_c::_create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000DF0-00000E84       .text _delete__11daObjTrap_cFv */
 bool daObjTrap_c::_delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000E84-00000F20       .text init_mtx__11daObjTrap_cFv */
 void daObjTrap_c::init_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000F20-00000F70       .text set_co_pos__11daObjTrap_cFv */
 void daObjTrap_c::set_co_pos() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000F70-00000FF4       .text get_ground__11daObjTrap_cFv */
 void daObjTrap_c::get_ground() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000FF4-0000112C       .text circle_search__11daObjTrap_cFv */
 void daObjTrap_c::circle_search() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000112C-0000122C       .text set_move_info__11daObjTrap_cFv */
 void daObjTrap_c::set_move_info() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000122C-000013E4       .text check_arrival__11daObjTrap_cFv */
 void daObjTrap_c::check_arrival() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000013E4-000018E4       .text check_wall__11daObjTrap_cFv */
 void daObjTrap_c::check_wall() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001C88-00001D7C       .text check_block_target_pos__11daObjTrap_cFP4cXyz */
 void daObjTrap_c::check_block_target_pos(cXyz*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001D7C-000023D4       .text check_block__11daObjTrap_cF4cXyz */
 void daObjTrap_c::check_block(cXyz) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000023D4-0000250C       .text set_vib_mode__11daObjTrap_cFv */
 void daObjTrap_c::set_vib_mode() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000250C-0000255C       .text vibrate__11daObjTrap_cFv */
 void daObjTrap_c::vibrate() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000255C-00002678       .text bound__11daObjTrap_cFv */
 void daObjTrap_c::bound() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002678-0000270C       .text set_shine__11daObjTrap_cFv */
 void daObjTrap_c::set_shine() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000270C-00002758       .text shine_move__11daObjTrap_cFv */
 void daObjTrap_c::shine_move() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002758-00002CB0       .text _execute__11daObjTrap_cFv */
 bool daObjTrap_c::_execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00002CB0-00002D54       .text _draw__11daObjTrap_cFv */
 bool daObjTrap_c::_draw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 namespace {

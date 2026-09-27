@@ -4,201 +4,230 @@
 //
 
 #include "d/dolzel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/d_camera.h"
 #include "dolphin/types.h"
 
 /* 800B004C-800B0174       .text StartEventCamera__9dCamera_cFiie */
 void dCamera_c::StartEventCamera(int, int, ...) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 800B0174-800B01BC       .text EndEventCamera__9dCamera_cFi */
 void dCamera_c::EndEventCamera(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 800B01BC-800B0248       .text searchEventArgData__9dCamera_cFPc */
 void dCamera_c::searchEventArgData(char*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 800B0248-800B0310       .text getEvIntData__9dCamera_cFPiPc */
 void dCamera_c::getEvIntData(int*, const char*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 800B0310-800B03BC       .text getEvStringPntData__9dCamera_cFPc */
 void dCamera_c::getEvStringPntData(char*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 800B03BC-800B0484       .text getEvIntData__9dCamera_cFPiPci */
 void dCamera_c::getEvIntData(int*, const char*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 800B0484-800B055C       .text getEvFloatData__9dCamera_cFPfPcf */
 void dCamera_c::getEvFloatData(f32*, char*, f32) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 800B055C-800B066C       .text getEvXyzData__9dCamera_cFP4cXyzPc4cXyz */
 void dCamera_c::getEvXyzData(cXyz*, char*, cXyz) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 800B066C-800B074C       .text getEvStringData__9dCamera_cFPcPcPc */
 bool dCamera_c::getEvStringData(char*, const char*, const char*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800B074C-800B07F4       .text getEvStringPntData__9dCamera_cFPcPc */
 void dCamera_c::getEvStringPntData(char*, char*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 800B07F4-800B0904       .text getEvActor__9dCamera_cFPc */
 void dCamera_c::getEvActor(char*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 800B0904-800B0A20       .text getEvActor__9dCamera_cFPcPc */
 void dCamera_c::getEvActor(char*, char*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 800B0A20-800B0AF8       .text pauseEvCamera__9dCamera_cFv */
 bool dCamera_c::pauseEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800B0AF8-800B14D4       .text fixedFrameEvCamera__9dCamera_cFv */
 bool dCamera_c::fixedFrameEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800B14D4-800B18E4       .text stokerEvCamera__9dCamera_cFv */
 bool dCamera_c::stokerEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800B18E4-800B2680       .text rollingEvCamera__9dCamera_cFv */
 bool dCamera_c::rollingEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800B2680-800B2B60       .text fixedPositionEvCamera__9dCamera_cFv */
 bool dCamera_c::fixedPositionEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800B2B60-800B3CC8       .text uniformTransEvCamera__9dCamera_cFv */
 bool dCamera_c::uniformTransEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800B3E18-800B5110       .text uniformBrakeEvCamera__9dCamera_cFv */
 bool dCamera_c::uniformBrakeEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800B514C-800B6434       .text uniformAcceleEvCamera__9dCamera_cFv */
 bool dCamera_c::uniformAcceleEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800B6470-800B7640       .text watchActorEvCamera__9dCamera_cFv */
 bool dCamera_c::watchActorEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 
 /* 800B76C8-800B7E00       .text restorePosEvCamera__9dCamera_cFv */
 bool dCamera_c::restorePosEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800B7E00-800B7EBC       .text talktoEvCamera__9dCamera_cFv */
 bool dCamera_c::talktoEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800B7EBC-800B8108       .text maptoolIdEvCamera__9dCamera_cFv */
 bool dCamera_c::maptoolIdEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800B8108-800B81D0       .text styleEvCamera__9dCamera_cFv */
 bool dCamera_c::styleEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800B81D0-800B8AB8       .text gameOverEvCamera__9dCamera_cFv */
 bool dCamera_c::gameOverEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800B8AB8-800B8C90       .text tactEvCamera__9dCamera_cFv */
 bool dCamera_c::tactEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800B8C90-800B99B8       .text windDirectionEvCamera__9dCamera_cFv */
 bool dCamera_c::windDirectionEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800B99B8-800B9FB0       .text turnToActorEvCamera__9dCamera_cFv */
 bool dCamera_c::turnToActorEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800B9FB0-800BA688       .text tornadoWarpEvCamera__9dCamera_cFv */
 bool dCamera_c::tornadoWarpEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800BA688-800BA7BC       .text saveEvCamera__9dCamera_cFv */
 bool dCamera_c::saveEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800BA7BC-800BA904       .text loadEvCamera__9dCamera_cFv */
 bool dCamera_c::loadEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800BA904-800BB39C       .text useItem0EvCamera__9dCamera_cFv */
 bool dCamera_c::useItem0EvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800BB39C-800BBD88       .text useItem1EvCamera__9dCamera_cFv */
 bool dCamera_c::useItem1EvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800BBD88-800BC364       .text getItemEvCamera__9dCamera_cFv */
 bool dCamera_c::getItemEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800BC364-800BC9D8       .text possessedEvCamera__9dCamera_cFv */
 bool dCamera_c::possessedEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800BC9D8-800BCDA0       .text fixedFramesEvCamera__9dCamera_cFv */
 bool dCamera_c::fixedFramesEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800BCDA0-800BCFE8       .text bSplineEvCamera__9dCamera_cFv */
 bool dCamera_c::bSplineEvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 800BCFE8-800BD678       .text twoActor0EvCamera__9dCamera_cFv */
 bool dCamera_c::twoActor0EvCamera() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }

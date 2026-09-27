@@ -4,177 +4,180 @@
  */
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_gnd.h"
 #include "d/d_cc_d.h"
 
 /* 000000EC-0000023C       .text __ct__11daGnd_HIO_cFv */
 daGnd_HIO_c::daGnd_HIO_c() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000023C-000003CC       .text j_demo__FP9gnd_class */
 void j_demo(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000003CC-000003EC       .text checkGround__FP9gnd_classf */
 void checkGround(gnd_class*, float) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000003EC-00000510       .text setRipple__FP9gnd_class */
 void setRipple(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000054C-000005DC       .text splash_set__FP9gnd_class */
 void splash_set(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000005DC-000006B4       .text attack_eff_set__FP9gnd_classi */
 void attack_eff_set(gnd_class*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000006B4-00000738       .text attack_eff_move__FP9gnd_class */
 void attack_eff_move(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000738-0000077C       .text attack_eff_remove__FP9gnd_class */
 void attack_eff_remove(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000077C-00000900       .text anm_init__FP9gnd_classifUcfi */
 void anm_init(gnd_class*, int, float, unsigned char, float, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000900-0000094C       .text z_s_sub__FPvPv */
 void z_s_sub(void*, void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000094C-00000C38       .text daGnd_Draw__FP9gnd_class */
 static BOOL daGnd_Draw(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000C38-00000C6C       .text player_view_check__FP9gnd_classs */
 void player_view_check(gnd_class*, short) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000C6C-00000F24       .text ke_control__FP9gnd_classP8gnd_ke_sf */
 void ke_control(gnd_class*, gnd_ke_s*, float) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000F24-00000F68       .text ke_pos_set__FP9gnd_classP8gnd_ke_si */
 void ke_pos_set(gnd_class*, gnd_ke_s*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000F68-00001140       .text ke_move__FP9gnd_class */
 void ke_move(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001140-00001278       .text pos_move__FP9gnd_classSc */
 void pos_move(gnd_class*, signed char) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001278-00001334       .text wait_set__FP9gnd_class */
 void wait_set(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001334-00001974       .text move0__FP9gnd_class */
 void move0(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001974-000028D0       .text attack0__FP9gnd_class */
 void attack0(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000028D0-00002B68       .text attack1__FP9gnd_class */
 void attack1(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002B68-00002D7C       .text attack2__FP9gnd_class */
 void attack2(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002D7C-00003688       .text attackPZ__FP9gnd_class */
 void attackPZ(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00003688-000038B0       .text attack_last__FP9gnd_class */
 void attack_last(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000038B0-000042D0       .text defence0__FP9gnd_class */
 void defence0(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000042D0-00004330       .text finish__FP9gnd_class */
 void finish(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00004330-00004760       .text damage__FP9gnd_class */
 void damage(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00004760-0000501C       .text damage_check__FP9gnd_class */
 void damage_check(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000501C-0000509C       .text shot_s_sub__FPvPv */
 void shot_s_sub(void*, void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000509C-000050B0       .text demowait__FP9gnd_class */
 void demowait(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000050B0-000050C8       .text yawait__FP9gnd_class */
 void yawait(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000050C8-000054F0       .text gnd_move__FP9gnd_class */
 void gnd_move(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000054F0-00006B04       .text demo_camera__FP9gnd_class */
 void demo_camera(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00006B04-00006D0C       .text body_flash__FP9gnd_class */
 void body_flash(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00006D0C-000076B8       .text daGnd_Execute__FP9gnd_class */
 static BOOL daGnd_Execute(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000076B8-000076C0       .text daGnd_IsDelete__FP9gnd_class */
@@ -184,12 +187,14 @@ static BOOL daGnd_IsDelete(gnd_class*) {
 
 /* 000076C0-00007738       .text daGnd_Delete__FP9gnd_class */
 static BOOL daGnd_Delete(gnd_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00007738-00007A78       .text useHeapInit__FP10fopAc_ac_c */
 static BOOL useHeapInit(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00007AC0-00007CFC       .text daGnd_Create__FP10fopAc_ac_c */

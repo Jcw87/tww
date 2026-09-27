@@ -4,106 +4,114 @@
  */
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_obj_ashut.h"
 
 /* 00000078-0000012C       .text CreateHeap__Q210daObjAshut5Act_cFv */
 BOOL daObjAshut::Act_c::CreateHeap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 0000012C-00000224       .text Create__Q210daObjAshut5Act_cFv */
 BOOL daObjAshut::Act_c::Create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000224-00000388       .text Mthd_Create__Q210daObjAshut5Act_cFv */
 cPhs_State daObjAshut::Act_c::Mthd_Create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000388-00000390       .text Delete__Q210daObjAshut5Act_cFv */
 BOOL daObjAshut::Act_c::Delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000390-000003DC       .text Mthd_Delete__Q210daObjAshut5Act_cFv */
 BOOL daObjAshut::Act_c::Mthd_Delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000003DC-0000046C       .text set_mtx__Q210daObjAshut5Act_cFv */
 void daObjAshut::Act_c::set_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000046C-000004A8       .text init_mtx__Q210daObjAshut5Act_cFv */
 void daObjAshut::Act_c::init_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000004A8-000005A4       .text chk_safe_area__Q210daObjAshut5Act_cCFv */
 void daObjAshut::Act_c::chk_safe_area() const {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000005A4-000005BC       .text mode_upper_init__Q210daObjAshut5Act_cFv */
 void daObjAshut::Act_c::mode_upper_init() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000005BC-0000066C       .text mode_upper__Q210daObjAshut5Act_cFv */
 void daObjAshut::Act_c::mode_upper() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000066C-00000700       .text mode_u_l_init__Q210daObjAshut5Act_cFv */
 void daObjAshut::Act_c::mode_u_l_init() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000700-000007C0       .text mode_u_l__Q210daObjAshut5Act_cFv */
 void daObjAshut::Act_c::mode_u_l() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000007C0-000007D8       .text mode_lower_init__Q210daObjAshut5Act_cFv */
 void daObjAshut::Act_c::mode_lower_init() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000007D8-00000838       .text mode_lower__Q210daObjAshut5Act_cFv */
 void daObjAshut::Act_c::mode_lower() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000838-000008D4       .text mode_l_u_init__Q210daObjAshut5Act_cFv */
 void daObjAshut::Act_c::mode_l_u_init() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000008D4-00000A50       .text mode_l_u__Q210daObjAshut5Act_cFv */
 void daObjAshut::Act_c::mode_l_u() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000A50-00000B0C       .text mode_demoreq_init__Q210daObjAshut5Act_cFQ310daObjAshut5Act_c6Mode_e */
 void daObjAshut::Act_c::mode_demoreq_init(daObjAshut::Act_c::Mode_e) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000B0C-00000BE4       .text mode_demoreq__Q210daObjAshut5Act_cFv */
 void daObjAshut::Act_c::mode_demoreq() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000BE4-00000D0C       .text Execute__Q210daObjAshut5Act_cFPPA3_A4_f */
 BOOL daObjAshut::Act_c::Execute(Mtx**) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000D0C-00000D6C       .text Draw__Q210daObjAshut5Act_cFv */
 BOOL daObjAshut::Act_c::Draw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 namespace daObjAshut {

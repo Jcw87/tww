@@ -4,42 +4,45 @@
  */
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_mant.h"
 #include "d/d_cc_d.h"
 
 /* 000000EC-000003EC       .text draw__15daMant_packet_cFv */
 void daMant_packet_c::draw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000003EC-000004E8       .text daMant_Draw__FP10mant_class */
 static BOOL daMant_Draw(mant_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000004E8-00000FC0       .text joint_control__FP10mant_classP8mant_j_si */
 void joint_control(mant_class*, mant_j_s*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000137C-000015F0       .text mant_v_calc__FP10mant_class */
 void mant_v_calc(mant_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000015F0-000017EC       .text mant_n_calc__FP10mant_class */
 void mant_n_calc(mant_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000017EC-000019C0       .text mant_move__FP10mant_class */
 void mant_move(mant_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000019C0-00001A3C       .text daMant_Execute__FP10mant_class */
 static BOOL daMant_Execute(mant_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001A3C-00001A44       .text daMant_IsDelete__FP10mant_class */

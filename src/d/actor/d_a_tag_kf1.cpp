@@ -4,141 +4,146 @@
 //
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_tag_kf1.h"
 
 /* 000000EC-00000120       .text __ct__15daTag_Kf1_HIO_cFv */
 daTag_Kf1_HIO_c::daTag_Kf1_HIO_c() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000120-000001B0       .text searchActor_Kutani__FPvPv */
 void searchActor_Kutani(void*, void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000001B0-00000220       .text createInit__11daTag_Kf1_cFv */
 void daTag_Kf1_c::createInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000220-00000234       .text setStt__11daTag_Kf1_cFSc */
 void daTag_Kf1_c::setStt(signed char) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000234-00000294       .text next_msgStatus__11daTag_Kf1_cFPUl */
 void daTag_Kf1_c::next_msgStatus(unsigned long*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000294-00000314       .text eventOrder__11daTag_Kf1_cFv */
 void daTag_Kf1_c::eventOrder() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000314-00000380       .text checkOrder__11daTag_Kf1_cFv */
 void daTag_Kf1_c::checkOrder() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000380-00000470       .text chkAttention__11daTag_Kf1_cF4cXyz */
 void daTag_Kf1_c::chkAttention(cXyz) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000470-0000057C       .text partner_srch__11daTag_Kf1_cFv */
 void daTag_Kf1_c::partner_srch() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000057C-00000604       .text checkPartner__11daTag_Kf1_cFv */
 void daTag_Kf1_c::checkPartner() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000604-00000650       .text goto_nextStage__11daTag_Kf1_cFv */
 void daTag_Kf1_c::goto_nextStage() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000650-000006DC       .text event_talkInit__11daTag_Kf1_cFi */
 void daTag_Kf1_c::event_talkInit(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000006DC-0000071C       .text event_mesSet__11daTag_Kf1_cFv */
 void daTag_Kf1_c::event_mesSet() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000071C-00000750       .text event_mesEnd__11daTag_Kf1_cFv */
 void daTag_Kf1_c::event_mesEnd() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000750-000007A4       .text bensyoInit__11daTag_Kf1_cFv */
 void daTag_Kf1_c::bensyoInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000007A4-000007C4       .text event_bensyo__11daTag_Kf1_cFv */
 void daTag_Kf1_c::event_bensyo() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000007C4-000007FC       .text event_cntTsubo__11daTag_Kf1_cFv */
 void daTag_Kf1_c::event_cntTsubo() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000007FC-00000978       .text privateCut__11daTag_Kf1_cFv */
 void daTag_Kf1_c::privateCut() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000978-00000A0C       .text event_proc__11daTag_Kf1_cFv */
 void daTag_Kf1_c::event_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000A0C-00000AB8       .text set_action__11daTag_Kf1_cFM11daTag_Kf1_cFPCvPvPv_iPv */
 void daTag_Kf1_c::set_action(int (daTag_Kf1_c::*)(void*), void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000AB8-00000B14       .text wait01__11daTag_Kf1_cFv */
 void daTag_Kf1_c::wait01() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000B14-00000B1C       .text wait02__11daTag_Kf1_cFv */
 void daTag_Kf1_c::wait02() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000B1C-00000BE8       .text wait_action1__11daTag_Kf1_cFPv */
 void daTag_Kf1_c::wait_action1(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000BE8-00000BF0       .text _draw__11daTag_Kf1_cFv */
 BOOL daTag_Kf1_c::_draw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000BF0-00000C68       .text _execute__11daTag_Kf1_cFv */
 BOOL daTag_Kf1_c::_execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000C68-00000CBC       .text _delete__11daTag_Kf1_cFv */
 BOOL daTag_Kf1_c::_delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000CBC-00000E98       .text _create__11daTag_Kf1_cFv */
 cPhs_State daTag_Kf1_c::_create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000010C0-000010E0       .text daTag_Kf1_Create__FP10fopAc_ac_c */

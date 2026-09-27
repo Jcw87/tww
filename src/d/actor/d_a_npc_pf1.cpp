@@ -4,336 +4,344 @@
  */
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_npc_pf1.h"
 
 /* 000000EC-00000150       .text __ct__15daNpc_Pf1_HIO_cFv */
 daNpc_Pf1_HIO_c::daNpc_Pf1_HIO_c() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000198-000001E4       .text nodeCB_Head__FP7J3DNodei */
 static BOOL nodeCB_Head(J3DNode*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000001E4-0000030C       .text _nodeCB_Head__11daNpc_Pf1_cFP7J3DNodeP8J3DModel */
 void daNpc_Pf1_c::_nodeCB_Head(J3DNode*, J3DModel*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000348-00000394       .text nodeCB_BackBone__FP7J3DNodei */
 static BOOL nodeCB_BackBone(J3DNode*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000394-0000042C       .text _nodeCB_BackBone__11daNpc_Pf1_cFP7J3DNodeP8J3DModel */
 void daNpc_Pf1_c::_nodeCB_BackBone(J3DNode*, J3DModel*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000042C-0000044C       .text CheckCreateHeap__FP10fopAc_ac_c */
 static BOOL CheckCreateHeap(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 0000044C-000004CC       .text init_PF1_0__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::init_PF1_0() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000004CC-000006B8       .text createInit__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::createInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000006B8-00000760       .text play_animation__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::play_animation() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000760-00000810       .text setMtx__11daNpc_Pf1_cFb */
 void daNpc_Pf1_c::setMtx(bool) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000810-00000824       .text bckResID__11daNpc_Pf1_cFi */
 void daNpc_Pf1_c::bckResID(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000824-00000838       .text btpResID__11daNpc_Pf1_cFi */
 void daNpc_Pf1_c::btpResID(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000838-00000958       .text setBtp__11daNpc_Pf1_cFScb */
 void daNpc_Pf1_c::setBtp(signed char, bool) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000958-00000978       .text init_texPttrnAnm__11daNpc_Pf1_cFScb */
 void daNpc_Pf1_c::init_texPttrnAnm(signed char, bool) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000978-00000A1C       .text play_btp_anm__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::play_btp_anm() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000A1C-00000AB8       .text setAnm_anm__11daNpc_Pf1_cFPQ211daNpc_Pf1_c9anm_prm_c */
 void daNpc_Pf1_c::setAnm_anm(daNpc_Pf1_c::anm_prm_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000AB8-00000B28       .text setAnm_NUM__11daNpc_Pf1_cFii */
 void daNpc_Pf1_c::setAnm_NUM(int, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000B28-00000B94       .text setAnm__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::setAnm() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000B94-00000B98       .text chngAnmTag__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::chngAnmTag() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000B98-00000B9C       .text ctrlAnmTag__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::ctrlAnmTag() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000B9C-00000BDC       .text chngAnmAtr__11daNpc_Pf1_cFUc */
 void daNpc_Pf1_c::chngAnmAtr(unsigned char) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000BDC-00000C48       .text ctrlAnmAtr__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::ctrlAnmAtr() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000C48-00000CAC       .text setAnm_ATR__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::setAnm_ATR() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000CAC-00000D68       .text anmAtr__11daNpc_Pf1_cFUs */
 void daNpc_Pf1_c::anmAtr(unsigned short) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000D68-00000E60       .text next_msgStatus__11daNpc_Pf1_cFPUl */
 void daNpc_Pf1_c::next_msgStatus(unsigned long*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000E60-00000EC0       .text getMsg_PF1_0__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::getMsg_PF1_0() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000EC0-00000EFC       .text getMsg__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::getMsg() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000EFC-00000F88       .text eventOrder__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::eventOrder() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000F88-00001044       .text checkOrder__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::checkOrder() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001044-000010DC       .text chk_talk__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::chk_talk() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000010DC-0000111C       .text chk_parts_notMov__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::chk_parts_notMov() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000111C-00001170       .text searchByID__11daNpc_Pf1_cFUiPi */
 void daNpc_Pf1_c::searchByID(fpc_ProcID, int*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001170-00001334       .text lookBack__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::lookBack() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001334-000013B4       .text chkAttention__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::chkAttention() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000013B4-0000140C       .text setAttention__11daNpc_Pf1_cFb */
 void daNpc_Pf1_c::setAttention(bool) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000140C-00001494       .text decideType__11daNpc_Pf1_cFi */
 void daNpc_Pf1_c::decideType(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001494-00001534       .text privateCut__11daNpc_Pf1_cFi */
 void daNpc_Pf1_c::privateCut(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001534-00001558       .text endEvent__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::endEvent() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001558-00001590       .text isEventEntry__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::isEventEntry() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001590-0000161C       .text event_proc__11daNpc_Pf1_cFi */
 void daNpc_Pf1_c::event_proc(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000161C-000016C8       .text set_action__11daNpc_Pf1_cFM11daNpc_Pf1_cFPCvPvPv_iPv */
 void daNpc_Pf1_c::set_action(int (daNpc_Pf1_c::*)(void*), void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000016C8-0000179C       .text setStt__11daNpc_Pf1_cFSc */
 void daNpc_Pf1_c::setStt(signed char) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000179C-00001958       .text createTama__11daNpc_Pf1_cFf */
 void daNpc_Pf1_c::createTama(float) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001958-00001A80       .text chk_areaIN__11daNpc_Pf1_cFf4cXyz */
 void daNpc_Pf1_c::chk_areaIN(float, cXyz) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001A80-00001ACC       .text endEvent_check__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::endEvent_check() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001ACC-00001BEC       .text startEvent_check__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::startEvent_check() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001BEC-00001C94       .text set_pthPoint__11daNpc_Pf1_cFUc */
 void daNpc_Pf1_c::set_pthPoint(unsigned char) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001C94-00001EAC       .text chk_attn__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::chk_attn() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001EAC-00001F68       .text setBikon__11daNpc_Pf1_cF4cXyz */
 void daNpc_Pf1_c::setBikon(cXyz) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001F68-00001F6C       .text delBikon__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::delBikon() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001F6C-00001F74       .text wait_1__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::wait_1() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001F74-00002030       .text regret__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::regret() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002030-00002350       .text attk_1__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::attk_1() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002350-000025D0       .text walk_1__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::walk_1() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000025D0-000026E4       .text wait_2__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::wait_2() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000026E4-00002874       .text wait_3__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::wait_3() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002874-00002980       .text talk_1__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::talk_1() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002980-00002A8C       .text wait_action1__11daNpc_Pf1_cFPv */
 void daNpc_Pf1_c::wait_action1(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002A8C-00002BCC       .text demo__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::demo() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002BCC-00002C5C       .text shadowDraw__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::shadowDraw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002C5C-00002D30       .text _draw__11daNpc_Pf1_cFv */
 BOOL daNpc_Pf1_c::_draw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00002D30-00002F94       .text _execute__11daNpc_Pf1_cFv */
 BOOL daNpc_Pf1_c::_execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00002F94-00002FF8       .text _delete__11daNpc_Pf1_cFv */
 BOOL daNpc_Pf1_c::_delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00002FF8-00003258       .text _create__11daNpc_Pf1_cFv */
 cPhs_State daNpc_Pf1_c::_create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00003524-00003798       .text bodyCreateHeap__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::bodyCreateHeap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00003798-0000381C       .text CreateHeap__11daNpc_Pf1_cFv */
 void daNpc_Pf1_c::CreateHeap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000381C-0000383C       .text daNpc_Pf1_Create__FP10fopAc_ac_c */

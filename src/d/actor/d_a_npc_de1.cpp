@@ -4,266 +4,272 @@
  */
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_npc_de1.h"
 
 /* 000000EC-00000144       .text __ct__15daNpc_De1_HIO_cFv */
 daNpc_De1_HIO_c::daNpc_De1_HIO_c() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000144-000001BC       .text searchActor_leafLift__FPvPv */
 void searchActor_leafLift(void*, void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000001BC-0000033C       .text createInit__11daNpc_De1_cFv */
 void daNpc_De1_c::createInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000033C-00000550       .text setMtx__11daNpc_De1_cFv */
 void daNpc_De1_c::setMtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000550-00000658       .text anmResID__11daNpc_De1_cFiPiPi */
 void daNpc_De1_c::anmResID(int, int*, int*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000658-00000744       .text setAnm_anm__11daNpc_De1_cFPQ211daNpc_De1_c9anm_prm_c */
 void daNpc_De1_c::setAnm_anm(daNpc_De1_c::anm_prm_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000744-00000774       .text setAnm_NUM__11daNpc_De1_cFi */
 void daNpc_De1_c::setAnm_NUM(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000774-000007AC       .text setAnm__11daNpc_De1_cFv */
 void daNpc_De1_c::setAnm() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000007AC-000007B8       .text chngAnmTag__11daNpc_De1_cFv */
 void daNpc_De1_c::chngAnmTag() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000007B8-000007C4       .text ctrlAnmTag__11daNpc_De1_cFv */
 void daNpc_De1_c::ctrlAnmTag() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000007C4-00000800       .text chngAnmAtr__11daNpc_De1_cFUc */
 void daNpc_De1_c::chngAnmAtr(unsigned char) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000800-00000848       .text ctrlAnmAtr__11daNpc_De1_cFv */
 void daNpc_De1_c::ctrlAnmAtr() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000848-0000087C       .text setAnm_ATR__11daNpc_De1_cFv */
 void daNpc_De1_c::setAnm_ATR() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000087C-00000938       .text anmAtr__11daNpc_De1_cFUs */
 void daNpc_De1_c::anmAtr(unsigned short) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000938-000009B4       .text setStt__11daNpc_De1_cFSc */
 void daNpc_De1_c::setStt(signed char) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000009B4-00000C98       .text next_msgStatus__11daNpc_De1_cFPUl */
 void daNpc_De1_c::next_msgStatus(unsigned long*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000C98-00000D6C       .text getMsg__11daNpc_De1_cFv */
 void daNpc_De1_c::getMsg() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000D6C-00000E14       .text eventOrder__11daNpc_De1_cFv */
 void daNpc_De1_c::eventOrder() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000E14-00000F8C       .text checkOrder__11daNpc_De1_cFv */
 void daNpc_De1_c::checkOrder() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000F8C-000010B8       .text chkAttention__11daNpc_De1_cFv */
 void daNpc_De1_c::chkAttention() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000010B8-00001194       .text setAttention__11daNpc_De1_cFv */
 void daNpc_De1_c::setAttention() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001194-000011C8       .text searchByID__11daNpc_De1_cFUi */
 void daNpc_De1_c::searchByID(fpc_ProcID) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000011C8-0000124C       .text setDemoStartCenter__11daNpc_De1_cFv */
 void daNpc_De1_c::setDemoStartCenter() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000124C-00001300       .text partner_srch__11daNpc_De1_cFv */
 void daNpc_De1_c::partner_srch() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001300-000013F0       .text ccCreate__11daNpc_De1_cFv */
 void daNpc_De1_c::ccCreate() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000013F0-000014A0       .text cc_set__11daNpc_De1_cFv */
 void daNpc_De1_c::cc_set() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000014A0-00001524       .text set_pa_happa__11daNpc_De1_cFv */
 void daNpc_De1_c::set_pa_happa() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001524-00001550       .text del_pa_happa__11daNpc_De1_cFv */
 void daNpc_De1_c::del_pa_happa() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001550-000015CC       .text followPa_happa__11daNpc_De1_cFv */
 void daNpc_De1_c::followPa_happa() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000015CC-0000165C       .text decideType__11daNpc_De1_cFi */
 void daNpc_De1_c::decideType(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000165C-00001858       .text event_actionInit__11daNpc_De1_cFi */
 void daNpc_De1_c::event_actionInit(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001858-00001938       .text event_action__11daNpc_De1_cFv */
 void daNpc_De1_c::event_action() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001938-00001A40       .text privateCut__11daNpc_De1_cFv */
 void daNpc_De1_c::privateCut() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001A40-00001A60       .text endEvent__11daNpc_De1_cFv */
 void daNpc_De1_c::endEvent() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001A60-00001B90       .text event_proc__11daNpc_De1_cFv */
 void daNpc_De1_c::event_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001B90-00001C3C       .text set_action__11daNpc_De1_cFM11daNpc_De1_cFPCvPvPv_iPv */
 void daNpc_De1_c::set_action(int (daNpc_De1_c::*)(void*), void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001C3C-00001C94       .text wait01__11daNpc_De1_cFv */
 void daNpc_De1_c::wait01() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001C94-00001D38       .text wait02__11daNpc_De1_cFv */
 void daNpc_De1_c::wait02() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001D38-00001D8C       .text wait03__11daNpc_De1_cFv */
 void daNpc_De1_c::wait03() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001D8C-00001EA0       .text wait04__11daNpc_De1_cFv */
 void daNpc_De1_c::wait04() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001EA0-00001F38       .text wait05__11daNpc_De1_cFv */
 void daNpc_De1_c::wait05() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001F38-00001F90       .text talk01__11daNpc_De1_cFv */
 void daNpc_De1_c::talk01() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001F90-00002020       .text talk02__11daNpc_De1_cFv */
 void daNpc_De1_c::talk02() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002020-000020C0       .text wait_action1__11daNpc_De1_cFPv */
 void daNpc_De1_c::wait_action1(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000020C0-000021AC       .text wait_action2__11daNpc_De1_cFPv */
 void daNpc_De1_c::wait_action2(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000021AC-00002248       .text demo__11daNpc_De1_cFv */
 void daNpc_De1_c::demo() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002248-00002358       .text _draw__11daNpc_De1_cFv */
 BOOL daNpc_De1_c::_draw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00002358-00002454       .text _execute__11daNpc_De1_cFv */
 BOOL daNpc_De1_c::_execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00002454-00002500       .text _delete__11daNpc_De1_cFv */
 BOOL daNpc_De1_c::_delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00002500-00002520       .text CheckCreateHeap__FP10fopAc_ac_c */
 static BOOL CheckCreateHeap(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00002520-000027A4       .text _create__11daNpc_De1_cFv */
 cPhs_State daNpc_De1_c::_create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00002AB0-00002E04       .text CreateHeap__11daNpc_De1_cFv */
 void daNpc_De1_c::CreateHeap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002E04-00002E24       .text daNpc_De1_Create__FP10fopAc_ac_c */

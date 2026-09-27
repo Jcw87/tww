@@ -4,6 +4,7 @@
 //
 
 #include "JSystem/JSystem.h" // IWYU pragma: keep
+#include "global.h"
 
 #include "JSystem/JAudio/JAISequenceMgr.h"
 #include "JSystem/JAudio/JAIBasic.h"
@@ -346,32 +347,32 @@ void JAInter::SequenceMgr::checkSeqWave() {
 
 /* 80297238-80297378       .text checkPlayingSeqUpdateMultiplication__Q27JAInter11SequenceMgrFUlUcUlPQ27JAInter11MoveParaSetPUlUcPf */
 void JAInter::SequenceMgr::checkPlayingSeqUpdateMultiplication(u32, u8, u32, JAInter::MoveParaSet*, u32*, u8, f32*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 80297378-802974F8       .text checkPlayingSeqUpdateAddition__Q27JAInter11SequenceMgrFUlUcUlPQ27JAInter11MoveParaSetPUlUcPff */
 void JAInter::SequenceMgr::checkPlayingSeqUpdateAddition(u32, u8, u32, JAInter::MoveParaSet*, u32*, u8, f32*, f32) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 802974F8-80297618       .text checkPlayingSeqUpdateTrack__Q27JAInter11SequenceMgrFUlUlPQ27JAInter11MoveParaSetPUlUcPf */
 void JAInter::SequenceMgr::checkPlayingSeqUpdateTrack(u32, u32, JAInter::MoveParaSet*, u32*, u8, f32*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 80297618-80297E18       .text checkPlayingSeqTrack__Q27JAInter11SequenceMgrFUl */
 void JAInter::SequenceMgr::checkPlayingSeqTrack(u32) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 80297E18-80297F14       .text stopSeq__Q27JAInter11SequenceMgrFP8JAISound */
 void JAInter::SequenceMgr::stopSeq(JAISound*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 80297F14-80297FD0       .text checkDvdLoadArc__Q27JAInter11SequenceMgrFUlUl */
 void JAInter::SequenceMgr::checkDvdLoadArc(u32, u32) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 80297FD0-80298208       .text storeSeqBuffer__Q27JAInter11SequenceMgrFPP8JAISoundPQ27JAInter5ActorUlUlUcPv */
@@ -441,7 +442,7 @@ void JAInter::SequenceMgr::storeSeqBuffer(JAISound** soundHandlePtr, JAInter::Ac
 
 /* 80298208-802982C0       .text releaseSeqBuffer__Q27JAInter11SequenceMgrFP8JAISoundUl */
 void JAInter::SequenceMgr::releaseSeqBuffer(JAISound*, u32 fadeTime) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 802982C0-802982D0       .text getPlayTrackInfo__Q27JAInter11SequenceMgrFUl */
