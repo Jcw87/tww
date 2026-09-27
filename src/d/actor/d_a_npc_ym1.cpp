@@ -377,26 +377,26 @@ void daNpc_Ym1_c::shadowDraw() {
 
 /* 0000359C-000037A0       .text _draw__11daNpc_Ym1_cFv */
 BOOL daNpc_Ym1_c::_draw() {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 000037A0-00003A5C       .text _execute__11daNpc_Ym1_cFv */
 BOOL daNpc_Ym1_c::_execute() {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00003A5C-00003AB0       .text _delete__11daNpc_Ym1_cFv */
 BOOL daNpc_Ym1_c::_delete() {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00003AB0-00003BDC       .text _create__11daNpc_Ym1_cFv */
 cPhs_State daNpc_Ym1_c::_create() {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return cPhs_COMPLEATE_e;
 }
 
 /* 0000405C-00004360       .text bodyCreateHeap__11daNpc_Ym1_cFv */
