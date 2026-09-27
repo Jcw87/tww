@@ -242,26 +242,26 @@ void daNpc_Zk1_c::shadowDraw() {
 
 /* 00001BAC-00001C80       .text _draw__11daNpc_Zk1_cFv */
 BOOL daNpc_Zk1_c::_draw() {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00001C80-00001EA8       .text _execute__11daNpc_Zk1_cFv */
 BOOL daNpc_Zk1_c::_execute() {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00001EA8-00001EFC       .text _delete__11daNpc_Zk1_cFv */
 BOOL daNpc_Zk1_c::_delete() {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00001EFC-00002148       .text _create__11daNpc_Zk1_cFv */
 cPhs_State daNpc_Zk1_c::_create() {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return cPhs_COMPLEATE_e;
 }
 
 /* 00002414-00002688       .text bodyCreateHeap__11daNpc_Zk1_cFv */

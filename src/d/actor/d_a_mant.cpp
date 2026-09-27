@@ -15,8 +15,8 @@ void daMant_packet_c::draw() {
 
 /* 000003EC-000004E8       .text daMant_Draw__FP10mant_class */
 static BOOL daMant_Draw(mant_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 000004E8-00000FC0       .text joint_control__FP10mant_classP8mant_j_si */
@@ -41,8 +41,8 @@ void mant_move(mant_class*) {
 
 /* 000019C0-00001A3C       .text daMant_Execute__FP10mant_class */
 static BOOL daMant_Execute(mant_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00001A3C-00001A44       .text daMant_IsDelete__FP10mant_class */
@@ -114,8 +114,8 @@ static cPhs_State daMant_Create(fopAc_ac_c*) {
             /* Radius */ 30.0f,
         }},
     };
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return cPhs_COMPLEATE_e;
 }
 
 static actor_method_class l_daMant_Method = {

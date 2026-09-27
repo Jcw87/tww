@@ -22,8 +22,8 @@ void draw_SUB(oq_class*) {
 
 /* 00000310-000004DC       .text daOQ_Draw__FP8oq_class */
 static BOOL daOQ_Draw(oq_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 000004DC-00000608       .text anm_init__FP8oq_classifUcfi */
@@ -93,8 +93,8 @@ void action_wakidasi(oq_class*) {
 
 /* 00003BC4-00004274       .text daOQ_Execute__FP8oq_class */
 static BOOL daOQ_Execute(oq_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00004274-0000427C       .text daOQ_IsDelete__FP8oq_class */
@@ -104,8 +104,8 @@ static BOOL daOQ_IsDelete(oq_class*) {
 
 /* 0000427C-00004300       .text daOQ_Delete__FP8oq_class */
 static BOOL daOQ_Delete(oq_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00004300-000046C0       .text useHeapInit__FP10fopAc_ac_c */
@@ -231,8 +231,8 @@ static cPhs_State daOQ_Create(fopAc_ac_c*) {
             /* Radius */ 15.0f,
         }},
     };
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return cPhs_COMPLEATE_e;
 }
 
 static actor_method_class l_daOQ_Method = {

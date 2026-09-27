@@ -54,8 +54,8 @@ void rakka_line_check(nz_class*) {
 
 /* 00001578-0000178C       .text daNZ_Draw__FP8nz_class */
 static BOOL daNZ_Draw(nz_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return TRUE;
 }
 
 /* 0000178C-00001888       .text item_poi__FP8nz_class */
@@ -155,8 +155,8 @@ void nz6_move(nz_class*) {
 
 /* 000072D8-00007B50       .text daNZ_Execute__FP8nz_class */
 static BOOL daNZ_Execute(nz_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return TRUE;
 }
 
 /* 00007B50-00007B58       .text daNZ_IsDelete__FP8nz_class */
@@ -166,8 +166,8 @@ static BOOL daNZ_IsDelete(nz_class*) {
 
 /* 00007B58-00007BE0       .text daNZ_Delete__FP8nz_class */
 static BOOL daNZ_Delete(nz_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00007BE0-00007EB0       .text useHeapInit__FP10fopAc_ac_c */
@@ -212,8 +212,8 @@ void daNZ_CreateInit(nz_class*) {
 
 /* 000081AC-00008294       .text daNZ_Create__FP10fopAc_ac_c */
 static cPhs_State daNZ_Create(fopAc_ac_c*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return cPhs_COMPLEATE_e;
 }
 
 static actor_method_class l_daNZ_Method = {

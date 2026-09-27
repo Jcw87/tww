@@ -20,8 +20,8 @@ void anm_init(pt_class*, int, float, unsigned char, float, int) {
 
 /* 00000238-00000360       .text daPt_Draw__FP8pt_class */
 static BOOL daPt_Draw(pt_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 0000039C-00000484       .text smoke_set__FP8pt_classSc */
@@ -96,8 +96,8 @@ void action(pt_class*) {
 
 /* 00003F5C-000043C8       .text daPt_Execute__FP8pt_class */
 static BOOL daPt_Execute(pt_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 000043C8-000043D0       .text daPt_IsDelete__FP8pt_class */
@@ -107,8 +107,8 @@ static BOOL daPt_IsDelete(pt_class*) {
 
 /* 000043D0-00004540       .text daPt_Delete__FP8pt_class */
 static BOOL daPt_Delete(pt_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00004540-000047D4       .text useHeapInit__FP10fopAc_ac_c */
@@ -176,8 +176,8 @@ static cPhs_State daPt_Create(fopAc_ac_c*) {
             /* Radius */ 25.0f,
         }},
     };
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return cPhs_COMPLEATE_e;
 }
 
 static actor_method_class l_daPt_Method = {

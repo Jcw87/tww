@@ -22,8 +22,8 @@ static BOOL nodeCallBack_DW(J3DNode*, int) {
 
 /* 0000025C-000003FC       .text daPH_Draw__FP8ph_class */
 static BOOL daPH_Draw(ph_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 000003FC-000007C0       .text anm_init__FP8ph_classifUcfii */
@@ -148,8 +148,8 @@ void DW_draw_SUB(ph_class*) {
 
 /* 0000591C-000061A4       .text daPH_Execute__FP8ph_class */
 static BOOL daPH_Execute(ph_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 000061A4-000061AC       .text daPH_IsDelete__FP8ph_class */
@@ -159,8 +159,8 @@ static BOOL daPH_IsDelete(ph_class*) {
 
 /* 000061AC-00006224       .text daPH_Delete__FP8ph_class */
 static BOOL daPH_Delete(ph_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00006224-000062B4       .text useArrowHeapInit__FP10fopAc_ac_c */
@@ -264,8 +264,8 @@ static cPhs_State daPH_Create(fopAc_ac_c*) {
             /* Radius */ 15.0f,
         }},
     };
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return cPhs_COMPLEATE_e;
 }
 
 static actor_method_class l_daPH_Method = {

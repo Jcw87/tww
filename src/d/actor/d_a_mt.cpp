@@ -109,8 +109,8 @@ static void daMt_shadowDraw(mt_class*) {
 
 /* 00003360-0000361C       .text daMt_Draw__FP8mt_class */
 static BOOL daMt_Draw(mt_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return TRUE;
 }
 
 /* 0000361C-000037B0       .text bakuha__FP8mt_class */
@@ -145,8 +145,8 @@ void damage_check(mt_class*) {
 
 /* 00006188-000074D4       .text daMt_Execute__FP8mt_class */
 static BOOL daMt_Execute(mt_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return TRUE;
 }
 
 /* 00007CC4-00007CCC       .text daMt_IsDelete__FP8mt_class */
@@ -156,8 +156,8 @@ static BOOL daMt_IsDelete(mt_class*) {
 
 /* 00007CCC-00007E18       .text daMt_Delete__FP8mt_class */
 static BOOL daMt_Delete(mt_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return TRUE;
 }
 
 /* 00007E18-00008400       .text CallbackCreateHeap__FP10fopAc_ac_c */
@@ -197,8 +197,8 @@ static cPhs_State daMt_Create(fopAc_ac_c*) {
             /* Radius */ 30.0f,
         }},
     };
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return cPhs_COMPLEATE_e;
 }
 
 static actor_method_class l_daMt_Method = {

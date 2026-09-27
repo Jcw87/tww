@@ -239,20 +239,20 @@ void daNpc_De1_c::demo() {
 
 /* 00002248-00002358       .text _draw__11daNpc_De1_cFv */
 BOOL daNpc_De1_c::_draw() {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00002358-00002454       .text _execute__11daNpc_De1_cFv */
 BOOL daNpc_De1_c::_execute() {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00002454-00002500       .text _delete__11daNpc_De1_cFv */
 BOOL daNpc_De1_c::_delete() {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00002500-00002520       .text CheckCreateHeap__FP10fopAc_ac_c */
@@ -263,8 +263,8 @@ static BOOL CheckCreateHeap(fopAc_ac_c*) {
 
 /* 00002520-000027A4       .text _create__11daNpc_De1_cFv */
 cPhs_State daNpc_De1_c::_create() {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return cPhs_COMPLEATE_e;
 }
 
 /* 00002AB0-00002E04       .text CreateHeap__11daNpc_De1_cFv */

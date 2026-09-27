@@ -22,8 +22,8 @@ void hand_draw(ss_class*) {
 
 /* 00000290-00000308       .text daSs_Draw__FP8ss_class */
 static BOOL daSs_Draw(ss_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00000308-00000438       .text anm_init__FP8ss_classifUcfi */
@@ -63,8 +63,8 @@ void core_move(ss_class*) {
 
 /* 00002B84-00002F1C       .text daSs_Execute__FP8ss_class */
 static BOOL daSs_Execute(ss_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00002F1C-00002F24       .text daSs_IsDelete__FP8ss_class */
@@ -74,8 +74,8 @@ static BOOL daSs_IsDelete(ss_class*) {
 
 /* 00002F24-00002F58       .text daSs_Delete__FP8ss_class */
 static BOOL daSs_Delete(ss_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00002F58-000030D4       .text useHeapInit__FP10fopAc_ac_c */
@@ -115,8 +115,8 @@ static cPhs_State daSs_Create(fopAc_ac_c*) {
             /* Radius */ 15.0f,
         }},
     };
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return cPhs_COMPLEATE_e;
 }
 
 static actor_method_class l_daSs_Method = {

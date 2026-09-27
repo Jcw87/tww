@@ -306,11 +306,15 @@ bool daMozo_c::_draw() {
 
 /* 0000267C-000026A0       .text daMozo_Draw__FP8daMozo_c */
 static BOOL daMozo_Draw(daMozo_c* i_this) {
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
     return i_this->_draw();
 }
 
 /* 000026A0-000026C4       .text daMozo_Execute__FP8daMozo_c */
 static BOOL daMozo_Execute(daMozo_c* i_this) {
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
     return i_this->_execute();
 }
 
@@ -321,11 +325,15 @@ static BOOL daMozo_IsDelete(daMozo_c*) {
 
 /* 000026CC-000026F0       .text daMozo_Delete__FP8daMozo_c */
 static BOOL daMozo_Delete(daMozo_c* i_this) {
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
     return i_this->_delete();
 }
 
 /* 000026F0-00002710       .text daMozo_Create__FP10fopAc_ac_c */
 static cPhs_State daMozo_Create(fopAc_ac_c* i_this) {
+    NOT_IMPLEMENTED_CONTINUE;
+    return cPhs_COMPLEATE_e;
     return static_cast<daMozo_c*>(i_this)->_create();
 }
 

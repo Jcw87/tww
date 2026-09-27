@@ -275,32 +275,32 @@ BOOL daObj_Search::Act_c::_isdelete() {
 
 /* 80102844-80102864       .text Create__Q212daObj_Search4MthdFPv */
 cPhs_State daObj_Search::Mthd::Create(void*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return cPhs_COMPLEATE_e;
 }
 
 /* 80102864-80102884       .text Delete__Q212daObj_Search4MthdFPv */
 BOOL daObj_Search::Mthd::Delete(void*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 80102884-801028A4       .text Execute__Q212daObj_Search4MthdFPv */
 BOOL daObj_Search::Mthd::Execute(void*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 801028A4-801028C4       .text Draw__Q212daObj_Search4MthdFPv */
 BOOL daObj_Search::Mthd::Draw(void*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 801028C4-801028E4       .text IsDelete__Q212daObj_Search4MthdFPv */
 BOOL daObj_Search::Mthd::IsDelete(void*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 actor_method_class daObj_Search::Mthd::Table = {

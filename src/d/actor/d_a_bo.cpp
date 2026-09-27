@@ -37,8 +37,8 @@ void draw_SUB(bo_class*) {
 
 /* 00000930-00000AD4       .text daBO_Draw__FP8bo_class */
 static BOOL daBO_Draw(bo_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00000AD4-00000CD4       .text anm_init__FP8bo_classifUcfii */
@@ -118,8 +118,8 @@ void bo5_move(bo_class*) {
 
 /* 000042B8-000048B0       .text daBO_Execute__FP8bo_class */
 static BOOL daBO_Execute(bo_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 000048B0-000048B8       .text daBO_IsDelete__FP8bo_class */
@@ -129,8 +129,8 @@ static BOOL daBO_IsDelete(bo_class*) {
 
 /* 000048B8-00004998       .text daBO_Delete__FP8bo_class */
 static BOOL daBO_Delete(bo_class*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00004998-00004D08       .text useHeapInit__FP10fopAc_ac_c */
@@ -227,8 +227,8 @@ static cPhs_State daBO_Create(fopAc_ac_c*) {
             /* Height */ 0.0f,
         }},
     };
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return cPhs_COMPLEATE_e;
 }
 
 static actor_method_class l_daBO_Method = {

@@ -63,26 +63,36 @@ namespace daObjAygr {
 namespace {
 /* 0000079C-000007BC       .text Mthd_Create__Q29daObjAygr26@unnamed@d_a_obj_aygr_cpp@FPv */
 cPhs_State Mthd_Create(void* i_this) {
+    NOT_IMPLEMENTED_CONTINUE;
+    return cPhs_COMPLEATE_e;
     return ((daObjAygr::Act_c*)i_this)->Mthd_Create();
 }
 
 /* 000007BC-000007DC       .text Mthd_Delete__Q29daObjAygr26@unnamed@d_a_obj_aygr_cpp@FPv */
 BOOL Mthd_Delete(void* i_this) {
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
     return ((daObjAygr::Act_c*)i_this)->Mthd_Delete();
 }
 
 /* 000007DC-000007FC       .text Mthd_Execute__Q29daObjAygr26@unnamed@d_a_obj_aygr_cpp@FPv */
 BOOL Mthd_Execute(void* i_this) {
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
     return ((daObjAygr::Act_c*)i_this)->MoveBGExecute();
 }
 
 /* 000007FC-00000828       .text Mthd_Draw__Q29daObjAygr26@unnamed@d_a_obj_aygr_cpp@FPv */
 BOOL Mthd_Draw(void* i_this) {
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
     return ((daObjAygr::Act_c*)i_this)->Draw();
 }
 
 /* 00000828-00000854       .text Mthd_IsDelete__Q29daObjAygr26@unnamed@d_a_obj_aygr_cpp@FPv */
 BOOL Mthd_IsDelete(void* i_this) {
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
     return ((daObjAygr::Act_c*)i_this)->IsDelete();
 }
 

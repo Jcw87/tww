@@ -115,20 +115,20 @@ void daObjMagmarock::Act_c::calc_ground_quat() {
 
 /* 000017DC-0000198C       .text Create__Q214daObjMagmarock6MethodFPv */
 cPhs_State daObjMagmarock::Method::Create(void*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return cPhs_COMPLEATE_e;
 }
 
 /* 00001A90-00001B14       .text Delete__Q214daObjMagmarock6MethodFPv */
 BOOL daObjMagmarock::Method::Delete(void*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00001B14-00001B38       .text Execute__Q214daObjMagmarock6MethodFPv */
 BOOL daObjMagmarock::Method::Execute(void*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00001B38-00001EC0       .text _execute__Q214daObjMagmarock5Act_cFv */
@@ -139,14 +139,14 @@ bool daObjMagmarock::Act_c::_execute() {
 
 /* 00001EC0-00002128       .text Draw__Q214daObjMagmarock6MethodFPv */
 BOOL daObjMagmarock::Method::Draw(void*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00002128-00002130       .text IsDelete__Q214daObjMagmarock6MethodFPv */
 BOOL daObjMagmarock::Method::IsDelete(void*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 actor_method_class daObjMagmarock::Method::Table = {
