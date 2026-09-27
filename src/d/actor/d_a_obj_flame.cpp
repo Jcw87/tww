@@ -166,8 +166,8 @@ void daObjFlame::Act_c::mode_proc_call() {
 
 /* 00001EAC-00001ECC       .text Create__Q210daObjFlame6MethodFPv */
 cPhs_State daObjFlame::Method::Create(void*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return cPhs_COMPLEATE_e;
 }
 
 /* 00001ECC-00002200       .text _create__Q210daObjFlame5Act_cFv */
@@ -178,26 +178,26 @@ cPhs_State daObjFlame::Act_c::_create() {
 
 /* 00002484-000024B4       .text Delete__Q210daObjFlame6MethodFPv */
 BOOL daObjFlame::Method::Delete(void*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 000024B4-00002638       .text Execute__Q210daObjFlame6MethodFPv */
 BOOL daObjFlame::Method::Execute(void*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00002638-00002710       .text Draw__Q210daObjFlame6MethodFPv */
 BOOL daObjFlame::Method::Draw(void*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00002710-000027B0       .text IsDelete__Q210daObjFlame6MethodFPv */
 BOOL daObjFlame::Method::IsDelete(void*) {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 actor_method_class daObjFlame::Method::Table = {

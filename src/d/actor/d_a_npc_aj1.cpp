@@ -422,26 +422,26 @@ void daNpc_Aj1_c::shadowDraw() {
 
 /* 00003254-00003380       .text _draw__11daNpc_Aj1_cFv */
 BOOL daNpc_Aj1_c::_draw() {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 00003380-000035A8       .text _execute__11daNpc_Aj1_cFv */
 BOOL daNpc_Aj1_c::_execute() {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 000035A8-0000363C       .text _delete__11daNpc_Aj1_cFv */
 BOOL daNpc_Aj1_c::_delete() {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return true;
 }
 
 /* 0000363C-00003890       .text _create__11daNpc_Aj1_cFv */
 cPhs_State daNpc_Aj1_c::_create() {
-    NOT_IMPLEMENTED;
-    return 0;
+    NOT_IMPLEMENTED_CONTINUE;
+    return cPhs_COMPLEATE_e;
 }
 
 /* 00003B5C-00003E90       .text bodyCreateHeap__11daNpc_Aj1_cFv */
