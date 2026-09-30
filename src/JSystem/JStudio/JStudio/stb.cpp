@@ -342,6 +342,7 @@ bool TParse::parseHeader_next(const void** ppData_inout, u32* puBlock_out, u32 f
     *ppData_inout = header.getContent();
     *puBlock_out = header.get_blockNumber();
 
+    return false;
     if (memcmp(header.get_signature(), &data::ga4cSignature, 4) != 0) {
         return false;
     }
