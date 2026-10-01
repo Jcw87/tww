@@ -53,6 +53,12 @@ l_matDL__d_flower(l_Txo_ob_flower_white_64x64TEX)
 #include "assets/l_matDL2.h"
 l_matDL2(l_Txo_ob_flower_pink_64x64TEX)
 
+#if TARGET_PC
+static GXTexObj l_tex3;
+static GXTexObj l_tex;
+static GXTexObj l_tex2;
+#endif
+
 static bool l_CutSoundFlag = false;
 
 /* 800BFA9C-800BFD28       .text WorkCo__14dFlower_data_cFP10fopAc_ac_cUli */
@@ -334,6 +340,9 @@ void dFlower_packet_c::draw() {
     GXSETARRAY(GX_VA_POS, l_pos, sizeof(l_pos), sizeof(*l_pos), true);
     GXSETARRAY(GX_VA_CLR0, l_color, sizeof(l_color), sizeof(*l_color), true);
     GXSETARRAY(GX_VA_TEX0, l_texCoord, sizeof(l_texCoord), sizeof(*l_texCoord), true);
+#if TARGET_PC
+    GXLoadTexObj(&l_tex, GX_TEXMAP0);
+#endif
     GXCallDisplayList(l_matDL, 0xA0);
 
     dFlower_room_c* pRoom = &mRoom[0];
@@ -363,6 +372,9 @@ void dFlower_packet_c::draw() {
     GXSETARRAY(GX_VA_POS, mPosArray, mPosSize, sizeof(*mPosArray), true);
     GXSETARRAY(GX_VA_CLR0, mColorArray, mColorSize, sizeof(*mColorArray), true);
     GXSETARRAY(GX_VA_TEX0, mTexCoordArray, mTexCoordSize, sizeof(*mTexCoordArray), true);
+#if TARGET_PC
+    GXLoadTexObj(mTexObj, GX_TEXMAP0);
+#endif
     GXCallDisplayList(mDL1, mDL1Size);
 
     pRoom = &mRoom[0];
@@ -488,6 +500,14 @@ void dFlower_packet_c::update() {
 
 /* 800C0EF4-800C10D4       .text setData__16dFlower_packet_cFP14dFlower_data_ciScR4cXyziSc */
 void dFlower_packet_c::setData(dFlower_data_c* param_1, int param_2, s8 param_3, cXyz& param_4, int roomNo, s8 param_6) {
+#if TARGET_PC
+    static bool l_tex_init = false;
+    if (!l_tex_init) {
+        GXInitTexObj(&l_tex3, l_Txq_bessou_hanaTEX, l_Txq_bessou_hanaTEX__width, l_Txq_bessou_hanaTEX__height, GX_TF_CMPR, GX_MIRROR, GX_MIRROR, GX_DISABLE);
+        GXInitTexObj(&l_tex, l_Txo_ob_flower_white_64x64TEX, l_Txo_ob_flower_white_64x64TEX__width, l_Txo_ob_flower_white_64x64TEX__height, GX_TF_CMPR, GX_MIRROR, GX_MIRROR, GX_DISABLE);
+        GXInitTexObj(&l_tex2, l_Txo_ob_flower_pink_64x64TEX, l_Txo_ob_flower_pink_64x64TEX__width, l_Txo_ob_flower_pink_64x64TEX__height, GX_TF_CMPR, GX_MIRROR, GX_MIRROR, GX_DISABLE);
+    }
+#endif
     f32 temp;
     if(fopOvlpM_IsPeek()) {
         temp = checkGroundY(param_4);
@@ -517,6 +537,7 @@ void dFlower_packet_c::setData(dFlower_data_c* param_1, int param_2, s8 param_3,
             mPosSize = sizeof(l_pos3);
             mColorSize = sizeof(l_color3);
             mTexCoordSize = sizeof(l_texCoord3);
+            mTexObj = &l_tex3;
 #endif
             mDL1 = l_matDL3;
             mDL1Size = 0xA0;
@@ -533,6 +554,7 @@ void dFlower_packet_c::setData(dFlower_data_c* param_1, int param_2, s8 param_3,
             mPosSize = sizeof(l_pos2);
             mColorSize = sizeof(l_color2);
             mTexCoordSize = sizeof(l_texCoord2);
+            mTexObj = &l_tex2;
 #endif
             mDL1 = l_matDL2;
             mDL1Size = 0xA0;
