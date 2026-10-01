@@ -21,6 +21,7 @@ const u16 l_B_sand2TEX__height = 256;
 #include "assets/l_Hsand1DL.h"
 #include "assets/l_matDL__d_a_bwdg.h"
 l_matDL__d_a_bwdg(l_B_sand2TEX);
+GXTexObj l_mat_tex;
 
 // Fakematch: For some reason daBwdg_packet_c::draw needs to have .data pooling disabled, but the in-function statics cause .data pooling to be used.
 // Disabling data pooling for the entire TU breaks wave_cont, which uses ...rodata pooling, so instead disable it for just this one function.
@@ -29,6 +30,13 @@ l_matDL__d_a_bwdg(l_B_sand2TEX);
 
 /* 00000078-000001C4       .text draw__15daBwdg_packet_cFv */
 void daBwdg_packet_c::draw() {
+#if TARGET_PC
+    static bool init = false;
+    if (!init) {
+        GXInitTexObj(&l_mat_tex, l_B_sand2TEX, l_B_sand2TEX__width, l_B_sand2TEX__height, GX_TF_I4, GX_MIRROR, GX_MIRROR, GX_FALSE);
+    }
+#endif
+
     static GXVtxDescList l_vtxDescList[] = {
         {GX_VA_POS, GX_INDEX16},
         {GX_VA_NRM, GX_INDEX16},
@@ -57,6 +65,9 @@ void daBwdg_packet_c::draw() {
 #endif
     GFSetTevColorS10(GX_TEVREG0, mpTevStr->mColorC0);
     GFSetTevColor(GX_TEVREG1, mpTevStr->mColorK0);
+#if TARGET_PC
+    GXLoadTexObj(&l_mat_tex, GX_TEXMAP0);
+#endif
     GXCallDisplayList(l_matDL, 0xA0);
     GFLoadPosMtxImm(getMtx(), GX_PNMTX0);
     Mtx sp14;
