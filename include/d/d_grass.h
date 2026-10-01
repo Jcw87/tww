@@ -90,6 +90,9 @@ public:
     /* 0x1A664 */ u32 mDLCutSize;
     /* 0x1A668 */ u16 mCoParticle;
     /* 0x1A66A */ u16 mAtParticle;
+#if TARGET_PC
+    GXTexObj* mTexObj;
+#endif
 };
 
 #endif /* D_GRASS_H */

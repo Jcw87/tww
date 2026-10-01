@@ -39,6 +39,36 @@ public:
     J3DTexture(u16 num, ResTIMG* res) : mNum(num), mpRes(res) {}
     virtual ~J3DTexture() {}
 
+#if TARGET_PC
+    void loadGX(u16 idx, GXTexMapID texMapID) const {
+        GXTexObj texObj;
+        GXTlutObj tlutObj;
+
+        ResTIMG* timg = getResTIMG(idx);
+
+        if (!timg->indexTexture) {
+            GXInitTexObj(&texObj, ((u8*)timg) + timg->imageOffset, timg->width, timg->height,
+                         (GXTexFmt)timg->format, (GXTexWrapMode)timg->wrapS, (GXTexWrapMode)timg->wrapT,
+                         timg->mipmapEnabled);
+        } else {
+            GXInitTexObjCI(&texObj, ((u8*)timg) + timg->imageOffset, timg->width, timg->height,
+                           (GXCITexFmt)timg->format, (GXTexWrapMode)timg->wrapS,
+                           (GXTexWrapMode)timg->wrapT, timg->mipmapEnabled, (u32)texMapID);
+            GXInitTlutObj(&tlutObj, ((u8*)timg) + timg->paletteOffset, (GXTlutFmt)timg->colorFormat,
+                          timg->numColors);
+            GXLoadTlut(&tlutObj, texMapID);
+        }
+
+        const f32 kLODClampScale = 1.0f / 8.0f;
+        const f32 kLODBiasScale = 1.0f / 100.0f;
+        GXInitTexObjLOD(&texObj, (GXTexFilter)timg->minFilter, (GXTexFilter)timg->magFilter,
+                        timg->minLOD * kLODClampScale, timg->maxLOD * kLODClampScale,
+                        timg->LODBias * kLODBiasScale, timg->biasClamp, timg->doEdgeLOD,
+                        (GXAnisotropy)timg->maxAnisotropy);
+        GXLoadTexObj(&texObj, texMapID);
+    }
+#endif
+
     u16 getNum() const { return mNum; }
     ResTIMG* getResTIMG(u16 index) const {
         J3D_ASSERT_RANGE(72, index < mNum);

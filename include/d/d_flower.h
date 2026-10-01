@@ -101,6 +101,7 @@ public:
     u32 mPosSize;
     u32 mColorSize;
     u32 mTexCoordSize;
+    GXTexObj* mTexObj;
 #endif
 }; // Size: 0x462C
 

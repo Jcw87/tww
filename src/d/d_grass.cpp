@@ -43,6 +43,11 @@ const u32 l_Txa_ob_kusa_aTEX__height = 64;
 #include "assets/l_matDL__d_grass.h"
 l_matDL__d_grass(l_Txa_ob_kusa_aTEX);
 
+#if TARGET_PC
+static GXTexObj l_Vmori_tex;
+static GXTexObj l_tex;
+#endif
+
 static bool l_CutSoundFlag;
 
 /* 80077048-8007712C       .text setBatta__FP4cXyzP8_GXColor */
@@ -216,6 +221,14 @@ void dGrass_room_c::deleteData() {
 
 /* 80077A90-80077CB8       .text __ct__15dGrass_packet_cFv */
 dGrass_packet_c::dGrass_packet_c() {
+#if TARGET_PC
+    static bool l_tex_init = false;
+    if (!l_tex_init) {
+        GXInitTexObj(&l_Vmori_tex, l_K_kusa_00TEX, l_K_kusa_00TEX__width, l_K_kusa_00TEX__height, GX_TF_CMPR, GX_MIRROR, GX_MIRROR, GX_DISABLE);
+        GXInitTexObj(&l_tex, l_Txa_ob_kusa_aTEX, l_Txa_ob_kusa_aTEX__width, l_Txa_ob_kusa_aTEX__height, GX_TF_CMPR, GX_MIRROR, GX_MIRROR, GX_DISABLE);
+        l_tex_init = true;
+    }
+#endif
     dGrass_data_c* data = mGrassData;
     for (s32 i = 0; i < ARRAY_SIZE(mGrassData); i++, data++)
         data->mState = 0;
@@ -238,6 +251,9 @@ dGrass_packet_c::dGrass_packet_c() {
         mDLCutSize = 0x80;
         mCoParticle = dPa_name::ID_IT_SN_O_KINDANKUSA_RUN;
         mAtParticle = dPa_name::ID_IT_SN_O_KINDANKUSA_KEN;
+#if TARGET_PC
+        mTexObj = &l_Vmori_tex;
+#endif
     } else {
         mpPosArr = l_pos;
         mpColorArr = l_color;
@@ -250,6 +266,9 @@ dGrass_packet_c::dGrass_packet_c() {
         mDLCutSize = 0x80;
         mCoParticle = dPa_name::ID_IT_JN_O_KUSA_RUN;
         mAtParticle = dPa_name::ID_IT_JN_O_KUSA_KEN;
+#if TARGET_PC
+        mTexObj = &l_tex;
+#endif
     }
 }
 
@@ -298,6 +317,7 @@ void dGrass_packet_c::draw() {
     GXSetArray(GX_VA_POS, mpPosArr, sizeof(l_pos), sizeof(*mpPosArr), true);
     GXSetArray(GX_VA_CLR0, mpColorArr, sizeof(l_color), sizeof(*mpColorArr), true);
     GXSetArray(GX_VA_TEX0, mpTexCoordArr, sizeof(l_texCoord), sizeof(*mpTexCoordArr), true);
+    GXLoadTexObj(mTexObj, GX_TEXMAP0);
 #else
     GFSetArray(GX_VA_POS, mpPosArr, sizeof(*mpPosArr));
     GFSetArray(GX_VA_CLR0, mpColorArr, sizeof(*mpColorArr));

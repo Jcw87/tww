@@ -49,6 +49,11 @@ g_dTree_shadowMatDL(l_Txa_kage_32TEX);
 const u32 g_dTree_Oba_kage_32DL_SIZE = sizeof(g_dTree_Oba_kage_32DL);
 const u32 g_dTree_shadowMatDL_SIZE = sizeof(g_dTree_shadowMatDL);
 
+#if TARGET_PC
+static GXTexObj l_tex;
+GXTexObj g_dTree_shadowTex;
+#endif
+
 static bool l_CutSoundFlag;
 
 /* 800787BC-80078960       .text WorkCo__12dTree_data_cFP10fopAc_ac_cUli */
@@ -390,6 +395,13 @@ void dTree_packet_c::draw() {
     static u8 l_modelStatus[2][3] = {0, 1, 2, 3, 1, 4};
 
 #if TARGET_PC
+    static bool l_tex_init = false;
+    if (!l_tex_init) {
+        GXInitTexObj(&l_tex, l_Txa_swood_aTEX, l_Txa_swood_aTEX__width, l_Txa_swood_aTEX__height, GX_TF_CMPR, GX_MIRROR, GX_MIRROR, GX_DISABLE);
+        // TODO: load at different time? also used in d_wood
+        GXInitTexObj(&g_dTree_shadowTex, l_Txa_kage_32TEX, l_Txa_kage_32TEX__width, l_Txa_kage_32TEX__height, GX_TF_I4, GX_REPEAT, GX_REPEAT, GX_DISABLE);
+    }
+
     GXPushDebugGroup("d_tree");
 #endif
 
@@ -402,6 +414,7 @@ void dTree_packet_c::draw() {
 #if TARGET_PC
     GXSetArray(GX_VA_POS, g_dTree_shadowPos, sizeof(g_dTree_shadowPos), sizeof(*g_dTree_shadowPos), true);
     GXSetArray(GX_VA_TEX0, g_dTree_shadowTexCoord, sizeof(g_dTree_shadowTexCoord), sizeof(*g_dTree_shadowTexCoord), true);
+    GXLoadTexObj(&g_dTree_shadowTex, GX_TEXMAP0);
 #else
     GFSetArray(GX_VA_POS, g_dTree_shadowPos, 3);
     GFSetArray(GX_VA_TEX0, g_dTree_shadowTexCoord, 2);
@@ -427,6 +440,7 @@ void dTree_packet_c::draw() {
     GXSetArray(GX_VA_POS, l_pos, sizeof(l_pos), sizeof(*l_pos), true);
     GXSetArray(GX_VA_CLR0, l_color, sizeof(l_color), sizeof(*l_color), true);
     GXSetArray(GX_VA_TEX0, l_texCoord, sizeof(l_texCoord), sizeof(*l_texCoord), true);
+    GXLoadTexObj(&l_tex, GX_TEXMAP0);
 #else
     GFSetArray(GX_VA_POS, l_pos, sizeof(cXyz));
     GFSetArray(GX_VA_CLR0, l_color, sizeof(GXColor));

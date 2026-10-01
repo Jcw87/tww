@@ -83,6 +83,10 @@ const u16 l_Txa_swood_bTEX__height = 64;
 #include "assets/l_matDL__d_wood.h"
 l_matDL__d_wood(l_Txa_swood_bTEX);
 
+#if TARGET_PC
+static GXTexObj l_tex;
+#endif
+
 // .rodata
 const Attr_c L_attr = {
     /* kSways */ {
@@ -884,6 +888,11 @@ void dWood::Packet_c::draw() {
     static GXColor l_shadowColor = {0x00, 0x00, 0x00, 0x64};
 
 #if TARGET_PC
+    static bool l_tex_init = false;
+    if (!l_tex_init) {
+        GXInitTexObj(&l_tex, l_Txa_swood_bTEX, l_Txa_swood_bTEX__width, l_Txa_swood_bTEX__height, GX_TF_CMPR, GX_MIRROR, GX_MIRROR, GX_DISABLE);
+    }
+
     GXPushDebugGroup("d_wood");
 #endif
 
@@ -893,6 +902,7 @@ void dWood::Packet_c::draw() {
 #if TARGET_PC
     GXSetArray(GX_VA_POS, g_dTree_shadowPos, sizeof(g_dTree_shadowPos), sizeof(*g_dTree_shadowPos), true);
     GXSetArray(GX_VA_TEX0, g_dTree_shadowTexCoord, sizeof(g_dTree_shadowTexCoord), sizeof(*g_dTree_shadowTexCoord), true);
+    GXLoadTexObj(&g_dTree_shadowTex, GX_TEXMAP0);
 #else
     GFSetArray(GX_VA_POS, g_dTree_shadowPos, 3);
     GFSetArray(GX_VA_TEX0, g_dTree_shadowTexCoord, 2);
@@ -922,6 +932,7 @@ void dWood::Packet_c::draw() {
     GXSetArray(GX_VA_POS, l_pos, sizeof(l_pos), sizeof(*l_pos), true);
     GXSetArray(GX_VA_CLR0, l_color, sizeof(l_color), sizeof(*l_color), true);
     GXSetArray(GX_VA_TEX0, l_texCoord, sizeof(l_texCoord), sizeof(*l_texCoord), true);
+    GXLoadTexObj(&l_tex, GX_TEXMAP0);
 #else
     GFSetArray(GX_VA_POS, l_pos, sizeof(*l_pos));
     GFSetArray(GX_VA_CLR0, l_color, sizeof(*l_color));
