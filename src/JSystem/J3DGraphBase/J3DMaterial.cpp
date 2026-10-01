@@ -215,6 +215,9 @@ void J3DMaterial::makeSharedDisplayList() {
 /* 802DEAD4-802DEB3C       .text load__11J3DMaterialFv */
 void J3DMaterial::load() {
     j3dSys.setMaterialMode(mMaterialMode);
+#if TARGET_PC
+    mTevBlock->loadTexture();
+#endif
     if (!j3dSys.checkFlag(J3DSysFlag_UNK2)) {
         j3dSys.mMatPacket->callDL();
         loadNBTScale(*mTexGenBlock->getNBTScale());
@@ -362,6 +365,9 @@ void J3DPatchedMaterial::makeSharedDisplayList() {}
 /* 802DF268-802DF2AC       .text load__18J3DPatchedMaterialFv */
 void J3DPatchedMaterial::load() {
     j3dSys.setMaterialMode(mMaterialMode);
+#if TARGET_PC
+    mTevBlock->loadTexture();
+#endif
     if (j3dSys.checkFlag(J3DSysFlag_UNK2)) {
         return;
     }
@@ -404,6 +410,9 @@ void J3DLockedMaterial::makeSharedDisplayList() {}
 /* 802DF368-802DF3AC       .text load__17J3DLockedMaterialFv */
 void J3DLockedMaterial::load() {
     j3dSys.setMaterialMode(mMaterialMode);
+#if TARGET_PC
+    mTevBlock->loadTexture();
+#endif
     if (j3dSys.checkFlag(J3DSysFlag_UNK2)) {
         return;
     }

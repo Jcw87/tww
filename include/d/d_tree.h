@@ -16,6 +16,9 @@ extern u8 g_dTree_shadowMatDL[];
 extern u8 g_dTree_Oba_kage_32DL[];
 extern const u32 g_dTree_shadowMatDL_SIZE;
 extern const u32 g_dTree_Oba_kage_32DL_SIZE;
+#if TARGET_PC
+extern GXTexObj g_dTree_shadowTex;
+#endif
 
 class dTree_data_c {
 public:
