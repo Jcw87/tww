@@ -400,6 +400,11 @@ void JFWDisplay::clearEfb(GXColor color) {
 
 /* 80255FA0-8025631C       .text clearEfb__10JFWDisplayFiiii8_GXColor */
 void JFWDisplay::clearEfb(int param_0, int param_1, int param_2, int param_3, GXColor color) {
+#if TARGET_PC
+    NOT_IMPLEMENTED_CONTINUE;
+    return;
+#endif
+
     Mtx44 mtx;
     u16 height = mpRenderMode->efbHeight;
     u16 width = mpRenderMode->fbWidth;
