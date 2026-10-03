@@ -31,7 +31,7 @@
 
 #define SQUARE(x) ((x) * (x))
 
-#if defined(__cplusplus) && __cplusplus >= 201103L
+#if defined(__cplusplus) && __cplusplus >= 201103L || defined(_MSC_VER)
 #define COMPOUND_LITERAL(x)
 #else
 #define COMPOUND_LITERAL(x) (x)
