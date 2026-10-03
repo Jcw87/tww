@@ -3945,11 +3945,13 @@ BOOL daNpc_Bm1_c::_draw() {
     }
 
     // Debug:
+#if __MWERKS__
     (GXColor){0xFF, 0x00, 0x00, 0x80};
     (GXColor){0x00, 0x00, 0xFF, 0x80};
     (GXColor){0x00, 0xFF, 0x00, 0x80};
     // dDbVw_drawSphereXlu
     // dDbVw_drawCircleOpa
+#endif
 
     return TRUE;
 }
