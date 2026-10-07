@@ -4866,13 +4866,21 @@ void dKyr_drawStar(Mtx drawMtx, u8** pImg) {
 
         // if a star is too close to the moon then avoid drawing
         if (moon_dist_to_star > moon_threshold) {
+#if TARGET_PC
+            GXBegin(GX_TRIANGLES, GX_VTXFMT0, 3);
+#else
             GXBegin(GX_QUADS, GX_VTXFMT0, 3);
+#endif
             GXPosition3f32(center.x + (star_size * (pos[0].x - spBC.x)), center.y + (star_size * (pos[0].y - spBC.y)), center.z + (star_size * (pos[0].z - spBC.z)));
             GXPosition3f32(center.x + (star_size * (pos[1].x - spBC.x)), center.y + (star_size * (pos[1].y - spBC.y)), center.z + (star_size * (pos[1].z - spBC.z)));
             GXPosition3f32(center.x + (star_size * (pos[2].x - spBC.x)), center.y + (star_size * (pos[2].y - spBC.y)), center.z + (star_size * (pos[2].z - spBC.z)));
             GXEnd();
-            
+
+#if TARGET_PC
+            GXBegin(GX_TRIANGLES, GX_VTXFMT0, 3);
+#else
             GXBegin(GX_QUADS, GX_VTXFMT0, 3);
+#endif
             GXPosition3f32(center.x - (star_size * (pos[0].x - spBC.x)), center.y - (star_size * (pos[0].y - spBC.y)), center.z - (star_size * (pos[0].z - spBC.z)));
             GXPosition3f32(center.x - (star_size * (pos[1].x - spBC.x)), center.y - (star_size * (pos[1].y - spBC.y)), center.z - (star_size * (pos[1].z - spBC.z)));
             GXPosition3f32(center.x - (star_size * (pos[2].x - spBC.x)), center.y - (star_size * (pos[2].y - spBC.y)), center.z - (star_size * (pos[2].z - spBC.z)));
