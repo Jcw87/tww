@@ -82,7 +82,7 @@ struct cBgD_Tree_t {
 class cBgW_NodeTree : public cM3dGAab {
 public:
     virtual ~cBgW_NodeTree() {}
-};
+}; // Size = 0x1C
 
 class cBgD_t {
 public:
@@ -113,14 +113,14 @@ public:
 
 public:
     virtual ~cBgW_RwgElm() {}
-};
+}; // Size: 0x8
 
 class cBgW_BlkElm {
 public:
     /* 0x00 */ u16 roof;
     /* 0x02 */ u16 wall;
     /* 0x04 */ u16 ground;
-};
+}; // Size: 0x6
 
 class cBgW_GrpElm {
 public:
@@ -128,7 +128,7 @@ public:
 
 public:
     /* 0x00 */ cM3dGAab aab;
-};
+}; // Size = 0x20
 
 class cBgW : public cBgW_BgId {
 public:
