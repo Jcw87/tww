@@ -197,17 +197,17 @@ fopAc_ac_c* dCamera_c::getEvActor(char* name) {
     if (string == NULL)
         return NULL;
     fopAc_ac_c* actor;
-    if (*(u32*)string == '@PLA')
+    if (*(BE(u32)*)string == '@PLA')
         actor = mpPlayerActor;
-    else if (*(u32*)string == '@STA')
+    else if (*(BE(u32)*)string == '@STA')
         actor = dComIfGp_event_getPt1();
-    else if (*(u32*)string == '@PAR')
+    else if (*(BE(u32)*)string == '@PAR')
         actor = dComIfGp_event_getPt2();
-    else if (*(u32*)string == '@TAL')
+    else if (*(BE(u32)*)string == '@TAL')
         actor = dComIfGp_event_getTalkPartner();
-    else if (*(u32*)string == '@TAR' || *(u32*)string == '@ITE')
+    else if (*(BE(u32)*)string == '@TAR' || *(BE(u32)*)string == '@ITE')
         actor = dComIfGp_event_getItemPartner();
-    else if (*(u32*)string == 'Link')
+    else if (*(BE(u32)*)string == 'Link')
         actor = dComIfGp_getLinkPlayer();
     else
         actor = fopAcM_searchFromName(string, 0, 0);
