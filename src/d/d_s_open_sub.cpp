@@ -254,6 +254,9 @@ dScnOpen_proc_c::dScnOpen_proc_c() {
     m_message->set_message(0, 0);
     mState = 0;
     mDoExt_setCurrentHeap(old_heap);
+#if TARGET_PC
+    mState = 44;
+#endif
 }
 
 /* 80233B0C-80233BE4       .text __dt__15dScnOpen_proc_cFv */
