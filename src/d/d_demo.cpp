@@ -66,20 +66,20 @@ J3DAnmTexPattern* dDemo_actor_c::getP_BtpData(const char* name) {
         switch(mPrm.getId()) {
             case ID_UNK_1:
                 // Get the s16 at offset 0x1 of prm
-                id = *(s16*)((u8*)prm + 0x1);
+                id = *(BE(s16)*)((u8*)prm + 0x1);
                 break;
             case ID_UNK_2:
                 // Get the s16 at offset 0x2 of prm
-                id = *(s16*)((u8*)prm + 0x2);
+                id = *(BE(s16)*)((u8*)prm + 0x2);
                 break;
             case ID_UNK_4:
                 // Get the u32 at offset 0x1 of prm
-                id = *(u32*)((u8*)prm + 0x1);
+                id = *(BE(u32)*)((u8*)prm + 0x1);
                 break;
             case ID_UNK_5:
             case ID_UNK_6:
                 // Get the u32 at offset 0x2 of prm
-                id = *(u32*)((u8*)prm + 0x2);
+                id = *(BE(u32)*)((u8*)prm + 0x2);
                 break;
             default:
                 return NULL;
@@ -116,7 +116,7 @@ void* dDemo_actor_c::getP_BrkData(const char* name) {
     switch(mPrm.getId()) {
         case ID_UNK_6:
                 // Get the u32 at offset 0xa of prm
-                id = *(u32*)((u8*)prm + 0xa);
+                id = *(BE(u32)*)((u8*)prm + 0xa);
             break;
         default:
             return NULL;
@@ -146,12 +146,12 @@ J3DAnmTextureSRTKey* dDemo_actor_c::getP_BtkData(const char* name) {
     switch(mPrm.getId()) {
         case ID_UNK_2:
                 // Get the s16 at offset 0x4 of prm
-                id = *(s16*)((u8*)prm + 0x4);
+                id = *(BE(s16)*)((u8*)prm + 0x4);
             break;
         case ID_UNK_5:
         case ID_UNK_6:
                 // Get the s16 at offset 0x6 of prm
-                id = *(u32*)((u8*)prm + 0x6);
+                id = *(BE(u32)*)((u8*)prm + 0x6);
             break;
         default:
             return NULL;
