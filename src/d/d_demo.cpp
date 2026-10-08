@@ -54,21 +54,119 @@ void dDemo_actor_c::setActor(fopAc_ac_c* ac) {
 
 /* 80069434-80069550       .text getP_BtpData__13dDemo_actor_cFPCc */
 J3DAnmTexPattern* dDemo_actor_c::getP_BtpData(const char* name) {
-    NOT_IMPLEMENTED;
-    if (!checkEnable(ENABLE_UNK_e))
+    u32 id;
+    if (checkEnable(ENABLE_TEX_ANM)) {
+        id = this->mTexAnimation;
+    } else {
+        if (!checkEnable(ENABLE_UNK_e))
+            return NULL;
+
+        const void* prm = mPrm.mData;
+
+        switch(mPrm.getId()) {
+            case ID_UNK_1:
+                // Get the s16 at offset 0x1 of prm
+                id = *(s16*)((u8*)prm + 0x1);
+                break;
+            case ID_UNK_2:
+                // Get the s16 at offset 0x2 of prm
+                id = *(s16*)((u8*)prm + 0x2);
+                break;
+            case ID_UNK_4:
+                // Get the u32 at offset 0x1 of prm
+                id = *(u32*)((u8*)prm + 0x1);
+                break;
+            case ID_UNK_5:
+            case ID_UNK_6:
+                // Get the u32 at offset 0x2 of prm
+                id = *(u32*)((u8*)prm + 0x2);
+                break;
+            default:
+                return NULL;
+        }
+    }
+
+    if (id == this->mBtpId) {
         return NULL;
+    }
+
+    this->mBtpId = id;
+
+    if (id & 0x10000) {
+        name = dStage_roomControl_c::getDemoArcName();
+    }
+
+    J3DAnmTexPattern* pattern = (J3DAnmTexPattern *) dComIfG_getObjectIDRes(name, (u16)id);
+    if (pattern != NULL) {
+        this->mTexAnimationFrameMax = pattern->getFrameMax();
+    }
+
+    return pattern;
 }
 
 /* 80069550-800695E8       .text getP_BrkData__13dDemo_actor_cFPCc */
-void* dDemo_actor_c::getP_BrkData(const char*) {
-    NOT_IMPLEMENTED;
-    return 0;
+void* dDemo_actor_c::getP_BrkData(const char* name) {
+    if (!checkEnable(ENABLE_UNK_e)) {
+        return NULL;
+    }
+
+    const void* prm = mPrm.mData;
+
+    u32 id;
+    switch(mPrm.getId()) {
+        case ID_UNK_6:
+                // Get the u32 at offset 0xa of prm
+                id = *(u32*)((u8*)prm + 0xa);
+            break;
+        default:
+            return NULL;
+    }
+
+    if (id == mBrkId) {
+        return NULL;
+    }
+
+    mBrkId = id;
+    if ((id & 0x10000) != 0) {
+        name = dStage_roomControl_c::getDemoArcName();
+    }
+
+    return dComIfG_getObjectIDRes(name, (u16)id);
 }
 
 /* 800695E8-8006969C       .text getP_BtkData__13dDemo_actor_cFPCc */
-J3DAnmTextureSRTKey* dDemo_actor_c::getP_BtkData(const char*) {
-    NOT_IMPLEMENTED;
-    return 0;
+J3DAnmTextureSRTKey* dDemo_actor_c::getP_BtkData(const char* name) {
+    if (!checkEnable(ENABLE_UNK_e)) {
+        return NULL;
+    }
+
+    const void* prm = mPrm.mData;
+
+    u32 id;
+    switch(mPrm.getId()) {
+        case ID_UNK_2:
+                // Get the s16 at offset 0x4 of prm
+                id = *(s16*)((u8*)prm + 0x4);
+            break;
+        case ID_UNK_5:
+        case ID_UNK_6:
+                // Get the s16 at offset 0x6 of prm
+                id = *(u32*)((u8*)prm + 0x6);
+            break;
+        default:
+            return NULL;
+    }
+
+    if (id == mBtkId) {
+        return NULL;
+    }
+
+    mBtkId = id;
+    if ((id & 0x10000) != 0) {
+        name = dStage_roomControl_c::getDemoArcName();
+    }
+
+    return (J3DAnmTextureSRTKey*) dComIfG_getObjectIDRes(name, (u16)id);
 }
 
 /* 8006969C-80069838       .text getPrm_Morf__13dDemo_actor_cFv */
