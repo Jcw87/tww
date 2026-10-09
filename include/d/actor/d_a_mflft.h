@@ -8,8 +8,7 @@
 class dBgW;
 class JPABaseEmitter;
 
-struct mflft_class {
-    /* 0x000 */ fopAc_ac_c actor;
+struct mflft_class : public fopAc_ac_c {
     /* 0x290 */ request_of_phase_process_class mPhase;
     /* 0x298 */ s16 m298;
     /* 0x29A */ s16 m29A;

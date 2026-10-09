@@ -20,12 +20,12 @@ static f32* wp;
 
 /* 00000078-00000170       .text setLiftUp__11mflft_classF4cXyz */
 void mflft_class::setLiftUp(cXyz arg1) {
-    if ((m29A != 0) || (std::fabsf(arg1.y - actor.current.pos.y) < 200.0f)) {
-        actor.current.pos.x = arg1.x;
-        actor.current.pos.z = arg1.z;
-        cLib_addCalc2(&actor.current.pos.y, arg1.y, 0.2f, m2D0 * 1000.0f);
+    if ((m29A != 0) || (std::fabsf(arg1.y - current.pos.y) < 200.0f)) {
+        current.pos.x = arg1.x;
+        current.pos.z = arg1.z;
+        cLib_addCalc2(&current.pos.y, arg1.y, 0.2f, m2D0 * 1000.0f);
         cLib_addCalc2(&m2D0, 1.0f, 1.0f, 0.05f);
-        actor.speed.y = 0.0f;
+        speed.y = 0.0f;
 #if VERSION > VERSION_DEMO
         if (m2CE == 0) {
             dComIfGp_getVibration().StartShock(REG0_S(2) + 8, -0x21, cXyz(0.0f, 1.0f, 0.0f));
@@ -39,18 +39,18 @@ void mflft_class::setLiftUp(cXyz arg1) {
 static void ride_call_back(dBgW*, fopAc_ac_c* arg1, fopAc_ac_c* arg2) {
     mflft_class* i_this = (mflft_class*)arg1;
 
-    cMtx_YrotS(*calc_mtx, -i_this->actor.current.angle.y);
-    cXyz sp38 = arg2->current.pos - i_this->actor.current.pos;
+    cMtx_YrotS(*calc_mtx, -i_this->current.angle.y);
+    cXyz sp38 = arg2->current.pos - i_this->current.pos;
     cXyz sp2C;
     MtxPosition(&sp38, &sp2C);
-    sp38 = arg2->old.pos - i_this->actor.current.pos;
+    sp38 = arg2->old.pos - i_this->current.pos;
     cXyz sp20;
     MtxPosition(&sp38, &sp20);
-    s16 iVar2 = ((REG0_F(0) + 10.0f) / i_this->actor.scale.z) * sp2C.z;
-    s16 iVar1 = ((REG0_F(0) + 10.0f) / i_this->actor.scale.x) * -sp2C.x;
+    s16 iVar2 = ((REG0_F(0) + 10.0f) / i_this->scale.z) * sp2C.z;
+    s16 iVar1 = ((REG0_F(0) + 10.0f) / i_this->scale.x) * -sp2C.x;
 
-    cLib_addCalcAngleS2(&i_this->actor.current.angle.x, iVar2, 10, 0x800);
-    cLib_addCalcAngleS2(&i_this->actor.current.angle.z, iVar1, 10, 0x800);
+    cLib_addCalcAngleS2(&i_this->current.angle.x, iVar2, 10, 0x800);
+    cLib_addCalcAngleS2(&i_this->current.angle.z, iVar1, 10, 0x800);
 
     f32 fVar3 = (REG0_F(4) + 50.0f) * std::fabsf(sp2C.z - sp20.z);
     if (i_this->m2BC < fVar3) {
@@ -75,14 +75,14 @@ static void ride_call_back(dBgW*, fopAc_ac_c* arg1, fopAc_ac_c* arg2) {
 
 /* 00000408-00000488       .text himo_Draw__FP11mflft_class */
 void himo_Draw(mflft_class* i_this) {
-    i_this->mLineMat.update(10, COMPOUND_LITERAL(GXColor){150, 150, 150, 255}, &i_this->actor.tevStr);
+    i_this->mLineMat.update(10, COMPOUND_LITERAL(GXColor){150, 150, 150, 255}, &i_this->tevStr);
     dComIfGd_set3DlineMat(&i_this->mLineMat);
 }
 
 /* 00000488-00000530       .text daMflft_Draw__FP11mflft_class */
 static BOOL daMflft_Draw(mflft_class* i_this) {
-    g_env_light.settingTevStruct(TEV_TYPE_BG0, &i_this->actor.current.pos, &i_this->actor.tevStr);
-    g_env_light.setLightTevColorType(i_this->mpModel, &i_this->actor.tevStr);
+    g_env_light.settingTevStruct(TEV_TYPE_BG0, &i_this->current.pos, &i_this->tevStr);
+    g_env_light.setLightTevColorType(i_this->mpModel, &i_this->tevStr);
 
     dComIfGd_setListBG();
     mDoExt_modelUpdateDL(i_this->mpModel);
@@ -98,7 +98,7 @@ void kikuzu_set(mflft_class* i_this, cXyz* arg1) {
     sp18.y -= -0x8000;
 
     JPABaseEmitter* pJVar4 = dComIfGp_particle_set(
-        dPa_name::ID_AK_JN_ELEMENTKIKUZU00, arg1, &sp18, NULL, 0xff, NULL, -1, &i_this->actor.tevStr.mColorK0, &i_this->actor.tevStr.mColorK0, NULL
+        dPa_name::ID_AK_JN_ELEMENTKIKUZU00, arg1, &sp18, NULL, 0xff, NULL, -1, &i_this->tevStr.mColorK0, &i_this->tevStr.mColorK0, NULL
     );
     if (pJVar4 != NULL) {
         pJVar4->setRate(10.0f);
@@ -131,7 +131,7 @@ void himo_cut_control(mflft_class* i_this, cXyz* arg1, unsigned char* arg2, unsi
         sp0C.z = 0.0f;
         sp30.z = REG0_F(2) + 135.0f;
     } else {
-        cMtx_YrotS(*calc_mtx, i_this->m6F8 + i_this->actor.shape_angle.y);
+        cMtx_YrotS(*calc_mtx, i_this->m6F8 + i_this->shape_angle.y);
         sp30.z = REG0_F(11) + -4.0f;
         MtxPosition(&sp30, &sp0C);
         sp30.z = REG0_F(2) + 10.0f;
@@ -202,9 +202,9 @@ void mflft_move(mflft_class* i_this) {
             dComIfGs_onEventBit(dSv_event_flag_c::UNK_2A10);
             dBgS_ObjGndChk_Yogan gndChk;
             Vec pos;
-            pos.x = i_this->actor.current.pos.x;
-            pos.y = i_this->actor.current.pos.y;
-            pos.z = i_this->actor.current.pos.z;
+            pos.x = i_this->current.pos.x;
+            pos.y = i_this->current.pos.y;
+            pos.z = i_this->current.pos.z;
             pos.y += 1000.0f;
 
             gndChk.SetPos(&pos);
@@ -214,7 +214,7 @@ void mflft_move(mflft_class* i_this) {
             }
 
             if (i_this->m2A1 != 0xff) {
-                dComIfGs_onSwitch(i_this->m2A1, fopAcM_GetRoomNo(&i_this->actor));
+                dComIfGs_onSwitch(i_this->m2A1, fopAcM_GetRoomNo(i_this));
             }
         } else {
             if (i_this->m6F5 != 0) {
@@ -230,8 +230,8 @@ void mflft_move(mflft_class* i_this) {
 
             cLib_addCalcAngleS2(&i_this->m6FA, target, 4, 0x2000);
             cLib_addCalcAngleS2(&i_this->m6F8, sVar2, 2, 0x2000);
-            cLib_addCalcAngleS2(&i_this->actor.current.angle.x, 0, 10, 0x200);
-            cLib_addCalcAngleS2(&i_this->actor.current.angle.z, 0, 10, 0x200);
+            cLib_addCalcAngleS2(&i_this->current.angle.x, 0, 10, 0x200);
+            cLib_addCalcAngleS2(&i_this->current.angle.z, 0, 10, 0x200);
 
             if (i_this->m2CE != 0) {
                 fVar10 = 2000.0f;
@@ -255,16 +255,16 @@ void mflft_move(mflft_class* i_this) {
             i_this->m2A4.z = i_this->m2B8 * cM_ssin(i_this->m298 * 900);
             cLib_addCalc0(&i_this->m2B0, 1.0, REG0_F(6) + 0.25f);
             cLib_addCalc0(&i_this->m2B8, 1.0, REG0_F(6) + 0.25f);
-            i_this->actor.shape_angle = i_this->actor.current.angle + i_this->m2C8;
-            i_this->actor.current.pos = i_this->actor.home.pos + i_this->m2A4;
+            i_this->shape_angle = i_this->current.angle + i_this->m2C8;
+            i_this->current.pos = i_this->home.pos + i_this->m2A4;
         }
     } break;
 
     case 1:
-        cLib_addCalc2(&i_this->actor.current.pos.x, i_this->actor.home.pos.x, 0.1f, 5.0f);
-        cLib_addCalc2(&i_this->actor.current.pos.z, i_this->actor.home.pos.z, 0.1f, 5.0f);
-        cLib_addCalcAngleS2(&i_this->actor.current.angle.x, 0, 10, 0x300);
-        cLib_addCalcAngleS2(&i_this->actor.current.angle.z, 0, 10, 0x300);
+        cLib_addCalc2(&i_this->current.pos.x, i_this->home.pos.x, 0.1f, 5.0f);
+        cLib_addCalc2(&i_this->current.pos.z, i_this->home.pos.z, 0.1f, 5.0f);
+        cLib_addCalcAngleS2(&i_this->current.angle.x, 0, 10, 0x300);
+        cLib_addCalcAngleS2(&i_this->current.angle.z, 0, 10, 0x300);
         cLib_addCalcAngleS2(&i_this->m6FA, 0, 4, 0x200);
 
         if (i_this->m2CE != 0) {
@@ -285,23 +285,23 @@ void mflft_move(mflft_class* i_this) {
         cLib_addCalc2(&i_this->m2BC, fVar10, 1.0f, fVar1);
         cLib_addCalc2(&i_this->m2C4, fVar10, 1.0f, fVar1);
 
-        i_this->actor.shape_angle = i_this->actor.current.angle + i_this->m2C8;
-        i_this->actor.current.pos.y += i_this->actor.speed.y;
-        i_this->actor.speed.y -= 5.0f;
-        if (i_this->actor.speed.y < -300.0f) {
-            i_this->actor.speed.y = -300.0f;
+        i_this->shape_angle = i_this->current.angle + i_this->m2C8;
+        i_this->current.pos.y += i_this->speed.y;
+        i_this->speed.y -= 5.0f;
+        if (i_this->speed.y < -300.0f) {
+            i_this->speed.y = -300.0f;
         }
 
-        if (i_this->actor.current.pos.y <= i_this->m734 + 80.0f) {
-            i_this->actor.current.pos.y = i_this->m734 + 80.0f;
-            if (i_this->actor.speed.y < -50.0f) {
+        if (i_this->current.pos.y <= i_this->m734 + 80.0f) {
+            i_this->current.pos.y = i_this->m734 + 80.0f;
+            if (i_this->speed.y < -50.0f) {
                 i_this->m2C4 = 2000.0f;
                 i_this->m2BC = 2000.0f;
-                dComIfGp_particle_set(dPa_name::ID_AK_SN_MAGMALIFTSPLASH00, &i_this->actor.current.pos, &i_this->actor.shape_angle);
-                fopAcM_seStartCurrent(&i_this->actor, JA_SE_OBJ_BAL_LIFT_LANDING, 0);
+                dComIfGp_particle_set(dPa_name::ID_AK_SN_MAGMALIFTSPLASH00, &i_this->current.pos, &i_this->shape_angle);
+                fopAcM_seStartCurrent(i_this, JA_SE_OBJ_BAL_LIFT_LANDING, 0);
                 dComIfGp_getVibration().StartShock(REG0_S(2) + DEMO_SELECT(4, 5), -0x21, cXyz(0.0f, 1.0f, 0.0f));
             }
-            i_this->actor.speed.y = 0.0f;
+            i_this->speed.y = 0.0f;
             cLib_addCalcAngleS2(&i_this->m6FA, 0, 2, 0x2000);
         }
         break;
@@ -375,7 +375,7 @@ void himo_move(mflft_class* i_this) {
                     sp48.y = ccAtInfo.mpActor->eyePos.y;
                     dComIfGp_particle_set(dPa_name::ID_AK_JN_OK, &sp48, &player->shape_angle);
                     kikuzu_set(i_this, &sp48);
-                    mDoAud_seStart(soundId, &ccAtInfo.mpActor->eyePos, 0, dComIfGp_getReverb(fopAcM_GetRoomNo(&i_this->actor)));
+                    mDoAud_seStart(soundId, &ccAtInfo.mpActor->eyePos, 0, dComIfGp_getReverb(fopAcM_GetRoomNo(i_this)));
                 }
             }
             i_this->mCyls[i].SetC(i_this->m2D8[i]);
@@ -397,7 +397,7 @@ void himo_move(mflft_class* i_this) {
 
 /* 00001E5C-00002008       .text eff_cont__FP11mflft_class */
 void eff_cont(mflft_class* i_this) {
-    cXyz sp24 = i_this->actor.current.pos;
+    cXyz sp24 = i_this->current.pos;
     sp24.y -= REG0_F(1) + 90.0f;
 
     switch (i_this->m778) {
@@ -455,14 +455,14 @@ static BOOL daMflft_Execute(mflft_class* i_this) {
     wp = dKyw_get_wind_power();
     mflft_move(i_this);
 
-    MtxTrans(i_this->actor.current.pos.x, i_this->actor.current.pos.y, i_this->actor.current.pos.z, 0);
+    MtxTrans(i_this->current.pos.x, i_this->current.pos.y, i_this->current.pos.z, 0);
 
-    cMtx_YrotM(*calc_mtx, i_this->actor.shape_angle.y);
+    cMtx_YrotM(*calc_mtx, i_this->shape_angle.y);
     cMtx_YrotM(*calc_mtx, i_this->m6F8);
     cMtx_XrotM(*calc_mtx, i_this->m6FA);
     cMtx_YrotM(*calc_mtx, -i_this->m6F8);
-    cMtx_XrotM(*calc_mtx, i_this->actor.shape_angle.x);
-    cMtx_ZrotM(*calc_mtx, i_this->actor.shape_angle.z);
+    cMtx_XrotM(*calc_mtx, i_this->shape_angle.x);
+    cMtx_ZrotM(*calc_mtx, i_this->shape_angle.z);
 
     i_this->mpModel->setBaseTRMtx(*calc_mtx);
 
@@ -473,15 +473,15 @@ static BOOL daMflft_Execute(mflft_class* i_this) {
         MtxPush();
 
         cXyz sp08;
-        sp08.x = i_this->actor.scale.x * xd[i];
+        sp08.x = i_this->scale.x * xd[i];
         sp08.y = 15.0f;
-        sp08.z = i_this->actor.scale.z * zd[i];
+        sp08.z = i_this->scale.z * zd[i];
         MtxPosition(&sp08, &i_this->m2D8[i]);
 
         if (i_this->m6F6 != 0) {
             i_this->m6F6--;
             i_this->m2FC[i] = i_this->m2D8[i];
-            i_this->m2FC[i].y = i_this->actor.home.pos.y + 2000.0f + REG0_F(19);
+            i_this->m2FC[i].y = i_this->home.pos.y + 2000.0f + REG0_F(19);
         }
 
         if (i_this->m6EC[i] != 0) {
@@ -520,7 +520,7 @@ static BOOL daMflft_Delete(mflft_class* i_this) {
     dComIfG_resDeleteDemo(&i_this->mPhase, "Mflft");
 
 #if VERSION > VERSION_DEMO
-    if (i_this->actor.heap != NULL)
+    if (i_this->heap != NULL)
 #endif
     {
         dComIfG_Bgsp()->Release(i_this->pm_bgw);
@@ -592,7 +592,7 @@ static cPhs_State daMflft_Create(fopAc_ac_c* a_this) {
 
     mflft_class* i_this = (mflft_class*)a_this;
 
-    fopAcM_ct(&i_this->actor, mflft_class);
+    fopAcM_ct(i_this, mflft_class);
 
     cPhs_State PVar2 = dComIfG_resLoad(&i_this->mPhase, "Mflft");
     if (PVar2 == cPhs_COMPLEATE_e) {
