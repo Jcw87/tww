@@ -94,7 +94,7 @@ int main(int argc, char* argv[]) {
         SetConsoleOutputCP(codepage);
     }
 #endif
-    OSInitRAM(0);
+    OSInitRAM(1024 * 1024 * 48);
     OSInit();
 
     AuroraConfig config = {};

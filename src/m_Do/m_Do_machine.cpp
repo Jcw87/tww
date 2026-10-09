@@ -514,12 +514,14 @@ bool mDoMch_Create() {
 
     uintptr_t arenaHi = (uintptr_t)OSGetArenaHi();
     uintptr_t arenaLo = (uintptr_t)OSGetArenaLo();
+#if !TARGET_PC
     if (arenaHi > 0x81800000 && arenaHi - 0x1800000 > arenaLo) {
         OSSetArenaHi((void*)(arenaHi - 0x1800000));
     }
+#endif
 
     u32 arenaSize = ((uintptr_t)OSGetArenaHi() - (uintptr_t)OSGetArenaLo()) - 0xF0;
-#if VERSION != VERSION_PAL
+#if VERSION != VERSION_PAL && !TARGET_PC
     if (OSGetConsoleSimulatedMemSize() >= 0x3000000) {
         arenaSize -= DEMO_SELECT(0x800000, 0x1000000);
     }
@@ -546,6 +548,11 @@ bool mDoMch_Create() {
     archiveHeapSize = 0xA51400; // 10565 KiB
 #endif
     commandHeapSize = 0x1000; // 4 KiB
+#if TARGET_PC
+    gameHeapSize *= 2;
+    archiveHeapSize *= 2;
+    commandHeapSize *= 2;
+#endif
     arenaSize -= archiveHeapSize + gameHeapSize + commandHeapSize;
 
     JFWSystem::setSysHeapSize(arenaSize);

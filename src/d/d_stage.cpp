@@ -352,6 +352,10 @@ int dStage_roomControl_c::getDarkMode() {
 
 /* 80041370-800413D4       .text createMemoryBlock__20dStage_roomControl_cFiUl */
 JKRExpHeap* dStage_roomControl_c::createMemoryBlock(int i_blockIdx, u32 i_heapSize) {
+#if TARGET_PC
+    i_heapSize *= 2;
+#endif
+
 #if VERSION > VERSION_DEMO
     archiveHeap->getCurrentGroupId();
 #endif
