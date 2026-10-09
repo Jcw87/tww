@@ -1932,7 +1932,7 @@ void dMesg_waitProc(sub_mesg_class* i_Msg) {
                 headerFlag = false;
             }
         }
-        i_Msg->field_0x100 = JKRCreateExpHeap(0xa32d, i_Msg->heap, false);
+        i_Msg->field_0x100 = JKRCreateExpHeap(HEAP_SIZE(0xa32d, 0xb000), i_Msg->heap, false);
         JKRHeap* heap = mDoExt_setCurrentHeap(i_Msg->field_0x100);
         for (int i = 0; i < 4; i++) {
             if (!i_Msg->text[i]) {
@@ -2197,7 +2197,7 @@ static BOOL dMsg_Delete(sub_mesg_class* i_Msg) {
 /* 801E7130-801E7290       .text dMsg_Create__FP9msg_class */
 static cPhs_State dMsg_Create(msg_class* i_this) {
     sub_mesg_class* i_Msg = (sub_mesg_class*)i_this;
-    i_Msg->heap = fopMsgM_createExpHeap(0xb6b5);
+    i_Msg->heap = fopMsgM_createExpHeap(HEAP_SIZE(0xb6b5, 0xC000));
     JUT_ASSERT(3864, i_Msg->heap != NULL);
     JKRHeap* oldHeap = mDoExt_setCurrentHeap(i_Msg->heap);
 

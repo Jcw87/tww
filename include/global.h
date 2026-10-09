@@ -95,6 +95,12 @@ extern void __sync();
 };
 #endif
 
+#if TARGET_PC
+#define HEAP_SIZE(original, pc) (pc)
+#else
+#define HEAP_SIZE(original, pc) (original)
+#endif
+
 #define VERSION_DEMO 0
 #define VERSION_JPN 1
 #define VERSION_USA 2
