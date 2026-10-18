@@ -120,7 +120,7 @@ bool JKRCompArchive::open(s32 entryNum) {
             {
                 JKRDvdToMainRam(entryNum, (u8 *)mArcInfoBlock, EXPAND_SWITCH_UNKNOWN1, (uintptr_t)arcHeader->file_data_offset + mSizeOfMemPart,
                                 NULL, JKRDvdRipper::ALLOC_DIRECTION_FORWARD, 0x20, NULL);
-                field_0x64 = (uintptr_t)mArcInfoBlock + arcHeader->file_data_offset;
+                field_0x64 = (u8*)mArcInfoBlock + arcHeader->file_data_offset;
 
                 if (mSizeOfAramPart != 0) {
                     mAramPart = (JKRAramBlock*)JKRAllocFromAram(mSizeOfAramPart, JKRAramHeap::HEAD);
@@ -167,7 +167,7 @@ bool JKRCompArchive::open(s32 entryNum) {
                     else {
                         // arcHeader + 1 should lead to 0x20, which is the data after the header
                         JKRHeap::copyMemory((u8 *)mArcInfoBlock, arcHeader + 1, (arcHeader->file_data_offset + mSizeOfMemPart));
-                        field_0x64 = (uintptr_t)mArcInfoBlock + arcHeader->file_data_offset;
+                        field_0x64 = (u8*)mArcInfoBlock + arcHeader->file_data_offset;
                         if (mSizeOfAramPart != 0) {
                             mAramPart = (JKRAramBlock*)JKRAllocFromAram(mSizeOfAramPart, JKRAramHeap::HEAD);
                             if(mAramPart == NULL) {
@@ -243,7 +243,7 @@ void* JKRCompArchive::fetchResource(SDIFileEntry* fileEntry, u32* pSize) {
     if (fileEntry->data == NULL) {
         u32 flag = fileEntry->type_flags_and_name_offset >> 0x18;
         if(flag & 0x10) {
-            fileEntry->data = (void *)(field_0x64 + fileEntry->data_offset);
+            fileEntry->data = field_0x64 + fileEntry->data_offset;
             *pSize = size;
         }
         else if (flag & 0x20) {
@@ -300,7 +300,7 @@ void* JKRCompArchive::fetchResource(void* data, u32 compressedSize, SDIFileEntry
         }
     else {
         if (fileFlag & 0x10) {
-            size = JKRMemArchive::fetchResource_subroutine((u8 *)(field_0x64 + fileEntry->data_offset), alignedSize, (u8 *)data,
+            size = JKRMemArchive::fetchResource_subroutine(field_0x64 + fileEntry->data_offset, alignedSize, (u8 *)data,
                                                            compressedSize & ~31, compression);
         }
         else if (fileFlag & 0x20) {

@@ -24,7 +24,7 @@ public:
 private:
     /* 0x00 */  // vtable
     /* 0x04 */  // JKRArchive
-    /* 0x64 */ int field_0x64;
+    /* 0x64 */ u8* field_0x64;
     /* 0x68 */ JKRAramBlock* mAramPart;
     /* 0x6C */ int field_0x6c;
     /* 0x70 */ JKRDvdFile* mDvdFile;

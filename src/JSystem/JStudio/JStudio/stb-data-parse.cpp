@@ -22,12 +22,12 @@ void TParse_TSequence::getData(TParse_TSequence::TData* pData) const {
     pData->type = type;
     pData->param = param;
     if (type != 0) {
-        const void* next = (const void*)((int)getRaw() + 4);
+        const void* next = (const u8*)getRaw() + 4;
         if (type <= 0x7f) {
             pData->next = next;
         } else {
             pData->content = next;
-            pData->next = (const void*)((int)next + param);
+            pData->next = (const u8*)next + param;
         }
     }
 }
@@ -43,7 +43,7 @@ void TParse_TParagraph::getData(TParse_TParagraph::TData* pData) const {
         pData->next = next;
     } else {
         pData->content = next;
-        pData->next = (const void*)((int)next + align_roundUp(result, 4));
+        pData->next = (const u8*)next + align_roundUp(result, 4);
     }
 }
 

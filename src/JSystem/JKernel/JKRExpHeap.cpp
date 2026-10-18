@@ -270,7 +270,7 @@ void* JKRExpHeap::allocFromTail(u32 size, int align) {
     CMemBlock* foundBlock = NULL;
     CMemBlock* newBlock = NULL;
     u32 usedSize;
-    u32 start;
+    uintptr_t start;
 
     for (CMemBlock* block = mTailFreeList; block; block = block->mPrev) {
         start = ALIGN_PREV((uintptr_t)block->getContent() + block->size - size, align);
@@ -882,7 +882,7 @@ bool JKRExpHeap::dump_sort_by_address()
 
     CMemBlock* block;
     for (CMemBlock* nextBlock = NULL; ; nextBlock = block) {
-        block = (CMemBlock*)0xffffffff;
+        block = (CMemBlock*)-1;
 
         for (CMemBlock* iterBlock = mHeadFreeList; iterBlock; iterBlock = iterBlock->getNextBlock()) {
             if (nextBlock < iterBlock && iterBlock < block) {
@@ -896,7 +896,7 @@ bool JKRExpHeap::dump_sort_by_address()
             }
         }
 
-        if (block == (CMemBlock*)0xffffffff) {
+        if (block == (CMemBlock*)-1) {
             break;
         }
 

@@ -302,7 +302,7 @@ u32 JKRAramArchive::getExpandedResSize(const void* ptr) const {
     }
 
     u8 tmpBuf[0x40];
-    u8* buf = (u8*)ALIGN_PREV((s32)&tmpBuf[0x1F], 0x20);
+    u8* buf = (u8*)ALIGN_PREV((uintptr_t)&tmpBuf[0x1F], 0x20);
     JKRAramToMainRam(entry->data_offset + mBlock->getAddress(), buf, 0x20,
                      EXPAND_SWITCH_UNKNOWN0, 0, NULL, -1, NULL);
     expandSize = JKRDecompExpandSize(buf);
