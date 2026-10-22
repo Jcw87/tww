@@ -33,6 +33,10 @@
 #include "JSystem/JUtility/JUTXfb.h"
 #include "dolphin/base/PPCArch.h"
 
+#if TARGET_PC
+#include "port/imgui.hpp"
+#endif
+
 JUTFader * mDoGph_gInf_c::mFader;
 ResTIMG * mDoGph_gInf_c::mFrameBufferTimg;
 GXTexObj mDoGph_gInf_c::mFrameBufferTexObj;
@@ -1567,6 +1571,9 @@ void setLight() {
 
 /* 8000AF2C-8000BC38       .text mDoGph_Painter__Fv */
 bool mDoGph_Painter() {
+#if TARGET_PC
+    ImGui_Draw();
+#endif
 #if VERSION > VERSION_DEMO
     JFWDisplay::getManager()->setFader(mDoGph_gInf_c::mFader);
 #endif

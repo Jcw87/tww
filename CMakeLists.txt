@@ -100,6 +100,7 @@ target_link_libraries(dolphin_sdk PUBLIC ${AURORA_SDL3_TARGET})
 add_executable(tww
     src/port/byteswap.natvis
     src/port/main.cpp
+    src/port/imgui.cpp
     src/port/time.cpp
     src/m_Do/m_Do_main.cpp
     src/m_Do/m_Do_printf.cpp
@@ -369,6 +370,7 @@ target_link_libraries(tww
     JMath
     tww_rel
     dolphin_sdk
+    imgui
 )
 target_precompile_headers(tww PRIVATE "include/d/dolzel.h")
 

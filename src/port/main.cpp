@@ -1,6 +1,7 @@
 
 #include <dolphin/os/OS.h>
 #include <dolphin/gx/GXGeometry.h>
+#include "port/imgui.hpp"
 #include "aurora.h"
 #include <string>
 
@@ -86,6 +87,10 @@ static void log_callback(AuroraLogLevel level, const char* module, const char* m
     }
 }
 
+static void gui_callback(const AuroraWindowSize* size) {
+    ImGuiEngine_Initialize(size->scale);
+}
+
 int main(int argc, char* argv[]) {
 #ifdef _WIN32
     //const UINT codepage = 932;
@@ -105,6 +110,7 @@ int main(int argc, char* argv[]) {
     config.windowWidth = 640;
     config.windowHeight = 480;
     config.logCallback = &log_callback;
+    config.imGuiInitCallback = &gui_callback;
     config.gxProcessingMode = GX_PROCESSING_INLINE;
     AuroraInfo initInfo = aurora_initialize(argc, argv, &config);
 
