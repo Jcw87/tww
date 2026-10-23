@@ -94,7 +94,7 @@ JKRThreadSwitch* JKRThreadSwitch::createManager(JKRHeap* heap) {
         heap = JKRGetCurrentHeap();
     }
 
-    sManager = new (heap, 0) JKRThreadSwitch(heap);
+    sManager = JKR_NEW_ARGS(heap, 0) JKRThreadSwitch(heap);
     return sManager;
 }
 

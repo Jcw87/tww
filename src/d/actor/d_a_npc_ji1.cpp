@@ -4653,7 +4653,7 @@ cPhs_State daNpc_Ji1_c::_create() {
 /* 0000E864-0000F324       .text CreateHeap__11daNpc_Ji1_cFv */
 BOOL daNpc_Ji1_c::CreateHeap() {
     J3DModelData* modelData = (J3DModelData*)(dComIfG_getObjectRes("Ji", dRes_INDEX_JI_BDL_JI_e));
-    mpOrcaMorf = new mDoExt_McaMorf(
+    mpOrcaMorf = JKR_NEW mDoExt_McaMorf(
         modelData,
         NULL, NULL,
         (J3DAnmTransformKey*)(dComIfG_getObjectRes("Ji", dRes_INDEX_JI_BCK_WAIT01_e)),
@@ -4686,7 +4686,7 @@ BOOL daNpc_Ji1_c::CreateHeap() {
     handRJointNo = modelData->getJointName()->getIndex("handR");
     JUT_ASSERT(VERSION_SELECT(5513, 5562, 5562, 5574), handRJointNo >= 0);
 
-    mpSpearMorf = new mDoExt_McaMorf(
+    mpSpearMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)(dComIfG_getObjectRes("Ji", dRes_INDEX_JI_BDL_JI_YARI_e)),
         NULL, NULL,
         (J3DAnmTransformKey*)(dComIfG_getObjectRes("Ji", dRes_INDEX_JI_BCK_JIYARI_TATEATTACK_e)),

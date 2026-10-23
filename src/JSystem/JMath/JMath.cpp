@@ -6,6 +6,7 @@
 #include "JSystem/JSystem.h" // IWYU pragma: keep
 
 #include "JSystem/JMath/JMath.h"
+#include "JSystem/JKernel/JKRHeap.h"
 #include "JSystem/JMath/JMATrigonometric.h"
 #include "math.h"
 #include "dolphin/types.h"
@@ -24,7 +25,7 @@ bool JMANewSinTable(u8 numBits) {
         jmaSinTableSize *= 2;
     }
 
-    jmaSinTable = new f32[jmaSinTableSize + (jmaSinTableSize / 4)];
+    jmaSinTable = JKR_NEW_ARRAY(f32, jmaSinTableSize + (jmaSinTableSize / 4));
     if (!jmaSinTable) {
         return false;
     }

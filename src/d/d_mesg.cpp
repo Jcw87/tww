@@ -49,9 +49,9 @@ void dMesg_fontsizeCenter(sub_mesg_class*, int, int, int, int);
 
 /* 801DFEE4-801E000C       .text _create__15dMesg_outFont_cFv */
 void dMesg_outFont_c::_create() {
-    icon = new J2DPicture("font_07_02.bti");
+    icon = JKR_NEW J2DPicture("font_07_02.bti");
     JUT_ASSERT(117, icon != NULL);
-    kage = new J2DPicture("font_07_02.bti");
+    kage = JKR_NEW J2DPicture("font_07_02.bti");
     JUT_ASSERT(119, kage != NULL);
 
     fopMsgM_blendInit(icon,"font_00.bti");
@@ -61,8 +61,8 @@ void dMesg_outFont_c::_create() {
 
 /* 801E000C-801E0074       .text _delete__15dMesg_outFont_cFv */
 void dMesg_outFont_c::_delete() {
-    delete icon;
-    delete kage;
+    JKR_DELETE(icon);
+    JKR_DELETE(kage);
 }
 
 /* 801E0074-801E0120       .text _initialize__15dMesg_outFont_cFv */
@@ -1318,7 +1318,7 @@ void dMesg_screenData_c::dotAnime() {
 void dMesg_screenDataTalk_c::createScreen() {
     JUtility::TColor white(30, 30, 30, 215);
     JUtility::TColor black(30, 30, 75, 0);
-    scrn = new J2DScreen();
+    scrn = JKR_NEW J2DScreen();
     JUT_ASSERT(2145, scrn != NULL);
 #if VERSION == VERSION_DEMO
     scrn->set("hukidashi_d00.blo", dComIfGp_getMsgArchive());
@@ -1481,7 +1481,7 @@ void dMesg_screenDataTalk_c::draw() {
 
 /* 801E40CC-801E48D0       .text createScreen__22dMesg_screenDataItem_cFv */
 void dMesg_screenDataItem_c::createScreen() {
-    scrn = new J2DScreen();
+    scrn = JKR_NEW J2DScreen();
     JUT_ASSERT(2421, scrn != NULL);
 
     texBuffer = (ResTIMG*)mHeap->alloc(0xc00, 0x20);
@@ -1568,7 +1568,7 @@ void dMesg_screenDataItem_c::changeFont(JUTFont* font) {
 
 /* 801E4930-801E49B4       .text deleteScreen__22dMesg_screenDataItem_cFv */
 void dMesg_screenDataItem_c::deleteScreen() {
-    delete scrn;
+    JKR_DELETE(scrn);
     if (field_0x3e4) {
         field_0x3e4->becomeInvalidEmitter();
         field_0x3e4->quitImmortalEmitter();
@@ -1756,14 +1756,14 @@ void dMesg_screenDataItem_c::cornerMove() {
 
 /* 801E5938-801E5ADC       .text dMesg_initialize__FP14sub_mesg_class */
 void dMesg_initialize(sub_mesg_class* i_Msg) {
-    dMesg_gpResourceContainer = new JMessage::TResourceContainer();
+    dMesg_gpResourceContainer = JKR_NEW JMessage::TResourceContainer();
     JUT_ASSERT(2901, dMesg_gpResourceContainer != NULL);
 
     dMesg_gpControl = dComIfGp_demo_get()->getMesgControl();
-    dMesg_gpSequenceProcessor = new dMesg_tSequenceProcessor(dMesg_gpControl);
+    dMesg_gpSequenceProcessor = JKR_NEW dMesg_tSequenceProcessor(dMesg_gpControl);
     JUT_ASSERT(2906, dMesg_gpSequenceProcessor != NULL);
 
-    dMesg_gpRenderingProcessor = new dMesg_tRenderingProcessor(dMesg_gpControl);
+    dMesg_gpRenderingProcessor = JKR_NEW dMesg_tRenderingProcessor(dMesg_gpControl);
     JUT_ASSERT(2909, dMesg_gpRenderingProcessor != NULL);
 
     dMesg_gpControl->mResourceContainer = dMesg_gpResourceContainer;
@@ -1777,9 +1777,9 @@ void dMesg_initialize(sub_mesg_class* i_Msg) {
 
 /* 801E5ADC-801E5B58       .text dMesg_finalize__Fv */
 void dMesg_finalize() {
-    delete dMesg_gpResourceContainer;
-    delete dMesg_gpSequenceProcessor;
-    delete dMesg_gpRenderingProcessor;
+    JKR_DELETE(dMesg_gpResourceContainer);
+    JKR_DELETE(dMesg_gpSequenceProcessor);
+    JKR_DELETE(dMesg_gpRenderingProcessor);
 }
 
 /* 801E5C8C-801E5E14       .text dMesg_parse__Fv */
@@ -1793,7 +1793,7 @@ int dMesg_parse() {
     header2 = JKRGetResource('ROOT', "zel_01.bmg", dComIfGp_getMsgDt2Archive());
     JUT_ASSERT(2961, header2 != NULL);
 #endif
-    oParse = new JMessage::TParse(dMesg_gpResourceContainer);
+    oParse = JKR_NEW JMessage::TParse(dMesg_gpResourceContainer);
     JUT_ASSERT(2964, oParse != NULL);
 
     oParse->parse(header, 0);
@@ -1943,9 +1943,9 @@ void dMesg_waitProc(sub_mesg_class* i_Msg) {
         if (!i_Msg->screen) {
             JMSMesgEntry_c stack_3c = *(JMSMesgEntry_c*)dMesg_gpControl->getMessageEntry(nowMesgCode);
             if (stack_3c.mTextboxType == 9) {
-                i_Msg->screen = new dMesg_screenDataItem_c();
+                i_Msg->screen = JKR_NEW dMesg_screenDataItem_c();
             } else {
-                i_Msg->screen = new dMesg_screenDataTalk_c();
+                i_Msg->screen = JKR_NEW dMesg_screenDataTalk_c();
             }
             JUT_ASSERT(3317, i_Msg->screen != NULL);
             i_Msg->screen->setMesg(i_Msg);
@@ -1969,7 +1969,7 @@ void dMesg_waitProc(sub_mesg_class* i_Msg) {
         }
         for (int i = 0; i < 18; i++) {
             if (!i_Msg->outfont[i]) {
-                i_Msg->outfont[i] = new dMesg_outFont_c();
+                i_Msg->outfont[i] = JKR_NEW dMesg_outFont_c();
                 JUT_ASSERT(3360, i_Msg->outfont[i]);
                 i_Msg->outfont[i]->_create();
             }
@@ -2075,13 +2075,13 @@ void dMesg_closeProc(sub_mesg_class* i_Msg) {
 #else
         dComIfGp_getDmsgArchive()->removeResourceAll();
 #endif
-        delete (void*)i_Msg->screen;
+        JKR_DELETE((void*)i_Msg->screen);
         i_Msg->screen = NULL;
         dMesg_reset();
         for (int i = 0; i < 18; i++) {
             if (i_Msg->outfont[i]) {
                 i_Msg->outfont[i]->_delete();
-                delete (void*)i_Msg->outfont[i];
+                JKR_DELETE((void*)i_Msg->outfont[i]);
                 i_Msg->outfont[i] = NULL;
             }
         }
@@ -2157,13 +2157,13 @@ static BOOL dMsg_Delete(sub_mesg_class* i_Msg) {
 #else
             dComIfGp_getDmsgArchive()->removeResourceAll();
 #endif
-            delete (void*)i_Msg->screen;
+            JKR_DELETE((void*)i_Msg->screen);
             i_Msg->screen = NULL;
         }
         for (int i = 0; i < 18; i++) {
             if (i_Msg->outfont[i]) {
                 i_Msg->outfont[i]->_delete();
-                delete (void*)i_Msg->outfont[i];
+                JKR_DELETE((void*)i_Msg->outfont[i]);
                 i_Msg->outfont[i] = NULL;
             }
         }
@@ -2187,7 +2187,7 @@ static BOOL dMsg_Delete(sub_mesg_class* i_Msg) {
         JKRRemoveResource(header2, NULL);
     }
     if (oParse) {
-        delete oParse;
+        JKR_DELETE(oParse);
     }
     mDoExt_setCurrentHeap(heap);
     fopMsgM_destroyExpHeap(i_Msg->heap);

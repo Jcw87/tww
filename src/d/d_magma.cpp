@@ -166,7 +166,7 @@ void dMagma_floor_c::update() {
 dMagma_ball_c** dMagma_floor_c::create(cXyz& pos, cXyz& scale, s16 pathNo, u8 ballNum, int roomNo) {
     mPos.set(pos.x, pos.y + 5.0f, pos.z);
 
-    mpBalls = new dMagma_ball_c*[ballNum];
+    mpBalls = JKR_NEW_ARRAY(dMagma_ball_c*, ballNum);
     if (mpBalls == NULL)
         return NULL;
 
@@ -175,7 +175,7 @@ dMagma_ball_c** dMagma_floor_c::create(cXyz& pos, cXyz& scale, s16 pathNo, u8 ba
     if (pathNo < 0) {
         dMagma_ball_c** ball = mpBalls;
         for (u8 i = 0; i < mBallNum; i++) {
-            *ball = new dMagma_ballBoss_c();
+            *ball = JKR_NEW dMagma_ballBoss_c();
             if (*ball == NULL) {
                 mBallNum = i;
             } else {
@@ -186,7 +186,7 @@ dMagma_ball_c** dMagma_floor_c::create(cXyz& pos, cXyz& scale, s16 pathNo, u8 ba
     } else {
         dMagma_ball_c** ball = mpBalls;
         for (u8 i = 0; i < mBallNum; i++) {
-            *ball = new dMagma_ballPath_c();
+            *ball = JKR_NEW dMagma_ballPath_c();
             if (*ball == NULL) {
                 mBallNum = i;
             } else {
@@ -212,9 +212,9 @@ dMagma_ball_c** dMagma_floor_c::create(cXyz& pos, cXyz& scale, s16 pathNo, u8 ba
 void dMagma_floor_c::remove() {
     dMagma_ball_c** ball = mpBalls;
     for (int i = 0; i < mBallNum; ball++, i++)
-        delete *ball;
+        JKR_DELETE(*ball);
 
-    delete mpBalls;
+    JKR_DELETE(mpBalls);
     mpBalls = NULL;
 }
 

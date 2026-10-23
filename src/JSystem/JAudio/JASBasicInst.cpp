@@ -26,9 +26,9 @@ JASystem::TBasicInst::TBasicInst() {
 
 /* 80284888-80284914       .text __dt__Q28JASystem10TBasicInstFv */
 JASystem::TBasicInst::~TBasicInst() {
-    delete[] mKeymap;
-    delete[] mEffect;
-    delete[] mOsc;
+    JKR_DELETE_ARRAY(mKeymap);
+    JKR_DELETE_ARRAY(mEffect);
+    JKR_DELETE_ARRAY(mOsc);
 }
 
 /* 80284914-80284B4C       .text getParam__Q28JASystem10TBasicInstCFiiPQ28JASystem10TInstParam */
@@ -95,21 +95,21 @@ int JASystem::TBasicInst::getKeymapIndex(int index) const {
 
 /* 80284B54-80284C10       .text setKeyRegionCount__Q28JASystem10TBasicInstFUl */
 void JASystem::TBasicInst::setKeyRegionCount(u32 num) {
-    delete[] mKeymap;
-    mKeymap = new (TBank::getCurrentHeap(), 0) TKeymap[num];
+    JKR_DELETE_ARRAY(mKeymap);
+    mKeymap = JKR_NEW_ARRAY_ARGS(TKeymap, num, TBank::getCurrentHeap(), 0);
     JUT_ASSERT(140, mKeymap != NULL);
     mKeyRegionCount = num;
 }
 
 /* 80284C10-80284CC4       .text setEffectCount__Q28JASystem10TBasicInstFUl */
 void JASystem::TBasicInst::setEffectCount(u32 num) {
-    delete[] mEffect;
+    JKR_DELETE_ARRAY(mEffect);
     mEffectCount = num;
     if (num == 0) {
         mEffect = NULL;
         return;
     }
-    mEffect = new (TBank::getCurrentHeap(), 0) TInstEffect*[num];
+    mEffect = JKR_NEW_ARRAY_ARGS(TInstEffect*, num, TBank::getCurrentHeap(), 0);
     JUT_ASSERT(157, mEffect != NULL);
     Calc::bzero(mEffect, num * 4);
 }
@@ -123,13 +123,13 @@ void JASystem::TBasicInst::setEffect(int index, TInstEffect* effect) {
 
 /* 80284D7C-80284E30       .text setOscCount__Q28JASystem10TBasicInstFUl */
 void JASystem::TBasicInst::setOscCount(u32 num) {
-    delete[] mOsc;
+    JKR_DELETE_ARRAY(mOsc);
     mOscCount = num;
     if (num == 0) {
         mOsc = NULL;
         return;
     }
-    mOsc = new (TBank::getCurrentHeap(), 0) TOscillator::Osc_*[num];
+    mOsc = JKR_NEW_ARRAY_ARGS(TOscillator::Osc_*, num, TBank::getCurrentHeap(), 0);
     JUT_ASSERT(193, mOsc != NULL);
     Calc::bzero(mOsc, num * 4);
 }
@@ -152,13 +152,13 @@ JASystem::TBasicInst::TKeymap* JASystem::TBasicInst::getKeyRegion(int index) {
 
 /* 80284F70-80284FC4       .text __dt__Q38JASystem10TBasicInst7TKeymapFv */
 JASystem::TBasicInst::TKeymap::~TKeymap() {
-    delete[] mVelomap;
+    JKR_DELETE_ARRAY(mVelomap);
 }
 
 /* 80284FC4-80285058       .text setVeloRegionCount__Q38JASystem10TBasicInst7TKeymapFUl */
 void JASystem::TBasicInst::TKeymap::setVeloRegionCount(u32 num) {
-    delete[] mVelomap;
-    mVelomap = new (TBank::getCurrentHeap(), 0) JASystem::TBasicInst::TVeloRegion[num];
+    JKR_DELETE_ARRAY(mVelomap);
+    mVelomap = JKR_NEW_ARRAY_ARGS(JASystem::TBasicInst::TVeloRegion, num, TBank::getCurrentHeap(), 0);
     JUT_ASSERT(244, mVelomap != NULL);
     mVeloRegionCount = num;
 }

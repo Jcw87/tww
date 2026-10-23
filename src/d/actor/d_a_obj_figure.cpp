@@ -483,7 +483,7 @@ BOOL daObjFigure_c::createHeap() {
             return false;
         }
 
-        mpBrkAnm = new mDoExt_brkAnm;
+        mpBrkAnm = JKR_NEW mDoExt_brkAnm;
         if(mpBrkAnm == NULL) {
             return false;
         }
@@ -498,7 +498,7 @@ BOOL daObjFigure_c::createHeap() {
             DEMO_SELECT(l_arcname_tbl[roomId], arcname),
             DEMO_SELECT(dRes_ID_FIGURE2_BDL_VF_064L_e, dRes_ID_FIGURE2B_BDL_VF_064L_e)
         );
-        mpMorf = new mDoExt_McaMorf(
+        mpMorf = JKR_NEW mDoExt_McaMorf(
             pPedestalData,
             NULL, NULL,
             (J3DAnmTransformKey*)dComIfG_getObjectIDRes(DEMO_SELECT(l_arcname_tbl[roomId], arcname), dRes_ID_FIGURE2_BCK_VF_064L_e),
@@ -517,7 +517,7 @@ BOOL daObjFigure_c::createHeap() {
         }
 
 #if VERSION > VERSION_DEMO
-        J3DSkinDeform* pDeform = new J3DSkinDeform;
+        J3DSkinDeform* pDeform = JKR_NEW J3DSkinDeform;
         if(pDeform == NULL) {
             return false;
         }

@@ -27,7 +27,7 @@ JKRAram* JKRAram::sAramObject;
 /* 802B42C4-802B4360       .text create__7JKRAramFUlUllll */
 JKRAram* JKRAram::create(u32 aram_audio_buffer_size, u32 aram_audio_graph_size, s32 stream_priority, s32 decomp_priority, s32 piece_priority) {
     if (!sAramObject) {
-        sAramObject = new (JKRHeap::getSystemHeap(), 0)
+        sAramObject = JKR_NEW_ARGS(JKRHeap::getSystemHeap(), 0)
             JKRAram(aram_audio_buffer_size, aram_audio_graph_size, piece_priority);
     }
 
@@ -69,14 +69,14 @@ JKRAram::JKRAram(u32 audio_buffer_size, u32 audio_graph_size, s32 priority) : JK
     OSReport("ARAM graph area %08x: %08x\n", mGraphMemoryPtr, mGraphMemorySize);
     OSReport("ARAM  user area %08x: %08x\n", mAramMemoryPtr, mAramMemorySize);
 
-    mAramHeap = new (JKRHeap::getSystemHeap(), 0) JKRAramHeap(mGraphMemoryPtr, mGraphMemorySize);
+    mAramHeap = JKR_NEW_ARGS(JKRHeap::getSystemHeap(), 0) JKRAramHeap(mGraphMemoryPtr, mGraphMemorySize);
 }
 
 /* 802B44D8-802B4568       .text __dt__7JKRAramFv */
 JKRAram::~JKRAram() {
     sAramObject = NULL;
     if (mAramHeap) {
-        delete mAramHeap;
+        JKR_DELETE(mAramHeap);
     }
 }
 
@@ -93,7 +93,7 @@ void* JKRAram::run() {
         OSReceiveMessage(&sMessageQueue, (OSMessage*)&message, OS_MESSAGE_BLOCK);
         result = message->field_0x00;
         command = message->command;
-        delete message;
+        JKR_DELETE(message);
 
         switch (result) {
         case 1:

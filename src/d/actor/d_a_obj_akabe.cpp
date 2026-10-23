@@ -30,7 +30,7 @@ BOOL Act_c::solidHeapCB(fopAc_ac_c* i_this) {
 u8 Act_c::create_heap() {
     bool ret = false;
 
-    mpBgW = new dBgW();
+    mpBgW = JKR_NEW dBgW();
     if (mpBgW != NULL) {
         static const s16 dzb[4] = { dRes_INDEX_AKABE_DZB_AKABE_e, dRes_INDEX_AKABED_DZB_AKABED_e, dRes_INDEX_AKABEK_DZB_AKABEK_e, dRes_INDEX_NBOX_DZB_NBOX_e, };
         cBgD_t * bgw_data = (cBgD_t*)dComIfG_getObjectRes(M_arcname[mType], dzb[mType]);

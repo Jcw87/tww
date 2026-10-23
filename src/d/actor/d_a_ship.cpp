@@ -4326,7 +4326,7 @@ BOOL daShip_c::createHeap() {
     modelData = (J3DModelData *)dComIfG_getObjectRes(l_arcName, dRes_INDEX_SHIP_BDL_FN_BODY_e);
     JUT_ASSERT(DEMO_SELECT(6969, 7004), modelData != NULL);
 
-    mpBodyAnm = new mDoExt_McaMorf(
+    mpBodyAnm = JKR_NEW mDoExt_McaMorf(
         modelData, NULL, NULL,
         (J3DAnmTransformKey*)dComIfG_getObjectRes(l_arcName, m0392),
         J3DFrameCtrl::EMode_NONE, 1.0f, 0, -1, 0, NULL,
@@ -4335,7 +4335,7 @@ BOOL daShip_c::createHeap() {
 
     if (mpBodyAnm && mpBodyAnm->getModel()) {
         J3DModel* pModel = mpBodyAnm->getModel();
-        J3DSkinDeform* skinDeform = new J3DSkinDeform();
+        J3DSkinDeform* skinDeform = JKR_NEW J3DSkinDeform();
         if (skinDeform == NULL) {
             return FALSE;
         }
@@ -4377,7 +4377,7 @@ BOOL daShip_c::createHeap() {
 
     m03B4 = dRes_INDEX_SHIP_BCK_FN_LOOK_L_e;
 
-    mpHeadAnm = new mDoExt_McaMorf(
+    mpHeadAnm = JKR_NEW mDoExt_McaMorf(
         modelData, NULL, NULL,
         (J3DAnmTransformKey*)dComIfG_getObjectRes(l_arcName, dRes_INDEX_SHIP_BCK_FN_LOOK_L_e),
         J3DFrameCtrl::EMode_NONE, 0.0f, 0, -1, 0, NULL,

@@ -1419,7 +1419,7 @@ static BOOL daKamome_Delete(kamome_class* i_this) {
 static BOOL createHeap(fopAc_ac_c* a_this) {
     kamome_class* i_this = (kamome_class*)a_this;
 
-    i_this->mpMorf = new mDoExt_McaMorf(
+    i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Kamome", dRes_INDEX_KAMOME_BDL_KA_e),
         NULL,
         NULL,

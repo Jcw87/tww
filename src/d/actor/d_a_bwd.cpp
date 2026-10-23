@@ -2247,7 +2247,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     J3DModelData* modelData;
     u16 fileIndex;
 
-    i_this->mpHeadMorf = new mDoExt_McaMorf(
+    i_this->mpHeadMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Bwd", dRes_INDEX_BWD_BDL_BWD_e),
         NULL,
         NULL,
@@ -2268,7 +2268,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     if (i_this->m02CC == NULL) {
         return FALSE;
     }
-    i_this->mpHeadBrkAnm = new mDoExt_brkAnm();
+    i_this->mpHeadBrkAnm = JKR_NEW mDoExt_brkAnm();
     if (!i_this->mpHeadBrkAnm->init(
             i_this->mpHeadMorf->getModel()->getModelData(),
             (J3DAnmTevRegKey*)dComIfG_getObjectRes("Bwd", dRes_INDEX_BWD_BRK_BWD_e),
@@ -2308,7 +2308,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         if (i_this->m0324[i] == 0) {
             return FALSE;
         }
-        i_this->mpBodyMorf[i] = new mDoExt_brkAnm();
+        i_this->mpBodyMorf[i] = JKR_NEW mDoExt_brkAnm();
         if (!i_this->mpBodyMorf[i]->init(modelData, (J3DAnmTevRegKey*)dComIfG_getObjectRes("Bwd", fileIndex), true, J3DFrameCtrl::EMode_NONE)) {
             return FALSE;
         }
@@ -2319,7 +2319,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     if (i_this->mpTriforcePlatformModel == NULL) {
         return FALSE;
     }
-    i_this->mpBgW2 = new dBgW();
+    i_this->mpBgW2 = JKR_NEW dBgW();
     if (i_this->mpBgW2 == NULL) {
         return FALSE;
     }
@@ -2328,7 +2328,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     }
     i_this->mpBgW2->SetCrrFunc(dBgS_MoveBGProc_Typical);
     for (int i = 0; i < 2; i++) {
-        i_this->mpBgW1[i] = new dBgW();
+        i_this->mpBgW1[i] = JKR_NEW dBgW();
         if (i_this->mpBgW1[i] == 0) {
             return FALSE;
         }
@@ -2342,7 +2342,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         if (i_this->m17EC[i] == 0) {
             return FALSE;
         }
-        i_this->m17F4[i] = new mDoExt_btkAnm();
+        i_this->m17F4[i] = JKR_NEW mDoExt_btkAnm();
         if (i_this->m17F4[i] == 0) {
             return FALSE;
         }
@@ -2351,7 +2351,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         }
     }
     for (int i = 0; i < 2; i++) {
-        i_this->mpGspMorf[i] = new mDoExt_McaMorf(
+        i_this->mpGspMorf[i] = JKR_NEW mDoExt_McaMorf(
             (J3DModelData*)dComIfG_getObjectRes("Bwd", s_bdl[i]),
             NULL,
             NULL,
@@ -2369,14 +2369,14 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
             return FALSE;
         }
         modelData = i_this->mpGspMorf[i]->getModel()->getModelData();
-        i_this->mpGspBtkAnm[i] = new mDoExt_btkAnm();
+        i_this->mpGspBtkAnm[i] = JKR_NEW mDoExt_btkAnm();
         if (i_this->mpGspBtkAnm[i] == 0) {
             return FALSE;
         }
         if (!i_this->mpGspBtkAnm[i]->init(modelData, (J3DAnmTextureSRTKey*)dComIfG_getObjectRes("Bwd", s_btk[i]), true, J3DFrameCtrl::EMode_NONE)) {
             return FALSE;
         }
-        i_this->mpGspBrkAnm[i] = new mDoExt_brkAnm();
+        i_this->mpGspBrkAnm[i] = JKR_NEW mDoExt_brkAnm();
         if (!i_this->mpGspBrkAnm[i]->init(modelData, (J3DAnmTevRegKey*)dComIfG_getObjectRes("Bwd", s_brk[i]), true, J3DFrameCtrl::EMode_NONE)) {
             return FALSE;
         }

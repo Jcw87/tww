@@ -622,22 +622,22 @@ void dOperate_wind_c::initialize() {
 
 /* 80221090-802213B0       .text _create__15dOperate_wind_cFv */
 void dOperate_wind_c::_create() {
-    scrn1 = new J2DScreen();
+    scrn1 = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(965, 965, 990, 990), scrn1 != NULL);
     scrn1->set("operate_wind.blo", dComIfGp_getWindResArchive());
 
-    scrn2 = new J2DScreen();
+    scrn2 = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(969, 969, 994, 994), scrn2 != NULL);
     scrn2->set("operate_wind_mask.blo", dComIfGp_getWindResArchive());
 
-    stick = new STControl(5, 2, 3, 2, 1.0f, 1.0f, 0x1000, 0x2000);
+    stick = JKR_NEW STControl(5, 2, 3, 2, 1.0f, 1.0f, 0x1000, 0x2000);
     JUT_ASSERT(VERSION_SELECT(973, 973, 998, 998), stick != NULL);
 
-    mMain = new dDlst_Ow_main_c();
+    mMain = JKR_NEW dDlst_Ow_main_c();
     JUT_ASSERT(VERSION_SELECT(976, 976, 1001, 1001), mMain != NULL);
     mMain->setScreen(scrn1);
 
-    mMask = new dDlst_Ow_mask_c();
+    mMask = JKR_NEW dDlst_Ow_mask_c();
     JUT_ASSERT(VERSION_SELECT(980, 980, 1005, 1005), mMask != NULL);
     mMask->setScreen(scrn2);
 
@@ -647,11 +647,11 @@ void dOperate_wind_c::_create() {
 
 /* 802213B0-8022147C       .text _delete__15dOperate_wind_cFv */
 void dOperate_wind_c::_delete() {
-    delete scrn1;
-    delete scrn2;
-    delete stick;
-    delete mMain;
-    delete mMask;
+    JKR_DELETE(scrn1);
+    JKR_DELETE(scrn2);
+    JKR_DELETE(stick);
+    JKR_DELETE(mMain);
+    JKR_DELETE(mMask);
     dComIfGp_getWindResArchive()->removeResourceAll();
 }
 
@@ -745,7 +745,7 @@ bool dOperate_wind_c::_close() {
 
 /* 80221770-80221830       .text _create__5dOw_cFv */
 void dOw_c::_create() {
-    dOw_scrn = new dOperate_wind_c();
+    dOw_scrn = JKR_NEW dOperate_wind_c();
     JUT_ASSERT(VERSION_SELECT(1119, 1119, 1144, 1144), dOw_scrn != NULL);
 
 #if VERSION == VERSION_PAL
@@ -767,7 +767,7 @@ void dOw_c::_delete() {
 #endif
 
     dOw_scrn->_delete();
-    delete dOw_scrn;
+    JKR_DELETE(dOw_scrn);
 }
 
 /* 80221880-802218B4       .text dOw_Draw__FP5dOw_c */

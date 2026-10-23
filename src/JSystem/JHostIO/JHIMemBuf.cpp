@@ -9,7 +9,7 @@
 int JHIMemBuf::create() {
     int rt = 1;
     if (mp_buffer == NULL) {
-        mp_buffer = new (32) u8[0x20000];
+        mp_buffer = JKR_NEW_ARRAY_ARGS(u8, 0x20000, 32);
 
         if (mp_buffer == NULL) {
             rt = 0;
@@ -28,7 +28,7 @@ int JHIMemBuf::open() {
 
 void JHIMemBuf::close() {
     if (mp_buffer != NULL) {
-        delete[] mp_buffer;
+        JKR_DELETE_ARRAY(mp_buffer);
     }
 }
 

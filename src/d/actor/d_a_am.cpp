@@ -1122,7 +1122,7 @@ static BOOL daAM_Delete(am_class* i_this) {
 static BOOL useHeapInit(fopAc_ac_c* i_this) {
     am_class* a_this = (am_class*)i_this;
 
-    a_this->mpMorf = new mDoExt_McaMorf(
+    a_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("AM", dRes_INDEX_AM_BDL_AM_e),
         NULL, NULL,
         (J3DAnmTransformKey*)dComIfG_getObjectRes("AM", dRes_INDEX_AM_BCK_SLEEP_LOOP_e),

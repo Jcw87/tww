@@ -27,7 +27,7 @@ JUTGba* JUTGba::sManager;
 /* 802CBEB4-802CC03C       .text create__6JUTGbaFv */
 JUTGba* JUTGba::create() {
     JUT_ASSERT(61, sManager == NULL);
-    sManager = new JUTGba();
+    sManager = JKR_NEW JUTGba();
     GBAInit();
     OSReport(":::GBA: Init()\n");
     for (int i = 0; i < 4; i++) {

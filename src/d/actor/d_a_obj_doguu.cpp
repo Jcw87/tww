@@ -128,7 +128,7 @@ BOOL daObjDoguu_c::CreateHeap() {
         return FALSE;
     }
 
-    J3DSkinDeform* deform = new J3DSkinDeform();
+    J3DSkinDeform* deform = JKR_NEW J3DSkinDeform();
 
     if (deform){
         field_0x6D0->setSkinDeform(deform, 1);
@@ -163,7 +163,7 @@ BOOL daObjDoguu_c::CreateHeap() {
         return FALSE;
     }
 
-    deform = new J3DSkinDeform();
+    deform = JKR_NEW J3DSkinDeform();
 
     if(deform) {
         field_0x6D4->setSkinDeform(deform, 1);

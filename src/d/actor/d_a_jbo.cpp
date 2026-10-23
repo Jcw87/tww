@@ -160,7 +160,7 @@ static BOOL daJBO_Delete(jbo_class* i_this) {
 /* 000006D0-0000081C       .text useHeapInit__FP10fopAc_ac_c */
 static BOOL useHeapInit(fopAc_ac_c* i_this) {
     jbo_class* a_this = (jbo_class*)i_this;
-    mDoExt_McaMorf* morf = new mDoExt_McaMorf(
+    mDoExt_McaMorf* morf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData *)dComIfG_getObjectRes("JBO", dRes_INDEX_JBO_BMD_JH_e),
         /*callback1=*/ NULL,
         /*callback2=*/ NULL,

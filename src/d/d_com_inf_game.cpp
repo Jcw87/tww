@@ -270,21 +270,21 @@ int dComIfG_play_c::getLayerNo(int i_roomNo) {
 
 /* 8005286C-800528F4       .text createParticle__14dComIfG_play_cFv */
 void dComIfG_play_c::createParticle() {
-    mParticle = new dPa_control_c();
+    mParticle = JKR_NEW dPa_control_c();
 
     JUT_ASSERT(VERSION_SELECT(350, 358, 360, 360), mParticle != NULL);
 }
 
 /* 800528F4-8005297C       .text createDemo__14dComIfG_play_cFv */
 void dComIfG_play_c::createDemo() {
-    mDemo = new dDemo_manager_c();
+    mDemo = JKR_NEW dDemo_manager_c();
 
     JUT_ASSERT(VERSION_SELECT(380, 388, 390, 390), mDemo != NULL);
 }
 
 /* 8005297C-800529B8       .text removeDemo__14dComIfG_play_cFv */
 void dComIfG_play_c::removeDemo() {
-    delete mDemo;
+    JKR_DELETE(mDemo);
     mDemo = NULL;
 }
 
@@ -296,7 +296,7 @@ void dComIfG_play_c::executeEvtManager() {
 /* 800529DC-80052A30       .text createMagma__14dComIfG_play_cFv */
 dMagma_packet_c* dComIfG_play_c::createMagma() {
     if (mpMagmaPacket == NULL) {
-        mpMagmaPacket = new dMagma_packet_c();
+        mpMagmaPacket = JKR_NEW dMagma_packet_c();
     }
 
     return mpMagmaPacket;
@@ -305,7 +305,7 @@ dMagma_packet_c* dComIfG_play_c::createMagma() {
 /* 80052A30-80052A84       .text removeMagma__14dComIfG_play_cFv */
 void dComIfG_play_c::removeMagma() {
     if (mpMagmaPacket != NULL) {
-        delete mpMagmaPacket;
+        JKR_DELETE(mpMagmaPacket);
         mpMagmaPacket = NULL;
     }
 }
@@ -327,7 +327,7 @@ void dComIfG_play_c::drawMagma() {
 /* 80052ADC-80052B34       .text createGrass__14dComIfG_play_cFv */
 dGrass_packet_c* dComIfG_play_c::createGrass() {
     if (mpGrassPacket == NULL) {
-        mpGrassPacket = new dGrass_packet_c();
+        mpGrassPacket = JKR_NEW dGrass_packet_c();
     }
 
     return mpGrassPacket;
@@ -336,7 +336,7 @@ dGrass_packet_c* dComIfG_play_c::createGrass() {
 /* 80052B34-80052B88       .text removeGrass__14dComIfG_play_cFv */
 void dComIfG_play_c::removeGrass() {
     if (mpGrassPacket != NULL) {
-        delete mpGrassPacket;
+        JKR_DELETE(mpGrassPacket);
         mpGrassPacket = NULL;
     }
 }
@@ -364,7 +364,7 @@ void dComIfG_play_c::drawGrass() {
 /* 80052CA0-80052CF4       .text createFlower__14dComIfG_play_cFv */
 dFlower_packet_c* dComIfG_play_c::createFlower() {
     if (mpFlowerPacket == NULL) {
-        mpFlowerPacket = new dFlower_packet_c();
+        mpFlowerPacket = JKR_NEW dFlower_packet_c();
     }
 
     return mpFlowerPacket;
@@ -373,7 +373,7 @@ dFlower_packet_c* dComIfG_play_c::createFlower() {
 /* 80052CF4-80052D48       .text removeFlower__14dComIfG_play_cFv */
 void dComIfG_play_c::removeFlower() {
     if (mpFlowerPacket != NULL) {
-        delete mpFlowerPacket;
+        JKR_DELETE(mpFlowerPacket);
         mpFlowerPacket = NULL;
     }
 }
@@ -401,7 +401,7 @@ void dComIfG_play_c::drawFlower() {
 /* 80052E60-80052EB4       .text createTree__14dComIfG_play_cFv */
 dTree_packet_c* dComIfG_play_c::createTree() {
     if (mpTreePacket == NULL) {
-        mpTreePacket = new dTree_packet_c();
+        mpTreePacket = JKR_NEW dTree_packet_c();
     }
 
     return mpTreePacket;
@@ -410,7 +410,7 @@ dTree_packet_c* dComIfG_play_c::createTree() {
 /* 80052EB4-80052F08       .text removeTree__14dComIfG_play_cFv */
 void dComIfG_play_c::removeTree() {
     if (mpTreePacket != NULL) {
-        delete mpTreePacket;
+        JKR_DELETE(mpTreePacket);
         mpTreePacket = NULL;
     }
 }
@@ -441,7 +441,7 @@ void dComIfG_play_c::drawTree() {
 /* 80053074-800530CC       .text createWood__14dComIfG_play_cFv */
 dWood::Packet_c* dComIfG_play_c::createWood() {
     if (mpWoodPacket == NULL) {
-        mpWoodPacket = new dWood::Packet_c();
+        mpWoodPacket = JKR_NEW dWood::Packet_c();
     }
 
     return mpWoodPacket;
@@ -450,7 +450,7 @@ dWood::Packet_c* dComIfG_play_c::createWood() {
 /* 800530CC-80053120       .text removeWood__14dComIfG_play_cFv */
 void dComIfG_play_c::removeWood() {
     if (mpWoodPacket != NULL) {
-        delete mpWoodPacket;
+        JKR_DELETE(mpWoodPacket);
         mpWoodPacket = NULL;
     }
 }

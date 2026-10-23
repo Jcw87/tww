@@ -20,7 +20,7 @@ bool dDlst_2DNumber_c::init(int digitNum, s16 x, s16 y, s16 w, s16 h, u8 flag) {
     mHeight = h;
 
     for (s32 i = 0; i < mDigitNum; i++) {
-        mNum[i] = new J2DPicture("rupy_num_00.bti");
+        mNum[i] = JKR_NEW J2DPicture("rupy_num_00.bti");
         if (mNum[i] == NULL)
             return false;
 
@@ -56,15 +56,15 @@ void dDlst_2DNumber_c::draw() {
 
 /* 800C874C-800C8944       .text init__18dDlst_2DMinigame_cFP7ResTIMGP7ResTIMG */
 bool dDlst_2DMinigame_c::init(ResTIMG* title, ResTIMG* score) {
-    mTitle = new J2DPicture(title);
+    mTitle = JKR_NEW J2DPicture(title);
     if (mTitle == NULL)
         return false;
 
-    mScore = new J2DPicture(score);
+    mScore = JKR_NEW J2DPicture(score);
     if (mScore == NULL)
         return false;
 
-    mScoreShadow = new J2DPicture(score);
+    mScoreShadow = JKR_NEW J2DPicture(score);
     if (mScoreShadow == NULL)
         return false;
 
@@ -89,21 +89,21 @@ void dDlst_2DMinigame_c::draw() {
 
 /* 800C8A00-800C8FAC       .text init__17dDlst_2DBattery_cFP7ResTIMGP7ResTIMGP7ResTIMGP7ResTIMG */
 BOOL dDlst_2DBattery_c::init(ResTIMG* rule, ResTIMG* battery, ResTIMG* batteryBase, ResTIMG* degree) {
-    mRule = new J2DPicture(rule);
+    mRule = JKR_NEW J2DPicture(rule);
     if (mRule == NULL)
         return FALSE;
 
     mRuleSize.x = rule->width;
     mRuleSize.y = rule->height;
 
-    mBattery = new J2DPicture(battery);
+    mBattery = JKR_NEW J2DPicture(battery);
     if (mBattery == NULL)
         return FALSE;
 
     mBatterySize.x = battery->width;
     mBatterySize.y = battery->height;
 
-    mBatteryBase = new J2DPicture(batteryBase);
+    mBatteryBase = JKR_NEW J2DPicture(batteryBase);
     if (mBatteryBase == NULL)
         return FALSE;
 
@@ -111,15 +111,15 @@ BOOL dDlst_2DBattery_c::init(ResTIMG* rule, ResTIMG* battery, ResTIMG* batteryBa
     mBatteryBaseSize.y = batteryBase->height;
 
     for (s32 i = 0; i < 2; i++) {
-        mNum[0][i] = new J2DPicture(degree);
+        mNum[0][i] = JKR_NEW J2DPicture(degree);
         if (mNum[0][i] == NULL)
             return FALSE;
 
-        mNum[1][i] = new J2DPicture("rupy_num_00.bti");
+        mNum[1][i] = JKR_NEW J2DPicture("rupy_num_00.bti");
         if (mNum[1][i] == NULL)
             return FALSE;
 
-        mNum[2][i] = new J2DPicture("rupy_num_00.bti");
+        mNum[2][i] = JKR_NEW J2DPicture("rupy_num_00.bti");
         if (mNum[2][i] == NULL)
             return FALSE;
     }
@@ -200,13 +200,13 @@ void dDlst_2DBattery_c::draw() {
 
 /* 800C9348-800C946C       .text init__16dDlst_2DObject_cFP7ResTIMGP7ResTIMG */
 BOOL dDlst_2DObject_c::init(ResTIMG* img1, ResTIMG* img2) {
-    mPicture[0] = new J2DPicture(img1);
+    mPicture[0] = JKR_NEW J2DPicture(img1);
     if (mPicture[0] == NULL)
         return FALSE;
     mSize[0].x = img1->width;
     mSize[0].y = img1->height;
 
-    mPicture[1] = new J2DPicture(img2);
+    mPicture[1] = JKR_NEW J2DPicture(img2);
     if (mPicture[1] == NULL)
         return FALSE;
     mSize[1].x = img2->width;

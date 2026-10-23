@@ -2821,7 +2821,7 @@ static u16 set_za_brk_d[3] = {dRes_INDEX_BST_BRK_MUNE_START_e, dRes_INDEX_BST_BR
 /* 0000AADC-0000B2D0       .text useHeapInit__FP10fopAc_ac_c */
 static BOOL useHeapInit(fopAc_ac_c* a_this) {
     bst_class* i_this = (bst_class*)a_this;
-    i_this->m02B8 = new mDoExt_McaMorf(
+    i_this->m02B8 = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Bst", set_bdl_d[i_this->mBstPartType]),
         NULL,
         NULL,
@@ -2850,7 +2850,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     if (i_this->m0388 == NULL) {
         return FALSE;
     }
-    i_this->mpTexMtxAnimator = new mDoExt_btkAnm();
+    i_this->mpTexMtxAnimator = JKR_NEW mDoExt_btkAnm();
     if (i_this->mpTexMtxAnimator == NULL) {
         return FALSE;
     }
@@ -2859,7 +2859,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     if (res == 0) {
         return FALSE;
     }
-    i_this->mpTevRegAnimator = new mDoExt_brkAnm();
+    i_this->mpTevRegAnimator = JKR_NEW mDoExt_brkAnm();
     if (i_this->mpTevRegAnimator == NULL) {
         return FALSE;
     }
@@ -2891,7 +2891,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         if (i_this->m2FD0 == NULL) {
             return FALSE;
         }
-        i_this->m2FD4 = new mDoExt_btkAnm();
+        i_this->m2FD4 = JKR_NEW mDoExt_btkAnm();
         if (i_this->m2FD4 == NULL) {
             return FALSE;
         }
@@ -2899,7 +2899,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         if (res == 0) {
             return FALSE;
         }
-        i_this->m2FD8 = new mDoExt_brkAnm();
+        i_this->m2FD8 = JKR_NEW mDoExt_brkAnm();
         if (i_this->m2FD8 == NULL) {
             return FALSE;
         }
@@ -2914,7 +2914,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         if (i_this->m2FDC == NULL) {
             return FALSE;
         }
-        i_this->m2FE0 = new mDoExt_brkAnm();
+        i_this->m2FE0 = JKR_NEW mDoExt_brkAnm();
         if (i_this->m2FE0 == NULL) {
             return FALSE;
         }
@@ -2930,7 +2930,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     if (i_this->m02C8 == NULL) {
         return FALSE;
     }
-    i_this->mpBtkAnm = new mDoExt_btkAnm();
+    i_this->mpBtkAnm = JKR_NEW mDoExt_btkAnm();
     if (i_this->mpBtkAnm == NULL) {
         return FALSE;
     }
@@ -2948,7 +2948,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     if (res == 0) {
         return FALSE;
     }
-    i_this->mpBrkAnm = new mDoExt_brkAnm();
+    i_this->mpBrkAnm = JKR_NEW mDoExt_brkAnm();
     if (i_this->mpBrkAnm == NULL) {
         return FALSE;
     }

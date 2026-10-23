@@ -71,7 +71,7 @@ BOOL daWarpgn_c::CreateHeap() {
 
     J3DAnmTextureSRTKey* pbtk = (J3DAnmTextureSRTKey*)dComIfG_getObjectRes(m_arcname, dRes_INDEX_GMJWP_BTK_GMJWP00_e);
     JUT_ASSERT(0xDE, pbtk != NULL);
-    mpBtkAnm1 = new mDoExt_btkAnm();
+    mpBtkAnm1 = JKR_NEW mDoExt_btkAnm();
     if ((mpBtkAnm1 == NULL) || mpBtkAnm1->init(modelData, pbtk, true, J3DFrameCtrl::EMode_LOOP) == 0) {
         return FALSE;
     }
@@ -79,7 +79,7 @@ BOOL daWarpgn_c::CreateHeap() {
 
     pbtk = (J3DAnmTextureSRTKey*)dComIfG_getObjectRes(m_arcname, dRes_INDEX_GMJWP_BTK_GMJWP02_e);
     JUT_ASSERT(0xED, pbtk != NULL);
-    mpBtkAnm2 = new mDoExt_btkAnm();
+    mpBtkAnm2 = JKR_NEW mDoExt_btkAnm();
     if ((mpBtkAnm2 == NULL) || mpBtkAnm2->init(modelData, pbtk, true, J3DFrameCtrl::EMode_NONE) == 0) {
         return FALSE;
     }
@@ -87,7 +87,7 @@ BOOL daWarpgn_c::CreateHeap() {
 
     J3DAnmTevRegKey* pbrk = (J3DAnmTevRegKey*)dComIfG_getObjectRes(m_arcname, dRes_INDEX_GMJWP_BRK_GMJWP01_e);
     JUT_ASSERT(0xFF, pbrk != NULL);
-    mpBrkAnm = new mDoExt_brkAnm();
+    mpBrkAnm = JKR_NEW mDoExt_brkAnm();
     if (mpBrkAnm == NULL || mpBrkAnm->init(modelData, pbrk, true, J3DFrameCtrl::EMode_NONE) == 0) {
         return FALSE;
     }
@@ -95,7 +95,7 @@ BOOL daWarpgn_c::CreateHeap() {
 
     J3DAnmTransform* pbck = (J3DAnmTransform*)dComIfG_getObjectRes(m_arcname, dRes_INDEX_GMJWP_BCK_GMJWP01_e);
     JUT_ASSERT(0x10F, pbck != NULL);
-    mpBckAnm = new mDoExt_bckAnm();
+    mpBckAnm = JKR_NEW mDoExt_bckAnm();
     if (mpBckAnm == NULL || mpBckAnm->init(modelData, pbck, true, J3DFrameCtrl::EMode_NONE) == 0) {
         return FALSE;
     }

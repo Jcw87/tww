@@ -130,7 +130,7 @@ BOOL daObj_Pfall_c::CreateHeap() {
 
     J3DModelData* nzModelData = (J3DModelData*)dComIfG_getObjectRes("Pfall", dRes_INDEX_PFALL_BDL_NZ_e);
     JUT_ASSERT(0xE0, nzModelData != NULL);
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         nzModelData,
         NULL, NULL,
         NULL,
@@ -146,7 +146,7 @@ BOOL daObj_Pfall_c::CreateHeap() {
     mpMorf->getModel()->setUserArea((uintptr_t)this);
     set_mtx();
     mpMorf->calc();
-    mpBgW = new dBgW();
+    mpBgW = JKR_NEW dBgW();
 
     if(mpBgW == NULL) {
         return FALSE;
@@ -156,7 +156,7 @@ BOOL daObj_Pfall_c::CreateHeap() {
     if (mpBgW->Set(pData, cBgW::MOVE_BG_e, &field_0x3CC) == true) {
         return FALSE;
     }
-    mpBgW2 = new dBgW();
+    mpBgW2 = JKR_NEW dBgW();
 
     if(mpBgW2 == NULL) {
         return FALSE;

@@ -59,7 +59,7 @@ JUTXfb::~JUTXfb() {
 /* 802C833C-802C837C       .text delXfb__6JUTXfbFi */
 void JUTXfb::delXfb(int xfbIdx) {
     if (mXfbAllocated[xfbIdx] && mBuffer[xfbIdx]) {
-        delete mBuffer[xfbIdx];
+        JKR_DELETE(mBuffer[xfbIdx]);
     }
 }
 
@@ -67,7 +67,7 @@ void JUTXfb::delXfb(int xfbIdx) {
 JUTXfb* JUTXfb::createManager(const GXRenderModeObj* pObj, JKRHeap* pHeap, JUTXfb::EXfbNumber xfbNum) {
     JUT_CONFIRM(VERSION_SELECT(198, 198, 203, 203), sManager == NULL);
     if (sManager == NULL) {
-        sManager = new JUTXfb(pObj, pHeap, xfbNum);
+        sManager = JKR_NEW JUTXfb(pObj, pHeap, xfbNum);
     }
     return sManager;
 }
@@ -87,7 +87,7 @@ void JUTXfb::destroyManager() {
     // versions of the game did not have the bug occur.
     // There's no consistent way to get it to pick one or the other, so this TU cannot be linked.
     JUT_CONFIRM(VERSION_SELECT(339, 339, 344, 344), sManager);
-    delete sManager;
+    JKR_DELETE(sManager);
     sManager = NULL;
 }
 
@@ -99,12 +99,12 @@ void JUTXfb::initiate(u16 width, u16 height, JKRHeap* pHeap, JUTXfb::EXfbNumber 
 
     int size = ((u32)width + 0xf & 0xfff0) * (u32)height * 2;
 
-    void* buf = new(pHeap, 0x20) u8[size];
+    void* buf = JKR_NEW_ARRAY_ARGS(u8, size, pHeap, 0x20);
     mBuffer[0] = static_cast<u8*>(buf);
     mXfbAllocated[0] = true;
 
     if (xfbNum >= 2) {
-        buf = new(pHeap, 0x20) u8[size];
+        buf = JKR_NEW_ARRAY_ARGS(u8, size, pHeap, 0x20);
         mBuffer[1] = static_cast<u8*>(buf);
         mXfbAllocated[1] = true;
     } else {
@@ -113,7 +113,7 @@ void JUTXfb::initiate(u16 width, u16 height, JKRHeap* pHeap, JUTXfb::EXfbNumber 
     }
 
     if (xfbNum >= 3) {
-        buf = new(pHeap, 0x20) u8[size];
+        buf = JKR_NEW_ARRAY_ARGS(u8, size, pHeap, 0x20);
         mBuffer[2] = static_cast<u8*>(buf);
         mXfbAllocated[2] = true;
     } else {

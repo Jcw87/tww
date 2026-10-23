@@ -47,7 +47,7 @@ bool daObjMonument::Act_c::create_heap() {
     MTXCopy(mDoMtx_stack_c::get(), mtx);
     mpModel->setBaseTRMtx(mDoMtx_stack_c::get());
 
-    mpBgW = new dBgW();
+    mpBgW = JKR_NEW dBgW();
     if (mpBgW && mpBgW->Set((cBgD_t*)dComIfG_getObjectRes(M_arcname, attr(mType).mBgWId), cBgW::MOVE_BG_e, &mtx))
         return false;
 

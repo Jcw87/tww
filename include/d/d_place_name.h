@@ -22,7 +22,7 @@ public:
     void changeTexture(const ResTIMG* image) {
         ((J2DPicture*)pane.pane)->changeTexture(image, 0);
     }
-    void deleteScreen() { delete scrn; }
+    void deleteScreen() { JKR_DELETE(scrn); }
 
 public:
     /* 0x04 */ J2DScreen * scrn;

@@ -18,13 +18,13 @@ JASystem::TBasicBank::TBasicBank() {
 
 /* 8028459C-80284610       .text __dt__Q28JASystem10TBasicBankFv */
 JASystem::TBasicBank::~TBasicBank() {
-    delete[] mInstTable;
+    JKR_DELETE_ARRAY(mInstTable);
 }
 
 /* 80284610-802846B0       .text setInstCount__Q28JASystem10TBasicBankFUl */
 void JASystem::TBasicBank::setInstCount(u32 param_1) {
-    delete[] mInstTable;
-    mInstTable = new (getCurrentHeap(), 0) TInst*[param_1];
+    JKR_DELETE_ARRAY(mInstTable);
+    mInstTable = JKR_NEW_ARRAY_ARGS(TInst*, param_1, getCurrentHeap(), 0);
     JUT_ASSERT(36, mInstTable != NULL);
     Calc::bzero(mInstTable, param_1 * 4);
     mInstCount = param_1;

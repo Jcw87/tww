@@ -27,7 +27,7 @@ JMath::TRandom_fast_ JAInter::Const::random(0);
 
 /* 80291704-802917D8       .text transInitDataFile__7JAInterFPUcUl */
 u8* JAInter::transInitDataFile(u8* param_1, u32 param_2) {
-    u8* var1 = new (JAIBasic::getCurrentJAIHeap(), 0x20) u8[param_2];
+    u8* var1 = JKR_NEW_ARRAY_ARGS(u8, param_2, JAIBasic::getCurrentJAIHeap(), 0x20);
     if (var1) {
         for (int i = 0; i < param_2; i++) {
             var1[i] = param_1[i];

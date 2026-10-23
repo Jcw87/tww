@@ -489,7 +489,7 @@ dDoor_ssk_sub_c::dDoor_ssk_sub_c() {
 
 /* 000015A4-00001778       .text drawSet__15dDoor_ssk_sub_cFv */
 BOOL dDoor_ssk_sub_c::drawSet() {
-    field_0x000 = new mDoExt_McaMorf(
+    field_0x000 = JKR_NEW mDoExt_McaMorf(
         static_cast<J3DModelData*>(dComIfG_getObjectRes("Ssk", dRes_INDEX_SSK_BDL_TURU_02_e)),
         NULL, NULL, NULL, J3DFrameCtrl::EMode_LOOP, 1.0f, 0, -1, 0, NULL, 0, 0x11020203
     );
@@ -500,7 +500,7 @@ BOOL dDoor_ssk_sub_c::drawSet() {
     for (u16 i = 0; i < field_0x000->getModel()->getModelData()->getJointNum(); i++) {
         field_0x000->getModel()->getModelData()->getJointNodePointer(i)->setCallBack(nodeCB);
     }
-    field_0x004 = new mDoExt_McaMorf(
+    field_0x004 = JKR_NEW mDoExt_McaMorf(
         static_cast<J3DModelData*>(dComIfG_getObjectRes("Ssk", dRes_INDEX_SSK_BDL_KTANA_00_e)),
         NULL, NULL, NULL, J3DFrameCtrl::EMode_LOOP, 1.0f, 0, -1, 0, NULL, 0, 0x11020203
     );
@@ -588,7 +588,7 @@ BOOL daKddoor_c::CreateHeap() {
             }
         }
     }
-    field_0x944 = new dBgW();
+    field_0x944 = JKR_NEW dBgW();
     if (field_0x944 == NULL) {
         return FALSE;
     }

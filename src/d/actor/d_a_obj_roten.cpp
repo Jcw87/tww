@@ -50,7 +50,7 @@ BOOL daObj_Roten_c::CreateHeap() {
     JUT_ASSERT(0xB0, modelData != NULL);
 
     mpModel = mDoExt_J3DModel__create(modelData, 0, 0x11020203);
-    mpBgW = new dBgW();
+    mpBgW = JKR_NEW dBgW();
     
     mpBgW->Set((cBgD_t*)dComIfG_getObjectRes(M_arcname, dzb_arc_idx[mType]), cBgW::MOVE_BG_e, &mpModel->getBaseTRMtx());
 

@@ -271,7 +271,7 @@ void daFallRock_c::setParticle(int param_1, cXyz* pos) {
                 &tevStr.mColorK0
             );
             if (emitter != NULL && modelData != NULL && anmTexPattern != NULL) {
-                dPa_J3DmodelEmitter_c* modelEmitter = new dPa_J3DmodelEmitter_c(
+                dPa_J3DmodelEmitter_c* modelEmitter = JKR_NEW dPa_J3DmodelEmitter_c(
                     emitter, modelData, tevStr, anmTexPattern, 0, 0
                 );
                 if (modelEmitter != NULL) {

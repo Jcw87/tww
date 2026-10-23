@@ -30,7 +30,7 @@ BOOL daObjTower_c::CreateHeap() {
     mDoMtx_stack_c::scaleM(scale.x, scale.y, scale.z);
     mDoMtx_copy(mDoMtx_stack_c::get(), mMtx);
 
-    mpBgW = new dBgW();
+    mpBgW = JKR_NEW dBgW();
 
     if (mpBgW == NULL)
         return FALSE;

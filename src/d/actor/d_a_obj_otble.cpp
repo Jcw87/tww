@@ -80,7 +80,7 @@ BOOL daObj_Otble::Act_c::_createHeap() {
     mDoMtx_stack_c::YrotM(current.angle.y);
     cMtx_copy(mDoMtx_stack_c::get(), m2A4);
 
-    mBgW = new dBgW();
+    mBgW = JKR_NEW dBgW();
     if (mBgW == NULL) {
         return false;
     }

@@ -905,16 +905,16 @@ dDlst_alphaModel_c::dDlst_alphaModel_c() {
 
 /* 80082E58-80082EFC       .text create__18dDlst_alphaModel_cFi */
 dDlst_alphaModel_c * dDlst_alphaModel_c::create(int num) {
-    dDlst_alphaModel_c * alphaModel = new dDlst_alphaModel_c();
+    dDlst_alphaModel_c * alphaModel = JKR_NEW dDlst_alphaModel_c();
     if (alphaModel != NULL) {
-        dDlst_alphaModelData_c * pData = new dDlst_alphaModelData_c[num];
+        dDlst_alphaModelData_c * pData = JKR_NEW_ARRAY(dDlst_alphaModelData_c, num);
         if (pData != NULL) {
             alphaModel->mpData = pData;
             alphaModel->mCapacity = num;
             return alphaModel;
         }
 
-        delete alphaModel;
+        JKR_DELETE(alphaModel);
     }
     return NULL;
 }
@@ -1065,16 +1065,16 @@ static void dummy() {
     struct {
         dDlst_shadowReal_c temp[1];
     }* temp = NULL;
-    delete temp;
+    JKR_DELETE(temp);
 }
 
 /* 80083668-800836E0       .text J3DDrawBuffer__create__FUl */
 static J3DDrawBuffer * J3DDrawBuffer__create(u32 size) {
-    J3DDrawBuffer * buffer = new J3DDrawBuffer();
+    J3DDrawBuffer * buffer = JKR_NEW J3DDrawBuffer();
     if (buffer != NULL) {
         if (buffer->allocBuffer(size) == 0)
             return buffer;
-        delete buffer;
+        JKR_DELETE(buffer);
     }
     return NULL;
 }
@@ -1082,13 +1082,13 @@ static J3DDrawBuffer * J3DDrawBuffer__create(u32 size) {
 /* 800836E0-800837F0       .text init__18dDlst_shadowReal_cFv */
 void dDlst_shadowReal_c::init() {
     u32 texDataSize = GXGetTexBufferSize(0x80, 0x80, GX_TF_I4, GX_FALSE, 0);
-    mpTexData = new(0x20) u8[texDataSize];
+    mpTexData = JKR_NEW_ARRAY_ARGS(u8, texDataSize, 0x20);
 
     GXInitTexObj(&mTexObj, mpTexData, 0x80, 0x80, GX_TF_I4, GX_CLAMP, GX_CLAMP, GX_FALSE);
     GXInitTexObjLOD(&mTexObj, GX_LINEAR, GX_LINEAR, 0.0f, 0.0f, 0.0f, 0.0f, GX_FALSE, GX_ANISO_1);
 
-    mpCallBack = new J3DCallBackPacket();
-    mpDrawBuffer = new J3DDrawBuffer(0x20);
+    mpCallBack = JKR_NEW J3DCallBackPacket();
+    mpDrawBuffer = JKR_NEW J3DDrawBuffer(0x20);
     mpDrawBuffer->setInvalidSort();
 }
 
@@ -1933,23 +1933,23 @@ bool dDlst_list_c::init() {
 
 /* 800861F4-80086368       .text __dt__12dDlst_list_cFv */
 dDlst_list_c::~dDlst_list_c() {
-    delete mpOpaListSky;
-    delete mpXluListSky;
-    delete mpOpaListP0;
-    delete mpOpaListP1;
-    delete mpXluListP1;
-    delete mpOpaListBG;
-    delete mpXluListBG;
-    delete mpOpaList;
-    delete mpXluList;
-    delete mpOpaListFilter;
-    delete mpOpaListMaskOff;
-    delete mpXluListMaskOff;
-    delete mpOpaListInvisible;
-    delete mpXluListInvisible;
-    delete mpOpaList2D;
-    delete mpAlphaModel;
-    delete mpSpotModel;
+    JKR_DELETE(mpOpaListSky);
+    JKR_DELETE(mpXluListSky);
+    JKR_DELETE(mpOpaListP0);
+    JKR_DELETE(mpOpaListP1);
+    JKR_DELETE(mpXluListP1);
+    JKR_DELETE(mpOpaListBG);
+    JKR_DELETE(mpXluListBG);
+    JKR_DELETE(mpOpaList);
+    JKR_DELETE(mpXluList);
+    JKR_DELETE(mpOpaListFilter);
+    JKR_DELETE(mpOpaListMaskOff);
+    JKR_DELETE(mpXluListMaskOff);
+    JKR_DELETE(mpOpaListInvisible);
+    JKR_DELETE(mpXluListInvisible);
+    JKR_DELETE(mpOpaList2D);
+    JKR_DELETE(mpAlphaModel);
+    JKR_DELETE(mpSpotModel);
 }
 
 /* 80086368-80086490       .text reset__12dDlst_list_cFv */

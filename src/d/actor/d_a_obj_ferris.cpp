@@ -112,7 +112,7 @@ bool daObjFerris::Act_c::create_heap() {
     JUT_ASSERT(DEMO_SELECT(412, 416), bgw_data_gondola != NULL);
     if (VERSION == VERSION_DEMO || bgw_data_gondola != NULL) {
         for (i = 0; i < 5; i++) {
-            mpBgW[i] = new dBgW();
+            mpBgW[i] = JKR_NEW dBgW();
 #if VERSION == VERSION_DEMO
             if (mpBgW[i] != NULL && mpBgW[i]->Set(bgw_data_gondola, dBgW::MOVE_BG_e, &mMtx[i])) {
                 r29 |= 1;
@@ -129,7 +129,7 @@ bool daObjFerris::Act_c::create_heap() {
     JUT_ASSERT(DEMO_SELECT(426, 432), bgw_data_wheelbase != NULL);
     if (VERSION == VERSION_DEMO || bgw_data_wheelbase != NULL) {
         int r24 = 5;
-        mpBgW[r24] = new dBgW();
+        mpBgW[r24] = JKR_NEW dBgW();
 #if VERSION == VERSION_DEMO
         if (mpBgW[r24] != NULL && mpBgW[r24]->Set(bgw_data_wheelbase, dBgW::MOVE_BG_e, &mMtx[r24])) {
             r29 |= 1;

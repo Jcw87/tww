@@ -180,7 +180,7 @@ bool daSea_packet_c::create(cXyz& pos) {
     BASE_HEIGHT = pos.y + 1.0f;
 
     mFlatInter = 0.0f;
-    mpHeightTable = new f32[GRID_CELLS * GRID_CELLS];
+    mpHeightTable = JKR_NEW_ARRAY(f32, GRID_CELLS * GRID_CELLS);
     if (mpHeightTable == NULL)
         return false;
 

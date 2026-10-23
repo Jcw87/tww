@@ -110,7 +110,7 @@ BOOL daObjEskban::Act_c::CreateHeap() {
         static_cast<J3DModelData*>(dComIfG_getObjectRes(M_arcname, dRes_INDEX_ESKBAN_BDL_ESKBAN_e));
     JUT_ASSERT(261, model_data != NULL);
     mpModel = mDoExt_J3DModel__create(model_data, 0, 0x11020203U);
-    M_smoke = new dPa_smokeEcallBack();
+    M_smoke = JKR_NEW dPa_smokeEcallBack();
     JUT_ASSERT(264, M_smoke != NULL);
     return mpModel != NULL;
 }
@@ -212,7 +212,7 @@ void daObjEskban::Act_c::eff_m_break(u16 particleID, u16 prm_b) {
         return;
     }
     pBEmtr->setGlobalRTMatrix(mpModel->getBaseTRMtx());
-    dPa_J3DmodelEmitter_c* pMdlEmtr = new dPa_J3DmodelEmitter_c(pBEmtr, mdlData, tevStr, txPattern, prm_b, 0);
+    dPa_J3DmodelEmitter_c* pMdlEmtr = JKR_NEW dPa_J3DmodelEmitter_c(pBEmtr, mdlData, tevStr, txPattern, prm_b, 0);
     if (!pMdlEmtr) {
         return;
     }

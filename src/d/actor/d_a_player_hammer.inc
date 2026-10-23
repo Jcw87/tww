@@ -25,7 +25,7 @@ void daPy_lk_c::setHammerModel() {
     if (!ret) {
         JUT_ASSERT(32, FALSE);
     }
-    mSwBlur.mpPosBuffer = new (0x20) Vec[2 * 0x300];
+    mSwBlur.mpPosBuffer = JKR_NEW_ARRAY_ARGS(Vec, 2 * 0x300, 0x20);
     mDoExt_setCurrentHeap(oldHeap);
     m35EC = 0.0f;
 }

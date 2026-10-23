@@ -415,7 +415,7 @@ bool daObjVyasi::Act_c::create_heap() {
     if (M_bck_data != NULL && mdl_data != NULL)
 #endif
     {
-        mpMorf = new mDoExt_McaMorf(mdl_data, NULL, NULL, M_bck_data, J3DFrameCtrl::EMode_NONE, 1.0f, 0, -1, 1, NULL, 0, 0x11000002);
+        mpMorf = JKR_NEW mDoExt_McaMorf(mdl_data, NULL, NULL, M_bck_data, J3DFrameCtrl::EMode_NONE, 1.0f, 0, -1, 1, NULL, 0, 0x11000002);
     }
     return M_bck_data != NULL && mpMorf != NULL && mpMorf->getModel() != NULL;
 }

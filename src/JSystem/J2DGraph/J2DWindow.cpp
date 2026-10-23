@@ -6,6 +6,7 @@
 #include "JSystem/JSystem.h" // IWYU pragma: keep
 
 #include "JSystem/J2DGraph/J2DWindow.h"
+#include "JSystem/JKernel/JKRHeap.h"
 #include "JSystem/JSupport/JSURandomInputStream.h"
 #include "JSystem/JUtility/TColor.h"
 #include "JSystem/JUtility/JUTPalette.h"
@@ -36,23 +37,23 @@ J2DWindow::J2DWindow(J2DPane* param_0, JSURandomInputStream* param_1)
     mWindowBox.set(f31, f30, f29, f28);
     ResTIMG* timg = (ResTIMG*)stack_178.getResource(param_1, 'TIMG', NULL);
     if (timg) {
-        mpFrameTexture1 = new JUTTexture(timg, 0);
+        mpFrameTexture1 = JKR_NEW JUTTexture(timg, 0);
     }
     timg = (ResTIMG*)stack_178.getResource(param_1, 'TIMG', NULL);
     if (timg) {
-        mpFrameTexture2 = new JUTTexture(timg, 0);
+        mpFrameTexture2 = JKR_NEW JUTTexture(timg, 0);
     }
     timg = (ResTIMG*)stack_178.getResource(param_1, 'TIMG', NULL);
     if (timg) {
-        mpFrameTexture3 = new JUTTexture(timg, 0);
+        mpFrameTexture3 = JKR_NEW JUTTexture(timg, 0);
     }
     timg = (ResTIMG*)stack_178.getResource(param_1, 'TIMG', NULL);
     if (timg) {
-        mpFrameTexture4 = new JUTTexture(timg, 0);
+        mpFrameTexture4 = JKR_NEW JUTTexture(timg, 0);
     }
     ResTLUT* tlut = (ResTLUT*)stack_178.getResource(param_1, 'TLUT', NULL);
     if (tlut) {
-        mpPalette = new JUTPalette(GX_TLUT0, tlut);
+        mpPalette = JKR_NEW JUTPalette(GX_TLUT0, tlut);
     }
     field_0x110 = param_1->read8b();
     mColorTL.set(param_1->read32b());
@@ -64,7 +65,7 @@ J2DWindow::J2DWindow(J2DPane* param_0, JSURandomInputStream* param_1)
     if (r27) {
         timg = (ResTIMG*)stack_178.getResource(param_1, 'TIMG', NULL);
         if (timg) {
-            mpContentsTexture = new JUTTexture(timg, 0);
+            mpContentsTexture = JKR_NEW JUTTexture(timg, 0);
         }
         r27--;
     }
@@ -109,12 +110,12 @@ void J2DWindow::initinfo2() {
 
 /* 802D1A9C-802D1B44       .text __dt__9J2DWindowFv */
 J2DWindow::~J2DWindow() {
-    delete mpFrameTexture1;
-    delete mpFrameTexture2;
-    delete mpFrameTexture3;
-    delete mpFrameTexture4;
-    delete mpPalette;
-    delete mpContentsTexture;
+    JKR_DELETE(mpFrameTexture1);
+    JKR_DELETE(mpFrameTexture2);
+    JKR_DELETE(mpFrameTexture3);
+    JKR_DELETE(mpFrameTexture4);
+    JKR_DELETE(mpPalette);
+    JKR_DELETE(mpContentsTexture);
 }
 
 /* 802D1B44-802D1F5C       .text draw_private__9J2DWindowFRCQ29JGeometry8TBox2<f>RCQ29JGeometry8TBox2<f> */

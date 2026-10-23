@@ -144,7 +144,7 @@ mDoDvdThd_callback_c::mDoDvdThd_callback_c(mDoDvdThd_callback_func func, void* u
 
 /* 800183B4-80018430       .text create__20mDoDvdThd_callback_cFPFPv_PvPv */
 mDoDvdThd_callback_c* mDoDvdThd_callback_c::create(mDoDvdThd_callback_func func, void* userData) {
-    mDoDvdThd_callback_c* cmd = new (mDoExt_getCommandHeap(), -4) mDoDvdThd_callback_c(func, userData);
+    mDoDvdThd_callback_c* cmd = JKR_NEW_ARGS(mDoExt_getCommandHeap(), -4) mDoDvdThd_callback_c(func, userData);
     if (cmd != NULL)
         mDoDvdThd::l_param.addition(cmd);
     return cmd;
@@ -175,13 +175,13 @@ mDoDvdThd_mountArchive_c::mDoDvdThd_mountArchive_c(u8 direction) {
 
 /* 80018554-8001861C       .text create__24mDoDvdThd_mountArchive_cFPCcUcP7JKRHeap */
 mDoDvdThd_mountArchive_c* mDoDvdThd_mountArchive_c::create(const char* path, u8 direction, JKRHeap* heap) {
-    mDoDvdThd_mountArchive_c* cmd = new (mDoExt_getCommandHeap(), -4) mDoDvdThd_mountArchive_c(direction);
+    mDoDvdThd_mountArchive_c* cmd = JKR_NEW_ARGS(mDoExt_getCommandHeap(), -4) mDoDvdThd_mountArchive_c(direction);
     if (cmd != NULL) {
         s32 entryNumber = my_DVDConvertPathToEntrynum(path);
         cmd->mEntryNum = entryNumber;
         if (cmd->mEntryNum == -1) {
             cmd->mIsDone = true;
-            delete cmd;
+            JKR_DELETE(cmd);
             cmd = NULL;
         } else {
             cmd->mHeap = heap;
@@ -198,9 +198,9 @@ BOOL mDoDvdThd_mountArchive_c::execute() {
     while (true) {
         JKRMemArchive* arc;
         if (mMountDirection == JKRArchive::DEFAULT_MOUNT_DIRECTION) {
-            arc = new (heap, 0) JKRMemArchive(mEntryNum, JKRArchive::MOUNT_DIRECTION_HEAD);
+            arc = JKR_NEW_ARGS(heap, 0) JKRMemArchive(mEntryNum, JKRArchive::MOUNT_DIRECTION_HEAD);
         } else {
-            arc = new (heap, -4) JKRMemArchive(mEntryNum, JKRArchive::MOUNT_DIRECTION_TAIL);
+            arc = JKR_NEW_ARGS(heap, -4) JKRMemArchive(mEntryNum, JKRArchive::MOUNT_DIRECTION_TAIL);
         }
 
         if (arc != NULL && arc->isMounted()) {
@@ -210,7 +210,7 @@ BOOL mDoDvdThd_mountArchive_c::execute() {
 
         OSReport_Error("mDoDvdThd_mountArchive_c::execute マウント失敗\n");
         if (arc != NULL)
-            delete arc;
+            JKR_DELETE(arc);
 
         if (heap != mDoExt_getZeldaHeap()) {
             OSReport_Error("mDoDvdThd_mountArchive_c::execute システムヒープで再チャレンジ！\n");
@@ -244,13 +244,13 @@ mDoDvdThd_mountXArchive_c::mDoDvdThd_mountXArchive_c(u8 direction, JKRArchive::E
 
 /* 80018844-8001890C       .text create__25mDoDvdThd_mountXArchive_cFPCcUcQ210JKRArchive10EMountMode */
 mDoDvdThd_mountXArchive_c* mDoDvdThd_mountXArchive_c::create(const char* path, u8 direction, JKRArchive::EMountMode mountMode) {
-    mDoDvdThd_mountXArchive_c* cmd = new (mDoExt_getCommandHeap(), -4) mDoDvdThd_mountXArchive_c(direction, mountMode);
+    mDoDvdThd_mountXArchive_c* cmd = JKR_NEW_ARGS(mDoExt_getCommandHeap(), -4) mDoDvdThd_mountXArchive_c(direction, mountMode);
     if (cmd != NULL) {
         s32 entryNumber = my_DVDConvertPathToEntrynum(path);
         cmd->mEntryNum = entryNumber;
         if (cmd->mEntryNum == -1) {
             cmd->mIsDone = true;
-            delete cmd;
+            JKR_DELETE(cmd);
             cmd = NULL;
         } else {
             mDoDvdThd::l_param.addition(cmd);
@@ -284,13 +284,13 @@ mDoDvdThd_toMainRam_c::mDoDvdThd_toMainRam_c(u8 direction) {
 
 /* 800189E0-80018AA8       .text create__21mDoDvdThd_toMainRam_cFPCcUcP7JKRHeap */
 mDoDvdThd_toMainRam_c* mDoDvdThd_toMainRam_c::create(const char* path, u8 direction, JKRHeap* heap) {
-    mDoDvdThd_toMainRam_c* cmd = new (mDoExt_getCommandHeap(), -4) mDoDvdThd_toMainRam_c(direction);
+    mDoDvdThd_toMainRam_c* cmd = JKR_NEW_ARGS(mDoExt_getCommandHeap(), -4) mDoDvdThd_toMainRam_c(direction);
     if (cmd != NULL) {
         s32 entryNumber = my_DVDConvertPathToEntrynum(path);
         cmd->mEntryNum = entryNumber;
         if (cmd->mEntryNum == -1) {
             cmd->mIsDone = true;
-            delete cmd;
+            JKR_DELETE(cmd);
             cmd = NULL;
         } else {
             cmd->mHeap = heap;

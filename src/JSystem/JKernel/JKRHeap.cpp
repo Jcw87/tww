@@ -399,42 +399,42 @@ bool JKRHeap::isSubHeap(JKRHeap* heap) const {
 }
 
 /* 802B0C38-802B0C60       .text __nw__FUl */
-void* operator new(size_t size) {
+void* operator new(size_t size JKR_HEAP_TOKEN_PARAM) {
     return JKRHeap::alloc(size, 4, NULL);
 }
 
 /* 802B0C60-802B0C84       .text __nw__FUli */
-void* operator new(size_t size, int alignment) {
+void* operator new(size_t size JKR_HEAP_TOKEN_PARAM, int alignment) {
     return JKRHeap::alloc(size, alignment, NULL);
 }
 
 /* 802B0C84-802B0CB0       .text __nw__FUlP7JKRHeapi */
-void* operator new(size_t size, JKRHeap* heap, int alignment) {
+void* operator new(size_t size JKR_HEAP_TOKEN_PARAM, JKRHeap* heap, int alignment) {
     return JKRHeap::alloc(size, alignment, heap);
 }
 
 /* 802B0CB0-802B0CD8       .text __nwa__FUl */
-void* operator new[](size_t size) {
+void* operator new[](size_t size JKR_HEAP_TOKEN_PARAM) {
     return JKRHeap::alloc(size, 4, NULL);
 }
 
 /* 802B0CD8-802B0CFC       .text __nwa__FUli */
-void* operator new[](size_t size, int alignment) {
+void* operator new[](size_t size JKR_HEAP_TOKEN_PARAM, int alignment) {
     return JKRHeap::alloc(size, alignment, NULL);
 }
 
 /* 802B0CFC-802B0D28       .text __nwa__FUlP7JKRHeapi */
-void* operator new[](size_t size, JKRHeap* heap, int alignment) {
+void* operator new[](size_t size JKR_HEAP_TOKEN_PARAM, JKRHeap* heap, int alignment) {
     return JKRHeap::alloc(size, alignment, heap);
 }
 
 /* 802B0D28-802B0D4C       .text __dl__FPv */
-void operator delete(void* ptr) {
+void operator delete(void* ptr JKR_HEAP_TOKEN_PARAM) {
     JKRHeap::free(ptr, NULL);
 }
 
 /* 802B0D4C-802B0D70       .text __dla__FPv */
-void operator delete[](void* ptr) {
+void operator delete[](void* ptr JKR_HEAP_TOKEN_PARAM) {
     JKRHeap::free(ptr, NULL);
 }
 

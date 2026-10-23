@@ -1,6 +1,7 @@
 #ifndef JSTUDIO_OBJECT_H
 #define JSTUDIO_OBJECT_H
 
+#include "JSystem/JKernel/JKRHeap.h"
 #include "JSystem/JStudio/JStudio/jstudio-control.h"
 #include <limits>
 
@@ -146,7 +147,7 @@ public:
 
     template<class T>
     T* createFromAdaptor(const stb::data::TParse_TBlock_object& param_0, T* param_1) {
-        T* n = new T(param_0, param_1);
+        T* n = JKR_NEW T(param_0, param_1);
 
         if (n == NULL) {
             return NULL;

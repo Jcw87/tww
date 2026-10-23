@@ -362,7 +362,7 @@ static BOOL CallbackCreateHeap(fopAc_ac_c* a_this) {
 
     JUT_ASSERT(DEMO_SELECT(924, 945), modelData != NULL);
 
-    actor->pm_bgw = new dBgW();
+    actor->pm_bgw = JKR_NEW dBgW();
     JUT_ASSERT(DEMO_SELECT(929, 950), actor->pm_bgw != NULL);
 
     actor->pm_bgw->Set((cBgD_t*)dComIfG_getObjectRes("Kokiie", dRes_INDEX_KOKIIE_DZB_KOKI_00_e), dBgW::MOVE_BG_e, &actor->m340);

@@ -1833,7 +1833,7 @@ cPhs_State daNpc_Rsh1_c::_create() {
 /* 00004698-000049A0       .text CreateHeap__12daNpc_Rsh1_cFv */
 BOOL daNpc_Rsh1_c::CreateHeap() {
     J3DModelData* model_p = (J3DModelData *) dComIfG_getObjectRes(m_arcname, DEMO_SELECT(dRes_INDEX_RSH_BDL_RS_e, dRes_INDEX_RSH_BDL_RS_e));
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         model_p, 
         NULL, NULL, 
         (J3DAnmTransform *) dComIfG_getObjectRes(m_arcname, DEMO_SELECT(dRes_INDEX_RSH_BCK_RS_WAIT01_e, dRes_INDEX_RSH_BCK_RS_WAIT01_e)), 

@@ -1715,9 +1715,9 @@ int JAIZelBasic::checkOnOuterSea(f32* r4) {
 /* 802AC1BC-802AC258       .text makeSound__11JAIZelBasicFUl */
 JAISound* JAIZelBasic::makeSound(u32 param_1) {
     if (field_0x8) {
-        return new (field_0x8, 0) JAIZelSound[param_1];
+        return JKR_NEW_ARRAY_ARGS(JAIZelSound, param_1, field_0x8, 0);
     } else {
-        return new (JASDram, 0) JAIZelSound[param_1];
+        return JKR_NEW_ARRAY_ARGS(JAIZelSound, param_1, JASDram, 0);
     }
 }
 

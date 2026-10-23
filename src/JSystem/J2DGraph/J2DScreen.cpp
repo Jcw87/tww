@@ -12,6 +12,7 @@
 #include "JSystem/J2DGraph/J2DOrthoGraph.h"
 #include "JSystem/JKernel/JKRArchive.h"
 #include "JSystem/JKernel/JKRFileLoader.h"
+#include "JSystem/JKernel/JKRHeap.h"
 #include "JSystem/JSupport/JSUMemoryStream.h"
 #include "JSystem/JUtility/JUTAssert.h"
 
@@ -68,21 +69,21 @@ J2DPane * J2DScreen::createPane(const J2DPane::J2DScrnBlockHeader& header, JSURa
 
     switch (header.mMagic) {
     case 'PAN1':
-        pPane = new J2DPane(pParent, pStream);
+        pPane = JKR_NEW J2DPane(pParent, pStream);
         break;
     case 'WIN1':
-        pPane = new J2DWindow(pParent, pStream);
+        pPane = JKR_NEW J2DWindow(pParent, pStream);
         break;
     case 'PIC1':
-        pPane = new J2DPicture(pParent, pStream);
+        pPane = JKR_NEW J2DPicture(pParent, pStream);
         break;
     case 'TBX1':
-        pPane = new J2DTextBox(pParent, pStream);
+        pPane = JKR_NEW J2DTextBox(pParent, pStream);
         break;
     default:
         JUT_WARN(0x9f, "%s", "unknown pane");
         u32 pos = pStream->getPosition() + header.mSize;
-        pPane = new J2DPane(pParent, pStream);
+        pPane = JKR_NEW J2DPane(pParent, pStream);
         pStream->seek(pos, JSUStreamSeekFrom_SET);
     }
 

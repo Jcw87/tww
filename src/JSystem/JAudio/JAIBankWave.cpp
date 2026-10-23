@@ -35,8 +35,8 @@ void JAInter::BankWave::setWsLoadStatus(s32 param_1, s32 param_2) {
 
 /* 80291240-8029144C       .text init__Q27JAInter8BankWaveFv */
 void JAInter::BankWave::init() {
-    wsGroupNumber = new (JAIBasic::getCurrentJAIHeap(), 32) s32[wsMax];
-    wsLoadStatus = new (JAIBasic::getCurrentJAIHeap(), 32) s32[wsMax];
+    wsGroupNumber = JKR_NEW_ARRAY_ARGS(s32, wsMax, JAIBasic::getCurrentJAIHeap(), 32);
+    wsLoadStatus = JKR_NEW_ARRAY_ARGS(s32, wsMax, JAIBasic::getCurrentJAIHeap(), 32);
     JASystem::WaveArcLoader::setCurrentDir(JAIGlobalParameter::getParamWavePath());
     JASystem::WaveBankMgr::init(0x100);
     JASystem::WaveArcLoader::init();

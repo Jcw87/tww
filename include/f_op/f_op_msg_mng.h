@@ -173,7 +173,7 @@ public:
 
         switch (pHeader.mMagic) {
             case 'PIC1':
-                pane = new MyPicture(pParent, pStream);
+                pane = JKR_NEW MyPicture(pParent, pStream);
                 break;
             default:
                 pane = J2DScreen::createPane(pHeader, pStream, pParent);

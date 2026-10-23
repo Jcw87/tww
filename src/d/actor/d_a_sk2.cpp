@@ -146,7 +146,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         pModelData = (J3DModelData*)dComIfG_getObjectRes("Sk2", dRes_INDEX_SK2_BDL_KSYLF_01_e);
     }
 
-    i_this->mpMorf = new mDoExt_McaMorf(
+    i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         pModelData,
         NULL,
         NULL,
@@ -171,7 +171,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         i_this->mpMorf->getModel()->getModelData()->getJointNodePointer(i)->setCallBack(nodeCallBack);
     }
 
-    i_this->mpBgW = new dBgWDeform();
+    i_this->mpBgW = JKR_NEW dBgWDeform();
 
     if (i_this->mpBgW == NULL) {
         return FALSE;

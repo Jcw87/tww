@@ -881,11 +881,11 @@ void dMenu_Option_c::initialize() {
 
 /* 801D5224-801D53F0       .text _create__14dMenu_Option_cFv */
 void dMenu_Option_c::_create() {
-    scrn = new J2DScreen();
+    scrn = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(882, 891, 1074, 1074), scrn != NULL);
     scrn->set("option.blo", mpArchive);
     
-    stick = new STControl(5, 2, 3, 2);
+    stick = JKR_NEW STControl(5, 2, 3, 2);
     JUT_ASSERT(VERSION_SELECT(886, 895, 1078, 1078), stick != NULL);
     
     screenSet();
@@ -903,8 +903,8 @@ void dMenu_Option_c::_create() {
 /* 801D53F0-801D546C       .text _delete__14dMenu_Option_cFv */
 void dMenu_Option_c::_delete() {
     mpArchive->removeResourceAll();
-    delete scrn;
-    delete stick;
+    JKR_DELETE(scrn);
+    JKR_DELETE(stick);
     mDoHIO_deleteChild(g_moHIO.mNo);
 }
 

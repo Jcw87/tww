@@ -310,7 +310,7 @@ static BOOL daDk_Delete(dk_class* a_this) {
 static BOOL useHeapInit(fopAc_ac_c* i_this) {
     dk_class* a_this = (dk_class*)i_this;
 
-    mDoExt_McaMorf* morf = new mDoExt_McaMorf(
+    mDoExt_McaMorf* morf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectIDRes("Dk", dRes_ID_DK_BDL_DK_e),
         NULL,
         NULL,

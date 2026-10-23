@@ -69,7 +69,7 @@ const char * name_texture[] = {
 
 /* 80160F60-801610A8       .text setScreen__13dPlace_name_cFPCcP10JKRArchive */
 void dPlace_name_c::setScreen(const char* name, JKRArchive* arc) {
-    scrn = new J2DScreen();
+    scrn = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(69, 69, 91, 91), scrn != NULL);
 
     scrn->set(name, arc);
@@ -129,7 +129,7 @@ cPhs_State dPn_c::_create() {
             mpHeap = dComIfGp_getExpHeap2D();
             dComIfGp_setHeapLockFlag(10);
             JKRHeap * oldHeap = mDoExt_setCurrentHeap(mpHeap);
-            dPn_scrn = new dPlace_name_c();
+            dPn_scrn = JKR_NEW dPlace_name_c();
             JUT_ASSERT(VERSION_SELECT(155, 155, 177, 177), dPn_scrn != NULL);
             dPn_scrn->setScreen("place_name.blo", resInfo->getArchive());
             mpTIMG = (ResTIMG*)mpHeap->alloc(0x3c00, 0x20);
@@ -206,9 +206,9 @@ BOOL dPn_c::_delete() {
     JKRHeap * oldHeap = mDoExt_setCurrentHeap(mpHeap);
     dComIfGp_setStageNameDelete();
     dPn_scrn->deleteScreen();
-    delete dPn_scrn;
+    JKR_DELETE(dPn_scrn);
     if (dvd != NULL)
-        delete dvd;
+        JKR_DELETE(dvd);
     mpHeap->free(mpTIMG);
     mpHeap->freeAll();
     dComIfGp_offHeapLockFlag();

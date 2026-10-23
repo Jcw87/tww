@@ -201,7 +201,7 @@ public:
 
 class dMesg_screenData_c : public dDlst_base_c {
 public:
-    void deleteScreen() { delete scrn; }
+    void deleteScreen() { JKR_DELETE(scrn); }
     f32 getTextPosX(int i) { return field_0x88[i].mPosTopLeftOrig.x; }
     f32 getTextPosY(int i) { return field_0x88[i].mPosTopLeftOrig.y; }
     void resetTimer() { mTimer = 0; }

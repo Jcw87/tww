@@ -12,7 +12,7 @@
 /* 00000078-0000015C       .text useHeapInit__FP10fopAc_ac_c */
 static BOOL useHeapInit(fopAc_ac_c* i_ac) {
     kytag03_class* i_this = (kytag03_class*)i_ac;
-    i_this->mpModel = new mDoExt_McaMorf(
+    i_this->mpModel = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("M_DOOR", dRes_INDEX_M_DOOR_BDL_MYAMIF_e),
         NULL, NULL, NULL, J3DFrameCtrl::EMode_LOOP, 0.0f, 0, -1, 1, NULL, 0x0, 0x11020203
     );

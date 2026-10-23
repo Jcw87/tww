@@ -491,7 +491,7 @@ BOOL dDoor_key2_c::keyCreate_Bkey() {
     if (!mBckAnim.init(modelData, bck, TRUE, J3DFrameCtrl::EMode_NONE))
         return FALSE;
 
-    J3DSkinDeform* deform = new J3DSkinDeform();
+    J3DSkinDeform* deform = JKR_NEW J3DSkinDeform();
     if (deform == NULL)
         return FALSE;
 
@@ -714,7 +714,7 @@ BOOL dDoor_hkyo_c::create() {
     if (mpModel == NULL)
         return FALSE;
 
-    mpBrkAnm = new mDoExt_brkAnm();
+    mpBrkAnm = JKR_NEW mDoExt_brkAnm();
     if (mpBrkAnm == NULL)
         return FALSE;
 

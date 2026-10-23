@@ -377,17 +377,17 @@ TFactory::~TFactory() {}
 TObject* TFactory::create(const data::TParse_TBlock& rBlock) {
     switch (rBlock.get_type()) {
     case 1:
-        return new TObject_composite(rBlock);
+        return JKR_NEW TObject_composite(rBlock);
     case 2:
-        return new TObject_constant(rBlock);
+        return JKR_NEW TObject_constant(rBlock);
     case 3:
-        return new TObject_transition(rBlock);
+        return JKR_NEW TObject_transition(rBlock);
     case 4:
-        return new TObject_list(rBlock);
+        return JKR_NEW TObject_list(rBlock);
     case 5:
-        return new TObject_list_parameter(rBlock);
+        return JKR_NEW TObject_list_parameter(rBlock);
     case 6:
-        return new TObject_hermite(rBlock);
+        return JKR_NEW TObject_hermite(rBlock);
     default:
         JUTWarn w;
         w << "unknown type : ";
@@ -397,7 +397,7 @@ TObject* TFactory::create(const data::TParse_TBlock& rBlock) {
 
 /* 80274484-802744C0       .text destroy__Q37JStudio3fvb8TFactoryFPQ37JStudio3fvb7TObject */
 void TFactory::destroy(TObject* pObject) {
-    delete pObject;
+    JKR_DELETE(pObject);
 }
 
 /* 802744C0-802744E0       .text __ct__Q37JStudio3fvb6TParseFPQ37JStudio3fvb8TControl */

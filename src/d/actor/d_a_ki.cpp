@@ -1205,7 +1205,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
 
     if (i_this->mDamageType == 0) {
         i_this->actor.gbaName = 0x17;
-        i_this->mpMorf = new mDoExt_McaMorf(
+        i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
             (J3DModelData*)dComIfG_getObjectRes("Ki", dRes_INDEX_KI_BDL_KI_e),
             NULL, NULL,
             (J3DAnmTransform*)dComIfG_getObjectRes("Ki", dRes_INDEX_KI_BCK_WAIT1_e),
@@ -1223,7 +1223,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
 #endif
     } else {
         i_this->actor.gbaName = 6;
-        i_this->mpMorf = new mDoExt_McaMorf(
+        i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
             (J3DModelData*)dComIfG_getObjectRes("Ki", dRes_INDEX_KI_BDL_FK_e),
             NULL, NULL,
             (J3DAnmTransform*)dComIfG_getObjectRes("Ki", dRes_INDEX_KI_BCK_WAIT1_e),
@@ -1243,7 +1243,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
             return FALSE;
         }
 
-        i_this->m920 = new mDoExt_btkAnm();
+        i_this->m920 = JKR_NEW mDoExt_btkAnm();
         if (i_this->m920 == NULL) {
             return FALSE;
         }
@@ -1266,7 +1266,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     }
 
     u16 materialCount = anmTexPattern->getUpdateMaterialNum();
-    i_this->m330 = new J3DTexNoAnm[materialCount];
+    i_this->m330 = JKR_NEW_ARRAY(J3DTexNoAnm, materialCount);
     for (u16 i = 0; i < materialCount; i++) {
         i_this->m330[i].setAnmIndex(i); 
     }

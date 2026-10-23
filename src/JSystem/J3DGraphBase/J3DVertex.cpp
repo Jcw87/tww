@@ -100,7 +100,7 @@ s32 J3DVertexBuffer::allocTransformedVtxPosArray() {
 
     for (int i = 0; i < 2; i++) {
         if (i == 0 || mTransformedVtxPosArray[i] == NULL) {
-            mTransformedVtxPosArray[i] = new (0x20) Vec[mVtxData->getVtxNum()];
+            mTransformedVtxPosArray[i] = JKR_NEW_ARRAY_ARGS(Vec, mVtxData->getVtxNum(), 0x20);
             if (mTransformedVtxPosArray[i] == NULL)
                 return J3DErrType_OutOfMemory;
         }
@@ -116,7 +116,7 @@ s32 J3DVertexBuffer::allocTransformedVtxNrmArray() {
 
     for (int i = 0; i < 2; i++) {
         if (i == 0 || mTransformedVtxNrmArray[i] == NULL) {
-            mTransformedVtxNrmArray[i] = new (0x20) VertexNormal[mVtxData->getNrmNum()];
+            mTransformedVtxNrmArray[i] = JKR_NEW_ARRAY_ARGS(VertexNormal, mVtxData->getNrmNum(), 0x20);
             if (mTransformedVtxNrmArray[i] == NULL)
                 return J3DErrType_OutOfMemory;
         }

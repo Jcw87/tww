@@ -1843,15 +1843,15 @@ void dJle_Pb_c::_create(JKRExpHeap* i_heap) {
     int j = 0;
     int k = 0;
 
-    scrn = new J2DScreen();
+    scrn = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(2038, 2033, 2086, 2113), scrn != NULL); 
     scrn->set("wipe_01_01.blo", dComIfGp_getCameraResArchive());
 
-    scrn1 = new J2DScreen();
+    scrn1 = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(2042, 2037, 2090, 2117), scrn1 != NULL);
     scrn1->set("wipe_01_02.blo", dComIfGp_getCameraResArchive());
 
-    scrn2 = new J2DScreen();
+    scrn2 = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(2046, 2041, 2094, 2121), scrn2 != NULL);
     scrn2->set("hukidashi_08.blo", dComIfGp_getMsgArchive());
 
@@ -1861,12 +1861,12 @@ void dJle_Pb_c::_create(JKRExpHeap* i_heap) {
     font1 = mDoExt_getRubyFont();
     JUT_ASSERT(VERSION_SELECT(2053, 2048, 2102, 2129), font1 != NULL);
 
-    stick = new STControl(5, 2, 3, 2);
+    stick = JKR_NEW STControl(5, 2, 3, 2);
     JUT_ASSERT(VERSION_SELECT(2056, 2051, 2107, 2134), stick != NULL);
 
-    mMsgIconFontMainPic = new J2DPicture("font_07_02.bti");
-    mMsgIconFontSubPic = new J2DPicture("font_07_02.bti");
-    mMsgSelectArrowPic = new J2DPicture("font_10.bti");
+    mMsgIconFontMainPic = JKR_NEW J2DPicture("font_07_02.bti");
+    mMsgIconFontSubPic = JKR_NEW J2DPicture("font_07_02.bti");
+    mMsgSelectArrowPic = JKR_NEW J2DPicture("font_10.bti");
 
     mImportedPhotoLoadReq = NULL;
 
@@ -2278,15 +2278,15 @@ void dJle_Pb_c::_delete(JKRExpHeap* i_heap) {
     }
 
     if (mImportedPhotoLoadReq != NULL) {
-        delete mImportedPhotoLoadReq;
+        JKR_DELETE(mImportedPhotoLoadReq);
     }
 
-    delete scrn;
-    delete scrn2;
-    delete stick;
-    delete mMsgIconFontMainPic;
-    delete mMsgIconFontSubPic;
-    delete mMsgSelectArrowPic;
+    JKR_DELETE(scrn);
+    JKR_DELETE(scrn2);
+    JKR_DELETE(stick);
+    JKR_DELETE(mMsgIconFontMainPic);
+    JKR_DELETE(mMsgIconFontSubPic);
+    JKR_DELETE(mMsgSelectArrowPic);
 }
 
 /* 8022BB3C-8022BB7C       .text dPb_Draw__FP12sub_pb_class */
@@ -2343,7 +2343,7 @@ static BOOL dPb_Delete(sub_pb_class* i_this) {
     JKRHeap* oldHeap = mDoExt_setCurrentHeap(i_this->heap);
     i_this->dPb_c->_delete(i_this->heap);
 
-    delete i_this->dPb_c;
+    JKR_DELETE(i_this->dPb_c);
 
     for(int i = 0; i < 4; i++) {
         i_this->heap->free(i_this->buffer[i]);
@@ -2384,7 +2384,7 @@ static cPhs_State dPb_Create(msg_class* i_this) {
 
     JKRHeap* oldHeap = mDoExt_setCurrentHeap(i_Pb->heap);
 
-    i_Pb->dPb_c = new dJle_Pb_c();
+    i_Pb->dPb_c = JKR_NEW dJle_Pb_c();
 
     for(int i = 0; i < 4; i++) {
         i_Pb->buffer[i] = (card_pictdata*)i_Pb->heap->alloc(sizeof(card_pictdata), 0x20);

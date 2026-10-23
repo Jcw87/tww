@@ -214,7 +214,7 @@ BOOL Act_c::CreateHeap() {
         J3DAnmTransform* bck = static_cast<J3DAnmTransform*>(dComIfG_getObjectRes(arcname, attr(M_type).bck_res_index));
         JUT_ASSERT(455, bck != NULL);
 
-        mBck1 = new mDoExt_bckAnm();
+        mBck1 = JKR_NEW mDoExt_bckAnm();
         if (mBck1 == NULL || !mBck1->init(model_data, bck, true, J3DFrameCtrl::EMode_NONE, 1.0f, 0, 299, false)) {
             bVar2 = false;
         }
@@ -224,7 +224,7 @@ BOOL Act_c::CreateHeap() {
         J3DAnmTevRegKey* brk = static_cast<J3DAnmTevRegKey*>(dComIfG_getObjectRes(arcname, attr(M_type).brk_res_index));
         JUT_ASSERT(474, brk != NULL);
 
-        mBrk1 = new mDoExt_brkAnm();
+        mBrk1 = JKR_NEW mDoExt_brkAnm();
         if (mBrk1 == NULL || !mBrk1->init(model_data, brk, true, J3DFrameCtrl::EMode_LOOP)) {
             bVar3 = false;
         }
@@ -234,7 +234,7 @@ BOOL Act_c::CreateHeap() {
         J3DAnmTextureSRTKey* btk = static_cast<J3DAnmTextureSRTKey*>(dComIfG_getObjectRes(arcname, attr(M_type).btk_res_index));
         JUT_ASSERT(487, btk != NULL);
 
-        mBtk = new mDoExt_btkAnm();
+        mBtk = JKR_NEW mDoExt_btkAnm();
         if (mBtk == NULL || !mBtk->init(model_data, btk, true, J3DFrameCtrl::EMode_LOOP)) {
             bVar4 = false;
         }
@@ -255,7 +255,7 @@ BOOL Act_c::CreateHeap() {
         J3DAnmTevRegKey* brk_nure = static_cast<J3DAnmTevRegKey*>(dComIfG_getObjectRes(arcname, attr(M_type).nure_brk_res_index));
         JUT_ASSERT(515, brk_nure != NULL);
 
-        mBrk2 = new mDoExt_brkAnm();
+        mBrk2 = JKR_NEW mDoExt_brkAnm();
         if (mBrk2 != NULL && mBrk2->init(mdl_nure_data, brk_nure, true, J3DFrameCtrl::EMode_NONE, attr(M_type).m44, 0, -1, false, FALSE)) {
             mBrk2->setFrame(mBrk2->getEndFrame());
         } else {

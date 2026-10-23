@@ -720,7 +720,7 @@ static BOOL daBmdhand_Delete(bmdhand_class* i_this) {
 
 /* 000030C4-00003210       .text useHeapInit__FP13bmdhand_class */
 static BOOL useHeapInit(bmdhand_class* i_this) {
-    i_this->mpMorf = new mDoExt_McaMorf(
+    i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Bmdhand", dRes_INDEX_BMDHAND_BMD_BKM_FOOK_e),
         NULL,
         NULL,

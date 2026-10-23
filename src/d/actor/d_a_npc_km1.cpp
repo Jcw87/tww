@@ -742,7 +742,7 @@ BOOL daNpc_Km1_c::CreateHeap() {
  
     a_mdl_data = (J3DModelData*)dComIfG_getObjectIDRes("Km", dRes_ID_KM_BDL_KM_e);
     JUT_ASSERT(DEMO_SELECT(1316, 1325) ,a_mdl_data != NULL);
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         a_mdl_data,
         NULL, NULL,
         (J3DAnmTransform*)dComIfG_getObjectIDRes("Km", dRes_ID_KM_BCK_KM_WAIT01_e),

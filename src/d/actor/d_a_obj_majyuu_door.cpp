@@ -98,7 +98,7 @@ BOOL daObj_MjDoor_c::_createHeap() {
     mDoMtx_stack_c::YrotM(current.angle.y);
     MTXCopy(mDoMtx_stack_c::now, mMtx);
 
-    mpBgW = new dBgW();
+    mpBgW = JKR_NEW dBgW();
     if (mpBgW == NULL) {
         return FALSE;
     }

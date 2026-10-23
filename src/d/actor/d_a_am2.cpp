@@ -1221,7 +1221,7 @@ static BOOL daAM2_Delete(am2_class* i_this) {
 static BOOL useHeapInit(fopAc_ac_c* i_this) {
     am2_class* a_this = (am2_class*)i_this;
 
-    a_this->mpMorf = new mDoExt_McaMorf(
+    a_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("AM2", dRes_INDEX_AM2_BDL_AM2_e),
         NULL, NULL,
         (J3DAnmTransformKey*)dComIfG_getObjectRes("AM2", dRes_INDEX_AM2_BCK_WAIT_e),
@@ -1235,14 +1235,14 @@ static BOOL useHeapInit(fopAc_ac_c* i_this) {
     }
     J3DModel* model = a_this->mpMorf->getModel();
     
-    a_this->mpBtkAnm = new mDoExt_btkAnm();
+    a_this->mpBtkAnm = JKR_NEW mDoExt_btkAnm();
     if (!a_this->mpBtkAnm) { return FALSE; }
     J3DAnmTextureSRTKey* pbtk = (J3DAnmTextureSRTKey*)dComIfG_getObjectRes("AM2", dRes_INDEX_AM2_BTK_AM2_e);
     int ret = a_this->mpBtkAnm->init(model->getModelData(), pbtk, TRUE, J3DFrameCtrl::EMode_LOOP);
     if (!ret) { return FALSE; }
     if (!a_this->mpBtkAnm) { return FALSE; }
     
-    a_this->mpBrkAnm = new mDoExt_brkAnm();
+    a_this->mpBrkAnm = JKR_NEW mDoExt_brkAnm();
     if (!a_this->mpBrkAnm) { return FALSE; }
     J3DAnmTevRegKey* pbrk = (J3DAnmTevRegKey*)dComIfG_getObjectRes("AM2", dRes_INDEX_AM2_BRK_AM2_e);
     ret = a_this->mpBrkAnm->init(model->getModelData(), pbrk, TRUE, J3DFrameCtrl::EMode_LOOP);

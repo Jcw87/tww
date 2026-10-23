@@ -139,17 +139,17 @@ int mDoCPd_Read() {
 int mDoCPd_Create() {
     JUTGamePad::suppressPadReset(1);
 
-    JUTGamePad* pad = new JUTGamePad(JUTGamePad::EPort1);
+    JUTGamePad* pad = JKR_NEW JUTGamePad(JUTGamePad::EPort1);
     g_mDoCPd_gamePad[0] = pad;
     g_mDoCPd_gamePad[1] = NULL;
 
 #if VERSION == VERSION_DEMO
-    g_mDoCPd_gamePad[2] = new JUTGamePad(JUTGamePad::EPort3);
-    g_mDoCPd_gamePad[3] = new JUTGamePad(JUTGamePad::EPort4);
+    g_mDoCPd_gamePad[2] = JKR_NEW JUTGamePad(JUTGamePad::EPort3);
+    g_mDoCPd_gamePad[3] = JKR_NEW JUTGamePad(JUTGamePad::EPort4);
 #else
     if (mDoMain::developmentMode) {
-        g_mDoCPd_gamePad[2] = new JUTGamePad(JUTGamePad::EPort3);
-        g_mDoCPd_gamePad[3] = new JUTGamePad(JUTGamePad::EPort4);
+        g_mDoCPd_gamePad[2] = JKR_NEW JUTGamePad(JUTGamePad::EPort3);
+        g_mDoCPd_gamePad[3] = JKR_NEW JUTGamePad(JUTGamePad::EPort4);
     } else {
         g_mDoCPd_gamePad[2] = NULL;
         g_mDoCPd_gamePad[3] = NULL;

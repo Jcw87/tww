@@ -2653,14 +2653,14 @@ static BOOL daFganon_Delete(fganon_class* i_this) {
 static BOOL useHeapInit(fopAc_ac_c* i_act) {
     fganon_class* i_this = (fganon_class*)i_act;
     
-    i_this->mpMorf = new mDoExt_McaMorf((J3DModelData *)dComIfG_getObjectRes("Fganon", dRes_INDEX_FGANON_BDL_BPG_e), NULL, NULL,
+    i_this->mpMorf = JKR_NEW mDoExt_McaMorf((J3DModelData *)dComIfG_getObjectRes("Fganon", dRes_INDEX_FGANON_BDL_BPG_e), NULL, NULL,
                                         (J3DAnmTransformKey *)dComIfG_getObjectRes("Fganon", dRes_INDEX_FGANON_BCK_WAIT1_e),
                                         J3DFrameCtrl::EMode_LOOP, 1.0f, 0, -1, 1, NULL, 0, 0x11020203);
 
     if (i_this->mpMorf == NULL || i_this->mpMorf->getModel() == NULL)
         return FALSE;
     
-    i_this->mpBrkAnm1 = new mDoExt_brkAnm();
+    i_this->mpBrkAnm1 = JKR_NEW mDoExt_brkAnm();
     if (i_this->mpBrkAnm1 == NULL)
         return FALSE;
 
@@ -2685,7 +2685,7 @@ static BOOL useHeapInit(fopAc_ac_c* i_act) {
         return FALSE;
 
     pModelData = i_this->mpKenModel->getModelData();
-    i_this->mpBrkAnm2 = new mDoExt_brkAnm();
+    i_this->mpBrkAnm2 = JKR_NEW mDoExt_brkAnm();
     if (i_this->mpBrkAnm2 == NULL)
         return FALSE;
 
@@ -2700,7 +2700,7 @@ static BOOL useHeapInit(fopAc_ac_c* i_act) {
     if (i_this->mpEnergySphereModel == NULL)
         return FALSE;
     
-    i_this->mpBtkAnm = new mDoExt_btkAnm();
+    i_this->mpBtkAnm = JKR_NEW mDoExt_btkAnm();
     if (i_this->mpBtkAnm == NULL)
         return FALSE;
 
@@ -2710,7 +2710,7 @@ static BOOL useHeapInit(fopAc_ac_c* i_act) {
     if (btk_res == 0)
         return FALSE;
 
-    i_this->mpBrkAnm3 = new mDoExt_brkAnm();
+    i_this->mpBrkAnm3 = JKR_NEW mDoExt_brkAnm();
     if (i_this->mpBrkAnm3 == NULL)
         return FALSE;
 

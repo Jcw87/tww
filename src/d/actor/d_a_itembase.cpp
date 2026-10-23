@@ -61,7 +61,7 @@ BOOL daItemBase_c::CreateItemHeap(const char* resName, s16 resIdx, s16 btkAnm1, 
     if (btkAnm1 != -1) {
         pbtk = (J3DAnmTextureSRTKey*)dComIfG_getObjectRes(resName, btkAnm1);
         JUT_ASSERT(140, pbtk != NULL);
-        mpBtkAnm1 = new mDoExt_btkAnm();
+        mpBtkAnm1 = JKR_NEW mDoExt_btkAnm();
         if (!mpBtkAnm1 || !mpBtkAnm1->init(modelData, pbtk, TRUE, J3DFrameCtrl::EMode_LOOP)) {
             return FALSE;
         }
@@ -71,7 +71,7 @@ BOOL daItemBase_c::CreateItemHeap(const char* resName, s16 resIdx, s16 btkAnm1, 
     if (btkAnm2 != -1) {
         pbtk = (J3DAnmTextureSRTKey*)dComIfG_getObjectRes(resName, btkAnm2);
         JUT_ASSERT(156, pbtk != NULL);
-        mpBtkAnm2 = new mDoExt_btkAnm();
+        mpBtkAnm2 = JKR_NEW mDoExt_btkAnm();
         if (!mpBtkAnm2 || !mpBtkAnm2->init(modelData, pbtk, TRUE, J3DFrameCtrl::EMode_LOOP)) {
             return FALSE;
         }
@@ -87,7 +87,7 @@ BOOL daItemBase_c::CreateItemHeap(const char* resName, s16 resIdx, s16 btkAnm1, 
         if (tevFrm != -1) {
             shouldAnimate = FALSE;
         }
-        mpBrkAnm1 = new mDoExt_brkAnm();
+        mpBrkAnm1 = JKR_NEW mDoExt_brkAnm();
         if (!mpBrkAnm1 || !mpBrkAnm1->init(modelData, pbrk, shouldAnimate, J3DFrameCtrl::EMode_LOOP)) {
             return FALSE;
         }
@@ -97,7 +97,7 @@ BOOL daItemBase_c::CreateItemHeap(const char* resName, s16 resIdx, s16 btkAnm1, 
     if (brkAnm2 != -1) {
         pbrk = (J3DAnmTevRegKey*)dComIfG_getObjectRes(resName, brkAnm2);
         JUT_ASSERT(197, pbrk != NULL);
-        mpBrkAnm2 = new mDoExt_brkAnm();
+        mpBrkAnm2 = JKR_NEW mDoExt_brkAnm();
         if (!mpBrkAnm2 || !mpBrkAnm2->init(modelData, pbrk, TRUE, J3DFrameCtrl::EMode_LOOP)) {
             return FALSE;
         }
@@ -108,7 +108,7 @@ BOOL daItemBase_c::CreateItemHeap(const char* resName, s16 resIdx, s16 btkAnm1, 
     if (bckAnm != -1) {
         pbck = (J3DAnmTransform*)dComIfG_getObjectRes(resName, bckAnm);
         JUT_ASSERT(212, pbck != NULL);
-        mpBckAnm = new mDoExt_bckAnm();
+        mpBckAnm = JKR_NEW mDoExt_bckAnm();
         if (!mpBckAnm || !mpBckAnm->init(modelData, pbck, TRUE, 2)) {
             return FALSE;
         }

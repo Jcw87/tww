@@ -388,11 +388,11 @@ void dAuction_screen_c::initialize() {
 
 /* 801605B0-80160770       .text _create__17dAuction_screen_cFv */
 void dAuction_screen_c::_create() {
-    scrn1 = new J2DScreen();
+    scrn1 = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(540, 540, 540, 540), scrn1 != NULL);
     scrn1->set("auction1.blo", archive);
 
-    scrn2 = new J2DScreen();
+    scrn2 = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(544, 544, 544, 544), scrn2 != NULL);
     scrn2->set("auction2.blo", archive);
 
@@ -484,7 +484,7 @@ cPhs_State dAs_c::_create() {
             return cPhs_ERROR_e;
         }
 
-        dAs_scrn = new dAuction_screen_c();
+        dAs_scrn = JKR_NEW dAuction_screen_c();
         JUT_ASSERT(VERSION_SELECT(720, 720, 720, 720), dAs_scrn != NULL);
         dAs_scrn->archive = resInfo->getArchive();
         dAs_scrn->_create();

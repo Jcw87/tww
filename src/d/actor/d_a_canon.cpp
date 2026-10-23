@@ -519,7 +519,7 @@ BOOL daCanon_c::CreateHeap() {
     ResTIMG* pRVar4 = (ResTIMG*)dComIfG_getObjectRes("Bomber", dRes_INDEX_BOMBER_BTI_GAME_BOMB_02_e);
 
     for (s32 i = 0; i < ARRAY_SSIZE(m584); i++) {
-        m584[i] = new dDlst_2DObject_c();
+        m584[i] = JKR_NEW dDlst_2DObject_c();
         if (m584[i] == NULL) {
             return FALSE;
         }
@@ -534,7 +534,7 @@ BOOL daCanon_c::CreateHeap() {
 
     // Bug: m5AC only has 5 elements, copy-paste mistake.
     for (s32 i = 0; i < ARRAY_SSIZE(m584); i++) {
-        m5AC[i] = new dDlst_2DObject_c();
+        m5AC[i] = JKR_NEW dDlst_2DObject_c();
         if (m5AC[i] == NULL) {
             return FALSE;
         }
@@ -548,7 +548,7 @@ BOOL daCanon_c::CreateHeap() {
     ResTIMG* pRVar8 = (ResTIMG*)dComIfG_getObjectRes("Bomber", dRes_INDEX_BOMBER_BTI_GAME_BATTERY_e);
     ResTIMG* pRVar9 = (ResTIMG*)dComIfG_getObjectRes("Bomber", dRes_INDEX_BOMBER_BTI_GAME_BATTERY_BASE_e);
     ResTIMG* pRVar10 = (ResTIMG*)dComIfG_getObjectRes("Bomber", dRes_INDEX_BOMBER_BTI_RUPY_NUM_DEGREE_e);
-    m5C0 = new dDlst_2DBattery_c();
+    m5C0 = JKR_NEW dDlst_2DBattery_c();
 
     if (m5C0 == NULL) {
         return FALSE;

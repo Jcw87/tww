@@ -45,7 +45,7 @@ static BOOL CheckCreateHeap(fopAc_ac_c* a_this) {
 
 /* 00000398-00000538       .text CreateHeap__19daObj_Demo_Barrel_cFv */
 BOOL daObj_Demo_Barrel_c::CreateHeap() {
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
     (J3DModelData*)dComIfG_getObjectIDRes(M_arcname, dRes_ID_DBARREL_BDL_KTARU_02_e), NULL, NULL,
         (J3DAnmTransform*)dComIfG_getObjectIDRes(M_arcname, dRes_ID_DBARREL_BCK_02_TR_CD_e),
         J3DFrameCtrl::EMode_LOOP, 1.0f, 0, -1, 0, NULL, 0, 0x11020203);

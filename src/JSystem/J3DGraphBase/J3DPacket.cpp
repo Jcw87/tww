@@ -17,8 +17,8 @@
 /* 802DAE1C-802DAE9C       .text newDisplayList__17J3DDisplayListObjFUl */
 J3DError J3DDisplayListObj::newDisplayList(u32 capacity) {
     mCapacity = ALIGN_NEXT(capacity, 0x20);
-    mpData[0] = new (0x20) char[mCapacity];
-    mpData[1] = new (0x20) char[mCapacity];
+    mpData[0] = JKR_NEW_ARRAY_ARGS(char, mCapacity, 0x20);
+    mpData[1] = JKR_NEW_ARRAY_ARGS(char, mCapacity, 0x20);
     mSize = 0;
 
     if (mpData[0] == NULL || mpData[1] == NULL)
@@ -30,7 +30,7 @@ J3DError J3DDisplayListObj::newDisplayList(u32 capacity) {
 /* 802DAE9C-802DAF00       .text newSingleDisplayList__17J3DDisplayListObjFUl */
 J3DError J3DDisplayListObj::newSingleDisplayList(u32 capacity) {
     mCapacity = ALIGN_NEXT(capacity, 0x20);
-    mpData[0] = new (0x20) char[mCapacity];
+    mpData[0] = JKR_NEW_ARRAY_ARGS(char, mCapacity, 0x20);
     mpData[1] = mpData[0];
     mSize = 0;
 
@@ -43,7 +43,7 @@ J3DError J3DDisplayListObj::newSingleDisplayList(u32 capacity) {
 /* 802DAF00-802DAF78       .text single_To_Double__17J3DDisplayListObjFv */
 J3DError J3DDisplayListObj::single_To_Double() {
     if (mpData[0] == mpData[1]) {
-        mpData[1] = new (0x20) char[mCapacity];
+        mpData[1] = JKR_NEW_ARRAY_ARGS(char, mCapacity, 0x20);
 
         if (mpData[1] == NULL)
             return J3DErrType_OutOfMemory;
@@ -152,7 +152,7 @@ J3DDrawPacket::~J3DDrawPacket() {
 
 /* 802DB230-802DB2BC       .text newDisplayList__13J3DDrawPacketFUl */
 J3DError J3DDrawPacket::newDisplayList(u32 size) {
-    mpDisplayListObj = new J3DDisplayListObj();
+    mpDisplayListObj = JKR_NEW J3DDisplayListObj();
 
     if (mpDisplayListObj == NULL)
         return J3DErrType_OutOfMemory;
@@ -166,7 +166,7 @@ J3DError J3DDrawPacket::newDisplayList(u32 size) {
 
 /* 802DB2BC-802DB348       .text newSingleDisplayList__13J3DDrawPacketFUl */
 J3DError J3DDrawPacket::newSingleDisplayList(u32 size) {
-    mpDisplayListObj = new J3DDisplayListObj();
+    mpDisplayListObj = JKR_NEW J3DDisplayListObj();
 
     if (mpDisplayListObj == NULL)
         return J3DErrType_OutOfMemory;

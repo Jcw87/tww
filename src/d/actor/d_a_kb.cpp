@@ -2384,7 +2384,7 @@ static BOOL useHeapInit(fopAc_ac_c* i_actor) {
         pModelData = (J3DModelData*)dComIfG_getObjectRes("Kb", dRes_INDEX_KB_BDL_PG_e);
     }
 
-    i_this->mpMorf = new mDoExt_McaMorf(
+    i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         pModelData,
         NULL, NULL,
         (J3DAnmTransformKey*)dComIfG_getObjectRes("Kb", dRes_INDEX_KB_BCK_WAIT1_e),
@@ -2406,7 +2406,7 @@ static BOOL useHeapInit(fopAc_ac_c* i_actor) {
     }
 
     u16 materialCount = pAnmTexPattern->getUpdateMaterialNum();
-    i_this->mpTexNoAnm = new J3DTexNoAnm[materialCount];
+    i_this->mpTexNoAnm = JKR_NEW_ARRAY(J3DTexNoAnm, materialCount);
 
     if(i_this->mpTexNoAnm == NULL) {
         return FALSE;

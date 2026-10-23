@@ -282,7 +282,7 @@ BOOL daSaku_c::loadMoveBG(int i_index0, int i_index1, int i_sakuId) {
         dRes_INDEX_KSAKUCO_DZB_KSAKU_00_e
     };
 
-    field_0xE34[i_sakuId][i_index1] = new dBgW();
+    field_0xE34[i_sakuId][i_index1] = JKR_NEW dBgW();
 
     if (field_0xE34[i_sakuId][i_index1] != NULL) {
         cBgD_t* bgd = (cBgD_t*)dComIfG_getObjectRes(m_arcname[0], dzb_idx[i_index0]);

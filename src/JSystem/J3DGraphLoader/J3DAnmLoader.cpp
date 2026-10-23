@@ -7,6 +7,7 @@
 
 #include "JSystem/J3DGraphLoader/J3DAnmLoader.h"
 #include "JSystem/J3DGraphAnimator/J3DAnimation.h"
+#include "JSystem/JKernel/JKRHeap.h"
 #include "JSystem/JSupport/JSupport.h"
 #include "dolphin/os/OS.h"
 
@@ -20,62 +21,62 @@ J3DAnmBase* J3DAnmLoaderDataBase::load(const void* i_data) {
         switch (header->mType) {
         case 'bck1': {
             J3DAnmKeyLoader_v15 loader;
-            loader.mAnm = new J3DAnmTransformKey();
+            loader.mAnm = JKR_NEW J3DAnmTransformKey();
             return loader.load(i_data);
         }
         case 'bpk1': {
             J3DAnmKeyLoader_v15 loader;
-            loader.mAnm = new J3DAnmColorKey();
+            loader.mAnm = JKR_NEW J3DAnmColorKey();
             return loader.load(i_data);
         }
         case 'blk1': {
             J3DAnmKeyLoader_v15 loader;
-            loader.mAnm = new J3DAnmClusterKey();
+            loader.mAnm = JKR_NEW J3DAnmClusterKey();
             return loader.load(i_data);
         }
         case 'btk1': {
             J3DAnmKeyLoader_v15 loader;
-            loader.mAnm = new J3DAnmTextureSRTKey();
+            loader.mAnm = JKR_NEW J3DAnmTextureSRTKey();
             return loader.load(i_data);
         }
         case 'brk1': {
             J3DAnmKeyLoader_v15 loader;
-            loader.mAnm = new J3DAnmTevRegKey();
+            loader.mAnm = JKR_NEW J3DAnmTevRegKey();
             return loader.load(i_data);
         }
         case 'bxk1': {
             J3DAnmKeyLoader_v15 loader;
-            loader.mAnm = new J3DAnmVtxColorKey();
+            loader.mAnm = JKR_NEW J3DAnmVtxColorKey();
             return loader.load(i_data);
         }
         case 'bca1': {
             J3DAnmFullLoader_v15 loader;
-            loader.mAnm = new J3DAnmTransformFull();
+            loader.mAnm = JKR_NEW J3DAnmTransformFull();
             return loader.load(i_data);
         }
         case 'bpa1': {
             J3DAnmFullLoader_v15 loader;
-            loader.mAnm = new J3DAnmColorFull();
+            loader.mAnm = JKR_NEW J3DAnmColorFull();
             return loader.load(i_data);
         }
         case 'btp1': {
             J3DAnmFullLoader_v15 loader;
-            loader.mAnm = new J3DAnmTexPattern();
+            loader.mAnm = JKR_NEW J3DAnmTexPattern();
             return loader.load(i_data);
         }
         case 'bva1': {
             J3DAnmFullLoader_v15 loader;
-            loader.mAnm = new J3DAnmVisibilityFull();
+            loader.mAnm = JKR_NEW J3DAnmVisibilityFull();
             return loader.load(i_data);
         }
         case 'bla1': {
             J3DAnmFullLoader_v15 loader;
-            loader.mAnm = new J3DAnmClusterFull();
+            loader.mAnm = JKR_NEW J3DAnmClusterFull();
             return loader.load(i_data);
         }
         case 'bxa1': {
             J3DAnmFullLoader_v15 loader;
-            loader.mAnm = new J3DAnmVtxColorFull();
+            loader.mAnm = JKR_NEW J3DAnmVtxColorFull();
             return loader.load(i_data);
         }
         default:

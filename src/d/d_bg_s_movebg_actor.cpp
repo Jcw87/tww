@@ -30,7 +30,7 @@ BOOL dBgS_MoveBgActor::MoveBGCreateHeap() {
         return FALSE;
     }
 
-    mpBgW = new dBgW();
+    mpBgW = JKR_NEW dBgW();
     if (mpBgW && !mpBgW->Set((cBgD_t*)dComIfG_getObjectRes(m_name, m_dzb_id), cBgW::MOVE_BG_e, &mBgMtx)) {
         if (m_set_func != NULL) {
             mpBgW->SetCrrFunc(m_set_func);

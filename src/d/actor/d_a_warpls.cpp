@@ -52,7 +52,7 @@ int daWarpls_c::CreateHeap() {
         J3DAnmTevRegKey* pbrk = (J3DAnmTevRegKey*)dComIfG_getObjectRes(m_arcname[mWarpType],m_brkidx[mWarpType]);
         JUT_ASSERT(DEMO_SELECT(245, 248), pbrk != NULL);
 
-        mpBrkAnm = new mDoExt_brkAnm();
+        mpBrkAnm = JKR_NEW mDoExt_brkAnm();
         if (mpBrkAnm == NULL || !mpBrkAnm->init(modelData, pbrk, TRUE, J3DFrameCtrl::EMode_NONE, 1.0f, 0, -1, FALSE, 0)) {
             return FALSE;
         }
@@ -63,7 +63,7 @@ int daWarpls_c::CreateHeap() {
         J3DAnmTransform* pbck = (J3DAnmTransform*)dComIfG_getObjectRes( m_arcname[mWarpType],m_bckidx[mWarpType]);
         JUT_ASSERT(DEMO_SELECT(264, 267), pbck != NULL);
 
-        mpBckAnm = new mDoExt_bckAnm();
+        mpBckAnm = JKR_NEW mDoExt_bckAnm();
         if (mpBckAnm == NULL || !mpBckAnm->init(modelData, pbck, TRUE, J3DFrameCtrl::EMode_NONE, 1.0f, 0, -1, FALSE)) {
             return FALSE;
         }

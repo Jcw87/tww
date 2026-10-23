@@ -270,7 +270,7 @@ static BOOL daSsk_Delete(ssk_class* i_this) {
 static BOOL useHeapInit(fopAc_ac_c* a_this) {
     ssk_class* i_this = (ssk_class*)a_this;
 
-    i_this->mpMorf1 = new mDoExt_McaMorf(
+    i_this->mpMorf1 = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Ssk", dRes_INDEX_SSK_BDL_TURU_02_e), NULL, NULL, NULL, ~J3DFrameCtrl::EMode_NONE, 1.0f, 0, -1, 1, NULL, 0x80000, 0x11000022
     );
 
@@ -278,7 +278,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         return FALSE;
     }
 
-    i_this->mpMorf2 = new mDoExt_McaMorf(
+    i_this->mpMorf2 = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Ssk", dRes_INDEX_SSK_BDL_KTANA_00_e),
         NULL, NULL, NULL,
         DEMO_SELECT(J3DFrameCtrl::EMode_LOOP, J3DFrameCtrl::EMode_NULL),

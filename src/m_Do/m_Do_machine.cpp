@@ -602,7 +602,7 @@ bool mDoMch_Create() {
     JKRDvdAramRipper::setSzpBufferSize(szpBufferSize);
     JKRDvdRipper::setSzpBufferSize(szpBufferSize);
     JKRThreadSwitch::createManager(NULL);
-    JKRThread* thread = new JKRThread(OSGetCurrentThread(), 0);
+    JKRThread* thread = JKR_NEW JKRThread(OSGetCurrentThread(), 0);
 
     JUTConsole* sysConsole = JFWSystem::getSystemConsole();
     sysConsole->setOutput(JUTConsole::OUTPUT_CONSOLE | JUTConsole::OUTPUT_OSREPORT);

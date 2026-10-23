@@ -447,7 +447,7 @@ static BOOL daKui_CreateHeap(fopAc_ac_c* a_this) {
         }
     }
 
-    dBgW* bgw = new dBgW();
+    dBgW* bgw = JKR_NEW dBgW();
     i_this->field_0x2D8 = bgw;
     if (!i_this->field_0x2D8) {
         return FALSE;

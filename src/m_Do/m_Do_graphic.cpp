@@ -86,7 +86,7 @@ void mDoGph_gInf_c::create() {
 #endif
     JFWDisplay::createManager(heap, JUTXfb::Double, true);
     JFWDisplay::getManager()->setDrawDoneMethod(JFWDisplay::Async);
-    JUTFader* faderPtr = new JUTFader(
+    JUTFader* faderPtr = JKR_NEW JUTFader(
         0, 0,
         JUTGetVideoManager()->getRenderMode()->fbWidth, JUTGetVideoManager()->getRenderMode()->efbHeight,
         JUtility::TColor(0, 0, 0, 0)

@@ -22,7 +22,7 @@ JASystem::TWaveBank** JASystem::WaveBankMgr::sWaveBank;
 /* 802882CC-8028835C       .text init__Q28JASystem11WaveBankMgrFi */
 void JASystem::WaveBankMgr::init(int param_1) {
     u32 size = param_1 * 4;
-    sWaveBank = (TWaveBank**) new (JASDram, 0) u8[size];
+    sWaveBank = (TWaveBank**) JKR_NEW_ARRAY_ARGS(u8, size, JASDram, 0);
     JUT_ASSERT(39, sWaveBank != NULL);
     Calc::bzero(sWaveBank, size);
     sTableSize = param_1;

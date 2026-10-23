@@ -22,7 +22,7 @@ JKRAramHeap::JKRAramHeap(u32 startAddress, u32 size) {
     mTailAddress = mHeadAddress + mSize;
     mGroupId = -1;
 
-    JKRAramBlock* block = new (mHeap, 0) JKRAramBlock(mHeadAddress, 0, mSize, -1, false);
+    JKRAramBlock* block = JKR_NEW_ARGS(mHeap, 0) JKRAramBlock(mHeadAddress, 0, mSize, -1, false);
     sAramList.append(&block->mBlockLink);
 }
 
@@ -30,7 +30,7 @@ JKRAramHeap::JKRAramHeap(u32 startAddress, u32 size) {
 JKRAramHeap::~JKRAramHeap() {
     JSUListIterator<JKRAramBlock> iterator(sAramList.getFirst());
     while (iterator != sAramList.getEnd()) {
-        delete (iterator++).getObject();
+        JKR_DELETE((iterator++).getObject());
     }
 }
 

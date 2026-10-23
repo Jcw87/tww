@@ -232,7 +232,7 @@ void JStudio::TAdaptor::adaptor_setVariableValue_FVR_INDEX_(JStudio::TAdaptor* p
 
 /* 8026F1B0-8026F234       .text __dt__Q27JStudio7TObjectFv */
 JStudio::TObject::~TObject() {
-    delete mpAdaptor;
+    JKR_DELETE(mpAdaptor);
 }
 
 /* 8026F234-8026F2A0       .text forward_value__Q27JStudio7TObjectFUl */

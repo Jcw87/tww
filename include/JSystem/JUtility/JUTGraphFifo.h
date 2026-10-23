@@ -2,6 +2,7 @@
 #define JUTGRAPHFIFO_H
 
 #include "dolphin/gx/GX.h"
+#include "JSystem/JKernel/JKRHeap.h"
 
 class JUTGraphFifo {
 public:
@@ -32,7 +33,7 @@ private:
 };
 
 inline JUTGraphFifo* JUTCreateFifo(u32 bufSize) {
-    return new JUTGraphFifo(bufSize);
+    return JKR_NEW JUTGraphFifo(bufSize);
 }
 
 #endif /* JUTGRAPHFIFO_H */

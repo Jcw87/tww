@@ -246,7 +246,7 @@ BOOL daDoor12_c::CreateHeap() {
         return FALSE;
     }
 
-    mpBgw = new dBgW();
+    mpBgw = JKR_NEW dBgW();
     if (mpBgw == NULL) {
         return FALSE;
     }

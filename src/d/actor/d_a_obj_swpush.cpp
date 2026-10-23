@@ -170,7 +170,7 @@ bool daObjSwpush::Act_c::create_heap() {
     cBgD_t* bg_data = (cBgD_t*) dComIfG_getObjectRes(attr().mBgArcName, attr().mBgResIndex);
     bool bg_success = false;
     JUT_ASSERT(0x22B, bg_data != NULL);
-    mpBgW = new dBgWSv();
+    mpBgW = JKR_NEW dBgWSv();
     if (mpBgW != NULL && !mpBgW->Set(bg_data, 0)) {
         bg_success = true;
     }

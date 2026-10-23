@@ -1208,7 +1208,7 @@ bool Act_c::create_heap() {
         J3DAnmTevRegKey* brk_data = static_cast<J3DAnmTevRegKey*>(dComIfG_getObjectRes(M_arcname[mType], DEMO_SELECT(dRes_INDEX_SITEM_BRK_KMI_00_e, dRes_INDEX_KMI00X_BRK_KMI_00X_e)));
         JUT_ASSERT(DEMO_SELECT(1885, 1887), brk_data != NULL);
 
-        mpBrk = new mDoExt_brkAnm();
+        mpBrk = JKR_NEW mDoExt_brkAnm();
         if (mpBrk != NULL) {
             if (mpBrk->init(modelData, brk_data, false, J3DFrameCtrl::EMode_LOOP)) {
                 ret = true;
@@ -3098,7 +3098,7 @@ void Act_c::eff_break_tsubo() {
     JPABaseEmitter* pJVar4 =
         static_cast<JPABaseEmitter*>(dComIfGp_particle_set(dPa_name::ID_AK_JN_M_TUBOHAHEN, &current.pos, NULL, (cXyz*)data().get_particle_scale()));
     if (pJVar4 != NULL) {
-        dPa_J3DmodelEmitter_c* modelEmitter = new dPa_J3DmodelEmitter_c(pJVar4, pJVar2, tevStr, pJVar3, uVar1, 0);
+        dPa_J3DmodelEmitter_c* modelEmitter = JKR_NEW dPa_J3DmodelEmitter_c(pJVar4, pJVar2, tevStr, pJVar3, uVar1, 0);
         if (modelEmitter != NULL) {
             dComIfGp_particle_addModelEmitter(modelEmitter);
         }

@@ -1256,7 +1256,7 @@ void dKyr_housi_move() {
 /* 8008F0BC-8008F23C       .text dKyr_snow_init__Fv */
 void dKyr_snow_init() {
     camera_process_class* pCamera = (camera_process_class*)dComIfGp_getCamera(0);
-    g_env_light.mpSnowPacket = new(0x20) dKankyo_snow_Packet();
+    g_env_light.mpSnowPacket = JKR_NEW_ARGS(0x20) dKankyo_snow_Packet();
     if (g_env_light.mpSnowPacket != NULL) {
         if (strcmp(dComIfGp_getStartStageName(), "Adanmae") != 0) {
             g_env_light.mpSnowPacket->mpTexture = (u8*)dComIfG_getObjectRes("Always", dRes_INDEX_ALWAYS_I8_TX_SNOW01_e);
@@ -1713,7 +1713,7 @@ void dKyr_kazanbai_tamari_move() {
 
 /* 80090C68-80090D50       .text dKyr_star_init__Fv */
 void dKyr_star_init() {
-    g_env_light.mpStarPacket = new(0x20) dKankyo_star_Packet();
+    g_env_light.mpStarPacket = JKR_NEW_ARGS(0x20) dKankyo_star_Packet();
     if (g_env_light.mpStarPacket != NULL) {
         g_env_light.mpStarPacket->mpTexture = (u8*)dComIfG_getObjectRes("Always", dRes_INDEX_ALWAYS_I8_TX_SNOW01_e);
         g_env_light.mpStarPacket->mEffect[0].mSin = 1.0f;
@@ -2202,7 +2202,7 @@ void dKyr_poison_light_colision() {
 
 /* 80092448-8009258C       .text poison_init__Fv */
 void poison_init() {
-    g_env_light.mpPoisonPacket = new(0x20) dKankyo_poison_Packet();
+    g_env_light.mpPoisonPacket = JKR_NEW_ARGS(0x20) dKankyo_poison_Packet();
     g_env_light.mpPoisonPacket->field_0xbb9c.x = 0.0f;
     g_env_light.mpPoisonPacket->field_0xbb9c.y = 0.0f;
     g_env_light.mpPoisonPacket->field_0xbb9c.z = 0.0f;

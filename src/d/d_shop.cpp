@@ -1491,7 +1491,7 @@ void ShopCursor_c::setPos(cXyz& pos) {
 
 /* 80060B48-80060BE8       .text ShopCursor_create__FP12J3DModelDataP15J3DAnmTevRegKeyf */
 ShopCursor_c* ShopCursor_create(J3DModelData* modelData, J3DAnmTevRegKey* brkData, f32 param_2) {
-    ShopCursor_c* cursor = new ShopCursor_c(modelData, brkData, param_2);
+    ShopCursor_c* cursor = JKR_NEW ShopCursor_c(modelData, brkData, param_2);
     
     // Bug: If any of the models are null these checks will crash instead of returning NULL.
     for (int i = 0; i < 4; i++) {

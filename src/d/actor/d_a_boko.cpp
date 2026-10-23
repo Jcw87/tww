@@ -857,7 +857,7 @@ BOOL daBoko_c::createHeap() {
     }
 
     if (type == 4) {
-        mpLineKe = new LineKe();
+        mpLineKe = JKR_NEW LineKe();
         if (mpLineKe == NULL) {
             return FALSE;
         }

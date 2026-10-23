@@ -78,10 +78,10 @@ cPhs_State dGameover_c::_create() {
         dComIfGp_setHeapLockFlag(4);
         JKRHeap* oldHeap = mDoExt_setCurrentHeap(mpHeap);
 
-        dgo_scrn_c = new dDlst_GameOverScrnDraw_c();
+        dgo_scrn_c = JKR_NEW dDlst_GameOverScrnDraw_c();
         dgo_scrn_c->setScreen("gameover.blo", resInfo->getArchive());
 
-        dMs_c = new dMenu_save_c();
+        dMs_c = JKR_NEW dMenu_save_c();
         JUT_ASSERT(VERSION_SELECT(0xa7, 0xa7, 0xb6, 0xb6), dMs_c != NULL);
 #if VERSION == VERSION_DEMO
         dMs_c->_create();
@@ -91,7 +91,7 @@ cPhs_State dGameover_c::_create() {
         dMs_c->_create();
 #endif
 
-        dgo_capture_c = new dDlst_Gameover_CAPTURE_c();
+        dgo_capture_c = JKR_NEW dDlst_Gameover_CAPTURE_c();
         JUT_ASSERT(VERSION_SELECT(0xac, 0xac, 0xbb, 0xbb), dgo_capture_c != NULL);
 
         mDoExt_setCurrentHeap(oldHeap);
@@ -180,10 +180,10 @@ BOOL dGameover_c::_delete() {
     JKRHeap* oldHeap = mDoExt_setCurrentHeap(mpHeap);
 
     dgo_scrn_c->deleteScreen();
-    delete dgo_scrn_c;
+    JKR_DELETE(dgo_scrn_c);
     dMs_c->_delete();
-    delete dMs_c;
-    delete dgo_capture_c;
+    JKR_DELETE(dMs_c);
+    JKR_DELETE(dgo_capture_c);
     mpHeap->freeAll();
     dComIfGp_offHeapLockFlag();
     mDoExt_setCurrentHeap(oldHeap);
@@ -204,7 +204,7 @@ static s16 dGover_tex_number = 8;
 
 /* 8018EB68-8018EC9C       .text setScreen__24dDlst_GameOverScrnDraw_cFPCcP10JKRArchive */
 void dDlst_GameOverScrnDraw_c::setScreen(const char* filename, JKRArchive* arc) {
-    scrn = new J2DScreen();
+    scrn = JKR_NEW J2DScreen();
     scrn->set(filename, arc);
 
     const static u32 labelt[] = {

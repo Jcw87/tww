@@ -131,7 +131,7 @@ static void dummy() {
 
     // Fakematch? Fixes weak function order of JPABaseShape::~JPABaseShape()
     JPABaseShape* temp = NULL;
-    delete temp;
+    JKR_DELETE(temp);
 }
 
 /* 80257248-80257508       .text __ct__15JPABaseShapeArcFPCUcP7JKRHeap */

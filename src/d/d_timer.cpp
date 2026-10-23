@@ -69,7 +69,7 @@ cPhs_State dTimer_c::_create() {
         }
 
         if (mpSolidHeap != NULL) {
-            mpScrnDraw = new dDlst_TimerScrnDraw_c();
+            mpScrnDraw = JKR_NEW dDlst_TimerScrnDraw_c();
             mpScrnDraw->setScreen("ship_race0.blo", resInfo->getArchive());
             if (prm->mIconType != 0) {
                 iconTex = mpSolidHeap->alloc(0xC00, 0x20);
@@ -384,7 +384,7 @@ s32 dTimer_c::getRestTimeMs() {
 
 /* 8023C69C-8023CA24       .text setScreen__21dDlst_TimerScrnDraw_cFPCcP10JKRArchive */
 void dDlst_TimerScrnDraw_c::setScreen(const char* file, JKRArchive* arc) {
-    scrn = new J2DScreen();
+    scrn = JKR_NEW J2DScreen();
     scrn->set(file, arc);
     mIconPicture = NULL;
     fopMsgM_setPaneData(&mClockIcon, scrn->search('tim0'));
@@ -603,7 +603,7 @@ void dDlst_TimerScrnDraw_c::setIconType(void* tex, u8 type) {
     JKRArchive* arc = dComIfGp_getItemIconArchive();
     const char* iconTex = dItem_data::getTexture(itemNo);
     JKRReadTypeResource(tex, 0xC00, 'TIMG', iconTex, arc);
-    mIconPicture = new J2DPicture((ResTIMG*)tex);
+    mIconPicture = JKR_NEW J2DPicture((ResTIMG*)tex);
     ((J2DPicture*)mRupee.pane)->setWhite(JUtility::TColor(0));
     ((J2DPicture*)mRupeeShadow.pane)->setWhite(JUtility::TColor(0));
     mIconPicture->setAlpha(0);

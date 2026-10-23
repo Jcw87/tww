@@ -166,7 +166,7 @@ bool daObj_Warpt_c::createHutaHeap() {
         return false;
     }
 
-    mpLidBgW = new dBgW();
+    mpLidBgW = JKR_NEW dBgW();
     if (mpLidBgW == NULL) {
         return false;
     }
@@ -205,7 +205,7 @@ bool daObj_Warpt_c::createBodyHeap() {
         return false;
     }
 
-    mpBodyBgW2 = new dBgW();
+    mpBodyBgW2 = JKR_NEW dBgW();
     if (mpBodyBgW2 == NULL) {
         return false;
     }
@@ -214,7 +214,7 @@ bool daObj_Warpt_c::createBodyHeap() {
         return false;
     }
 
-    mpBodyBgW1 = new dBgW();
+    mpBodyBgW1 = JKR_NEW dBgW();
     if (mpBodyBgW1 == NULL) {
         return false;
     }

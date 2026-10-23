@@ -355,7 +355,7 @@ static BOOL CallbackCreateHeap(fopAc_ac_c* i_this) {
 BOOL daNpc_Btsw2_c::CreateHeap() {
     J3DModelData* modelData = static_cast<J3DModelData*>(dComIfG_getObjectRes(m_arc_name, dRes_INDEX_BTSW_BDL_BN_e));
     JUT_ASSERT(616, modelData != NULL);
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         modelData,
         NULL, NULL,
         static_cast<J3DAnmTransform*>(dComIfG_getObjectRes(m_arc_name, dRes_INDEX_BTSW_BCK_BN_WAIT01_e)),

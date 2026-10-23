@@ -25,13 +25,13 @@ JASystem::TChannel* JASystem::TGlobalChannel::getChannelHandle(u32 ch_num) {
 
 /* 8028AB58-8028AD50       .text init__Q28JASystem14TGlobalChannelFv */
 void JASystem::TGlobalChannel::init() {
-    sChannelMgr = new (JASDram, 32) TChannelMgr();
+    sChannelMgr = JKR_NEW_ARGS(JASDram, 32) TChannelMgr();
     JUT_ASSERT(44, sChannelMgr);
     TChannelMgr* mgr = sChannelMgr;
     mgr->init();
-    sChannel = new (JASDram, 32) TChannel[256];
+    sChannel = JKR_NEW_ARRAY_ARGS(TChannel, 256, JASDram, 32);
     JUT_ASSERT(50, sChannel);
-    sOscillator = new (JASDram, 32) TOscillator[1024];
+    sOscillator = JKR_NEW_ARRAY_ARGS(TOscillator, 1024, JASDram, 32);
     JUT_ASSERT(52, sOscillator);
     for (int i = 0; i < 256; i++) {
         for (u32 j = 0; j < 4; j++) {

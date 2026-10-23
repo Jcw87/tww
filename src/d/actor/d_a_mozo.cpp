@@ -109,7 +109,7 @@ static BOOL CheckCreateHeap(fopAc_ac_c* i_this) {
 BOOL daMozo_c::CreateHeap() {
     J3DModelData* mdlData = (J3DModelData*)dComIfG_getObjectRes("Mozo", dRes_INDEX_MOZO_BDL_MOZ_e);
     
-    mDoExt_McaMorf* newMorf =  new mDoExt_McaMorf(
+    mDoExt_McaMorf* newMorf =  JKR_NEW mDoExt_McaMorf(
         mdlData,
         0,
         0,

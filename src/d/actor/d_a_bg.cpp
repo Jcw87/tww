@@ -36,7 +36,7 @@ BOOL createMatAnm(J3DModelData* modelData, u16 mat_no) {
     if (mat_no != 0xFFFF) {
         J3DMaterial * mat = modelData->getMaterialNodePointer(mat_no);
         if (mat->getMaterialAnm() == NULL) {
-            J3DMaterialAnm * anm = new J3DMaterialAnm();
+            J3DMaterialAnm * anm = JKR_NEW J3DMaterialAnm();
             if (anm == NULL)
                 return FALSE;
             mat->setMaterialAnm(anm);
@@ -48,7 +48,7 @@ BOOL createMatAnm(J3DModelData* modelData, u16 mat_no) {
 
 /* 800D8514-800D862C       .text create__13daBg_btkAnm_cFP12J3DModelDataP19J3DAnmTextureSRTKey */
 BOOL daBg_btkAnm_c::create(J3DModelData* modelData, J3DAnmTextureSRTKey* anmData) {
-    anm = new mDoExt_btkAnm();
+    anm = JKR_NEW mDoExt_btkAnm();
     if (anm == NULL)
         return FALSE;
 
@@ -89,7 +89,7 @@ void daBg_btkAnm_c::play() {
 
 /* 800D8728-800D8878       .text create__13daBg_brkAnm_cFP12J3DModelDataP15J3DAnmTevRegKey */
 BOOL daBg_brkAnm_c::create(J3DModelData* modelData, J3DAnmTevRegKey* anmData) {
-    anm = new mDoExt_brkAnm();
+    anm = JKR_NEW mDoExt_brkAnm();
     if (anm == NULL)
         return FALSE;
 
@@ -173,7 +173,7 @@ BOOL daBg_c::createHeap() {
 
         J3DAnmTextureSRTKey * btk = (J3DAnmTextureSRTKey *) dComIfG_getStageRes(arcName, l_btkName[i]);
         if (btk != NULL) {
-            bgm->btk = new daBg_btkAnm_c();
+            bgm->btk = JKR_NEW daBg_btkAnm_c();
             if (bgm->btk == NULL)
                 return FALSE;
             if (!bgm->btk->create(modelData, btk))
@@ -185,7 +185,7 @@ BOOL daBg_c::createHeap() {
 
         J3DAnmTevRegKey * brk = (J3DAnmTevRegKey *) dComIfG_getStageRes(arcName, l_brkName[i]);
         if (brk != NULL) {
-            bgm->brk = new daBg_brkAnm_c();
+            bgm->brk = JKR_NEW daBg_brkAnm_c();
             if (bgm->brk == NULL)
                 return FALSE;
             if (!bgm->brk->create(modelData, brk))
@@ -197,7 +197,7 @@ BOOL daBg_c::createHeap() {
         bgm->model = mDoExt_J3DModel__create(modelData, 0, diffFlag);
         if (bgm->model == NULL)
             return FALSE;
-        bgm->mpTevStr = new dKy_tevstr_c();
+        bgm->mpTevStr = JKR_NEW dKy_tevstr_c();
         if (bgm->mpTevStr == NULL)
             return FALSE;
         dKy_tevstr_init(bgm->mpTevStr, roomNo, 0xFF);
@@ -205,7 +205,7 @@ BOOL daBg_c::createHeap() {
 
     cBgD_t * dzb = (cBgD_t *) dComIfG_getStageRes(arcName, "room.dzb");
     if (dzb != NULL) {
-        bgw = new dBgW();
+        bgw = JKR_NEW dBgW();
         if (bgw == NULL)
             return FALSE;
         if (bgw->Set(dzb, cBgW::GLOBAL_e, NULL))

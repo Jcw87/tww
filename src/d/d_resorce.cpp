@@ -37,7 +37,7 @@ dRes_info_c::dRes_info_c()
 /* 8006D824-8006D8F4       .text __dt__11dRes_info_cFv */
 dRes_info_c::~dRes_info_c() {
     if (mpDMCommand != NULL) {
-        delete mpDMCommand;
+        JKR_DELETE(mpDMCommand);
         mpDMCommand = NULL;
     } else if (mpArchive != NULL) {
         if (mDataHeap != NULL) {
@@ -145,7 +145,7 @@ int dRes_info_c::loadResource() {
     JUT_ASSERT(0x25f, mRes == NULL);
 
     s32 fileNum = getResNum();
-    mRes = new void*[fileNum];
+    mRes = JKR_NEW_ARRAY(void*, fileNum);
     if (mRes == NULL) {
         OSReport_Error("<%s.arc> setRes: res pointer buffer nothing !!\n", this);
         return -1;
@@ -215,7 +215,7 @@ int dRes_info_c::loadResource() {
                     J3DMaterial* pMaterial = ((J3DModelData*)pRes)->getMaterialNodePointer(j);
                     pMaterial->change();
 
-                    J3DMaterialAnm* pAnm = new J3DMaterialAnm();
+                    J3DMaterialAnm* pAnm = JKR_NEW J3DMaterialAnm();
                     if (pAnm == NULL)
                         return -1;
                     pMaterial->setMaterialAnm(pAnm);
@@ -242,7 +242,7 @@ int dRes_info_c::loadResource() {
                     J3DMaterial* pMaterial = ((J3DModelData*)pRes)->getMaterialNodePointer(j);
                     pMaterial->change();
 
-                    J3DMaterialAnm* pAnm = new J3DMaterialAnm();
+                    J3DMaterialAnm* pAnm = JKR_NEW J3DMaterialAnm();
                     if (pAnm == NULL)
                         return -1;
                     pMaterial->setMaterialAnm(pAnm);
@@ -257,7 +257,7 @@ int dRes_info_c::loadResource() {
                 for (u16 j = 0; j < ((J3DModelData*)pRes)->getMaterialNum(); j++) {
                     J3DMaterial* pMaterial = ((J3DModelData*)pRes)->getMaterialNodePointer(j);
 
-                    J3DMaterialAnm* pAnm = new J3DMaterialAnm();
+                    J3DMaterialAnm* pAnm = JKR_NEW J3DMaterialAnm();
                     if (pAnm == NULL)
                         return -1;
 
@@ -283,7 +283,7 @@ int dRes_info_c::loadResource() {
                 for (u16 j = 0; j < ((J3DModelData*)pRes)->getMaterialNum(); j++) {
                     J3DMaterial* pMaterial = ((J3DModelData*)pRes)->getMaterialNodePointer(j);
 
-                    J3DMaterialAnm* pAnm = new J3DMaterialAnm();
+                    J3DMaterialAnm* pAnm = JKR_NEW J3DMaterialAnm();
                     if (pAnm == NULL)
                         return -1;
 
@@ -299,7 +299,7 @@ int dRes_info_c::loadResource() {
                 for (u16 j = 0; j < ((J3DModelData*)pRes)->getMaterialNum(); j++) {
                     J3DMaterial* pMaterial = ((J3DModelData*)pRes)->getMaterialNodePointer(j);
 
-                    J3DMaterialAnm* pAnm = new J3DMaterialAnm();
+                    J3DMaterialAnm* pAnm = JKR_NEW J3DMaterialAnm();
                     if (pAnm == NULL)
                         return -1;
                     pMaterial->setMaterialAnm(pAnm);
@@ -324,7 +324,7 @@ int dRes_info_c::loadResource() {
                 else
                     pBasData = NULL;
 
-                mDoExt_transAnmBas *pAnm  = new mDoExt_transAnmBas(pBasData);
+                mDoExt_transAnmBas *pAnm  = JKR_NEW mDoExt_transAnmBas(pBasData);
                 if (pAnm == NULL)
                     return -1;
 
@@ -354,7 +354,7 @@ int dRes_info_c::loadResource() {
                     J3DMaterial* pMaterial = ((J3DMaterialTable*)pRes)->getMaterialNodePointer(j);
                     pMaterial->change();
 
-                    J3DMaterialAnm* pAnm = new J3DMaterialAnm();
+                    J3DMaterialAnm* pAnm = JKR_NEW J3DMaterialAnm();
                     if (pAnm == NULL)
                         return -1;
                     pMaterial->setMaterialAnm(pAnm);
@@ -369,7 +369,7 @@ next:
             mRes[pArcFinder->mEntryFileIndex] = pRes;
         }
 
-        delete pArcFinder;
+        JKR_DELETE(pArcFinder);
     }
 
     return 0;
@@ -388,7 +388,7 @@ int dRes_info_c::setRes() {
         mpArchive = mpDMCommand->getArchive();
         mpParentHeap = mpDMCommand->getHeap();
 
-        delete mpDMCommand;
+        JKR_DELETE(mpDMCommand);
         mpDMCommand = NULL;
 
         if (mpArchive == NULL) {

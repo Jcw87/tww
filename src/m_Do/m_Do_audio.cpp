@@ -182,8 +182,8 @@ void mDoAud_Create() {
         g_mDoAud_zelAudio.reset();
         JAIZelBasic::zel_basic->setOutputMode(OSGetSoundMode());
         JKRHeap::free(l_affCommand->getMemAddress(), NULL);
-        delete l_affCommand;
-        delete l_arcCommand;
+        JKR_DELETE(l_affCommand);
+        JKR_DELETE(l_arcCommand);
         mDoAud_zelAudio_c::onInitFlag();
         mDoDvdThd::SyncWidthSound = 1;
     }

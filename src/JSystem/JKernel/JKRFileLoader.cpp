@@ -6,6 +6,7 @@
 #include "JSystem/JSystem.h" // IWYU pragma: keep
 
 #include "JSystem/JKernel/JKRFileLoader.h"
+#include "JSystem/JKernel/JKRHeap.h"
 #include "string.h"
 #include <cctype>
 #include "global.h"
@@ -34,7 +35,7 @@ void JKRFileLoader::unmount() {
         count--;
         mMountCount = count;
         if (count == 0) {
-            delete this;
+            JKR_DELETE(this);
         }
     }
 }

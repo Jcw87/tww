@@ -69,7 +69,7 @@ u8 daObjSwheavy::Act_c::create_heap() {
     mpModel2 = mDoExt_J3DModel__create(mdl_2_data, 0x80000, 0x11000022);
 
     bool b1 = false;
-    mpBgW1 = new dBgW();
+    mpBgW1 = JKR_NEW dBgW();
     if (mpBgW1 != NULL) {
         cBgD_t* bgw_1_data = (cBgD_t*) dComIfG_getObjectRes(M_arcname, dRes_INDEX_HHBOT_DZB_HHBOT1_e);
         JUT_ASSERT(0x137, bgw_1_data != NULL);
@@ -79,7 +79,7 @@ u8 daObjSwheavy::Act_c::create_heap() {
     }
 
     bool b2 = false;
-    mpBgW2 = new dBgW();
+    mpBgW2 = JKR_NEW dBgW();
     if (mpBgW2 != NULL) {
         cBgD_t* bgw_2_data = (cBgD_t*) dComIfG_getObjectRes(M_arcname, dRes_INDEX_HHBOT_DZB_HHBOT2_e);
         JUT_ASSERT(0x146, bgw_2_data != NULL);

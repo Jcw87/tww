@@ -3682,7 +3682,7 @@ static BOOL daBdk_Delete(bdk_class* i_this) {
 /* 0000BF08-0000C684       .text useHeapInit__FP10fopAc_ac_c */
 static BOOL useHeapInit(fopAc_ac_c* i_actor) {
     bdk_class* i_this = (bdk_class*)i_actor;
-    i_this->mpMorf = new mDoExt_McaMorf(
+    i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Bdk", dRes_INDEX_BDK_BDL_DK_e),
         NULL,
         NULL,
@@ -3731,7 +3731,7 @@ static BOOL useHeapInit(fopAc_ac_c* i_actor) {
         }
     }
 
-    i_this->bva = new mDoExt_bvaAnm();
+    i_this->bva = JKR_NEW mDoExt_bvaAnm();
     JUT_ASSERT(DEMO_SELECT(0x1831, 0x1864), i_this->bva);
 
     s32 bva = i_this->bva->init(i_this->mp8F0, (J3DAnmVisibilityFull*)dComIfG_getObjectRes("Bdk", dRes_INDEX_BDK_BVA_HIBIWARE1_e), 1, J3DFrameCtrl::EMode_NONE);
@@ -3777,7 +3777,7 @@ static BOOL useHeapInit(fopAc_ac_c* i_actor) {
             return FALSE;
         }
 
-        i_this->mp63BC[i] = new dBgW();
+        i_this->mp63BC[i] = JKR_NEW dBgW();
         if (i_this->mp63BC[i] == NULL) {
             return FALSE;
         }
@@ -3794,7 +3794,7 @@ static BOOL useHeapInit(fopAc_ac_c* i_actor) {
         return FALSE;
     }
 
-    i_this->pm_bgw = new dBgW();
+    i_this->pm_bgw = JKR_NEW dBgW();
     JUT_ASSERT(DEMO_SELECT(0x188D, 0x18CE), i_this->pm_bgw != NULL);
 
     i_this->pm_bgw->Set((cBgD_t*)(dComIfG_getObjectRes("Bdk", dRes_INDEX_BDK_DZB_S_TTOGE_e)), dBgW::MOVE_BG_e, &i_this->m62DC);

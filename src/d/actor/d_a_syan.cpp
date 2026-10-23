@@ -193,7 +193,7 @@ static BOOL daSyan_Delete(syan_class* i_this) {
 /* 00000D1C-00000E10       .text daSyan_solidHeapCB__FP10fopAc_ac_c */
 static BOOL daSyan_solidHeapCB(fopAc_ac_c* i_ac) {
     syan_class* i_this = (syan_class*)i_ac;
-    i_this->morf = new mDoExt_McaMorf(
+    i_this->morf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Syan", dRes_INDEX_SYAN_BDL_SYAN_e),
         NULL, NULL,
         (J3DAnmTransform*)dComIfG_getObjectRes("Syan", dRes_INDEX_SYAN_BCK_SYAN_e),

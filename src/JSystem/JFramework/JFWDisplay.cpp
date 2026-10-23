@@ -7,6 +7,7 @@
 
 #include "JSystem/JFramework/JFWDisplay.h"
 #include "JSystem/J2DGraph/J2DOrthoGraph.h"
+#include "JSystem/JKernel/JKRHeap.h"
 #include "JSystem/JUtility/JUTAssert.h"
 #include "JSystem/JUtility/JUTConsole.h"
 #include "JSystem/JUtility/JUTDbPrint.h"
@@ -83,7 +84,7 @@ JFWDisplay::~JFWDisplay() {
 JFWDisplay* JFWDisplay::createManager(JKRHeap* p_heap, JUTXfb::EXfbNumber xfb_num, bool enableAlpha) {
     JUT_CONFIRM(VERSION_SELECT(242, 244, 243, 243), sManager == NULL);
     if(sManager == 0) {
-        sManager = new JFWDisplay(0, p_heap, xfb_num, enableAlpha);
+        sManager = JKR_NEW JFWDisplay(0, p_heap, xfb_num, enableAlpha);
     }
 
     return sManager;

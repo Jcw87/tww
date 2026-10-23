@@ -47,28 +47,28 @@ void JAInter::SeMgr::init() {
             }
         }
     }
-    seRegist = new (JAIBasic::getCurrentJAIHeap(), 0x20) LinkSound[JAIGlobalParameter::getParamSeCategoryMax()];
+    seRegist = JKR_NEW_ARRAY_ARGS(LinkSound, JAIGlobalParameter::getParamSeCategoryMax(), JAIBasic::getCurrentJAIHeap(), 0x20);
     JUT_ASSERT_MSG(63, seRegist, "JAIData::initHeap Cannot Alloc Heap!!\n");
-    sePlaySound = new (JAIBasic::getCurrentJAIHeap(), 0x20) JAISound**[JAIGlobalParameter::getParamSeCategoryMax()];
+    sePlaySound = JKR_NEW_ARRAY_ARGS(JAISound**, JAIGlobalParameter::getParamSeCategoryMax(), JAIBasic::getCurrentJAIHeap(), 0x20);
     JUT_ASSERT_MSG(65, sePlaySound, "JAIData::initHeap Cannot Alloc Heap!!\n");
-    seRegistBuffer = new (JAIBasic::getCurrentJAIHeap(), 0x20) JAISound*[JAIGlobalParameter::getParamSeCategoryMax()];
+    seRegistBuffer = JKR_NEW_ARRAY_ARGS(JAISound*, JAIGlobalParameter::getParamSeCategoryMax(), JAIBasic::getCurrentJAIHeap(), 0x20);
     JUT_ASSERT_MSG(67, seRegistBuffer, "JAIData::initHeap Cannot Alloc Heap!!\n");
     for (int i = 0; i < JAIGlobalParameter::getParamSeCategoryMax(); i++) {
         seRegistBuffer[i] = JAIBasic::getInterface()->makeSound(JAIGlobalParameter::getParamSeRegistMax());
         JUT_ASSERT_MSG(72, seRegistBuffer[i], "JAIData::initHeap Cannot Alloc Heap!!\n");
         seRegist[i].init(seRegistBuffer[i], JAIGlobalParameter::getParamSeRegistMax());
-        sePlaySound[i] = new (JAIBasic::getCurrentJAIHeap(), 0x20) JAISound*[0x10];
+        sePlaySound[i] = JKR_NEW_ARRAY_ARGS(JAISound*, 0x10, JAIBasic::getCurrentJAIHeap(), 0x20);
         JUT_ASSERT_MSG(78, sePlaySound[i], "JAIData::initHeap Cannot Alloc Heap!!\n");
         for (int j = 0; j < 16; j++) {
             sePlaySound[i][j] = NULL;
         }
     }
-    seTrackUpdate = new (JAIBasic::getCurrentJAIHeap(), 0x20) seTrackUpdate_s[JAIGlobalParameter::getParamSeTrackMax()];
+    seTrackUpdate = JKR_NEW_ARRAY_ARGS(seTrackUpdate_s, JAIGlobalParameter::getParamSeTrackMax(), JAIBasic::getCurrentJAIHeap(), 0x20);
     JUT_ASSERT_MSG(86, seTrackUpdate, "JAIData::initHeap Cannot Alloc Heap!!\n");
     for (int i = 0; i < JAIGlobalParameter::getParamSeTrackMax(); i++) {
         seTrackUpdate[i].init();
     }
-    SeParameter* parameterObject = new (JAIBasic::getCurrentJAIHeap(), 0x20) SeParameter[JAIGlobalParameter::getParamSeCategoryMax() * JAIGlobalParameter::getParamSeRegistMax()];
+    SeParameter* parameterObject = JKR_NEW_ARRAY_ARGS(SeParameter, JAIGlobalParameter::getParamSeCategoryMax() * JAIGlobalParameter::getParamSeRegistMax(), JAIBasic::getCurrentJAIHeap(), 0x20);
     JUT_ASSERT_MSG(99, parameterObject, "JAIData::initHeap Cannot Alloc Heap!!\n");
     seParameterFreeStartPointer = parameterObject;
     seParameterUsedEndPointer = NULL;
@@ -84,15 +84,15 @@ void JAInter::SeMgr::init() {
     if (JAIBasic::getInterface()->field_0x1c) {
         categoryInfoTable = JAIBasic::getInterface()->field_0x1c;
     } else {
-        categoryInfoTable = new (JAIBasic::getCurrentJAIHeap(), 0x20) OFFSET_PTR(u8)[JAIGlobalParameter::getParamSoundSceneMax()];
+        categoryInfoTable = JKR_NEW_ARRAY_ARGS(OFFSET_PTR(u8), JAIGlobalParameter::getParamSoundSceneMax(), JAIBasic::getCurrentJAIHeap(), 0x20);
         JUT_ASSERT_MSG(124, categoryInfoTable, "JAIData::initHeap Cannot Alloc Heap!!\n");
         for (int i = 0; i < JAIGlobalParameter::getParamSoundSceneMax(); i++) {
             categoryInfoTable[i] = Const::sCInfos_0;
         }
     }
-    seEntryCancel = new (JAIBasic::getCurrentJAIHeap(), 0x20) u8[JAIGlobalParameter::getParamSeCategoryMax()];
+    seEntryCancel = JKR_NEW_ARRAY_ARGS(u8, JAIGlobalParameter::getParamSeCategoryMax(), JAIBasic::getCurrentJAIHeap(), 0x20);
     JUT_ASSERT_MSG(132, seEntryCancel, "JAIBasic::initAllocParameter Cannot Alloc Heap!! (seEntryCancel)\n");
-    seCategoryVolume = new (JAIBasic::getCurrentJAIHeap(), 0x20) f32[JAIGlobalParameter::getParamSeCategoryMax()];
+    seCategoryVolume = JKR_NEW_ARRAY_ARGS(f32, JAIGlobalParameter::getParamSeCategoryMax(), JAIBasic::getCurrentJAIHeap(), 0x20);
     JUT_ASSERT_MSG(134, seCategoryVolume, "JAIBasic::initAllocParameter Cannot Alloc Heap!!(seCategoryVolume)\n");
     for (int i = 0; i < JAIGlobalParameter::getParamSeCategoryMax(); i++) {
         seEntryCancel[i] = 0;

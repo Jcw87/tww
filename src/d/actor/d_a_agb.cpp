@@ -443,7 +443,7 @@ int daAgb_c::uploadJoyboot2() {
     int result = JUTGba::getManager()->resultJoyBoot(mDoGaC_getPortNo(), sp8);
     if (result != -2) {
         JKRHeap::free(l_gbaCommand->getMemAddress(), NULL);
-        delete l_gbaCommand;
+        JKR_DELETE(l_gbaCommand);
 
         if (result == 0) {
             field_0x664 = 15;
@@ -463,7 +463,7 @@ int daAgb_c::uploadJoyboot2() {
             mUploadAction  = UpAct_UNKA;
 
             JKRHeap::free(l_gbaCommand->getMemAddress(), NULL);
-            delete l_gbaCommand;
+            JKR_DELETE(l_gbaCommand);
         }
     }
 
@@ -524,7 +524,7 @@ int daAgb_c::uploadConnect() {
         mUploadAction  = UpAct_UNKA;
 
         JKRHeap::free(l_gbaCommand->getMemAddress(), NULL);
-        delete l_gbaCommand;
+        JKR_DELETE(l_gbaCommand);
     }
 
     return 1;
@@ -545,7 +545,7 @@ int daAgb_c::uploadMessageSend() {
             dComIfGp_particle_set(dPa_name::ID_IT_JN_GBACURSOR00, &current.pos, NULL, NULL, 255, &field_0x684);
 
             JKRHeap::free(l_gbaCommand->getMemAddress(), NULL);
-            delete l_gbaCommand;
+            JKR_DELETE(l_gbaCommand);
         }
     } else if (mDoGaC_getDataStatus(0) == 9) {
 #if VERSION <= VERSION_JPN

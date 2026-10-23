@@ -32,7 +32,7 @@ static BOOL CheckCreateHeap(fopAc_ac_c* a_this) {
 
 /* 00000098-0000039C       .text CreateHeap__11daSalvage_cFv */
 BOOL daSalvage_c::CreateHeap() {
-    mTagData_p = new dSalvage_control_c();
+    mTagData_p = JKR_NEW dSalvage_control_c();
     if (mTagData_p == NULL) {
         return false;
     }
@@ -51,7 +51,7 @@ BOOL daSalvage_c::CreateHeap() {
     J3DAnmTevRegKey* pbrk = (J3DAnmTevRegKey*)dComIfG_getObjectRes(m_arcname, dRes_INDEX_YSLVG00_BRK_YSLVG00_e);
     JUT_ASSERT(347, pbrk != NULL);
 
-    mpBrk = new mDoExt_brkAnm();
+    mpBrk = JKR_NEW mDoExt_brkAnm();
     if (mpBrk == NULL || !mpBrk->init(mModelData, pbrk, true, J3DFrameCtrl::EMode_LOOP)) {
         return false;
     }
@@ -59,7 +59,7 @@ BOOL daSalvage_c::CreateHeap() {
     J3DAnmTextureSRTKey* pbtk = (J3DAnmTextureSRTKey*)dComIfG_getObjectRes(m_arcname, dRes_INDEX_YSLVG00_BTK_YSLVG00_e);
     JUT_ASSERT(361, pbtk != NULL);
 
-    mpBtk = new mDoExt_btkAnm();
+    mpBtk = JKR_NEW mDoExt_btkAnm();
     if (mpBtk == NULL || !mpBtk->init(mModelData, pbtk, true, J3DFrameCtrl::EMode_LOOP)) {
         return false;
     }

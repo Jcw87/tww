@@ -956,7 +956,7 @@ cPhs_State daNpc_Hi1_c::_create() {
 BOOL daNpc_Hi1_c::bodyCreateHeap() {
     J3DModelData* a_mdl_dat = (J3DModelData*)dComIfG_getObjectIDRes(mArcName, dRes_ID_HI_BDL_HI_e);
     JUT_ASSERT(DEMO_SELECT(1469, 1467), a_mdl_dat != NULL);
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         a_mdl_dat,
         NULL, NULL, NULL,
         J3DFrameCtrl::EMode_NULL, 1.0f, 0, -1, 1, NULL,

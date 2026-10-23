@@ -92,13 +92,13 @@ void messageSet(u32 status) {
     f32 f31 = 660.0f;
     f32 f29 = 200.0f;
 
-    J2DTextBox * tpane = new J2DTextBox('TXT1', JGeometry::TBox2<f32>(f30, f30, f30 + f31, f30 + f29), (ResFONT*)font_data, msg, HBIND_CENTER, VBIND_CENTER);
+    J2DTextBox * tpane = JKR_NEW J2DTextBox('TXT1', JGeometry::TBox2<f32>(f30, f30, f30 + f31, f30 + f29), (ResFONT*)font_data, msg, HBIND_CENTER, VBIND_CENTER);
     JUT_ASSERT(VERSION_SELECT(299, 299, 321, 321), tpane != NULL);
 
-    J2DTextBox * spane = new J2DTextBox('TXT2', JGeometry::TBox2<f32>(f30, f30, f30 + f31, f30 + f29), (ResFONT*)font_data, msg, HBIND_CENTER, VBIND_CENTER);
+    J2DTextBox * spane = JKR_NEW J2DTextBox('TXT2', JGeometry::TBox2<f32>(f30, f30, f30 + f31, f30 + f29), (ResFONT*)font_data, msg, HBIND_CENTER, VBIND_CENTER);
     JUT_ASSERT(VERSION_SELECT(307, 307, 329, 329), spane != NULL);
 
-    J2DPicture * ppane = new J2DPicture('PIC1', JGeometry::TBox2<f32>(0.0f, 0.0f, 665.0f, 530.0f), (ResTIMG*)black_tex, NULL);
+    J2DPicture * ppane = JKR_NEW J2DPicture('PIC1', JGeometry::TBox2<f32>(0.0f, 0.0f, 665.0f, 530.0f), (ResTIMG*)black_tex, NULL);
     JUT_ASSERT(VERSION_SELECT(312, 312, 334, 334), ppane != NULL);
 
     J2DTextBox::TFontSize fontSize;
@@ -120,7 +120,7 @@ void messageSet(u32 status) {
     ppane->setAlpha(130);
 
 #if VERSION > VERSION_JPN
-    JUTResFont * font = new JUTResFont((ResFONT*)font_data, NULL);
+    JUTResFont * font = JKR_NEW JUTResFont((ResFONT*)font_data, NULL);
 #endif
 
     s16 height = 27;
@@ -176,11 +176,11 @@ void messageSet(u32 status) {
 #endif
 
 #if VERSION > VERSION_JPN
-    delete font;
+    JKR_DELETE(font);
 #endif
-    delete ppane;
-    delete tpane;
-    delete spane;
+    JKR_DELETE(ppane);
+    JKR_DELETE(tpane);
+    JKR_DELETE(spane);
 }
 
 /* 8003E9F0-8003EBD4       .text drawDvdCondition__Fl */

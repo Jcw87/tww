@@ -3841,7 +3841,7 @@ static u8 useArrowHeapInit(fopAc_ac_c* a_this) {
 static BOOL createHeap(fopAc_ac_c* a_this) {
     mo2_class* i_this = (mo2_class*)a_this;
 
-    i_this->mpMorf = new mDoExt_McaMorf(
+    i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Mo2", dRes_INDEX_MO2_BDL_MO_e),
         NULL,
         NULL,

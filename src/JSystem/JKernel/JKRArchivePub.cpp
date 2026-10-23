@@ -57,21 +57,21 @@ JKRArchive* JKRArchive::mount(s32 entryNum, JKRArchive::EMountMode mountMode, JK
         JKRArchive* archive;
         switch (mountMode) {
         case JKRArchive::MOUNT_MEM:
-            archive = new (heap, alignment) JKRMemArchive(entryNum, mountDirection);
+            archive = JKR_NEW_ARGS(heap, alignment) JKRMemArchive(entryNum, mountDirection);
             break;
         case JKRArchive::MOUNT_ARAM:
-            archive = new (heap, alignment) JKRAramArchive(entryNum, mountDirection);
+            archive = JKR_NEW_ARGS(heap, alignment) JKRAramArchive(entryNum, mountDirection);
             break;
         case JKRArchive::MOUNT_DVD:
-            archive = new (heap, alignment) JKRDvdArchive(entryNum, mountDirection);
+            archive = JKR_NEW_ARGS(heap, alignment) JKRDvdArchive(entryNum, mountDirection);
             break;
         case JKRArchive::MOUNT_COMP:
-            archive = new (heap, alignment) JKRCompArchive(entryNum, mountDirection);
+            archive = JKR_NEW_ARGS(heap, alignment) JKRCompArchive(entryNum, mountDirection);
             break;
         }
 
         if (archive && archive->getMountMode() == JKRArchive::UNKNOWN_MOUNT_MODE) {
-            delete archive;
+            JKR_DELETE(archive);
             archive = NULL;
         }
 
@@ -355,7 +355,7 @@ JKRFileFinder* JKRArchive::getFirstFile(const char* path) const {
     }
 
     if (dirEntry) {
-        return new (JKRHeap::sSystemHeap, 0) JKRArcFinder((JKRArchive*)this, dirEntry->first_file_index, dirEntry->num_entries);
+        return JKR_NEW_ARGS(JKRHeap::sSystemHeap, 0) JKRArcFinder((JKRArchive*)this, dirEntry->first_file_index, dirEntry->num_entries);
     }
 
     return NULL;
@@ -365,9 +365,9 @@ JKRFileFinder* JKRArchive::getFirstFile(const char* path) const {
 JKRArcFinder* JKRArchive::getFirstResource(u32 type) const {
     SDIDirEntry* dirEntry = findResType(type);
     if (dirEntry && (getFileAttribute(dirEntry->first_file_index) & 1)) {
-        return new (JKRHeap::sSystemHeap, 0) JKRArcFinder((JKRArchive*)this, dirEntry->first_file_index, countResource(type));
+        return JKR_NEW_ARGS(JKRHeap::sSystemHeap, 0) JKRArcFinder((JKRArchive*)this, dirEntry->first_file_index, countResource(type));
     }
-    return new (JKRHeap::sSystemHeap, 0) JKRArcFinder((JKRArchive*)this, 0, 0);
+    return JKR_NEW_ARGS(JKRHeap::sSystemHeap, 0) JKRArcFinder((JKRArchive*)this, 0, 0);
 }
 
 /* 802B8DC4-802B8DFC       .text getFileAttribute__10JKRArchiveCFUl */

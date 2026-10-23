@@ -21,7 +21,7 @@ static BOOL CheckCreateHeap(fopAc_ac_c* a_this) {
 
 /* 0000010C-000002BC       .text CreateHeap__17daObj_Tousekiki_cFv */
 BOOL daObj_Tousekiki_c::CreateHeap() {
-    mMorf = new mDoExt_McaMorf(
+    mMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes(M_arcname, dRes_INDEX_TOUSEKI_BDL_ATOSK_A_e),
         NULL,
         NULL,

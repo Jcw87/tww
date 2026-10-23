@@ -26,7 +26,7 @@ dChain_packet_c::dChain_packet_c(int num, dKy_tevstr_c* tevstr, f32 scale) {
     mNum = num;
     mScale.setall(scale);
     mpTevStr = tevstr;
-    mPt = new cXyz[mNum];
+    mPt = JKR_NEW_ARRAY(cXyz, mNum);
 }
 
 /* 80062954-800629B0       .text __dt__15dChain_packet_cFv */
@@ -77,7 +77,7 @@ void dChain_packet_c::draw() {
 
 /* 80062CB0-80062D30       .text dChain_packet_create__FiP12dKy_tevstr_cf */
 dChain_packet_c* dChain_packet_create(int p0, dKy_tevstr_c* tevstr, f32 f0) {
-    dChain_packet_c* chain = new dChain_packet_c(p0, tevstr, f0);
+    dChain_packet_c* chain = JKR_NEW dChain_packet_c(p0, tevstr, f0);
     if (chain != NULL && chain->mPt == NULL)
         chain = NULL;
     return chain;

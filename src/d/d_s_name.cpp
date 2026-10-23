@@ -134,27 +134,27 @@ cPhs_State dScnName_c::create() {
 #if VERSION > VERSION_DEMO
         oldHeap = mDoExt_setCurrentHeap(heap);
 #endif
-        mArchive = new JKRMemArchive();
+        mArchive = JKR_NEW JKRMemArchive();
         mArchive->mountFixed(dComIfG_getStageRes("Stage", 0x17), JKRMEMBREAK_FLAG_UNKNOWN0);
 
         cloth_create();
         buttonIconCreate();
 
-        dFs_c = new dFile_select_c();
+        dFs_c = JKR_NEW dFile_select_c();
         JUT_ASSERT(VERSION_SELECT(316, 319, 470, 473), dFs_c != NULL);
         dFs_c->archive = mArchive;
 #if VERSION == VERSION_PAL
         dFs_c->setField_0x3cd4(field_0x1d8);
 #endif
-        savePicDatabuf = new (0x20) card_pictdata[3 * 3];
+        savePicDatabuf = JKR_NEW_ARRAY_ARGS(card_pictdata, 3 * 3, 0x20);
         JUT_ASSERT(VERSION_SELECT(322, 325, 476, 483), savePicDatabuf != NULL);
 
         if (fpcM_GetName(this) == fpcNm_NAME_SCENE_e) {
             dFs_c->setUseType(0);
-            dNm_c = new dName_c();
+            dNm_c = JKR_NEW dName_c();
             JUT_ASSERT(VERSION_SELECT(330, 333, 484, 491), dNm_c != NULL);
             dNm_c->_create();
-            dFe_c = new dFile_error_c();
+            dFe_c = JKR_NEW dFile_error_c();
             JUT_ASSERT(VERSION_SELECT(335, 338, 489, 496), dFe_c != NULL);
             dFe_c->_create();
 #if VERSION > VERSION_DEMO
@@ -169,7 +169,7 @@ cPhs_State dScnName_c::create() {
             dComIfGs_setClearCount(1);
 #endif
             dFs_c->setUseType(1);
-            dMs_c = new dMenu_save_c();
+            dMs_c = JKR_NEW dMenu_save_c();
             JUT_ASSERT(VERSION_SELECT(350, 360, 511, 518), dMs_c != NULL);
             dMs_c->setUseType(3);
             dMs_c->_create();
@@ -280,7 +280,7 @@ void dScnName_c::bmg_data_read_all() {
 
         for (int i = 0; i < 5; i++) {
             field_0x1d8[i] = field_0x1c4[i]->getArchive();
-            delete field_0x1c4[i];
+            JKR_DELETE(field_0x1c4[i]);
         }
 
         mBmgStatus = 3;
@@ -314,7 +314,7 @@ void dScnName_c::bmg_data_set() {
 
     if (mBmgStatus == 2) {
         dComIfGp_setMsgDtArchive(field_0x1c4[0]->getArchive());
-        delete field_0x1c4[0];
+        JKR_DELETE(field_0x1c4[0]);
         mBmgStatus = 3;
     }
 }
@@ -340,7 +340,7 @@ void dScnName_c::tex_data_set() {
 
     if (mBmgStatus == 5) {
         dComIfGp_setActionIconArchive(field_0x1c4[1]->getArchive());
-        delete field_0x1c4[1];
+        JKR_DELETE(field_0x1c4[1]);
         mBmgStatus = 6;
     }
 }
@@ -362,7 +362,7 @@ void dScnName_c::cloth_move() {
 /* 80230240-802302F8       .text cloth2D_create__10dScnName_cFv */
 void dScnName_c::cloth2D_create() {
     JKRArchive* clothRes = dComIfGp_getClothResArchive();
-    cloth.cloth_c = new dMCloth_c();
+    cloth.cloth_c = JKR_NEW dMCloth_c();
     JUT_ASSERT(VERSION_SELECT(504, 517, 801, 805), cloth.cloth_c != NULL);
     cloth.cloth_c->setArchive(clothRes);
     cloth.cloth_c->setClothType(MENU_CLOTH_TYPE_FILE_SELECT);
@@ -381,7 +381,7 @@ static void dummy() {
 
 /* 802302F8-80230500       .text buttonIconCreate__10dScnName_cFv */
 void dScnName_c::buttonIconCreate() {
-    btnIcon.scr = new J2DScreen();
+    btnIcon.scr = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(569, 582, 866, 870), btnIcon.scr != NULL);
     btnIcon.scr->set("main_parts_fileselect.blo", mArchive);
     fopMsgM_setPaneData(&field_0x43c, btnIcon.scr->search('cent'));
@@ -641,7 +641,7 @@ BOOL dScnName_c::draw() {
 dScnName_c::~dScnName_c() {
 #if VERSION == VERSION_DEMO
     mArchive->unmountFixed();
-    delete cloth.cloth_c;
+    JKR_DELETE(cloth.cloth_c);
     dNm_c->_deleteSp();
     dFs_c->_deleteSp();
     if (dFe_c) {
@@ -655,23 +655,23 @@ dScnName_c::~dScnName_c() {
     dComIfGs_setRestartOption(0);
 #else
     dFs_c->_delete();
-    delete dFs_c;
+    JKR_DELETE(dFs_c);
     if (dNm_c) {
         dNm_c->_delete();
-        delete dNm_c;
+        JKR_DELETE(dNm_c);
     }
     if (dFe_c) {
         dFe_c->_delete();
-        delete dFe_c;
+        JKR_DELETE(dFe_c);
     }
     if (dMs_c) {
         dMs_c->_delete();
-        delete dMs_c;
+        JKR_DELETE(dMs_c);
     }
-    delete savePicDatabuf;
-    delete btnIcon.scr;
+    JKR_DELETE(savePicDatabuf);
+    JKR_DELETE(btnIcon.scr);
     mArchive->unmountFixed();
-    delete cloth.cloth_c;
+    JKR_DELETE(cloth.cloth_c);
     s8 no = g_snHIO.mNo;
     mDoHIO_deleteChild(no);
     JKRSetCurrentHeap(oldHeap);
@@ -1424,7 +1424,7 @@ void dScnName_c::ShopDemoDataLoad() {
 void dScnName_c::ShopDemoDataSet() {
     if (field_0x410->sync()) {
         memcpy(saveMemory, ((u8*)field_0x410->getMemAddress()) + 8, sizeof(saveMemory));
-        delete field_0x410;
+        JKR_DELETE(field_0x410);
         mMainProc = 1;
         mDrawProc = 4;
     }

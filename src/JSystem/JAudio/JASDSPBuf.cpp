@@ -35,9 +35,9 @@ void JASystem::TDSP_DACBuffer::init() {
         u32 frameSamples = Kernel::getFrameSamples();
         writeBuffer = numDSPBuf - 1;
         readBuffer = 0;
-        dsp_buf = new (JASDram, 0x20) s16*[numDSPBuf];
+        dsp_buf = JKR_NEW_ARRAY_ARGS(s16*, numDSPBuf, JASDram, 0x20);
         for (int i = 0; i < numDSPBuf; i++) {
-            dsp_buf[i] = new (JASDram, 0x20) s16[frameSamples * 2];
+            dsp_buf[i] = JKR_NEW_ARRAY_ARGS(s16, frameSamples * 2, JASDram, 0x20);
             for (u32 j = 0; j < frameSamples * 2; j++) {
                 dsp_buf[i][j] = 0;
             }

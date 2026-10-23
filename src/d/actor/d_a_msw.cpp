@@ -228,7 +228,7 @@ BOOL daMsw_CreateInit(fopAc_ac_c* i_this) {
         }
     }
 
-    pActor->mpBgW = new dBgW();
+    pActor->mpBgW = JKR_NEW dBgW();
 
     if (pActor->mpBgW == NULL) {
         return FALSE;

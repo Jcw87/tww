@@ -496,9 +496,9 @@ BOOL cCc_Init() {
 
         if (DMC[d.mKey] == NULL)
 #if VERSION == VERSION_DEMO
-            DMC[d.mKey] = new (pHeap, 0) DynamicModuleControl(d.name);
+            DMC[d.mKey] = JKR_NEW_ARGS(pHeap, 0) DynamicModuleControl(d.name);
 #else
-            DMC[d.mKey] = new DynamicModuleControl(d.name);
+            DMC[d.mKey] = JKR_NEW DynamicModuleControl(d.name);
 #endif
     }
 

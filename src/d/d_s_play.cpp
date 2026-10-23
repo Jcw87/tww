@@ -1268,7 +1268,7 @@ cPhs_State phase_1(dScnPly_ply_c* i_this) {
         JUT_ASSERT(VERSION_SELECT(3424, 3424, 3439, 3439), l_lkDemoAnmCommand->getArchive());
         dComIfGp_setLkDemoAnmArchive(l_lkDemoAnmCommand->getArchive());
 
-        delete l_lkDemoAnmCommand;
+        JKR_DELETE(l_lkDemoAnmCommand);
     }
 
     fpc_ProcID id = fopScnM_GetID(i_this);
@@ -1321,7 +1321,7 @@ cPhs_State phase_4(dScnPly_ply_c* i_this) {
     if (i_this->sceneCommand != NULL) {
         JUT_ASSERT(VERSION_SELECT(3552, 3552, 3567, 3567), i_this->sceneCommand->getMemAddress() != NULL);
         dComIfGp_particle_createScene(i_this->sceneCommand->getMemAddress());
-        delete i_this->sceneCommand;
+        JKR_DELETE(i_this->sceneCommand);
     } else {
         dComIfGp_particle_createScene(NULL);
     }

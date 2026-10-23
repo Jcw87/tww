@@ -813,7 +813,7 @@ BOOL daObjApzl_c::CreateHeap() {
         i++;
 
         if(i >= 0x10) {
-            stick = new STControl(0x3C, 0x1E, 0, 0, 0.9, 0.5, 0, 0);
+            stick = JKR_NEW STControl(0x3C, 0x1E, 0, 0, 0.9, 0.5, 0, 0);
             JUT_ASSERT(VERSION_SELECT(0x2E7, 0x2E7, 0x310, 0x310), stick != NULL);
             return TRUE;
         }
@@ -953,7 +953,7 @@ static cPhs_State daObjApzl_Create(void* i_this) {
 }
 
 bool daObjApzl_c::_delete() {
-    delete stick;
+    JKR_DELETE(stick);
     dComIfG_resDelete(&mPhs, "Apzl");
     return true;
 }

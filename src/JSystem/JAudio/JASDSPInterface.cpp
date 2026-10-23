@@ -75,8 +75,8 @@ void JASystem::DSPInterface::setupBuffer() {
 
 /* 8028A28C-8028A368       .text initBuffer__Q28JASystem12DSPInterfaceFv */
 void JASystem::DSPInterface::initBuffer() {
-    CH_BUF = new(JASDram, 0x20) DSPBuffer[64];
-    FX_BUF = new(JASDram, 0x20) FXBuffer[4];
+    CH_BUF = JKR_NEW_ARRAY_ARGS(DSPBuffer, 64, JASDram, 0x20);
+    FX_BUF = JKR_NEW_ARRAY_ARGS(FXBuffer, 4, JASDram, 0x20);
     JUT_ASSERT(163, (CH_BUF != NULL) && (FX_BUF != NULL));
     for (u8 i = 0; i < 4; i++) {
         FX_BUF[i].setFXLine(NULL, NULL);

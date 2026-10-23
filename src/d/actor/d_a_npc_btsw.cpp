@@ -1014,7 +1014,7 @@ BOOL daNpc_Btsw_c::CreateHeap() {
     J3DModelData* modelData = static_cast<J3DModelData*>(dComIfG_getObjectIDRes("Btsw", dRes_ID_BTSW_BDL_BN_e));
     JUT_ASSERT(DEMO_SELECT(1420, 1424), modelData != NULL);
 
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         modelData,
         NULL,
         NULL,

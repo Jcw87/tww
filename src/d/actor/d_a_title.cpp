@@ -136,7 +136,7 @@ void daTitle_proc_c::proc_init2D() {
 
     JKRHeap* oldHeap = mDoExt_setCurrentHeap(m_exp_heap);
 
-    m_Screen = new J2DScreen();
+    m_Screen = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(0x128, 0x128, 0x153, 0x153), m_Screen != NULL);
 
     dRes_info_c* resInfo = dComIfG_getObjectResInfo(ARCNAME);
@@ -182,7 +182,7 @@ daTitle_proc_c::daTitle_proc_c() {
 /* 00000C1C-00000D7C       .text __dt__14daTitle_proc_cFv */
 daTitle_proc_c::~daTitle_proc_c() {
     JKRHeap* oldHeap = mDoExt_setCurrentHeap(m_exp_heap);
-    delete m_Screen;
+    JKR_DELETE(m_Screen);
     m_Screen = NULL;
     mDoExt_destroySolidHeap(m_solid_heap);
     m_solid_heap = NULL;
@@ -471,7 +471,7 @@ void daTitle_proc_c::proc_draw() {
 
 daTitle_c::~daTitle_c() {
     if (mpTitleProc != NULL) {
-        delete mpTitleProc;
+        JKR_DELETE(mpTitleProc);
     }
 
     dComIfG_resDelete(&mPhs, ARCNAME);
@@ -488,7 +488,7 @@ cPhs_State daTitle_c::create() {
     cPhs_State phase_state = dComIfG_resLoad(&mPhs, ARCNAME);
 
     if (phase_state == cPhs_COMPLEATE_e) {
-        mpTitleProc = new daTitle_proc_c();
+        mpTitleProc = JKR_NEW daTitle_proc_c();
 
         if (mpTitleProc == NULL) {
             return cPhs_ERROR_e;

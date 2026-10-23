@@ -133,7 +133,7 @@ BOOL daHmlif_c::CreateHeap() {
         J3DAnmTexPattern* pbtp = (J3DAnmTexPattern*)dComIfG_getObjectRes(m_arcname[m489], m_btpidx[m489]);
         JUT_ASSERT(DEMO_SELECT(417, 422), pbtp != NULL);
 
-        mpBtp = new mDoExt_btpAnm();
+        mpBtp = JKR_NEW mDoExt_btpAnm();
         if (mpBtp == NULL || !mpBtp->init(modelData, pbtp, 0, 0, 1.0f, 0, -1, false, FALSE)) {
             return FALSE;
         }
@@ -150,7 +150,7 @@ BOOL daHmlif_c::CreateHeap() {
         J3DAnmTevRegKey* pbrk = (J3DAnmTevRegKey*)dComIfG_getObjectRes(m_arcname[m489], m_brkidx[m489]);
         JUT_ASSERT(DEMO_SELECT(442, 447), pbrk != NULL);
 
-        mpBrk = new mDoExt_brkAnm();
+        mpBrk = JKR_NEW mDoExt_brkAnm();
         if ((mpBrk == NULL) || !mpBrk->init(modelData, pbrk, true, J3DFrameCtrl::EMode_LOOP, 1.0f, 0, -1, false, FALSE)) {
             return FALSE;
         }

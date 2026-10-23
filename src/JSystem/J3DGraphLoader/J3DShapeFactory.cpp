@@ -48,12 +48,12 @@ J3DShapeFactory::J3DShapeFactory(const J3DShapeBlock& block) {
 
 /* 802FE458-802FE614       .text create__15J3DShapeFactoryFiUlP14_GXVtxDescList */
 J3DShape* J3DShapeFactory::create(int no, u32 flag, GXVtxDescList* vtxDesc) {
-    J3DShape* shape = new J3DShape();
+    J3DShape* shape = JKR_NEW J3DShape();
     shape->mMtxGroupNum = getMtxGroupNum(no);
     shape->mRadius = getRadius(no);
     shape->mVtxDesc = getVtxDescList(no);
-    shape->mShapeMtx = new J3DShapeMtx*[shape->mMtxGroupNum];
-    shape->mShapeDraw = new J3DShapeDraw*[shape->mMtxGroupNum];
+    shape->mShapeMtx = JKR_NEW_ARRAY(J3DShapeMtx*, shape->mMtxGroupNum);
+    shape->mShapeDraw = JKR_NEW_ARRAY(J3DShapeDraw*, shape->mMtxGroupNum);
     shape->mMin = getMin(no);
     shape->mMax = getMax(no);
     shape->mVcdVatCmd = mpVcdVatCmdBuffer + no * J3DShape::kVcdVatDLSize;
@@ -93,16 +93,16 @@ J3DShapeMtx* J3DShapeFactory::newShapeMtx(u32 flag, int shapeNo, int mtxGroupNo)
     case J3DMdlDataFlag_Imm:
         switch (shapeInitData.mShapeMtxType) {
         case J3DShapeMtxType_Mtx:
-            ret = new J3DShapeMtxImm(mtxInitData.mUseMtxIndex);
+            ret = JKR_NEW J3DShapeMtxImm(mtxInitData.mUseMtxIndex);
             break;
         case J3DShapeMtxType_BBoard:
-            ret = new J3DShapeMtxBBoardImm(mtxInitData.mUseMtxIndex);
+            ret = JKR_NEW J3DShapeMtxBBoardImm(mtxInitData.mUseMtxIndex);
             break;
         case J3DShapeMtxType_YBBoard:
-            ret = new J3DShapeMtxYBBoardImm(mtxInitData.mUseMtxIndex);
+            ret = JKR_NEW J3DShapeMtxYBBoardImm(mtxInitData.mUseMtxIndex);
             break;
         case J3DShapeMtxType_Multi:
-            ret = new J3DShapeMtxMultiImm(mtxInitData.mUseMtxIndex, mtxInitData.mUseMtxCount, &mpMtxTable[mtxInitData.mFirstUseMtxIndex]);
+            ret = JKR_NEW J3DShapeMtxMultiImm(mtxInitData.mUseMtxIndex, mtxInitData.mUseMtxCount, &mpMtxTable[mtxInitData.mFirstUseMtxIndex]);
             break;
         default:
             OSReport("WRONG SHAPE MATRIX TYPE (J3DModelInit.cpp)\n");
@@ -113,16 +113,16 @@ J3DShapeMtx* J3DShapeFactory::newShapeMtx(u32 flag, int shapeNo, int mtxGroupNo)
     case J3DMdlDataFlag_ConcatView:
         switch (shapeInitData.mShapeMtxType) {
         case J3DShapeMtxType_Mtx:
-            ret = new J3DShapeMtxConcatView(mtxInitData.mUseMtxIndex);
+            ret = JKR_NEW J3DShapeMtxConcatView(mtxInitData.mUseMtxIndex);
             break;
         case J3DShapeMtxType_BBoard:
-            ret = new J3DShapeMtxBBoardConcatView(mtxInitData.mUseMtxIndex);
+            ret = JKR_NEW J3DShapeMtxBBoardConcatView(mtxInitData.mUseMtxIndex);
             break;
         case J3DShapeMtxType_YBBoard:
-            ret = new J3DShapeMtxYBBoardConcatView(mtxInitData.mUseMtxIndex);
+            ret = JKR_NEW J3DShapeMtxYBBoardConcatView(mtxInitData.mUseMtxIndex);
             break;
         case J3DShapeMtxType_Multi:
-            ret = new J3DShapeMtxMultiConcatView(mtxInitData.mUseMtxIndex, mtxInitData.mUseMtxCount, &mpMtxTable[mtxInitData.mFirstUseMtxIndex]);
+            ret = JKR_NEW J3DShapeMtxMultiConcatView(mtxInitData.mUseMtxIndex, mtxInitData.mUseMtxCount, &mpMtxTable[mtxInitData.mFirstUseMtxIndex]);
             break;
         default:
             OSReport("WRONG SHAPE MATRIX TYPE (J3DModelInit.cpp)\n");
@@ -136,10 +136,10 @@ J3DShapeMtx* J3DShapeFactory::newShapeMtx(u32 flag, int shapeNo, int mtxGroupNo)
         case J3DShapeMtxType_Mtx:
         case J3DShapeMtxType_BBoard:
         case J3DShapeMtxType_YBBoard:
-            ret = new J3DShapeMtx(mtxInitData.mUseMtxIndex);
+            ret = JKR_NEW J3DShapeMtx(mtxInitData.mUseMtxIndex);
             break;
         case J3DShapeMtxType_Multi:
-            ret = new J3DShapeMtxMulti(mtxInitData.mUseMtxIndex, mtxInitData.mUseMtxCount, &mpMtxTable[mtxInitData.mFirstUseMtxIndex]);
+            ret = JKR_NEW J3DShapeMtxMulti(mtxInitData.mUseMtxIndex, mtxInitData.mUseMtxCount, &mpMtxTable[mtxInitData.mFirstUseMtxIndex]);
             break;
         default:
             OSReport("WRONG SHAPE MATRIX TYPE (J3DModelInit.cpp)\n");
@@ -155,12 +155,12 @@ J3DShapeMtx* J3DShapeFactory::newShapeMtx(u32 flag, int shapeNo, int mtxGroupNo)
 J3DShapeDraw* J3DShapeFactory::newShapeDraw(int shapeNo, int mtxGroupNo) const {
     const J3DShapeInitData& shapeInitData = mpShapeInitData[mpIndexTable[shapeNo]];
     const J3DShapeDrawInitData& drawInitData = (&mpDrawInitData[shapeInitData.mDrawInitDataIndex])[mtxGroupNo];
-    return new J3DShapeDraw(&mpDisplayListData[drawInitData.mDisplayListIndex], drawInitData.mDisplayListSize);
+    return JKR_NEW J3DShapeDraw(&mpDisplayListData[drawInitData.mDisplayListIndex], drawInitData.mDisplayListSize);
 }
 
 /* 802FEACC-802FEB38       .text allocVcdVatCmdBuffer__15J3DShapeFactoryFUl */
 void J3DShapeFactory::allocVcdVatCmdBuffer(u32 count) {
-    mpVcdVatCmdBuffer = new (0x20) u8[J3DShape::kVcdVatDLSize * count];
+    mpVcdVatCmdBuffer = JKR_NEW_ARRAY_ARGS(u8, J3DShape::kVcdVatDLSize * count, 0x20);
     for (u32 i = 0; i < (J3DShape::kVcdVatDLSize * count) / 4; i++)
         ((u32*)mpVcdVatCmdBuffer)[i] = 0;
 }

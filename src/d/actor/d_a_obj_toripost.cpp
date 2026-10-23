@@ -107,7 +107,7 @@ BOOL daObjTpost_c::_createHeap() {
     J3DModelData* modelData = (J3DModelData*)dComIfG_getObjectRes(m_arc_name, dRes_INDEX_TORIPOST_BDL_VPOST_e);
     JUT_ASSERT(DEMO_SELECT(131, 132), modelData != NULL);
 
-    mMorf = new mDoExt_McaMorf(
+    mMorf = JKR_NEW mDoExt_McaMorf(
         modelData,
         NULL, NULL,
         NULL,

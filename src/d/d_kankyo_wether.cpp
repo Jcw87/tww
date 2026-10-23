@@ -299,36 +299,36 @@ void dKyw_wether_init2() {
 /* 80087944-80087C28       .text dKyw_wether_delete__Fv */
 void dKyw_wether_delete() {
     if (g_env_light.mbSunInitialized) {
-        delete g_env_light.mpSunPacket;
-        delete g_env_light.mpSunlenzPacket;
+        JKR_DELETE(g_env_light.mpSunPacket);
+        JKR_DELETE(g_env_light.mpSunlenzPacket);
     }
 
     if (g_env_light.mbRainInitialized) {
-        delete g_env_light.mpRainPacket;
+        JKR_DELETE(g_env_light.mpRainPacket);
     }
 
     if (g_env_light.mbSnowInitialized) {
-        delete g_env_light.mpSnowPacket;
+        JKR_DELETE(g_env_light.mpSnowPacket);
     }
 
     if (g_env_light.mbStarInitialized) {
-        delete g_env_light.mpStarPacket;
+        JKR_DELETE(g_env_light.mpStarPacket);
     }
 
     if (g_env_light.mbPoisonInitialized) {
-        delete g_env_light.mpPoisonPacket;
+        JKR_DELETE(g_env_light.mpPoisonPacket);
     }
 
     if (g_env_light.mbHousiInitialized) {
-        delete g_env_light.mpHousiPacket;
+        JKR_DELETE(g_env_light.mpHousiPacket);
     }
 
     if (g_env_light.mMoyaInitialized) {
-        delete g_env_light.mpMoyaPacket;
+        JKR_DELETE(g_env_light.mpMoyaPacket);
     }
 
     if (g_env_light.mWaveInitialized) {
-        delete g_env_light.mpWavePacket;
+        JKR_DELETE(g_env_light.mpWavePacket);
     }
 
     if (g_env_light.mbWindlineInitialized) {
@@ -349,7 +349,7 @@ void dKyw_wether_delete() {
             }
         }
 
-        delete g_env_light.mpWind;
+        JKR_DELETE(g_env_light.mpWind);
     }
 }
 
@@ -389,7 +389,7 @@ dKankyo_sun_Packet::~dKankyo_sun_Packet() {}
 /* 80088144-80088194       .text dKyw_wether_delete2__Fv */
 void dKyw_wether_delete2() {
     if (g_env_light.mVrkumoStatus != 0) {
-        delete g_env_light.mpVrkumoPacket;
+        JKR_DELETE(g_env_light.mpVrkumoPacket);
     }
 }
 
@@ -421,7 +421,7 @@ void wether_move_windline() {
     switch (g_env_light.mbWindlineInitialized) {
     case 0:
         if (g_env_light.mWindlineCount != 0) {
-            g_env_light.mpWind = new (0x20) WINDEFF_SET();
+            g_env_light.mpWind = JKR_NEW_ARGS(0x20) WINDEFF_SET();
 
             if (g_env_light.mpWind == NULL) {
                 return;
@@ -475,8 +475,8 @@ void wether_move_sun() {
     if (dComIfGp_checkStatus(1) && !g_env_light.mbVrboxInvisible) {
         switch (g_env_light.mbSunInitialized) {
         case 0:
-            g_env_light.mpSunPacket = new (0x20) dKankyo_sun_Packet();
-            g_env_light.mpSunlenzPacket = new (0x20) dKankyo_sunlenz_Packet();
+            g_env_light.mpSunPacket = JKR_NEW_ARGS(0x20) dKankyo_sun_Packet();
+            g_env_light.mpSunlenzPacket = JKR_NEW_ARGS(0x20) dKankyo_sunlenz_Packet();
 
             if (g_env_light.mpSunPacket != NULL && g_env_light.mpSunlenzPacket != NULL) {
                 g_env_light.mpSunPacket->mpTextureData[0] =
@@ -528,7 +528,7 @@ void wether_move_rain() {
     switch (g_env_light.mbRainInitialized) {
     case 0:
         if (g_env_light.mRainCount != 0) {
-            g_env_light.mpRainPacket = new (0x20) dKankyo_rain_Packet();
+            g_env_light.mpRainPacket = JKR_NEW_ARGS(0x20) dKankyo_rain_Packet();
             if (g_env_light.mpRainPacket == NULL) {
                 return;
             }
@@ -556,7 +556,7 @@ void wether_move_rain() {
         if (g_env_light.mRainCount == 0) {
             g_env_light.mbRainInitialized = false;
             mDoAud_seStart(JA_SE_ATM_RAIN_END);
-            delete g_env_light.mpRainPacket;
+            JKR_DELETE(g_env_light.mpRainPacket);
         }
         break;
     }
@@ -653,7 +653,7 @@ void wether_move_star() {
 
             if (g_env_light.mStarCount == 0) {
                 g_env_light.mbStarInitialized = false;
-                delete g_env_light.mpStarPacket;
+                JKR_DELETE(g_env_light.mpStarPacket);
             }
             break;
         }
@@ -684,7 +684,7 @@ void wether_move_housi() {
     switch (g_env_light.mbHousiInitialized) {
     case 0:
         if (g_env_light.mHousiCount != 0) {
-            g_env_light.mpHousiPacket = new (0x20) dKankyo_housi_Packet();
+            g_env_light.mpHousiPacket = JKR_NEW_ARGS(0x20) dKankyo_housi_Packet();
             if (g_env_light.mpHousiPacket == NULL) {
                 return;
             }
@@ -703,7 +703,7 @@ void wether_move_housi() {
     case 1:
         if (g_env_light.mHousiCount == 0 && g_env_light.mpHousiPacket->field_0x5ddc <= 0.0f) {
             g_env_light.mbHousiInitialized = false;
-            delete g_env_light.mpHousiPacket;
+            JKR_DELETE(g_env_light.mpHousiPacket);
         } else {
             dKyr_housi_move();
             g_env_light.mHousiCount = 0;
@@ -717,7 +717,7 @@ void wether_move_moya() {
     switch (g_env_light.mMoyaInitialized) {
     case 0:
         if (g_env_light.mMoyaCount != 0) {
-            g_env_light.mpMoyaPacket = new (0x20) dKankyo_cloud_Packet();
+            g_env_light.mpMoyaPacket = JKR_NEW_ARGS(0x20) dKankyo_cloud_Packet();
             if (g_env_light.mpMoyaPacket == NULL) {
                 return;
             }
@@ -754,7 +754,7 @@ void wether_move_moya() {
         cloud_shadow_move();
         if (g_env_light.mMoyaCount == 0 && g_env_light.mpMoyaPacket->mCount == 0) {
             g_env_light.mMoyaInitialized = false;
-            delete g_env_light.mpMoyaPacket;
+            JKR_DELETE(g_env_light.mpMoyaPacket);
         }
         break;
     }
@@ -804,7 +804,7 @@ void wether_move_vrkumo() {
     switch (g_env_light.mVrkumoStatus) {
     case 0:
         if (g_env_light.mVrkumoCount != 0) {
-            g_env_light.mpVrkumoPacket = new (0x20) dKankyo_vrkumo_Packet();
+            g_env_light.mpVrkumoPacket = JKR_NEW_ARGS(0x20) dKankyo_vrkumo_Packet();
             if (g_env_light.mpVrkumoPacket == NULL) {
                 return;
             }
@@ -850,7 +850,7 @@ void wether_move_wave() {
     switch (g_env_light.mWaveInitialized) {
     case 0:
         if (g_env_light.mWaveChan.mWaveCount != 0) {
-            g_env_light.mpWavePacket = new (0x20) dKankyo_wave_Packet();
+            g_env_light.mpWavePacket = JKR_NEW_ARGS(0x20) dKankyo_wave_Packet();
             if (g_env_light.mpWavePacket == NULL) {
                 return;
             }
@@ -869,7 +869,7 @@ void wether_move_wave() {
     case 1:
         if (g_env_light.mWaveChan.mWaveCount == 0) {
             g_env_light.mWaveInitialized = false;
-            delete g_env_light.mpWavePacket;
+            JKR_DELETE(g_env_light.mpWavePacket);
         }
 
         wave_move();

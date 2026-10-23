@@ -18,7 +18,7 @@ JASystem::TSimpleWaveBank::TSimpleWaveBank() {
 
 /* 80286528-802865F4       .text __dt__Q28JASystem15TSimpleWaveBankFv */
 JASystem::TSimpleWaveBank::~TSimpleWaveBank() {
-    delete[] mWaveTable;
+    JKR_DELETE_ARRAY(mWaveTable);
 }
 
 /* 802865F4-80286650       .text __dt__Q38JASystem15TSimpleWaveBank11TWaveHandleFv */
@@ -26,8 +26,8 @@ JASystem::TSimpleWaveBank::TWaveHandle::~TWaveHandle() {}
 
 /* 80286650-8028670C       .text setWaveTableSize__Q28JASystem15TSimpleWaveBankFUl */
 void JASystem::TSimpleWaveBank::setWaveTableSize(u32 size) {
-    delete[] mWaveTable;
-    mWaveTable = new (getCurrentHeap(), 0) TWaveHandle[size];
+    JKR_DELETE_ARRAY(mWaveTable);
+    mWaveTable = JKR_NEW_ARRAY_ARGS(TWaveHandle, size, getCurrentHeap(), 0);
     JUT_ASSERT(34, mWaveTable != NULL);
     mWaveCount = size;
 }

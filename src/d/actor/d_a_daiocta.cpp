@@ -336,7 +336,7 @@ BOOL daDaiocta_c::createBodyHeap() {
         return FALSE;
     }
 
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         modelData, 
         NULL, NULL, NULL, 
         ~J3DFrameCtrl::EMode_NONE, 

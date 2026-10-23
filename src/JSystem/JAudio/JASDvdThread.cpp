@@ -14,18 +14,18 @@
 /* 8027B500-8027B584       .text __ct__Q213JASTaskThread10TCallStackFUl */
 JASTaskThread::TCallStack::TCallStack(u32 param_1) {
     field_0x0 = NULL;
-    argspace = new (JKRHeap::sSystemHeap, -4) u8[param_1];
+    argspace = JKR_NEW_ARRAY_ARGS(u8, param_1, JKRHeap::sSystemHeap, -4);
     JUT_ASSERT(39, argspace);
 }
 
 /* 8027B584-8027B5D8       .text __dt__Q213JASTaskThread10TCallStackFv */
 JASTaskThread::TCallStack::~TCallStack() {
-    delete[] argspace;
+    JKR_DELETE_ARRAY(argspace);
 }
 
 /* 8027B5D8-8027B66C       .text sendCmdMsg__13JASTaskThreadFPFPv_lPvUl */
 BOOL JASTaskThread::sendCmdMsg(s32 (*param_1)(void*), void* param_2, u32 param_3) {
-    TCallStack* stack = new(JKRGetSystemHeap(), -4) TCallStack(param_3);
+    TCallStack* stack = JKR_NEW_ARGS(JKRGetSystemHeap(), -4) TCallStack(param_3);
     if (!stack) {
         return false;
     }
@@ -47,7 +47,7 @@ void* JASTaskThread::run() {
             continue;
         }
         callStack->field_0x0(callStack->argspace);
-        delete callStack;
+        JKR_DELETE(callStack);
     }
     return NULL;
 }
@@ -68,7 +68,7 @@ JASTaskThread* JASystem::Dvd::sThread;
 
 /* 8027B72C-8027B7E8       .text createThread__Q28JASystem3DvdFiiUl */
 bool JASystem::Dvd::createThread(int param_1, int param_2, u32 param_3) {
-    sThread = new (JASDram, 0) JASTaskThread(param_1, param_2, param_3);
+    sThread = JKR_NEW_ARGS(JASDram, 0) JASTaskThread(param_1, param_2, param_3);
     JUT_ASSERT(136, sThread);
     return true;
 }

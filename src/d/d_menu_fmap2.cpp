@@ -153,26 +153,26 @@ dMf2_HIO_c::dMf2_HIO_c() {
 
 /* 801BB5B8-801BBA2C       .text _create__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::_create() {
-    fmap2Dl.scrn = new J2DScreen();
+    fmap2Dl.scrn = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(293, 293, 316, 316), fmap2Dl.scrn != NULL);
     fmap2Dl.scrn->set("f_hikaku_1.blo", dComIfGp_getFmapResArchive());
-    stick = new STControl(5, 2, 3, 2);
+    stick = JKR_NEW STControl(5, 2, 3, 2);
     JUT_ASSERT(VERSION_SELECT(297, 297, 320, 320), stick != NULL);
-    outFont[0] = new dDlst_2DOutFont_c();
+    outFont[0] = JKR_NEW dDlst_2DOutFont_c();
     JUT_ASSERT(VERSION_SELECT(301, 301, 324, 324), outFont[0] != NULL);
-    outFont[1] = new dDlst_2DOutFont_c();
+    outFont[1] = JKR_NEW dDlst_2DOutFont_c();
     JUT_ASSERT(VERSION_SELECT(304, 304, 327, 327), outFont[1] != NULL);
-    outFontS[0] = new dDlst_2DOutFont_c();
+    outFontS[0] = JKR_NEW dDlst_2DOutFont_c();
     JUT_ASSERT(VERSION_SELECT(307, 307, 330, 330), outFontS[0] != NULL);
-    outFontS[1] = new dDlst_2DOutFont_c();
+    outFontS[1] = JKR_NEW dDlst_2DOutFont_c();
     JUT_ASSERT(VERSION_SELECT(310, 310, 333, 333), outFontS[1] != NULL);
     mFont = mDoExt_getMesgFont();
     mRFont = mDoExt_getRubyFont();
-    mChkPntTxt_p = new(0x20) FMapTIMG;
+    mChkPntTxt_p = JKR_NEW_ARGS(0x20) FMapTIMG;
     JUT_ASSERT(VERSION_SELECT(317, 317, 340, 340), mChkPntTxt_p != NULL);
-    mCmapTxtMain_p[0] = new(0x20) FMapTIMG;
+    mCmapTxtMain_p[0] = JKR_NEW_ARGS(0x20) FMapTIMG;
     JUT_ASSERT(VERSION_SELECT(321, 321, 344, 344), mCmapTxtMain_p[0] != NULL);
-    mCmapTxtMain_p[1] = new(0x20) FMapTIMG;
+    mCmapTxtMain_p[1] = JKR_NEW_ARGS(0x20) FMapTIMG;
     JUT_ASSERT(VERSION_SELECT(323, 323, 346, 346), mCmapTxtMain_p[1] != NULL);
     screenSet();
 mSpMapDrawMode = SP_MAP_DRAW_OFF;
@@ -1121,7 +1121,7 @@ void dMenu_Fmap2_c::screenSetGs() {
     };
 #endif
 
-    fmap2GsDl.scrn = new J2DScreen();
+    fmap2GsDl.scrn = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(1728, 1749, 1793, 1806), fmap2GsDl.scrn != NULL);
     fmap2GsDl.scrn->set("g_map_01.blo", mpMount->getArchive());
     fopMsgM_setPaneData(&mGsMs01PaneAlpha, fmap2GsDl.scrn->search('ms01'));
@@ -1324,7 +1324,7 @@ void dMenu_Fmap2_c::screenSetTn() {
 #endif
     };
 
-    fmap2GsDl.scrn = new J2DScreen();
+    fmap2GsDl.scrn = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(1927, 1938, 2055, 2068), fmap2GsDl.scrn != NULL);
     fmap2GsDl.scrn->set("t_map_01.blo", mpMount->getArchive());
     fopMsgM_setPaneData(&mTnHk00PaneAlpha, fmap2GsDl.scrn->search('HK00'));
@@ -1347,7 +1347,7 @@ void dMenu_Fmap2_c::screenSetTn() {
 
 /* 801C073C-801C0ADC       .text screenSetTr__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::screenSetTr() {
-    fmap2GsDl.scrn = new J2DScreen();
+    fmap2GsDl.scrn = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(1954, 1965, 2098, 2111), fmap2GsDl.scrn != NULL);
     fmap2GsDl.scrn->set("TR_map_1.blo", mpMount->getArchive());
     fopMsgM_setPaneData(&mTrMs01PaneAlpha, fmap2GsDl.scrn->search('ms01'));
@@ -1418,7 +1418,7 @@ void dMenu_Fmap2_c::trTrifAnime() {
 
 /* 801C0C0C-801C0E54       .text screenSetIk__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::screenSetIk() {
-    fmap2GsDl.scrn = new J2DScreen();
+    fmap2GsDl.scrn = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(1980, 1991, 2211, 2224), fmap2GsDl.scrn != NULL);
     fmap2GsDl.scrn->set("DOC_map_01.blo", mpMount->getArchive());
     fopMsgM_setPaneData(&mIkMs01PaneAlpha, fmap2GsDl.scrn->search('ms01'));
@@ -1434,7 +1434,7 @@ void dMenu_Fmap2_c::screenSetIk() {
 
 /* 801C0E54-801C113C       .text screenSetHeartP__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::screenSetHeartP() {
-    fmap2GsDl.scrn = new J2DScreen();
+    fmap2GsDl.scrn = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(2005, 2016, 2236, 2249), fmap2GsDl.scrn != NULL);
     fmap2GsDl.scrn->set("HRT_map_1.blo", mpMount->getArchive());
     fopMsgM_setPaneData(&mHeartPMs01PaneAlpha, fmap2GsDl.scrn->search('ms01'));
@@ -1454,7 +1454,7 @@ void dMenu_Fmap2_c::screenSetHeartP() {
 
 /* 801C113C-801C135C       .text screenSetTerry__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::screenSetTerry() {
-    fmap2GsDl.scrn = new J2DScreen();
+    fmap2GsDl.scrn = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(2034, 2045, 2265, 2278), fmap2GsDl.scrn != NULL);
     fmap2GsDl.scrn->set("TERRY_map_1.blo", mpMount->getArchive());
     fopMsgM_setPaneData(&mTerryMs01PaneAlpha, fmap2GsDl.scrn->search('ms01'));
@@ -1469,7 +1469,7 @@ void dMenu_Fmap2_c::screenSetTerry() {
 
 /* 801C135C-801C157C       .text screenSetSubMa__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::screenSetSubMa() {
-    fmap2GsDl.scrn = new J2DScreen();
+    fmap2GsDl.scrn = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(2058, 2069, 2289, 2302), fmap2GsDl.scrn != NULL);
     fmap2GsDl.scrn->set("SENSUI_map_1.blo", mpMount->getArchive());
     fopMsgM_setPaneData(&mSubMaMs01PaneAlpha, fmap2GsDl.scrn->search('ms01'));
@@ -1497,7 +1497,7 @@ void dMenu_Fmap2_c::screenSetMoon() {
         'kr18', 'kr19',
     };
 
-    fmap2GsDl.scrn = new J2DScreen();
+    fmap2GsDl.scrn = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(2084, 2095, 2315, 2328), fmap2GsDl.scrn != NULL);
     fmap2GsDl.scrn->set("MN_map_1.blo", mpMount->getArchive());
     fopMsgM_setPaneData(&mMoonMs01PaneAlpha, fmap2GsDl.scrn->search('ms01'));
@@ -1515,7 +1515,7 @@ void dMenu_Fmap2_c::screenSetMoon() {
 
 /* 801C17EC-801C1A0C       .text screenSetDfaliy__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::screenSetDfaliy() {
-    fmap2GsDl.scrn = new J2DScreen();
+    fmap2GsDl.scrn = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(2116, 2127, 2347, 2360), fmap2GsDl.scrn != NULL);
     fmap2GsDl.scrn->set("YS_map_1.blo", mpMount->getArchive());
     fopMsgM_setPaneData(&mDfaliyMs01PaneAlpha, fmap2GsDl.scrn->search('ms01'));
@@ -1530,7 +1530,7 @@ void dMenu_Fmap2_c::screenSetDfaliy() {
 
 /* 801C1A0C-801C1C7C       .text screenSetYagura__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::screenSetYagura() {
-    fmap2GsDl.scrn = new J2DScreen();
+    fmap2GsDl.scrn = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(2140, 2151, 2371, 2384), fmap2GsDl.scrn != NULL);
     fmap2GsDl.scrn->set("YG_map_1.blo", mpMount->getArchive());
     fopMsgM_setPaneData(&mYaguraMs01PaneAlpha, fmap2GsDl.scrn->search('ms01'));
@@ -1562,7 +1562,7 @@ void dMenu_Fmap2_c::screenSetHeartM() {
 #endif
     };
 
-    fmap2GsDl.scrn = new J2DScreen();
+    fmap2GsDl.scrn = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(2169, 2179, 2399, 2412), fmap2GsDl.scrn != NULL);
     fmap2GsDl.scrn->set("HM_map_1.blo", mpMount->getArchive());
     fopMsgM_setPaneData(&mHeartMMs01PaneAlpha, fmap2GsDl.scrn->search('ms01'));
@@ -1602,7 +1602,7 @@ void dMenu_Fmap2_c::screenSetSubdan() {
 #endif
     };
 
-    fmap2GsDl.scrn = new J2DScreen();
+    fmap2GsDl.scrn = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(2208, 2217, 2437, 2450), fmap2GsDl.scrn != NULL);
     fmap2GsDl.scrn->set("IR_map_1.blo", mpMount->getArchive());
     fopMsgM_setPaneData(&mSubdanMs01PaneAlpha, fmap2GsDl.scrn->search('ms01'));
@@ -1774,10 +1774,10 @@ void dMenu_Fmap2_c::CmapClose() {
         mFrameTimer = 0;
         mButtonIconMode = FMAP2_BTN_ICON_LOCKED;
         mCkMsgNo[mCkBufIdx] = 0xffff;
-        delete fmap2GsDl.scrn;
+        JKR_DELETE(fmap2GsDl.scrn);
         mpMount->getArchive()->removeResourceAll();
         mpMount->getArchive()->unmount();
-        delete mpMount;
+        JKR_DELETE(mpMount);
         mSpMapDrawMode = SP_MAP_DRAW_OFF;
         mLockBbutton = 0;
         mMainProcIdx = MAIN_PROC_CMAP;
@@ -2008,15 +2008,15 @@ void dMenu_Fmap2_c::_draw() {
 
 /* 801C38E0-801C39A4       .text _delete__13dMenu_Fmap2_cFv */
 void dMenu_Fmap2_c::_delete() {
-    delete fmap2Dl.scrn;
-    delete stick;
-    delete mChkPntTxt_p;
-    delete mCmapTxtMain_p[0];
-    delete mCmapTxtMain_p[1];
-    delete outFont[0];
-    delete outFontS[0];
-    delete outFont[1];
-    delete outFontS[1];
+    JKR_DELETE(fmap2Dl.scrn);
+    JKR_DELETE(stick);
+    JKR_DELETE(mChkPntTxt_p);
+    JKR_DELETE(mCmapTxtMain_p[0]);
+    JKR_DELETE(mCmapTxtMain_p[1]);
+    JKR_DELETE(outFont[0]);
+    JKR_DELETE(outFontS[0]);
+    JKR_DELETE(outFont[1]);
+    JKR_DELETE(outFontS[1]);
     mDoHIO_deleteChild(g_mf2HIO.mNo);
 }
 

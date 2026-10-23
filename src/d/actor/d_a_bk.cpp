@@ -4524,7 +4524,7 @@ static BOOL daBk_Delete(bk_class* i_this) {
 static BOOL useHeapInit(fopAc_ac_c* i_actor) {
     bk_class* i_this = (bk_class*)i_actor;
     
-    i_this->mpMorf = new mDoExt_McaMorf(
+    i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Bk", dRes_INDEX_BK_BDL_BK_e),
         NULL, NULL,
         (J3DAnmTransformKey*)dComIfG_getObjectRes("Bk", dRes_INDEX_BK_BCK_BK_SUWARI_e),
@@ -4556,7 +4556,7 @@ static BOOL useHeapInit(fopAc_ac_c* i_actor) {
         i_this->m1230 = (J3DMaterialTable*)dComIfG_getObjectRes("Bk", dRes_INDEX_BK_BMT_GREEN_e);
     }
     
-    i_this->m02C4 = new mDoExt_btpAnm();
+    i_this->m02C4 = JKR_NEW mDoExt_btpAnm();
     if (i_this->m02C4 == NULL) {
         // Bug: This function is supposed to return a boolean but here it returns a phase state instead.
         // This is because the contents of this function were originally written in daBk_Create (which returns
@@ -4790,7 +4790,7 @@ static cPhs_State daBk_Create(fopAc_ac_c* i_actor) {
             return cPhs_ERROR_e;
         }
         
-        i_this->mpMorf = new mDoExt_McaMorf(
+        i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
             (J3DModelData*)dComIfG_getObjectRes("Bk", dRes_INDEX_BK_BDL_BK_e),
             NULL, NULL,
             (J3DAnmTransformKey*)dComIfG_getObjectRes("Bk", dRes_INDEX_BK_BCK_BK_SUWARI_e),
@@ -4819,7 +4819,7 @@ static cPhs_State daBk_Create(fopAc_ac_c* i_actor) {
             i_this->m1230 = (J3DMaterialTable*)dComIfG_getObjectRes("Bk", dRes_INDEX_BK_BMT_GREEN_e);
         }
         
-        i_this->m02C4 = new mDoExt_btpAnm();
+        i_this->m02C4 = JKR_NEW mDoExt_btpAnm();
         if (i_this->m02C4 == NULL) {
             return cPhs_ERROR_e;
         }

@@ -33,7 +33,7 @@ bool dBgWHf::Set(cBgD_t* bgd, u16* r5, f32 f1, int r6, int r7, u32 flag) {
     if (ChkNoCrrPos()) {
         return false;
     }
-    SetBackVtx(new Vec[pm_bgd->m_v_num]);
+    SetBackVtx(JKR_NEW_ARRAY(Vec, pm_bgd->m_v_num));
     if (GetBackVtx() == NULL) {
         return true;
     }

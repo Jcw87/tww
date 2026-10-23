@@ -17,7 +17,7 @@ JAInter::DummyVec* JAInter::DummyObjectMgr::deadObjectObject;
 
 /* 802919A0-80291B40       .text init__Q27JAInter14DummyObjectMgrFv */
 void JAInter::DummyObjectMgr::init() {
-    deadObjectObject = new (JAIBasic::getCurrentJAIHeap(), 0x20) DummyVec[JAIGlobalParameter::getParamDummyObjectMax()];
+    deadObjectObject = JKR_NEW_ARRAY_ARGS(DummyVec, JAIGlobalParameter::getParamDummyObjectMax(), JAIBasic::getCurrentJAIHeap(), 0x20);
     JUT_ASSERT_MSG(37, deadObjectObject, "JAIDummyObjectMgr::init Cannot Alloc Heap!!\n");
     deadObjectFreePointer = deadObjectObject;
     deadObjectUsedPointer = NULL;

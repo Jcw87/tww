@@ -96,30 +96,30 @@ void JPAEmitterArchiveLoaderDataBase::load(const u8* data, JKRHeap* heap, JPAEmi
 /* 8025917C-8025991C       .text load__27JPAEmitterArchiveLoader_v10Fv */
 void JPAEmitterArchiveLoader_v10::load() {
     const JPAEmitterArchiveData_v10* header = (const JPAEmitterArchiveData_v10*)pData;
-    mpEmtrRes = new(pHeap, 0) JPAEmitterResource(header->emtrResNum, pHeap);
-    mpTexRes = new(pHeap, 0) JPATextureResource(header->texResNum, pHeap);
+    mpEmtrRes = JKR_NEW_ARGS(pHeap, 0) JPAEmitterResource(header->emtrResNum, pHeap);
+    mpTexRes = JKR_NEW_ARGS(pHeap, 0) JPATextureResource(header->texResNum, pHeap);
 
     u32 offs = 0x20;
     for (s32 i = 0; i < header->emtrResNum; i++) {
         const JPAEmitterParticleHeader_v10* ptcl = (const JPAEmitterParticleHeader_v10*)&pData[offs];
 
-        JPAEmitterData* pEmtrRes = new(pHeap, 0) JPAEmitterData();
+        JPAEmitterData* pEmtrRes = JKR_NEW_ARGS(pHeap, 0) JPAEmitterData();
         JUT_ASSERT(234, pEmtrRes);
 
-        JPADataBlockLinkInfo* pLinkInfo = new(pHeap, 0) JPADataBlockLinkInfo();
+        JPADataBlockLinkInfo* pLinkInfo = JKR_NEW_ARGS(pHeap, 0) JPADataBlockLinkInfo();
         JUT_ASSERT(238, pLinkInfo);
 
         pEmtrRes->infoNum = 1;
-        pEmtrRes->pLinkInfoArray = new(pHeap, 0) JPADataBlockLinkInfo*[pEmtrRes->infoNum];
+        pEmtrRes->pLinkInfoArray = JKR_NEW_ARRAY_ARGS(JPADataBlockLinkInfo*, pEmtrRes->infoNum, pHeap, 0);
         JUT_ASSERT(243, pEmtrRes->pLinkInfoArray);
         pEmtrRes->pLinkInfoArray[0] = pLinkInfo;
 
         pLinkInfo->keyNum = ptcl->keyNum;
-        pLinkInfo->keyBlocks = (JPAKeyBlock**) (pLinkInfo->keyNum != 0 ? new(pHeap, 0) JPAKeyBlockArc*[pLinkInfo->keyNum] : NULL);
+        pLinkInfo->keyBlocks = (JPAKeyBlock**) (pLinkInfo->keyNum != 0 ? JKR_NEW_ARRAY_ARGS(JPAKeyBlockArc*, pLinkInfo->keyNum, pHeap, 0) : NULL);
         JUT_ASSERT(250, pLinkInfo->keyBlocks || pLinkInfo->keyNum == 0);
 
         pLinkInfo->fldNum = ptcl->fldNum;
-        pLinkInfo->fldBlocks = (JPAFieldBlock**) (pLinkInfo->fldNum != 0 ? new(pHeap, 0) JPAFieldBlockArc*[pLinkInfo->fldNum] : NULL);
+        pLinkInfo->fldBlocks = (JPAFieldBlock**) (pLinkInfo->fldNum != 0 ? JKR_NEW_ARRAY_ARGS(JPAFieldBlockArc*, pLinkInfo->fldNum, pHeap, 0) : NULL);
         JUT_ASSERT(256, pLinkInfo->fldBlocks || pLinkInfo->fldNum == 0);
 
         pLinkInfo->mTextureNum = ptcl->textureNum;
@@ -134,33 +134,33 @@ void JPAEmitterArchiveLoader_v10::load() {
             u32 size = block->size;
             switch (block->magic) {
             case 'FLD1':
-                pLinkInfo->fldBlocks[fld_cntr] = (JPAFieldBlock*) new(pHeap, 0) JPAFieldBlockArc(pData + blockOffs);
+                pLinkInfo->fldBlocks[fld_cntr] = (JPAFieldBlock*) JKR_NEW_ARGS(pHeap, 0) JPAFieldBlockArc(pData + blockOffs);
                 JUT_ASSERT(274, pLinkInfo->fldBlocks[fld_cntr]);
                 fld_cntr++;
                 break;
             case 'KFA1':
-                pLinkInfo->keyBlocks[key_cntr] = (JPAKeyBlock*) new(pHeap, 0) JPAKeyBlockArc(pData + blockOffs);
+                pLinkInfo->keyBlocks[key_cntr] = (JPAKeyBlock*) JKR_NEW_ARGS(pHeap, 0) JPAKeyBlockArc(pData + blockOffs);
                 JUT_ASSERT(279, pLinkInfo->keyBlocks[key_cntr]);
                 key_cntr++;
                 break;
             case 'BEM1':
-                pLinkInfo->dynBlock = (JPADynamicsBlock*) new(pHeap, 0) JPADynamicsBlockArc(pData + blockOffs);
+                pLinkInfo->dynBlock = (JPADynamicsBlock*) JKR_NEW_ARGS(pHeap, 0) JPADynamicsBlockArc(pData + blockOffs);
                 JUT_ASSERT(284, pLinkInfo->dynBlock);
                 break;
             case 'BSP1':
-                pLinkInfo->bspBlock = (JPABaseShape*) new(pHeap, 0) JPABaseShapeArc(pData + blockOffs, pHeap);
+                pLinkInfo->bspBlock = (JPABaseShape*) JKR_NEW_ARGS(pHeap, 0) JPABaseShapeArc(pData + blockOffs, pHeap);
                 JUT_ASSERT(288, pLinkInfo->bspBlock);
                 break;
             case 'ESP1':
-                pLinkInfo->espBlock = (JPAExtraShape*) new(pHeap, 0) JPAExtraShapeArc(pData + blockOffs);
+                pLinkInfo->espBlock = (JPAExtraShape*) JKR_NEW_ARGS(pHeap, 0) JPAExtraShapeArc(pData + blockOffs);
                 JUT_ASSERT(292, pLinkInfo->espBlock);
                 break;
             case 'SSP1':
-                pLinkInfo->sspBlock = (JPASweepShape*) new(pHeap, 0) JPASweepShapeArc(pData + blockOffs);
+                pLinkInfo->sspBlock = (JPASweepShape*) JKR_NEW_ARGS(pHeap, 0) JPASweepShapeArc(pData + blockOffs);
                 JUT_ASSERT(296, pLinkInfo->sspBlock);
                 break;
             case 'ETX1':
-                pLinkInfo->etxBlock = (JPAExTexShape*) new(pHeap, 0) JPAExTexShapeArc(pData + blockOffs);
+                pLinkInfo->etxBlock = (JPAExTexShape*) JKR_NEW_ARGS(pHeap, 0) JPAExTexShapeArc(pData + blockOffs);
                 JUT_ASSERT(300, pLinkInfo->etxBlock);
                 break;
             case 'TDB1':
@@ -178,7 +178,7 @@ void JPAEmitterArchiveLoader_v10::load() {
     for (s32 i = 0; i < header->texResNum; i++) {
         const JUTDataBlockHeader* tex1Block = (const JUTDataBlockHeader*)(pData + offs);
         u32 size = tex1Block->mSize;
-        JPATexture* pTex = new(pHeap, 0) JPATextureArc(pData + offs);
+        JPATexture* pTex = JKR_NEW_ARGS(pHeap, 0) JPATextureArc(pData + offs);
         JUT_ASSERT(319, pTex);
         getTextureResource()->registration(pTex);
         offs += size;

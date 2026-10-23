@@ -67,7 +67,7 @@ BOOL daObjDragonhead_c::CreateHeap() {
     mDoMtx_stack_c::scaleM(scale);
     mDoMtx_copy(mDoMtx_stack_c::get(), mtx);
 
-    mpBgW = new dBgW();
+    mpBgW = JKR_NEW dBgW();
     if (!mpBgW || mpBgW->Set((cBgD_t*)dComIfG_getObjectRes("Qdghd", dRes_INDEX_QDGHD_DZB_QDGHD_e), cBgW::MOVE_BG_e, &mtx))
         ret = 0;
 

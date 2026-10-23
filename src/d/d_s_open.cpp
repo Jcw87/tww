@@ -25,7 +25,7 @@ cPhs_State dScnOpen_c::create() {
     if (rt == cPhs_COMPLEATE_e) {
         solid_heap = mDoExt_createSolidHeapFromGameToCurrent(0x20000, 0);
         JUT_ASSERT(DEMO_SELECT(56, 59), solid_heap != NULL);
-        mpProc = new dScnOpen_proc_c();
+        mpProc = JKR_NEW dScnOpen_proc_c();
 #if VERSION > VERSION_DEMO
         field_0x1d4 = NULL;
 #endif
@@ -90,7 +90,7 @@ dScnOpen_c::~dScnOpen_c() {
 #if VERSION > VERSION_DEMO
     if (mpProc != NULL)
 #endif
-        delete mpProc;
+        JKR_DELETE(mpProc);
 #if VERSION > VERSION_DEMO
     if (solid_heap != NULL)
 #endif

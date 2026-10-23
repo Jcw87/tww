@@ -8,6 +8,7 @@
 #include "JSystem/J2DGraph/J2DPane.h"
 #include "JSystem/J2DGraph/J2DGrafContext.h"
 #include "JSystem/J2DGraph/J2DOrthoGraph.h"
+#include "JSystem/JKernel/JKRHeap.h"
 #include "JSystem/JSupport/JSURandomInputStream.h"
 #include "dolphin/gx/GXEnum.h"
 #include "dolphin/gx/GX.h"
@@ -128,7 +129,7 @@ J2DPane::~J2DPane() {
     JSUTreeIterator<J2DPane> iterator;
     for (iterator = mPaneTree.getFirstChild(); iterator != mPaneTree.getEndChild();) {
         J2DPane* child = (iterator++).getObject();
-        delete child;
+        JKR_DELETE(child);
     }
 }
 

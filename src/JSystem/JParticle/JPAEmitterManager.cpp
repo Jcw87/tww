@@ -24,14 +24,14 @@ JPAEmitterManager::JPAEmitterManager(JPAResourceManager* resMgr, u32 ptclNum, u3
     for (i = 1; i < 8; i++)
         pResMgrArray[i] = 0;
 
-    JPABaseParticle* pPtclArray = new(heap, 0) JPABaseParticle[mPtclNum];
+    JPABaseParticle* pPtclArray = JKR_NEW_ARRAY_ARGS(JPABaseParticle, mPtclNum, heap, 0);
     JUT_ASSERT(0x2e, pPtclArray);
     for (i = 0; i < mPtclNum; i++) {
         JPABaseParticle* ptcl = &pPtclArray[i];
         mPtclPool.prepend(ptcl->getLinkBufferPtr());
     }
 
-    JPABaseEmitter* pEmtrArray = new(heap, 0) JPABaseEmitter[mEmtrNum];
+    JPABaseEmitter* pEmtrArray = JKR_NEW_ARRAY_ARGS(JPABaseEmitter, mEmtrNum, heap, 0);
     JUT_ASSERT(0x35, pEmtrArray);
     for (i = 0; i < mEmtrNum; i++) {
         JPABaseEmitter* emtr = &pEmtrArray[i];
@@ -40,7 +40,7 @@ JPAEmitterManager::JPAEmitterManager(JPAResourceManager* resMgr, u32 ptclNum, u3
         mEmtrPool.prepend(emtr->getLinkBufferPtr());
     }
 
-    JPAFieldData* pFieldArray = new(heap, 0) JPAFieldData[mFieldNum];
+    JPAFieldData* pFieldArray = JKR_NEW_ARRAY_ARGS(JPAFieldData, mFieldNum, heap, 0);
     JUT_ASSERT(0x3e, pFieldArray);
     for (i = 0; i < mFieldNum; i++) {
         JPAFieldData* field = &pFieldArray[i];

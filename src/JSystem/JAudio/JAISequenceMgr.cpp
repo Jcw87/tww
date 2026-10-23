@@ -33,29 +33,29 @@ void JAInter::SequenceMgr::init() {
     JAISound* soundObjects = JAIBasic::getInterface()->makeSound(JAIGlobalParameter::getParamSeqControlBufferMax());
     JUT_ASSERT_MSG(41, soundObjects, "JAISequenceMgr::initHeap Cannot Alloc Heap!!\n");
 
-    FixSeqBufPointer = new (JAIBasic::getCurrentJAIHeap(), 0x20) JAISound*[JAIGlobalParameter::getParamSeqPlayTrackMax()];
+    FixSeqBufPointer = JKR_NEW_ARRAY_ARGS(JAISound*, JAIGlobalParameter::getParamSeqPlayTrackMax(), JAIBasic::getCurrentJAIHeap(), 0x20);
 
     seqControl.init(soundObjects, JAIGlobalParameter::getParamSeqControlBufferMax());
 
     //TODO: almost certainly a fakematch
     for (u32 i = 0; i < toUnsigned(JAIGlobalParameter::getParamSeqControlBufferMax()); i++) {
-        SeqParameter* _para = new (JAIBasic::getCurrentJAIHeap(), 0x20) SeqParameter();
+        SeqParameter* _para = JKR_NEW_ARGS(JAIBasic::getCurrentJAIHeap(), 0x20) SeqParameter();
         JUT_ASSERT_MSG(47, _para, "JAISequenceMgr::initHeap Cannot Alloc Heap!!\n");
         seqControl.Buffer[i].field_0x3c = _para;
-        _para->seqPan = new (JAIBasic::getCurrentJAIHeap(), 0x20) MoveParaSet[JAIGlobalParameter::getParamSeqParameterLines()];
+        _para->seqPan = JKR_NEW_ARRAY_ARGS(MoveParaSet, JAIGlobalParameter::getParamSeqParameterLines(), JAIBasic::getCurrentJAIHeap(), 0x20);
         JUT_ASSERT_MSG(50, _para->seqPan, "JAISequenceMgr::initHeap Cannot Alloc Heap!!\n");
-        _para->seqPitch = new (JAIBasic::getCurrentJAIHeap(), 0x20) MoveParaSet[JAIGlobalParameter::getParamSeqParameterLines()];
+        _para->seqPitch = JKR_NEW_ARRAY_ARGS(MoveParaSet, JAIGlobalParameter::getParamSeqParameterLines(), JAIBasic::getCurrentJAIHeap(), 0x20);
         JUT_ASSERT_MSG(52, _para->seqPitch, "JAISequenceMgr::initHeap Cannot Alloc Heap!!\n");
-        _para->seqFxmix = new (JAIBasic::getCurrentJAIHeap(), 0x20) MoveParaSet[JAIGlobalParameter::getParamSeqParameterLines()];
+        _para->seqFxmix = JKR_NEW_ARRAY_ARGS(MoveParaSet, JAIGlobalParameter::getParamSeqParameterLines(), JAIBasic::getCurrentJAIHeap(), 0x20);
         JUT_ASSERT_MSG(54, _para->seqFxmix, "JAISequenceMgr::initHeap Cannot Alloc Heap!!\n");
-        _para->seqDolby = new (JAIBasic::getCurrentJAIHeap(), 0x20) MoveParaSet[JAIGlobalParameter::getParamSeqParameterLines()];
+        _para->seqDolby = JKR_NEW_ARRAY_ARGS(MoveParaSet, JAIGlobalParameter::getParamSeqParameterLines(), JAIBasic::getCurrentJAIHeap(), 0x20);
         JUT_ASSERT_MSG(56, _para->seqDolby, "JAISequenceMgr::initHeap Cannot Alloc Heap!!\n");
     }
 
-    FixSeqBufPointer = new (JAIBasic::getCurrentJAIHeap(), 0x20) JAISound*[JAIGlobalParameter::getParamSeqPlayTrackMax()];
+    FixSeqBufPointer = JKR_NEW_ARRAY_ARGS(JAISound*, JAIGlobalParameter::getParamSeqPlayTrackMax(), JAIBasic::getCurrentJAIHeap(), 0x20);
     JUT_ASSERT_MSG(60, FixSeqBufPointer, "JAISequenceMgr::initHeap Cannot Alloc Heap!!\n");
 
-    seqTrackInfo = new (JAIBasic::getCurrentJAIHeap(), 0x20) SeqUpdateData[JAIGlobalParameter::getParamSeqPlayTrackMax()];
+    seqTrackInfo = JKR_NEW_ARRAY_ARGS(SeqUpdateData, JAIGlobalParameter::getParamSeqPlayTrackMax(), JAIBasic::getCurrentJAIHeap(), 0x20);
     JUT_ASSERT_MSG(62, seqTrackInfo, "JAISequenceMgr::initHeap Cannot Alloc Heap!!\n");
 
     for (u32 i = 0; i < JAIGlobalParameter::getParamSeqPlayTrackMax(); i++) {
@@ -72,19 +72,19 @@ JAInter::SeqUpdateData::SeqUpdateData() {
     field_0x3 = 0;
     mActiveTrackFlag = 0;
     mpSequence = NULL;
-    systemTrackParameter = new (JAIBasic::getCurrentJAIHeap(), 0x20) PlayerParameter[33];
+    systemTrackParameter = JKR_NEW_ARRAY_ARGS(PlayerParameter, 33, JAIBasic::getCurrentJAIHeap(), 0x20);
     JUT_ASSERT_MSG(81, systemTrackParameter, "JAISeqUpdateData Cannot alloc Heap!!\n");
-    trackVolume = new (JAIBasic::getCurrentJAIHeap(), 0x20) f32[JAIGlobalParameter::getParamSeqTrackMax()];
+    trackVolume = JKR_NEW_ARRAY_ARGS(f32, JAIGlobalParameter::getParamSeqTrackMax(), JAIBasic::getCurrentJAIHeap(), 0x20);
     JUT_ASSERT_MSG(83, trackVolume, "JAISeqUpdateData Cannot Alloc Heap!!\n");
-    trackPan = new (JAIBasic::getCurrentJAIHeap(), 0x20) f32[JAIGlobalParameter::getParamSeqTrackMax()];
+    trackPan = JKR_NEW_ARRAY_ARGS(f32, JAIGlobalParameter::getParamSeqTrackMax(), JAIBasic::getCurrentJAIHeap(), 0x20);
     JUT_ASSERT_MSG(85, trackPan, "JAISeqUpdateData Cannot Alloc Heap!!\n");
-    trackPitch = new (JAIBasic::getCurrentJAIHeap(), 0x20) f32[JAIGlobalParameter::getParamSeqTrackMax()];
+    trackPitch = JKR_NEW_ARRAY_ARGS(f32, JAIGlobalParameter::getParamSeqTrackMax(), JAIBasic::getCurrentJAIHeap(), 0x20);
     JUT_ASSERT_MSG(87, trackPitch, "JAISeqUpdateData Cannot Alloc Heap!!\n");
-    trackFxmix = new (JAIBasic::getCurrentJAIHeap(), 0x20) f32[JAIGlobalParameter::getParamSeqTrackMax()];
+    trackFxmix = JKR_NEW_ARRAY_ARGS(f32, JAIGlobalParameter::getParamSeqTrackMax(), JAIBasic::getCurrentJAIHeap(), 0x20);
     JUT_ASSERT_MSG(89, trackFxmix, "JAISeqUpdateData Cannot Alloc Heap!!\n");
-    trackDolby = new (JAIBasic::getCurrentJAIHeap(), 0x20) f32[JAIGlobalParameter::getParamSeqTrackMax()];
+    trackDolby = JKR_NEW_ARRAY_ARGS(f32, JAIGlobalParameter::getParamSeqTrackMax(), JAIBasic::getCurrentJAIHeap(), 0x20);
     JUT_ASSERT_MSG(91, trackDolby, "JAISeqUpdateData Cannot Alloc Heap!!\n");
-    trackupdate = new (JAIBasic::getCurrentJAIHeap(), 0x20) u32[JAIGlobalParameter::getParamSeqTrackMax() + 1];
+    trackupdate = JKR_NEW_ARRAY_ARGS(u32, JAIGlobalParameter::getParamSeqTrackMax() + 1, JAIBasic::getCurrentJAIHeap(), 0x20);
     JUT_ASSERT_MSG(99, trackupdate, "JAISeqUpdateData Cannot Alloc Heap!!\n");
 }
 

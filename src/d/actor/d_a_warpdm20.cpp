@@ -73,7 +73,7 @@ BOOL daWarpdm20_c::CreateHeap() {
         J3DAnmTransform* pbck = (J3DAnmTransform*)dComIfG_getObjectRes(m_arcname, m_residxA[1]);
         JUT_ASSERT(DEMO_SELECT(228, 233), pbck != NULL);
 
-        mpBckAnm = new mDoExt_bckAnm();
+        mpBckAnm = JKR_NEW mDoExt_bckAnm();
         if (mpBckAnm == NULL || !mpBckAnm->init(modelData, pbck, true, J3DFrameCtrl::EMode_NONE)) {
             return FALSE;
         }
@@ -85,7 +85,7 @@ BOOL daWarpdm20_c::CreateHeap() {
         J3DAnmTextureSRTKey* pbtk = (J3DAnmTextureSRTKey*)dComIfG_getObjectRes(m_arcname, m_residxA[2]);
         JUT_ASSERT(DEMO_SELECT(270, 275), pbtk != NULL);
 
-        mpBtkAnm = new mDoExt_btkAnm();
+        mpBtkAnm = JKR_NEW mDoExt_btkAnm();
         if (mpBtkAnm == NULL || !mpBtkAnm->init(modelData, pbtk, true, J3DFrameCtrl::EMode_LOOP)) {
             return FALSE;
         }
@@ -97,7 +97,7 @@ BOOL daWarpdm20_c::CreateHeap() {
         J3DAnmTevRegKey* pbrk = (J3DAnmTevRegKey*)dComIfG_getObjectRes(m_arcname, m_residxA[3]);
         JUT_ASSERT(DEMO_SELECT(290, 295), pbrk != NULL);
 
-        mpBrkAnm = new mDoExt_brkAnm();
+        mpBrkAnm = JKR_NEW mDoExt_brkAnm();
         if (mpBrkAnm == NULL || !mpBrkAnm->init(modelData, pbrk, true, J3DFrameCtrl::EMode_NONE)) {
             return FALSE;
         }

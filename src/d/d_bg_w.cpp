@@ -1051,7 +1051,7 @@ void dBgW::ChangeAttributeCodeByPathPntNo(int pnt_no, u32 attr) {
 
 /* 800A97E4-800A986C       .text dBgW_NewSet__FP6cBgD_tUlPA3_A4_f */
 dBgW* dBgW_NewSet(cBgD_t* bgd, u32 flag, Mtx* mtx) {
-    dBgW* rt = new dBgW();
+    dBgW* rt = JKR_NEW dBgW();
     if (rt == NULL)
         return NULL;
     if (rt->Set(bgd, flag, mtx))

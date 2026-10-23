@@ -6,6 +6,7 @@
 #include "JSystem/JSystem.h" // IWYU pragma: keep
 
 #include "JSystem/JMessage/resource.h"
+#include "JSystem/JKernel/JKRHeap.h"
 #include "JSystem/JMessage/data.h"
 #include "JSystem/JUtility/JUTResFont.h"
 #include "dolphin/types.h"
@@ -39,12 +40,12 @@ void JMessage::TResourceContainer::SetEncoding(u8 encoding) {
 
 /* 8029FDC8-8029FE14       .text Do_create__Q28JMessage18TResourceContainerFv */
 JMessage::TResource* JMessage::TResourceContainer::Do_create() {
-    return new TResource();
+    return JKR_NEW TResource();
 }
 
 /* 8029FE14-8029FE38       .text Do_destroy__Q28JMessage18TResourceContainerFPQ28JMessage9TResource */
 void JMessage::TResourceContainer::Do_destroy(JMessage::TResource* resource) {
-    delete resource;
+    JKR_DELETE(resource);
 }
 
 namespace JMessage {

@@ -903,7 +903,7 @@ BOOL daNpc_Ho_c::CreateHeap() {
     J3DModelData* modelData = (J3DModelData*)dComIfG_getObjectRes("Ho", dRes_INDEX_HO_BDL_HO_e);
     JUT_ASSERT(DEMO_SELECT(1566, 1581), modelData);
 
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         modelData,
         NULL, NULL,
         (J3DAnmTransformKey*)dComIfG_getObjectRes("Ho", dRes_INDEX_HO_BCK_HO_WAIT01_e),

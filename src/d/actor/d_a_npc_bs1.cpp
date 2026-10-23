@@ -2170,7 +2170,7 @@ cPhs_State daNpc_Bs1_c::_create() {
 /* 000050A8-00005470       .text CreateHeap__11daNpc_Bs1_cFv */
 BOOL daNpc_Bs1_c::CreateHeap() {
     J3DModelData* modelData = (J3DModelData*)dComIfG_getObjectRes("Bs", dRes_INDEX_BS_BDL_BS_e);
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         modelData,
         NULL, NULL,
         (J3DAnmTransform*)dComIfG_getObjectRes("Bs", dRes_INDEX_BS_BCK_BS_WAIT01_e),

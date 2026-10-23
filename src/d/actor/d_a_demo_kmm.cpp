@@ -19,7 +19,7 @@ static BOOL CheckCreateHeap(fopAc_ac_c* a_this) {
 
 /* 00000098-00000190       .text CreateHeap__12daDemo_Kmm_cFv */
 BOOL daDemo_Kmm_c::CreateHeap() {
-    mpMorf = new mDoExt_McaMorf((J3DModelData*)dComIfG_getObjectIDRes(M_arcname, dRes_ID_DEMO_KMM_BMD_KA_e), NULL, NULL, NULL, J3DFrameCtrl::EMode_LOOP, 1.0f, 0, -1, 0, NULL, 0, 0x11020203);
+    mpMorf = JKR_NEW mDoExt_McaMorf((J3DModelData*)dComIfG_getObjectIDRes(M_arcname, dRes_ID_DEMO_KMM_BMD_KA_e), NULL, NULL, NULL, J3DFrameCtrl::EMode_LOOP, 1.0f, 0, -1, 0, NULL, 0, 0x11020203);
     if (mpMorf == NULL || mpMorf->getModel() == NULL) {
         return FALSE;
     }

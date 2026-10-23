@@ -20,7 +20,7 @@ public:
     virtual ~mDoDvdThd_command_c();
     mDoDvdThd_command_c();
     inline BOOL sync() { return mIsDone; }
-    inline void destroy() { delete this; }
+    inline void destroy() { JKR_DELETE(this); }
     virtual BOOL execute() = 0;
 };  // Size = 0x14
 

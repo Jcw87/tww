@@ -20,12 +20,12 @@ void** JAInter::Fx::mFxconfigTable;
 /* 80291CCC-80292068       .text init__Q27JAInter2FxFv */
 void JAInter::Fx::init() {
     if (initOnCodeFxScene) {
-        mBufferSizeMax = new (JAIBasic::getCurrentJAIHeap(), 4) u32[4];
-        mBufferPointer = new (JAIBasic::getCurrentJAIHeap(), 4) s16*[4];
+        mBufferSizeMax = JKR_NEW_ARRAY_ARGS(u32, 4, JAIBasic::getCurrentJAIHeap(), 4);
+        mBufferPointer = JKR_NEW_ARRAY_ARGS(s16*, 4, JAIBasic::getCurrentJAIHeap(), 4);
         initOnCodeFxScene_s* r31 = initOnCodeFxScene;
         setSceneMax(r31->field_0x0);
         setBufferMax(r31->field_0x4, r31->field_0x8, r31->field_0xc, r31->field_0x10);
-        void** _heap = new (JAIBasic::getCurrentJAIHeap(), 0x20) void*[getSceneMax()];
+        void** _heap = JKR_NEW_ARRAY_ARGS(void*, getSceneMax(), JAIBasic::getCurrentJAIHeap(), 0x20);
         JUT_ASSERT_MSG(46, _heap, "JAIFx::initHeap Cannot Alloc Heap!!\n");
         setTablePointer(_heap);
         for (u8 i = 0; i < getSceneMax(); i++) {
@@ -33,7 +33,7 @@ void JAInter::Fx::init() {
         }
         for (u8 i = 0; i < 4; i++) {
             if (getBufferSizeMax(i)) {
-                s16* _buf = new (JAIBasic::getCurrentJAIHeap(), 0x20) s16[ALIGN_PREV(getBufferSizeMax(i) * 160, 2) / 2];
+                s16* _buf = JKR_NEW_ARRAY_ARGS(s16, ALIGN_PREV(getBufferSizeMax(i) * 160, 2) / 2, JAIBasic::getCurrentJAIHeap(), 0x20);
                 JUT_ASSERT_MSG(57, _buf, "JAIFx::initHeap Cannot Alloc Heap!!\n");
                 setBufferPointer(i, _buf);
                 JASystem::DSPInterface::setFXLine(i, getBufferPointer(i), &getFxconfigTable()[0][i]);

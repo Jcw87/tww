@@ -322,7 +322,7 @@ static void hahen_set_s(btd_class* i_this, cXyz* param_2, csXyz* param_3) {
     if (emitter != NULL) {
         JGeometry::TVec3<f32> scale(4.0f, 4.0f, 4.0f);
         emitter->setGlobalParticleScale(scale);
-        dPa_J3DmodelEmitter_c* modelEmitter = new dPa_J3DmodelEmitter_c(emitter, modelData, actor->tevStr, anmTexPattern, 1, 0);
+        dPa_J3DmodelEmitter_c* modelEmitter = JKR_NEW dPa_J3DmodelEmitter_c(emitter, modelData, actor->tevStr, anmTexPattern, 1, 0);
         if (modelEmitter != NULL) {
             dComIfGp_particle_addModelEmitter(modelEmitter);
         }
@@ -2651,7 +2651,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     J3DModel* pModel;
 
     btd_class* i_this = (btd_class*)a_this;
-    i_this->mpPhase1Morf = new mDoExt_McaMorf(
+    i_this->mpPhase1Morf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Btd", dRes_INDEX_BTD_BMD_BTD_e),
         NULL,
         NULL,
@@ -2675,7 +2675,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     }
     i_this->mpPhase1Morf->getModel()->setUserArea((uintptr_t)i_this);
     pModel = i_this->mpPhase1Morf->getModel();
-    i_this->btk = new mDoExt_btkAnm();
+    i_this->btk = JKR_NEW mDoExt_btkAnm();
     JUT_ASSERT(DEMO_SELECT(5327, 5370), i_this->btk);
     pBtk = (J3DAnmTextureSRTKey*)dComIfG_getObjectRes("Btd", dRes_INDEX_BTD_BTK_BTD_e);
 #if VERSION == VERSION_DEMO
@@ -2685,7 +2685,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         return FALSE;
     }
 #endif
-    i_this->brk = new mDoExt_brkAnm();
+    i_this->brk = JKR_NEW mDoExt_brkAnm();
     JUT_ASSERT(DEMO_SELECT(5337, 5390), i_this->brk);
     pBrk = (J3DAnmTevRegKey*)dComIfG_getObjectRes("Btd", dRes_INDEX_BTD_BRK_BTD_e);
 #if VERSION == VERSION_DEMO
@@ -2695,7 +2695,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         return FALSE;
     }
 #endif
-    i_this->mpPhase2Morf = new mDoExt_McaMorf(
+    i_this->mpPhase2Morf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Btd", dRes_INDEX_BTD_BMD_SOTAI_e),
         NULL,
         NULL,
@@ -2719,7 +2719,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     }
     i_this->mpPhase2Morf->getModel()->setUserArea((uintptr_t)i_this);
     pModel = i_this->mpPhase2Morf->getModel();
-    i_this->btkS = new mDoExt_btkAnm();
+    i_this->btkS = JKR_NEW mDoExt_btkAnm();
     JUT_ASSERT(DEMO_SELECT(5370, 5432), i_this->btkS);
     pBtk = (J3DAnmTextureSRTKey*)dComIfG_getObjectRes("Btd", dRes_INDEX_BTD_BTK_DEADA_e);
 #if VERSION == VERSION_DEMO
@@ -2731,7 +2731,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
 #endif
     pBtk = (J3DAnmTextureSRTKey*)dComIfG_getObjectRes("Btd", dRes_INDEX_BTD_BTK_SOTAI_e);
     i_this->btkS->init(pModel->getModelData(), pBtk, true, J3DFrameCtrl::EMode_LOOP, 1.0f, 0, -1, true, 0);
-    i_this->brkS = new mDoExt_brkAnm();
+    i_this->brkS = JKR_NEW mDoExt_brkAnm();
     JUT_ASSERT(DEMO_SELECT(5390, 5463), i_this->brkS);
     pBrk = (J3DAnmTevRegKey*)dComIfG_getObjectRes("Btd", dRes_INDEX_BTD_BRK_DEADA_e);
 #if VERSION == VERSION_DEMO
@@ -2743,14 +2743,14 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
 #endif
     pBrk = (J3DAnmTevRegKey*)dComIfG_getObjectRes("Btd", dRes_INDEX_BTD_BRK_SOTAI_e);
     i_this->brkS->init(pModel->getModelData(), pBrk, true, J3DFrameCtrl::EMode_LOOP, 1.0f, 0, -1, true, 0);
-    i_this->mpDeadHeadMorf = new mDoExt_McaMorf(
+    i_this->mpDeadHeadMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Btd", dRes_INDEX_BTD_BMD_NAMAKUBI_e), NULL, NULL, NULL, J3DFrameCtrl::EMode_LOOP, 1.0f, 0, -1, 0, NULL, 0, 0x11020203
     );
     if ((i_this->mpDeadHeadMorf == NULL) || (i_this->mpDeadHeadMorf->getModel() == NULL)) {
         return FALSE;
     }
     pModel = i_this->mpDeadHeadMorf->getModel();
-    i_this->mpDeadHeadBtkAnm = new mDoExt_btkAnm();
+    i_this->mpDeadHeadBtkAnm = JKR_NEW mDoExt_btkAnm();
     if (i_this->mpDeadHeadBtkAnm == NULL) {
         return FALSE;
     }
@@ -2758,7 +2758,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     if (!i_this->mpDeadHeadBtkAnm->init(pModel->getModelData(), pBtk, true, J3DFrameCtrl::EMode_NONE)) {
         return FALSE;
     }
-    i_this->mpDeadHeadBrkAnm = new mDoExt_brkAnm();
+    i_this->mpDeadHeadBrkAnm = JKR_NEW mDoExt_brkAnm();
     if (i_this->mpDeadHeadBrkAnm == NULL) {
         return FALSE;
     }

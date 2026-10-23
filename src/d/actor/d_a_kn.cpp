@@ -489,7 +489,7 @@ static BOOL daKN_Delete(kn_class* i_this) {
 static BOOL useHeapInit(fopAc_ac_c* a_this) {
     kn_class* i_this = (kn_class*)a_this;
 
-    i_this->mpMorf = new mDoExt_McaMorf(
+    i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("KN", dRes_INDEX_KN_BDL_KN_e),
         NULL,
         NULL,

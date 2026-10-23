@@ -1510,13 +1510,13 @@ static BOOL useHeapInit(fopAc_ac_c* i_act) {
 
     ks_class* i_this = (ks_class*)i_act;
 
-    i_this->mpBodyMorf = new mDoExt_McaMorf((J3DModelData *)dComIfG_getObjectRes("KS", dRes_INDEX_KS_BDL_KS_BODY_e), NULL, NULL, NULL, 
+    i_this->mpBodyMorf = JKR_NEW mDoExt_McaMorf((J3DModelData *)dComIfG_getObjectRes("KS", dRes_INDEX_KS_BDL_KS_BODY_e), NULL, NULL, NULL, 
                                             J3DFrameCtrl::EMode_LOOP, 1.0f, 0, -1, 0, NULL, 0, 0x11020203);
     if (i_this->mpBodyMorf == NULL || i_this->mpBodyMorf->getModel() == NULL)
         return FALSE;
     bodyModel = i_this->mpBodyMorf->getModel();
 
-    i_this->mpBodyBrkAnm = new mDoExt_brkAnm();
+    i_this->mpBodyBrkAnm = JKR_NEW mDoExt_brkAnm();
     if (i_this->mpBodyBrkAnm == NULL)
         return FALSE;
 
@@ -1524,7 +1524,7 @@ static BOOL useHeapInit(fopAc_ac_c* i_act) {
         return FALSE;
 
     
-    i_this->mpEyeMorf = new mDoExt_McaMorf((J3DModelData *)dComIfG_getObjectRes("KS", dRes_INDEX_KS_BDL_KS_EYE_e), NULL, NULL, 
+    i_this->mpEyeMorf = JKR_NEW mDoExt_McaMorf((J3DModelData *)dComIfG_getObjectRes("KS", dRes_INDEX_KS_BDL_KS_EYE_e), NULL, NULL, 
                                       (J3DAnmTransformKey *)dComIfG_getObjectRes("KS", dRes_INDEX_KS_BCK_MABATAKI_e), 
                                       J3DFrameCtrl::EMode_NONE, 1.0f, 0, -1, 1, NULL, 0, 0x11020203);
 
@@ -1532,14 +1532,14 @@ static BOOL useHeapInit(fopAc_ac_c* i_act) {
         return FALSE;
     eyeModel = i_this->mpEyeMorf->getModel();
 
-    i_this->mpEyeBtkAnm = new mDoExt_btkAnm();
+    i_this->mpEyeBtkAnm = JKR_NEW mDoExt_btkAnm();
     if (i_this->mpEyeBtkAnm == NULL)
         return FALSE;
 
     if (i_this->mpEyeBtkAnm->init(eyeModel->getModelData(), (J3DAnmTextureSRTKey *)dComIfG_getObjectRes("KS", dRes_INDEX_KS_BTK_KS_EYE_e), TRUE, J3DFrameCtrl::EMode_NONE) == 0)
         return FALSE;
     
-    i_this->mpEyeBrkAnm = new mDoExt_brkAnm();
+    i_this->mpEyeBrkAnm = JKR_NEW mDoExt_brkAnm();
     if (i_this->mpEyeBrkAnm == NULL)
         return FALSE;
 

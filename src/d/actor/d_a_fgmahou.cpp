@@ -302,7 +302,7 @@ static BOOL daFgmahou_Delete(fgmahou_class* i_this) {
 static BOOL useHeapInit(fopAc_ac_c* a_this) {
     fgmahou_class* i_this = static_cast<fgmahou_class*>(a_this);
 
-    i_this->mpMorf = new mDoExt_McaMorf(
+    i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Fganon", dRes_INDEX_FGANON_BDL_YDKSP00_e),
         NULL, NULL,
         NULL,
@@ -318,7 +318,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
 
     J3DModelData* pModelData = i_this->mpMorf->getModel()->getModelData();
 
-    i_this->mpBtk = new mDoExt_btkAnm();
+    i_this->mpBtk = JKR_NEW mDoExt_btkAnm();
     if(i_this->mpBtk == NULL) {
         return FALSE;
     }
@@ -326,7 +326,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         return FALSE;
     }
 
-    i_this->mpBrk = new mDoExt_brkAnm();
+    i_this->mpBrk = JKR_NEW mDoExt_brkAnm();
     if(i_this->mpBrk == NULL) {
         return FALSE;
     }

@@ -78,7 +78,7 @@ BOOL daLStair_c::CreateHeap() {
         return FALSE;
     }
 
-    mpBgW = new dBgW();
+    mpBgW = JKR_NEW dBgW();
     if (mpBgW != NULL) {
         cBgD_t* bgd_data = (cBgD_t*)dComIfG_getObjectRes(m_arcname, dRes_INDEX_GKAI00_DZB_GKAI00_e);
 

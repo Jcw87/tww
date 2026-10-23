@@ -2372,7 +2372,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         fileIndex = dRes_INDEX_CC_BCK_HUSE2TACHI_e;
     }
 
-    i_this->m2B4 = new mDoExt_McaMorf(
+    i_this->m2B4 = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("CC", dRes_INDEX_CC_BMD_CC_e),
         NULL,
         NULL,
@@ -2399,7 +2399,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
 
     J3DModel* model = i_this->m2B4->getModel();
 
-    i_this->m2B8 = new mDoExt_brkAnm();
+    i_this->m2B8 = JKR_NEW mDoExt_brkAnm();
 
     if (i_this->m2B8 == NULL) {
         return FALSE;
@@ -2412,7 +2412,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         return FALSE;
     }
 
-    i_this->m2C4 = new mDoExt_McaMorf(
+    i_this->m2C4 = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("CC", dRes_INDEX_CC_BDL_CC_IWA_e), NULL, NULL, NULL, J3DFrameCtrl::EMode_NONE, 0.0f, 0, -1, 1, NULL, 0, 0x11020203
     );
 
@@ -2421,7 +2421,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     }
 
     model = i_this->m2C4->getModel();
-    i_this->m2C8 = new mDoExt_brkAnm();
+    i_this->m2C8 = JKR_NEW mDoExt_brkAnm();
     if (i_this->m2C8 == NULL) {
         return FALSE;
     }
@@ -2433,7 +2433,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         return FALSE;
     }
 
-    i_this->m2CC = new mDoExt_brkAnm();
+    i_this->m2CC = JKR_NEW mDoExt_brkAnm();
     if (i_this->m2CC == NULL) {
         return FALSE;
     }
@@ -2445,7 +2445,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         return FALSE;
     }
 
-    i_this->m2D0 = new mDoExt_btkAnm();
+    i_this->m2D0 = JKR_NEW mDoExt_btkAnm();
     if (i_this->m2D0 == NULL) {
         return FALSE;
     }
@@ -2457,7 +2457,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         return FALSE;
     }
 
-    i_this->m2D4 = new mDoExt_btkAnm();
+    i_this->m2D4 = JKR_NEW mDoExt_btkAnm();
     if (i_this->m2D4 == NULL) {
         return FALSE;
     }
@@ -2469,7 +2469,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         return FALSE;
     }
 
-    i_this->m2BC = new mDoExt_McaMorf(
+    i_this->m2BC = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("CC", dRes_INDEX_CC_BDL_CC_BETA_e), NULL, NULL, NULL, J3DFrameCtrl::EMode_NONE, 0.0f, 0, -1, 1, NULL, 0, 0x11020203
     );
 
@@ -2478,7 +2478,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     }
 
     model = i_this->m2BC->getModel();
-    i_this->m2C0 = new mDoExt_brkAnm();
+    i_this->m2C0 = JKR_NEW mDoExt_brkAnm();
     if (i_this->m2C0 == NULL) {
         return FALSE;
     }
@@ -2490,7 +2490,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         return FALSE;
     }
 
-    i_this->m2D8 = new mDoExt_McaMorf(
+    i_this->m2D8 = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("CC", dRes_INDEX_CC_BDL_CC_PTCL_e),
         NULL,
         NULL,

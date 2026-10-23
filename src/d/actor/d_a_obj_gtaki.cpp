@@ -78,7 +78,7 @@ BOOL daObjGtaki_c::CreateHeap() {
     mDoMtx_stack_c::scaleM(scale);
     MTXCopy(mDoMtx_stack_c::get(), mMtx);
 
-    mpBgW = new dBgW();
+    mpBgW = JKR_NEW dBgW();
     
     if(!mpBgW || mpBgW->Set(static_cast<cBgD_t*>(dComIfG_getObjectRes("Gtaki", dRes_INDEX_GTAKI_DZB_ITAKI_e)), cBgW::MOVE_BG_e, &mMtx)){
         return FALSE;

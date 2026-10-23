@@ -18,18 +18,18 @@ u32 JAInter::HeapMgr::sStayHeapCount;
 
 /* 80294F5C-8029531C       .text init__Q27JAInter7HeapMgrFUcUlUcUl */
 void JAInter::HeapMgr::init(u8 param_1, u32 param_2, u8 param_3, u32 param_4) {
-    sAutoHeap = new (JAIBasic::getCurrentJAIHeap(), 0x20) HeapBlock[param_3];
+    sAutoHeap = JKR_NEW_ARRAY_ARGS(HeapBlock, param_3, JAIBasic::getCurrentJAIHeap(), 0x20);
     JUT_ASSERT_MSG(38, sAutoHeap, "JAIHeapMgr::initHeap Cannot Alloc Heap!!\n");
     for (u32 i = 0; i < param_3; i++) {
         sAutoHeap[i].setStatus(0);
         sAutoHeap[i].setEndAddress(0);
         sAutoHeap[i].setDataNumber(-1);
         sAutoHeap[i].setUseCounter(-1);
-        sAutoHeap[i].setPointer(new (JAIBasic::getCurrentJAIHeap(), 0x20) u8[param_4]);
+        sAutoHeap[i].setPointer(JKR_NEW_ARRAY_ARGS(u8, param_4, JAIBasic::getCurrentJAIHeap(), 0x20));
     }
-    sStayHeap = new (JAIBasic::getCurrentJAIHeap(), 0x20) HeapBlock[param_1];
+    sStayHeap = JKR_NEW_ARRAY_ARGS(HeapBlock, param_1, JAIBasic::getCurrentJAIHeap(), 0x20);
     JUT_ASSERT_MSG(48, sStayHeap, "JAIHeapMgr::initHeap Cannot Alloc Heap!!\n");
-    sStayHeap->setPointer(new (JAIBasic::getCurrentJAIHeap(), 0x20) u8[param_2]);
+    sStayHeap->setPointer(JKR_NEW_ARRAY_ARGS(u8, param_2, JAIBasic::getCurrentJAIHeap(), 0x20));
     for (u32 i = 0; i < param_1; i++) {
         sStayHeap[i].setStatus(0);
         sStayHeap[i].setEndAddress(0);

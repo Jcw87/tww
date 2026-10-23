@@ -29,7 +29,7 @@ public:
     f32 acc(s16 param_0, s16 param_1, s16 param_2) {
         return SQUARE((f32)(param_1 - param_2)) / SQUARE((f32)(param_0 - param_2));
     }
-    void deleteScreen() { delete scrn; }
+    void deleteScreen() { JKR_DELETE(scrn); }
     void setAlpha(f32 alpha) { mAlpha = alpha; }
     void stopEmitter0() {
         if (mpEmitter0 != NULL)

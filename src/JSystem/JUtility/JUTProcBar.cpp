@@ -43,7 +43,7 @@ JUTProcBar::~JUTProcBar() {
 /* 802C8988-802C89D0       .text create__10JUTProcBarFv */
 JUTProcBar* JUTProcBar::create() {
     if (!sManager) {
-        sManager = new JUTProcBar();
+        sManager = JKR_NEW JUTProcBar();
     }
     return sManager;
 }
@@ -51,7 +51,7 @@ JUTProcBar* JUTProcBar::create() {
 /* 802C89D0-802C8A08       .text destroy__10JUTProcBarFv */
 void JUTProcBar::destroy() {
     if (sManager) {
-        delete sManager;
+        JKR_DELETE(sManager);
     }
     sManager = NULL;
 }

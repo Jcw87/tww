@@ -45,7 +45,7 @@ dPa_J3DmodelEmitter_c::dPa_J3DmodelEmitter_c(JPABaseEmitter* emitter, J3DModelDa
         u16 r29 = field_0x1c->getUpdateMaterialNum();
         mpHeap = mDoExt_createSolidHeapToCurrent(r29 * 12 + 16, NULL, 0);
         if (mpHeap) {
-            field_0x20 = new J3DTexNoAnm[r29];
+            field_0x20 = JKR_NEW_ARRAY(J3DTexNoAnm, r29);
             if (field_0x20) {
                 field_0x1c->searchUpdateMaterialID(modelData);
                 J3DTexNoAnm* tex = field_0x20;
@@ -168,7 +168,7 @@ void dPa_J3DmodelEmitter_c::draw() {
 
 /* 8007ADC4-8007AECC       .text __ct__18dPa_modelControl_cFP12J3DModelData */
 dPa_modelControl_c::dPa_modelControl_c(J3DModelData* modelData) {
-    mModel = new dPa_J3Dmodel_c[0x80];
+    mModel = JKR_NEW_ARRAY(dPa_J3Dmodel_c, 0x80);
     JUT_ASSERT(271, mModel != NULL);
 
     dPa_J3Dmodel_c * model = mModel;
@@ -192,7 +192,7 @@ dPa_modelControl_c::~dPa_modelControl_c() {
     while (node) {
         dPa_modelEmitter_c* nextNode = (dPa_modelEmitter_c*)node->mpNextNode;
         cLs_SingleCut(node);
-        delete node;
+        JKR_DELETE(node);
         node = nextNode;
     }
 }
@@ -248,7 +248,7 @@ void dPa_modelControl_c::draw() {
         if (emitter->isEnableDeleteEmitter()) {
             emitter->quitImmortalEmitter();
             cLs_SingleCut(node);
-            delete node;
+            JKR_DELETE(node);
         } else {
             node->draw();
         }
@@ -738,13 +738,13 @@ void dPa_control_c::swapFrameBufferTexture() {
 
 /* 8007CA98-8007CCC8       .text createCommon__13dPa_control_cFPCv */
 void dPa_control_c::createCommon(const void* param_1) {
-    mCommonResMng = new (mHeap, 0) JPAResourceManager(param_1, mHeap);
+    mCommonResMng = JKR_NEW_ARGS(mHeap, 0) JPAResourceManager(param_1, mHeap);
     JUT_ASSERT(VERSION_SELECT(1312, 1312, 1313, 1314), mCommonResMng != NULL);
     mCommonResMng->swapTexture(mDoGph_gInf_c::mFrameBufferTimg, "AK_kagerouSwap00");
-    mEmitterMng = new(mHeap, 0) JPAEmitterManager(mCommonResMng, 3000, 150, 200, mHeap);
+    mEmitterMng = JKR_NEW_ARGS(mHeap, 0) JPAEmitterManager(mCommonResMng, 3000, 150, 200, mHeap);
     JUT_ASSERT(VERSION_SELECT(1322, 1322, 1324, 1325), mEmitterMng != NULL);
     JKRHeap* oldHeap = mDoExt_setCurrentHeap(mHeap);
-    mModelControl = new dPa_modelControl_c((J3DModelData*)dComIfG_getObjectRes("Always", dRes_INDEX_ALWAYS_BDL_MPM_TUBO_e));
+    mModelControl = JKR_NEW dPa_modelControl_c((J3DModelData*)dComIfG_getObjectRes("Always", dRes_INDEX_ALWAYS_BDL_MPM_TUBO_e));
     JUT_ASSERT(VERSION_SELECT(1329, 1329, 1332, 1333), mModelControl != NULL);
     for (u16 i = 0; i < 8; i++) {
         u16 id = dPa_name::j_o_id[i];
@@ -766,7 +766,7 @@ void dPa_control_c::createRoomScene(const void* param_1) {
     mSceneHeap = mDoExt_createSolidHeapFromGame(0, 0);
     JUT_ASSERT(VERSION_SELECT(1360, 1360, 1369, 1370), mSceneHeap != NULL);
     mpData = param_1;
-    mSceneResMng = new (mSceneHeap, 0) JPAResourceManager(mpData, mSceneHeap);
+    mSceneResMng = JKR_NEW_ARGS(mSceneHeap, 0) JPAResourceManager(mpData, mSceneHeap);
     JUT_ASSERT(VERSION_SELECT(1364, 1364, 1373, 1374), mSceneResMng != NULL);
     mSceneResMng->swapTexture(mDoGph_gInf_c::mFrameBufferTimg, "AK_kagerouSwap00");
     mEmitterMng->pResMgrArray[1] = mSceneResMng;

@@ -84,7 +84,7 @@ BOOL daBranch_c::CreateHeap() {
         JUT_ASSERT(0x1CD, bck != NULL);
 #endif
 
-        mAnims[i] = new mDoExt_McaMorf(
+        mAnims[i] = JKR_NEW mDoExt_McaMorf(
             static_cast<J3DModelData*>(dComIfG_getObjectIDRes(m_arcname, bmd[i])),
             NULL, NULL,
             static_cast<J3DAnmTransformKey*>(dComIfG_getObjectIDRes(m_arcname, bck[i])),

@@ -278,7 +278,7 @@ BOOL daNpc_kam_c::createHeap() {
     J3DModelData* modelData = (J3DModelData*)dComIfG_getObjectRes("Kamome", dRes_INDEX_KAMOME_BDL_KA_HYOI_e);
     JUT_ASSERT(DEMO_SELECT(762, 763), modelData != NULL);
     
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         modelData,
         NULL, NULL,
         (J3DAnmTransformKey*)dComIfG_getObjectRes("Kamome", dRes_INDEX_KAMOME_BCK_KA_WAIT1_e),

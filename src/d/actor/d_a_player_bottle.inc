@@ -30,7 +30,7 @@ void daPy_lk_c::setBottleModel(u16 param_0) {
     mEquipItem = param_0;
     JKRHeap* oldHeap = setItemHeap();
     J3DModelData* tmp_modelData = initModel(&mpEquipItemModel, dRes_INDEX_LINK_BDL_BOTTLEEMP_e, 0x37221222);
-    u8* buffer = new (0x20) u8[0x400];
+    u8* buffer = JKR_NEW_ARRAY_ARGS(u8, 0x400, 0x20);
     JKRReadIdxResource(buffer, 0x400, dRes_INDEX_LKANM_BTK_TBOTTLE_e, dComIfGp_getAnmArchive());
     mpEquipItemBtk = static_cast<J3DAnmTextureSRTKey*>(J3DAnmLoaderDataBase::load(buffer));
     mpEquipItemBtk->setFrame(0.0f);
@@ -47,7 +47,7 @@ void daPy_lk_c::setBottleModel(u16 param_0) {
             bdl = dRes_INDEX_LINK_BDL_BINLIQUID_e;
         }
         tmp_modelData = initModel(&mpBottleContentsModel, bdl, 0x13000022);
-        buffer = new (0x20) u8[0x400];
+        buffer = JKR_NEW_ARRAY_ARGS(u8, 0x400, 0x20);
         JKRReadIdxResource(buffer, 0x400, dRes_INDEX_LKANM_BRK_TBINLIQUID_e, dComIfGp_getAnmArchive());
         mpEquipItemBrk = static_cast<J3DAnmTevRegKey*>(J3DAnmLoaderDataBase::load(buffer));
         if (param_0 == dItemNo_RED_POTION_e) {
@@ -67,7 +67,7 @@ void daPy_lk_c::setBottleModel(u16 param_0) {
         tmp_modelData = initModel(&mpBottleContentsModel, dRes_INDEX_LINK_BDL_BINFAIRY_e, 0x13000022);
     } else if (param_0 == dItemNo_FIREFLY_BOTTLE_e) {
         tmp_modelData = initModel(&mpBottleContentsModel, dRes_INDEX_LINK_BDL_BINHO_e, 0x13000022);
-        buffer = new (0x20) u8[0x400];
+        buffer = JKR_NEW_ARRAY_ARGS(u8, 0x400, 0x20);
         JKRReadIdxResource(buffer, 0x400, dRes_INDEX_LKANM_BRK_TBINHO_e, dComIfGp_getAnmArchive());
         mpEquipItemBrk = static_cast<J3DAnmTevRegKey*>(J3DAnmLoaderDataBase::load(buffer));
         mpEquipItemBrk->searchUpdateMaterialID(tmp_modelData);

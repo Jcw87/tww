@@ -296,7 +296,7 @@ static BOOL daKantera_CreateHeap(fopAc_ac_c* a_this) {
     J3DAnmTevRegKey* anm_res_brk = static_cast<J3DAnmTevRegKey*>(dComIfG_getObjectRes("Kantera", dRes_INDEX_KANTERA_BRK_MK_KANTERA_e));
     JUT_ASSERT(1036, anm_res_brk != NULL);
 
-    i_this->mpBrkAnm1 = new mDoExt_brkAnm();
+    i_this->mpBrkAnm1 = JKR_NEW mDoExt_brkAnm();
     if (i_this->mpBrkAnm1 == NULL) {
         return FALSE;
     }
@@ -316,7 +316,7 @@ static BOOL daKantera_CreateHeap(fopAc_ac_c* a_this) {
     anm_res_brk = static_cast<J3DAnmTevRegKey*>(dComIfG_getObjectRes("Kantera", dRes_INDEX_KANTERA_BRK_LF_e));
     JUT_ASSERT(1058, anm_res_brk != NULL);
 
-    i_this->mpBrkAnm2 = new mDoExt_brkAnm();
+    i_this->mpBrkAnm2 = JKR_NEW mDoExt_brkAnm();
     if (i_this->mpBrkAnm2 == NULL) {
         return FALSE;
     }

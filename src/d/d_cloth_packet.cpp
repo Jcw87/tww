@@ -51,17 +51,17 @@ dCloth_packet_c::dCloth_packet_c(
     setMtx(cMtx_getIdentity());
 
     if (posArr == NULL) {
-        mpPosArr[0] = new cXyz[mFlyGridSize * mHoistGridSize];
-        mpPosArr[1] = new cXyz[mFlyGridSize * mHoistGridSize];
+        mpPosArr[0] = JKR_NEW_ARRAY(cXyz, mFlyGridSize * mHoistGridSize);
+        mpPosArr[1] = JKR_NEW_ARRAY(cXyz, mFlyGridSize * mHoistGridSize);
     } else {
         mpPosArr[0] = posArr[0];
         mpPosArr[1] = posArr[1];
     }
-    mpNrmArr[0] = new cXyz[mFlyGridSize * mHoistGridSize];
-    mpNrmArr[1] = new cXyz[mFlyGridSize * mHoistGridSize];
-    mpNrmArrBack[0] = new cXyz[mFlyGridSize * mHoistGridSize];
-    mpNrmArrBack[1] = new cXyz[mFlyGridSize * mHoistGridSize];
-    mpSpeedArr = new cXyz[mFlyGridSize * mHoistGridSize];
+    mpNrmArr[0] = JKR_NEW_ARRAY(cXyz, mFlyGridSize * mHoistGridSize);
+    mpNrmArr[1] = JKR_NEW_ARRAY(cXyz, mFlyGridSize * mHoistGridSize);
+    mpNrmArrBack[0] = JKR_NEW_ARRAY(cXyz, mFlyGridSize * mHoistGridSize);
+    mpNrmArrBack[1] = JKR_NEW_ARRAY(cXyz, mFlyGridSize * mHoistGridSize);
+    mpSpeedArr = JKR_NEW_ARRAY(cXyz, mFlyGridSize * mHoistGridSize);
 }
 
 dCloth_packet_c::~dCloth_packet_c() {

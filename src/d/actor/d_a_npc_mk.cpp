@@ -1673,7 +1673,7 @@ cPhs_State daNpc_Mk_c::_create() {
 BOOL daNpc_Mk_c::CreateHeap() {
     J3DModelData* modelData = (J3DModelData*)dComIfG_getObjectRes("Mk", dRes_INDEX_MK_BDL_MK_e);
 
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         modelData,
         NULL, NULL,
         (J3DAnmTransformKey*)dComIfG_getObjectRes("Mk", dRes_INDEX_MK_BCK_MK_WAIT_e),

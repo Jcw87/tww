@@ -32,7 +32,7 @@ BOOL daObjDoguuD_c::CreateHeap() {
     mDoMtx_stack_c::scaleM(scale);
     mDoMtx_copy(mDoMtx_stack_c::get(), mMtx);
 
-    mpBgW = new dBgW();
+    mpBgW = JKR_NEW dBgW();
 
     if (mpBgW == NULL) {
         return FALSE;

@@ -726,7 +726,7 @@ void Act_c::eff_break() {
     JPABaseEmitter* pJVar3 = (JPABaseEmitter*)dComIfGp_particle_set(dPa_name::ID_IT_JN_M_STS_HAHEN, &sp18);
 
     if (pJVar3 != NULL) {
-        dPa_J3DmodelEmitter_c* modelEmitter = new dPa_J3DmodelEmitter_c(pJVar3, pJVar1, tevStr, pJVar2, data().m88, 0);
+        dPa_J3DmodelEmitter_c* modelEmitter = JKR_NEW dPa_J3DmodelEmitter_c(pJVar3, pJVar1, tevStr, pJVar2, data().m88, 0);
         if (modelEmitter != NULL) {
             dComIfGp_particle_addModelEmitter(modelEmitter);
         }

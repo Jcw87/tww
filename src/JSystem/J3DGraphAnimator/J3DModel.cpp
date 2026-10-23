@@ -74,14 +74,14 @@ s32 J3DModel::entryModelData(J3DModelData* pModelData, u32 modelFlag, u32 mtxBuf
     mMtxBufferFlag = mtxBufferFlag;
 
     if (pModelData->getJointNum() != 0) {
-        mpScaleFlagArr = new u8[pModelData->getJointNum()];
+        mpScaleFlagArr = JKR_NEW_ARRAY(u8, pModelData->getJointNum());
         if (pModelData->getWEvlpMtxNum() != 0)
-            mpEvlpScaleFlagArr = new u8[pModelData->getWEvlpMtxNum()];
-        mpNodeMtx = new Mtx[pModelData->getJointNum()];
+            mpEvlpScaleFlagArr = JKR_NEW_ARRAY(u8, pModelData->getWEvlpMtxNum());
+        mpNodeMtx = JKR_NEW_ARRAY(Mtx, pModelData->getJointNum());
     }
 
     if (pModelData->getWEvlpMtxNum() != 0) {
-        mpWeightEnvMtx = new Mtx[pModelData->getWEvlpMtxNum()];
+        mpWeightEnvMtx = JKR_NEW_ARRAY(Mtx, pModelData->getWEvlpMtxNum());
     }
 
 #if VERSION == VERSION_JPN
@@ -157,9 +157,9 @@ s32 J3DModel::setNoUseDrawMtx() {
 
 /* 802ED904-802EDA14       .text createSingleDrawMtx__8J3DModelFP12J3DModelData */
 s32 J3DModel::createSingleDrawMtx(J3DModelData* pModelData) {
-    mpDrawMtxBuf[0] = new Mtx*[1];
+    mpDrawMtxBuf[0] = JKR_NEW_ARRAY(Mtx*, 1);
     mpDrawMtxBuf[1] = mpDrawMtxBuf[0];
-    mpNrmMtxBuf[0] = new Mtx33*[1];
+    mpNrmMtxBuf[0] = JKR_NEW_ARRAY(Mtx33*, 1);
     mpNrmMtxBuf[1] = mpNrmMtxBuf[0];
     mpBumpMtxArr[0] = NULL;
     mpBumpMtxArr[1] = NULL;
@@ -170,9 +170,9 @@ s32 J3DModel::createSingleDrawMtx(J3DModelData* pModelData) {
         return J3DErrType_OutOfMemory;
 
     if (pModelData->getDrawMtxNum() != 0) {
-        mpDrawMtxBuf[0][0] = new (0x20) Mtx[pModelData->getDrawMtxNum()];
+        mpDrawMtxBuf[0][0] = JKR_NEW_ARRAY_ARGS(Mtx, pModelData->getDrawMtxNum(), 0x20);
         mpDrawMtxBuf[1][0] = mpDrawMtxBuf[0][0];
-        mpNrmMtxBuf[0][0] = new (0x20) Mtx33[1];
+        mpNrmMtxBuf[0][0] = JKR_NEW_ARRAY_ARGS(Mtx33, 1, 0x20);
         mpNrmMtxBuf[1][0] = mpNrmMtxBuf[0][0];
     }
 
@@ -186,8 +186,8 @@ s32 J3DModel::createSingleDrawMtx(J3DModelData* pModelData) {
 s32 J3DModel::createDoubleDrawMtx(J3DModelData* pModelData, u32 num) {
     if (num != 0) {
         for (s32 i = 0; i < 2; i++) {
-            mpDrawMtxBuf[i] = new Mtx*[num];
-            mpNrmMtxBuf[i] = new Mtx33*[num];
+            mpDrawMtxBuf[i] = JKR_NEW_ARRAY(Mtx*, num);
+            mpNrmMtxBuf[i] = JKR_NEW_ARRAY(Mtx33*, num);
             mpBumpMtxArr[i] = NULL;
         }
     }
@@ -204,8 +204,8 @@ s32 J3DModel::createDoubleDrawMtx(J3DModelData* pModelData, u32 num) {
     for (s32 i = 0; i < 2; i++) {
         for (u32 j = 0; j < num; j++) {
             if (pModelData->getDrawMtxNum() != 0) {
-                mpDrawMtxBuf[i][j] = new (0x20) Mtx[pModelData->getDrawMtxNum()];
-                mpNrmMtxBuf[i][j] = new (0x20) Mtx33[pModelData->getDrawMtxNum()];
+                mpDrawMtxBuf[i][j] = JKR_NEW_ARRAY_ARGS(Mtx, pModelData->getDrawMtxNum(), 0x20);
+                mpNrmMtxBuf[i][j] = JKR_NEW_ARRAY_ARGS(Mtx33, pModelData->getDrawMtxNum(), 0x20);
             }
         }
     }
@@ -229,7 +229,7 @@ s32 J3DModel::createShapePacket(J3DModelData* pModelData) {
     if (pModelData->getShapeNum() != 0) {
         u16 shapeNum = pModelData->getShapeNum();
 
-        mpShapePacket = new J3DShapePacket[shapeNum];
+        mpShapePacket = JKR_NEW_ARRAY(J3DShapePacket, shapeNum);
         if (mpShapePacket == NULL)
             return J3DErrType_OutOfMemory;
 
@@ -246,7 +246,7 @@ s32 J3DModel::createShapePacket(J3DModelData* pModelData) {
 /* 802EDC8C-802EDF60       .text createMatPacket__8J3DModelFP12J3DModelDataUl */
 s32 J3DModel::createMatPacket(J3DModelData* pModelData, u32 flag) {
     if (pModelData->getMaterialNum() != 0) {
-        mpMatPacket = new J3DMatPacket[pModelData->getMaterialNum()];
+        mpMatPacket = JKR_NEW_ARRAY(J3DMatPacket, pModelData->getMaterialNum());
 
         if (mpMatPacket == NULL)
             return J3DErrType_OutOfMemory;
@@ -333,7 +333,7 @@ s32 J3DModel::createBumpMtxArray(J3DModelData* modelData, u32 bufferNum) {
 
         if ((u16)bumpMtxNum != 0 && bufferNum != 0) {
             for (s32 i = 0; i < 2; i++) {
-                mpBumpMtxArr[i] = new Mtx33**[hasScaleNum];
+                mpBumpMtxArr[i] = JKR_NEW_ARRAY(Mtx33**, hasScaleNum);
                 if (mpBumpMtxArr[i] == NULL)
                     return J3DErrType_OutOfMemory;
             }
@@ -344,7 +344,7 @@ s32 J3DModel::createBumpMtxArray(J3DModelData* modelData, u32 bufferNum) {
             for (s32 matIdx = 0; matIdx < modelData->getMaterialNum(); matIdx++) {
                 J3DMaterial * pMaterial = mModelData->getMaterialNodePointer(matIdx);
                 if (pMaterial->getNBTScale()->mbHasScale == TRUE) {
-                    mpBumpMtxArr[i][bumpMtxOffset] = new Mtx33*[bufferNum];
+                    mpBumpMtxArr[i][bumpMtxOffset] = JKR_NEW_ARRAY(Mtx33*, bufferNum);
                     if (mpBumpMtxArr[i][bumpMtxOffset] == NULL)
                         return J3DErrType_OutOfMemory;
                     pMaterial->getShape()->setBumpMtxOffset(bumpMtxOffset);
@@ -359,7 +359,7 @@ s32 J3DModel::createBumpMtxArray(J3DModelData* modelData, u32 bufferNum) {
                 J3DMaterial * pMaterial = mModelData->getMaterialNodePointer(matIdx);
                 if (pMaterial->getNBTScale()->mbHasScale == TRUE) {
                     for (u32 j = 0; j < bufferNum; j++) {
-                        mpBumpMtxArr[i][bumpMtxOffset][j] = new(0x20) Mtx33[modelData->getDrawMtxNum()];
+                        mpBumpMtxArr[i][bumpMtxOffset][j] = JKR_NEW_ARRAY_ARGS(Mtx33, modelData->getDrawMtxNum(), 0x20);
                         if (mpBumpMtxArr[i][bumpMtxOffset][j] == NULL)
                             return J3DErrType_OutOfMemory;
                     }

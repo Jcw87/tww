@@ -144,8 +144,8 @@ void dMat_control_c::create(J3DMaterialTable* param_1, J3DAnmTextureSRTKey* para
     mHeap = mDoExt_createSolidHeapFromSystem(0, 0);
     JUT_ASSERT(308, mHeap != NULL);
     JKRHeap* heap = mDoExt_setCurrentHeap(mHeap);
-    mBackup = new dMat_backup_c[16];
-    mIce = new dMat_ice_c();
+    mBackup = JKR_NEW_ARRAY(dMat_backup_c, 16);
+    mIce = JKR_NEW dMat_ice_c();
     JUT_ASSERT(313, mBackup != NULL && mIce != NULL);
     mIce->create(param_1, param_2);
     mTempBackup.create(0x40);

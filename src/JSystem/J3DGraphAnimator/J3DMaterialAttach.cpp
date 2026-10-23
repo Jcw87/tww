@@ -46,7 +46,7 @@ s32 J3DMaterialTable::entryMatColorAnimator(J3DAnmColor* pAnm) {
             if (pMatAnm == NULL)
                 ret = 1;
             else
-                pMatAnm->setMatColorAnm(0, new J3DMatColorAnm(pAnm, i));
+                pMatAnm->setMatColorAnm(0, JKR_NEW J3DMatColorAnm(pAnm, i));
         }
     }
 
@@ -75,7 +75,7 @@ s32 J3DMaterialTable::entryTexMtxAnimator(J3DAnmTextureSRTKey* btk) {
 
             if (texMtxID != 0xFF) {
                 if (pMaterial->getTexMtx(texMtxID) == NULL) {
-                    J3DTexMtx* pMtx = new J3DTexMtx;
+                    J3DTexMtx* pMtx = JKR_NEW J3DTexMtx;
                     pMaterial->setTexMtx(texMtxID, pMtx);
                 }
 
@@ -83,7 +83,7 @@ s32 J3DMaterialTable::entryTexMtxAnimator(J3DAnmTextureSRTKey* btk) {
                     pMaterial->getTexCoord(texMtxID)->setTexGenMtx(GX_TEXMTX0 + (texMtxID & 0xFF) * 3);
 
                 J3DTexMtx *tmtx = pMaterial->getTexMtx(texMtxID);
-                J3DTexMtxAnm* tmtxanm = new J3DTexMtxAnm(btk, no);
+                J3DTexMtxAnm* tmtxanm = JKR_NEW J3DTexMtxAnm(btk, no);
 
                 J3DTexMtxInfo& tmtxinfo = tmtx->getTexMtxInfo();
                 tmtxinfo.mInfo = (tmtxinfo.mInfo & 0x7F) | btk->getTexMtxCalcType() << 7;
@@ -116,7 +116,7 @@ s32 J3DMaterialTable::entryTevRegAnimator(J3DAnmTevRegKey* pAnm) {
             if (pMatAnm == NULL)
                 ret = 1;
             else
-                pMatAnm->setTevColorAnm(colorId, new J3DTevColorAnm(pAnm, i));
+                pMatAnm->setTevColorAnm(colorId, JKR_NEW J3DTevColorAnm(pAnm, i));
         }
     }
 
@@ -128,7 +128,7 @@ s32 J3DMaterialTable::entryTevRegAnimator(J3DAnmTevRegKey* pAnm) {
             if (pMatAnm == NULL)
                 ret = 1;
             else
-                pMatAnm->setTevKColorAnm(colorId, new J3DTevKColorAnm(pAnm, i));
+                pMatAnm->setTevKColorAnm(colorId, JKR_NEW J3DTevKColorAnm(pAnm, i));
         }
     }
 

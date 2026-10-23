@@ -388,7 +388,7 @@ bool daFm_c::bodyCreateHeap() {
     J3DModelData* fmModelData = static_cast<J3DModelData*>(dComIfG_getObjectRes(m_arc_name, dRes_INDEX_FM_BDL_FM_e));
     JUT_ASSERT(0x2DD, fmModelData != NULL);
 
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         fmModelData,
         NULL, NULL,
 

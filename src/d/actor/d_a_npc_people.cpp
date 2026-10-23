@@ -4352,7 +4352,7 @@ cPhs_State daNpcPeople_c::_create() {
 /* 00000990-00000E0C       .text createHeap__13daNpcPeople_cFv */
 BOOL daNpcPeople_c::createHeap() {
     J3DModelData* bodyModelData = (J3DModelData*)(dComIfG_getObjectIDRes(l_arcname_tbl[mNpcNo], l_bmd_ix_tbl[mNpcNo]));
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         bodyModelData,
         NULL, NULL,
         (J3DAnmTransformKey*)(dComIfG_getObjectIDRes(l_arcname_tbl[mNpcNo], getBck(m793))),
@@ -4375,7 +4375,7 @@ BOOL daNpcPeople_c::createHeap() {
         }
     }
     else {
-        mpHeadMorf = new mDoExt_McaMorf(
+        mpHeadMorf = JKR_NEW mDoExt_McaMorf(
             headModelData,
             NULL, NULL,
             (J3DAnmTransformKey*)(dComIfG_getObjectIDRes(l_arcname_tbl[mNpcNo], getHeadBck(m793))),

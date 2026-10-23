@@ -4109,7 +4109,7 @@ cPhs_State daNpc_Bm1_c::_create() {
 J3DModelData* daNpc_Bm1_c::create_Anm() {
     J3DModelData* a_mdl_dat = (J3DModelData*)dComIfG_getObjectRes(mArcName, "bm.bdl");
     JUT_ASSERT(DEMO_SELECT(0x153E, 0x1551), a_mdl_dat != NULL);
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         a_mdl_dat,
         NULL,
         NULL,
@@ -4165,7 +4165,7 @@ J3DModelData* daNpc_Bm1_c::create_hed_Anm() {
     };
     J3DModelData* a_mdl_dat = (J3DModelData*)dComIfG_getObjectRes(mArcName, a_headBDLName_TBL[mSpecificType]);
     JUT_ASSERT(DEMO_SELECT(0x1580, 0x1593), a_mdl_dat != NULL);
-    mpHeadMorf = new mDoExt_McaMorf(
+    mpHeadMorf = JKR_NEW mDoExt_McaMorf(
         a_mdl_dat,
         NULL,
         NULL,
@@ -4193,7 +4193,7 @@ J3DModelData* daNpc_Bm1_c::create_hed_Anm() {
 J3DModelData* daNpc_Bm1_c::create_wng_Anm() {
     J3DModelData* a_mdl_dat = (J3DModelData*)dComIfG_getObjectRes(mArcName, "bmwing.bdl");
     JUT_ASSERT(DEMO_SELECT(0x159E, 0x15B1), a_mdl_dat != NULL);
-    mpWingMorf = new mDoExt_McaMorf(
+    mpWingMorf = JKR_NEW mDoExt_McaMorf(
         a_mdl_dat,
         NULL,
         NULL,
@@ -4229,7 +4229,7 @@ J3DModelData* daNpc_Bm1_c::create_wng_Anm() {
 J3DModelData* daNpc_Bm1_c::create_arm_Anm() {
     J3DModelData* a_mdl_dat = (J3DModelData*)dComIfG_getObjectRes(mArcName, "bmarm.bdl");
     JUT_ASSERT(DEMO_SELECT(0x15CA, 0x15DD), a_mdl_dat != NULL);
-    mpArmMorf = new mDoExt_McaMorf(
+    mpArmMorf = JKR_NEW mDoExt_McaMorf(
         a_mdl_dat,
         NULL,
         NULL,

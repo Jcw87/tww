@@ -30,7 +30,7 @@ void JASystem::Kernel::sysDramSetup(JKRSolidHeap* heap) {
 void* JASystem::Kernel::allocFromSysDram(u32 size) {
     void* ptr;
     BOOL enable = OSDisableInterrupts();
-    ptr = new (JASDram, 0x20) u8[size];
+    ptr = JKR_NEW_ARRAY_ARGS(u8, size, JASDram, 0x20);
     JUT_ASSERT(79, ptr != NULL);
     OSRestoreInterrupts(enable);
     return ptr;

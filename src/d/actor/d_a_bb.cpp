@@ -2529,7 +2529,7 @@ static BOOL daBb_Delete(bb_class* i_this) {
 static BOOL useHeapInit(fopAc_ac_c* ac) {
     bb_class* i_this = (bb_class*)ac;
 
-    i_this->mpMorf = new mDoExt_McaMorf(
+    i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         static_cast<J3DModelData*>(dComIfG_getObjectRes("Bb", dRes_INDEX_BB_BDL_BB_e)),
         NULL,
         NULL,

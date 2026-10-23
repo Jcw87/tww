@@ -85,7 +85,7 @@ BOOL daAmiProp_c::CreateHeap() {
     mpModel->setUserArea(reinterpret_cast<uintptr_t>(this));
     setMoveBGMtx();
 
-    mpBgW = new dBgW();
+    mpBgW = JKR_NEW dBgW();
     if (mpBgW != NULL) {
         cBgD_t* dzb = (cBgD_t*)dComIfG_getObjectRes(daAmiProp_c::m_arcname, dRes_INDEX_HAMI1_DZB_HAMI1_e);
         if (mpBgW->Set(dzb, cBgW::MOVE_BG_e, &unk_40C) == true) {

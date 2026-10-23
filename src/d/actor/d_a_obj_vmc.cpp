@@ -121,11 +121,11 @@ bool daObjVmc::Act_c::create_heap() {
     mDoMtx_copy(mDoMtx_stack_c::get(), mMtxBase);
     mDoMtx_copy(mDoMtx_stack_c::get(), mMtxTree);
 
-    mpBgBase = new dBgW();
+    mpBgBase = JKR_NEW dBgW();
     if (mpBgBase == NULL || mpBgBase->Set((cBgD_t*)dComIfG_getObjectRes(M_arcname, dRes_INDEX_VMC_DZB_VMCBS_e), dBgW::MOVE_BG_e, &mMtxBase))
         ret = false;
 
-    mpBgTree = new dBgW();
+    mpBgTree = JKR_NEW dBgW();
     if (mpBgTree == NULL || mpBgTree->Set((cBgD_t*)dComIfG_getObjectRes(M_arcname, dRes_INDEX_VMC_DZB_VMCWD_e), dBgW::MOVE_BG_e, &mMtxTree))
         ret = false;
 

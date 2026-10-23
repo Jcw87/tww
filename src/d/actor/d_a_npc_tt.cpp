@@ -897,7 +897,7 @@ BOOL daNpc_Tt_c::CreateHeap() {
 
     J3DModelData* modelData = (J3DModelData*)dComIfG_getObjectRes("Tt", dRes_INDEX_TT_BDL_TT_e);
 
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         modelData,
         NULL, NULL,
         (J3DAnmTransformKey*)dComIfG_getObjectRes("Tt", dRes_INDEX_TT_BCK_WAIT01_e),

@@ -1996,7 +1996,7 @@ cPhs_State daNpc_Ba1_c::_create() {
 J3DModelData* daNpc_Ba1_c::create_Anm() {
     J3DModelData* a_mdl_dat = (J3DModelData*)dComIfG_getObjectIDRes("Ba",dRes_ID_BA_BDL_BA_e);
     JUT_ASSERT(VERSION_SELECT(2828, 2827, 2828, 2828), a_mdl_dat != NULL);
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         a_mdl_dat,
         NULL,
         NULL,

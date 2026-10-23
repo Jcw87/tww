@@ -187,14 +187,14 @@ static BOOL useHeapInit(fopAc_ac_c* i_ac) {
         return FALSE;
     i_this->mpModelEf = model;
 
-    i_this->mpBrkAnm = new mDoExt_brkAnm();
+    i_this->mpBrkAnm = JKR_NEW mDoExt_brkAnm();
     if (i_this->mpBrkAnm == NULL)
         return FALSE;
     J3DAnmTevRegKey* brk = (J3DAnmTevRegKey*)dComIfG_getObjectRes("Bita", ita_Ef[type]);
     if (!i_this->mpBrkAnm->init(i_this->mpModelEf->getModelData(), brk, TRUE, J3DFrameCtrl::EMode_NONE))
         return FALSE;
 
-    i_this->mpBgW = new dBgW();
+    i_this->mpBgW = JKR_NEW dBgW();
     if (i_this->mpBgW == NULL)
         return FALSE;
     cBgD_t* dzb = (cBgD_t*)dComIfG_getObjectRes("Bita", ita_dzb[type]);

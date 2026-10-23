@@ -27,7 +27,7 @@ BOOL daKaji_c::CreateHeap() {
     J3DModelData* modelData = (J3DModelData*)dComIfG_getObjectRes(M_arcname, dRes_INDEX_KAJI_BDL_ASODA_e);
     JUT_ASSERT(0x55, modelData != NULL);
     
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         modelData,
         NULL, NULL,
         (J3DAnmTransformKey*)dComIfG_getObjectRes("Kaji", dRes_INDEX_KAJI_BCK_KJ_WAIT_e),

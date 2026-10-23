@@ -52,7 +52,7 @@ BOOL daLbridge_c::CreateHeap() {
 
     setMoveBGMtx();
 
-    mpBgW = new dBgW();
+    mpBgW = JKR_NEW dBgW();
 
     if (mpBgW != NULL) {
         if (mpBgW->Set((cBgD_t*)dComIfG_getObjectRes(m_arcname, dRes_INDEX_GBRG00_DZB_HHASHI1_e), cBgW::MOVE_BG_e, &mMtx) == true) {

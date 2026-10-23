@@ -467,7 +467,7 @@ BOOL daNpc_Cb1_c::createHeap() {
     J3DModelData* modelData = (J3DModelData*)dComIfG_getObjectRes("Cb", dRes_INDEX_CB_BDL_CB_e);
     JUT_ASSERT(DEMO_SELECT(937, 936), modelData != NULL);
 
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
             modelData,
             NULL, NULL,
             NULL,

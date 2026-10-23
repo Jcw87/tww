@@ -233,7 +233,7 @@ int J3DSkinDeform::initMtxIndexArray(J3DModelData* modelData) {
     if (mPosUseMtx != NULL && mNrmUseMtx != NULL)
         return J3DErrType_Success;
 
-    mPosUseMtx = new u16[modelData->getVtxNum()];
+    mPosUseMtx = JKR_NEW_ARRAY(u16, modelData->getVtxNum());
     if (mPosUseMtx == NULL)
         return J3DErrType_OutOfMemory;
 
@@ -241,7 +241,7 @@ int J3DSkinDeform::initMtxIndexArray(J3DModelData* modelData) {
         mPosUseMtx[i] = 0xFFFF;
 
     if (modelData->getNrmNum() != 0) {
-        mNrmUseMtx = new u16[modelData->getNrmNum()];
+        mNrmUseMtx = JKR_NEW_ARRAY(u16, modelData->getNrmNum());
         if (mNrmUseMtx == NULL)
             return J3DErrType_OutOfMemory;
 
@@ -251,7 +251,7 @@ int J3DSkinDeform::initMtxIndexArray(J3DModelData* modelData) {
         mNrmUseMtx = NULL;
     }
 
-    mNrmMtx = new(0x20) Mtx33[modelData->getDrawMtxNum()];
+    mNrmMtx = JKR_NEW_ARRAY_ARGS(Mtx33, modelData->getDrawMtxNum(), 0x20);
     if (mNrmMtx == NULL)
         return J3DErrType_OutOfMemory;
 

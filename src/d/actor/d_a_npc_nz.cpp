@@ -171,7 +171,7 @@ BOOL daNpc_Nz_c::_createHeap() {
     J3DModelData* modelData = static_cast<J3DModelData*>(dComIfG_getObjectRes(m_bdl_arc_name, dRes_INDEX_NPCNZ_BDL_NZ_e));
     JUT_ASSERT(DEMO_SELECT(209, 208), modelData != NULL);
 
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         modelData,
         NULL, NULL,
         NULL,

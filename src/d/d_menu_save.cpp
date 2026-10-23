@@ -47,10 +47,10 @@ dMs_HIO_c g_msHIO;
 
 /* 801D5E8C-801D6140       .text _create__12dMenu_save_cFv */
 void dMenu_save_c::_create() {
-    MenuSave.Scr = new J2DScreen();
+    MenuSave.Scr = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(165, 165, 165, 165), MenuSave.Scr != NULL);
 
-    stick = new STControl(5, 2, 3, 2);
+    stick = JKR_NEW STControl(5, 2, 3, 2);
     JUT_ASSERT(VERSION_SELECT(170, 170, 170, 170), stick != NULL);
 
     archive = dComIfGp_getSaveResArchive();
@@ -61,7 +61,7 @@ void dMenu_save_c::_create() {
     MenuSave.font = mDoExt_getMesgFont();
     JUT_ASSERT(VERSION_SELECT(180, 180, 180, 180), MenuSave.font != NULL);
 
-    dFe_c = new dFile_error_c();
+    dFe_c = JKR_NEW dFile_error_c();
     JUT_ASSERT(VERSION_SELECT(184, 184, 184, 184), dFe_c != NULL);
     dFe_c->_create();
 
@@ -557,11 +557,11 @@ BOOL dMenu_save_c::closeForEnding() {
 
 /* 801D79F0-801D7A9C       .text _delete__12dMenu_save_cFv */
 void dMenu_save_c::_delete() {
-   delete MenuSave.Scr;
+   JKR_DELETE(MenuSave.Scr);
    mDoExt_removeMesgFont();
-   delete stick;
+   JKR_DELETE(stick);
    dFe_c->_delete();
-   delete dFe_c;
+   JKR_DELETE(dFe_c);
    archive->removeResourceAll();
    mDoHIO_deleteChild(g_msHIO.id);
 }

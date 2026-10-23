@@ -7,6 +7,7 @@
 
 #include "JSystem/J3DU/J3DUMotion.h"
 #include "JSystem/J3DGraphAnimator/J3DJoint.h"
+#include "JSystem/JKernel/JKRHeap.h"
 #include "dolphin/types.h"
 
 // this puts the correct functions here when they are weak
@@ -16,5 +17,5 @@ static void dummy(J3DMtxCalcBasic* calc1, J3DMtxCalcSoftimage* calc2) {
     Mtx mtx;
     calc1->init(vec, mtx);
     calc2->init(vec, mtx);
-    delete calc2;
+    JKR_DELETE(calc2);
 }

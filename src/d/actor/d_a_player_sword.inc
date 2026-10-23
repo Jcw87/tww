@@ -71,7 +71,7 @@ void daPy_lk_c::setSwordModel(BOOL r28)
 
     u8* buffer;
     if (!checkNormalSwordEquip()) {
-        buffer = new (0x20) u8[0x400];
+        buffer = JKR_NEW_ARRAY_ARGS(u8, 0x400, 0x20);
         JKRReadIdxResource(buffer, 0x400, dRes_INDEX_LKANM_BTK_TSWMS_e, dComIfGp_getAnmArchive());
         mpEquipItemBtk = static_cast<J3DAnmTextureSRTKey*>(J3DAnmLoaderDataBase::load(buffer));
         mpEquipItemBtk->setFrame(0.0f);
@@ -79,17 +79,17 @@ void daPy_lk_c::setSwordModel(BOOL r28)
         modelData->entryTexMtxAnimator(mpEquipItemBtk);
     }
 
-    mSwBlur.mpPosBuffer = new (0x20) Vec[2 * 0x300];
+    mSwBlur.mpPosBuffer = JKR_NEW_ARRAY_ARGS(Vec, 2 * 0x300, 0x20);
     modelData = initModel(&mpSwordModel1, model_tbl.glowModel, 0x13000222);
 
-    buffer = new (0x20) u8[0x400];
+    buffer = JKR_NEW_ARRAY_ARGS(u8, 0x400, 0x20);
     JKRReadIdxResource(buffer, 0x400, model_tbl.glowBtk, dComIfGp_getAnmArchive());
     mpSwordBtk = static_cast<J3DAnmTextureSRTKey*>(J3DAnmLoaderDataBase::load(buffer));
     mpSwordBtk->setFrame(0.0f);
     mpSwordBtk->searchUpdateMaterialID(modelData);
     modelData->entryTexMtxAnimator(mpSwordBtk);
 
-    buffer = new (0x20) u8[0x400];
+    buffer = JKR_NEW_ARRAY_ARGS(u8, 0x400, 0x20);
     JKRReadIdxResource(buffer, 0x400, model_tbl.glowBrk, dComIfGp_getAnmArchive());
     mpEquipItemBrk = static_cast<J3DAnmTevRegKey*>(J3DAnmLoaderDataBase::load(buffer));
     mpEquipItemBrk->setFrame(0.0f);
@@ -98,21 +98,21 @@ void daPy_lk_c::setSwordModel(BOOL r28)
 
     modelData = initModel(&mpSwordTipStabModel, model_tbl.tipStabModel, 0x13000223);
 
-    buffer = new (0x20) u8[0x400];
+    buffer = JKR_NEW_ARRAY_ARGS(u8, 0x400, 0x20);
     JKRReadIdxResource(buffer, 0x400, model_tbl.tipStabBtk, dComIfGp_getAnmArchive());
     mpCutfBtk = static_cast<J3DAnmTextureSRTKey*>(J3DAnmLoaderDataBase::load(buffer));
     mpCutfBtk->setFrame(0.0f);
     mpCutfBtk->searchUpdateMaterialID(modelData);
     modelData->entryTexMtxAnimator(mpCutfBtk);
 
-    buffer = new (0x20) u8[0x400];
+    buffer = JKR_NEW_ARRAY_ARGS(u8, 0x400, 0x20);
     JKRReadIdxResource(buffer, 0x400, model_tbl.tipStabBrk, dComIfGp_getAnmArchive());
     mpCutfBrk = static_cast<J3DAnmTevRegKey*>(J3DAnmLoaderDataBase::load(buffer));
     mpCutfBrk->setFrame(0.0f);
     mpCutfBrk->searchUpdateMaterialID(modelData);
     modelData->entryTevRegAnimator(mpCutfBrk);
 
-    buffer = new (0x20) u8[0x400];
+    buffer = JKR_NEW_ARRAY_ARGS(u8, 0x400, 0x20);
     JKRReadIdxResource(buffer, 0x400, model_tbl.tipStabBpk, dComIfGp_getAnmArchive());
     mpCutfBpk = static_cast<J3DAnmColor*>(J3DAnmLoaderDataBase::load(buffer));
     mpCutfBpk->setFrame(0.0f);

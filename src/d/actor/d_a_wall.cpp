@@ -107,7 +107,7 @@ BOOL daWall_c::CreateHeap() {
         return FALSE;
 
     setMoveBGMtx();
-    mpBgW = new dBgW();
+    mpBgW = JKR_NEW dBgW();
 
     if (mpBgW) {
         bool error = mpBgW->Set((cBgD_t*)dComIfG_getObjectRes(m_arcname[mType], m_dzbname[mType]),

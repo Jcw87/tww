@@ -74,7 +74,7 @@ bool daObjZouk::Act_c::create_heap() {
     if (mdl_data != NULL && M_bck_data != NULL)
 #endif
     {
-        M_anm = new mDoExt_McaMorf(
+        M_anm = JKR_NEW mDoExt_McaMorf(
             mdl_data,
             NULL, NULL,
             M_bck_data,
@@ -102,7 +102,7 @@ bool daObjZouk::Act_c::create_heap() {
     if (bgw_data_before != NULL)
 #endif
     {
-        mBgBefore = new dBgW();
+        mBgBefore = JKR_NEW dBgW();
         if (mBgBefore != NULL) {
             if (mBgBefore->Set(bgw_data_before, dBgW::MOVE_BG_e, &mBgMtx) == true) {
 #if VERSION > VERSION_DEMO
@@ -118,7 +118,7 @@ bool daObjZouk::Act_c::create_heap() {
     if (bgw_data_after != NULL)
 #endif
     {
-        mBgAfter = new dBgW();
+        mBgAfter = JKR_NEW dBgW();
         if (mBgAfter != NULL) {
             if (mBgAfter->Set(bgw_data_after, dBgW::MOVE_BG_e, &mBgMtx) == true) {
 #if VERSION > VERSION_DEMO

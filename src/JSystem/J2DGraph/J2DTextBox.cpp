@@ -7,6 +7,7 @@
 
 #include "JSystem/J2DGraph/J2DTextBox.h"
 #include "JSystem/JKernel/JKRFileLoader.h"
+#include "JSystem/JKernel/JKRHeap.h"
 #include "JSystem/JSupport/JSURandomInputStream.h"
 #include "JSystem/JUtility/JUTResource.h"
 #include "JSystem/J2DGraph/J2DPrint.h"
@@ -33,7 +34,7 @@ J2DTextBox::J2DTextBox(J2DPane* parent, JSURandomInputStream* stream) : mpFont(N
     num = stream->readU8();
     ResFONT * font_res = (ResFONT *) resRef.getResource(stream, 'FONT', NULL);
     if (font_res != NULL)
-        mpFont = new JUTResFont(font_res, NULL);
+        mpFont = JKR_NEW JUTResFont(font_res, NULL);
 
     mCharColor.set(stream->readU32());
     mGradColor.set(stream->readU32());
@@ -47,7 +48,7 @@ J2DTextBox::J2DTextBox(J2DPane* parent, JSURandomInputStream* stream) : mpFont(N
     mFontSizeY = stream->readU16();
 
     s16 stringLen = stream->readU16();
-    mStringPtr = new char[stringLen + 1];
+    mStringPtr = JKR_NEW_ARRAY(char, stringLen + 1);
     stream->read(mStringPtr, stringLen);
     mStringPtr[stringLen] = '\0';
 
@@ -86,7 +87,7 @@ J2DTextBox::J2DTextBox(u32 tag, const JGeometry::TBox2<f32>& bounds, const ResFO
 /* 802D5660-802D5820       .text initiate__10J2DTextBoxFPC7ResFONTPCc18J2DTextBoxHBinding18J2DTextBoxVBinding */
 void J2DTextBox::initiate(const ResFONT* font, const char* str, J2DTextBoxHBinding bindingH, J2DTextBoxVBinding bindingV) {
     if (font != NULL)
-        mpFont = new JUTResFont(font, NULL);
+        mpFont = JKR_NEW JUTResFont(font, NULL);
 
     mCharColor.set(0xFFFFFFFF);
     mGradColor.set(0xFFFFFFFF);
@@ -95,7 +96,7 @@ void J2DTextBox::initiate(const ResFONT* font, const char* str, J2DTextBoxHBindi
     mBindingH = bindingH;
     mBindingV = bindingV;
     size_t temp = strlen(str);
-    mStringPtr = new char[temp + 1];
+    mStringPtr = JKR_NEW_ARRAY(char, temp + 1);
     strcpy(mStringPtr, str);
     field_0xd8 = 0.0f;
     field_0xdc = 0.0f;
@@ -116,15 +117,15 @@ void J2DTextBox::initiate(const ResFONT* font, const char* str, J2DTextBoxHBindi
 /* 802D5820-802D58B8       .text __dt__10J2DTextBoxFv */
 J2DTextBox::~J2DTextBox() {
     if (mTextFontOwned)
-        delete mpFont;
-    delete[] mStringPtr;
+        JKR_DELETE(mpFont);
+    JKR_DELETE_ARRAY(mStringPtr);
 }
 
 /* 802D58B8-802D5928       .text setFont__10J2DTextBoxFP7JUTFont */
 void J2DTextBox::setFont(JUTFont* font) {
     if (font) {
         if (mTextFontOwned)
-            delete mpFont;
+            JKR_DELETE(mpFont);
         mpFont = font;
         mTextFontOwned = false;
     }
@@ -156,9 +157,9 @@ s32 J2DTextBox::setString(const char* str, ...) {
     va_list args;
     va_start(args, str);
 
-    delete[] mStringPtr;
+    JKR_DELETE_ARRAY(mStringPtr);
     u32 strLen = strlen(str);
-    mStringPtr = new char[strLen + 1];
+    mStringPtr = JKR_NEW_ARRAY(char, strLen + 1);
     strcpy(mStringPtr, str);
 
     va_end(args);

@@ -41,7 +41,7 @@ fopAc_ac_c* daPy_lk_c::getGrabMissActor() {
 void daPy_lk_c::setWeaponBlur() {
     JKRHeap* pJVar1 = setItemHeap();
 
-    mSwBlur.mpPosBuffer = new (0x20) Vec[2 * 0x300];
+    mSwBlur.mpPosBuffer = JKR_NEW_ARRAY_ARGS(Vec, 2 * 0x300, 0x20);
     mDoExt_setCurrentHeap(pJVar1);
 }
 

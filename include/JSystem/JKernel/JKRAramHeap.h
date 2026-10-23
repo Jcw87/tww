@@ -3,6 +3,7 @@
 
 #include "JSystem/JKernel/JKRAramBlock.h"
 #include "JSystem/JKernel/JKRDisposer.h"
+#include "JSystem/JKernel/JKRHeap.h"
 #include "dolphin/os/OSMutex.h"
 
 class JKRAramHeap : public JKRDisposer {
@@ -27,7 +28,7 @@ public:
     // u32 getUsedSize(void);
     void dump(void);
     void free(JKRAramBlock *block) {
-        delete block;
+        JKR_DELETE(block);
     }
 
     u8 getCurrentGroupID() const { return mGroupId; }

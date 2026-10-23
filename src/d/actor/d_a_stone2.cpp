@@ -336,7 +336,7 @@ void Act_c::eff_m_break(u16 particleID, u16 texAnmFrame) {
     JPABaseEmitter* emitter = dComIfGp_particle_set(particleID, &current.pos, &shape_angle, NULL, 0xff, NULL, -1, NULL, NULL, &sp18);
     if (emitter != NULL) {
         emitter->setGlobalRTMatrix(mpModel->getBaseTRMtx());
-        dPa_J3DmodelEmitter_c* modelEmitter = new dPa_J3DmodelEmitter_c(emitter, modelData, tevStr, texAnm, texAnmFrame, 0);
+        dPa_J3DmodelEmitter_c* modelEmitter = JKR_NEW dPa_J3DmodelEmitter_c(emitter, modelData, tevStr, texAnm, texAnmFrame, 0);
         if (modelEmitter != NULL) {
             dComIfGp_particle_addModelEmitter(modelEmitter);
         }

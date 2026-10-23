@@ -229,7 +229,7 @@ BOOL daStandItem_c::CreateHeap() {
     if (m_bckidx[mItemType] != -1) {
         J3DAnmTransform* pbck = (J3DAnmTransform*)dComIfG_getObjectRes(m_arcname, m_bckidx[mItemType]);
         JUT_ASSERT(DEMO_SELECT(589, 592), pbck != NULL);
-        mpBckAnm = new mDoExt_bckAnm();
+        mpBckAnm = JKR_NEW mDoExt_bckAnm();
 
         static const u32 playmode[] = {
             /* dItemNo_TOWN_FLOWER_e      */ J3DFrameCtrl::EMode_LOOP,

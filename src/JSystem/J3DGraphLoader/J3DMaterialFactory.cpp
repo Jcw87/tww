@@ -8,6 +8,7 @@
 #include "JSystem/J3DGraphLoader/J3DMaterialFactory.h"
 #include "JSystem/J3DGraphLoader/J3DModelLoader.h"
 #include "JSystem/J3DGraphBase/J3DMatBlock.h"
+#include "JSystem/JKernel/JKRHeap.h"
 #include "JSystem/JSupport/JSupport.h"
 
 /* 802F68F0-802F6B38       .text __ct__18J3DMaterialFactoryFRC16J3DMaterialBlock */
@@ -138,7 +139,7 @@ J3DMaterial* J3DMaterialFactory::createNormalMaterial(J3DMaterial* mat, int idx,
     BOOL ind_flag = (i_flags & 0x1000000) ? TRUE : FALSE;
 
     if (mat == NULL)
-        mat = new J3DMaterial();
+        mat = JKR_NEW J3DMaterial();
 
     mat->mColorBlock = J3DMaterial::createColorBlock(color_block_flag);
     mat->mTexGenBlock = J3DMaterial::createTexGenBlock(tex_gen_flag);
@@ -225,13 +226,13 @@ J3DMaterial* J3DMaterialFactory::createNormalMaterial(J3DMaterial* mat, int idx,
 /* 802F768C-802F7F98       .text createPatchedMaterial__18J3DMaterialFactoryCFP11J3DMaterialiUl */
 J3DMaterial* J3DMaterialFactory::createPatchedMaterial(J3DMaterial* mat, int idx, u32 flag) const {
     if (mat == NULL)
-        mat = new J3DPatchedMaterial();
+        mat = JKR_NEW J3DPatchedMaterial();
 
     bool indFlag = (flag & 0x03000000) ? true : false; // fakematch?
     mat->mColorBlock = J3DMaterial::createColorBlock(0x40000000);
 
-    mat->mTexGenBlock = new J3DTexGenBlockPatched();
-    mat->mTevBlock = new J3DTevBlockPatched();
+    mat->mTexGenBlock = JKR_NEW J3DTexGenBlockPatched();
+    mat->mTevBlock = JKR_NEW J3DTevBlockPatched();
     mat->mIndBlock = J3DMaterial::createIndBlock(indFlag);
     mat->mPEBlock = J3DMaterial::createPEBlock(0x10000000, getMaterialMode(idx));
     mat->mIndex = idx;
@@ -322,12 +323,12 @@ void J3DMaterialFactory::modifyPatchedCurrentMtx(J3DMaterial* mat, int idx) cons
 /* 802F80F8-802F83A0       .text createLockedMaterial__18J3DMaterialFactoryCFP11J3DMaterialiUl */
 J3DMaterial* J3DMaterialFactory::createLockedMaterial(J3DMaterial* mat, int idx, u32 flag) const {
     if (mat == NULL) {
-        mat = new J3DLockedMaterial();
-        mat->mColorBlock = new J3DColorBlockNull();
-        mat->mTexGenBlock = new J3DTexGenBlockNull();
-        mat->mTevBlock = new J3DTevBlockNull();
-        mat->mIndBlock = new J3DIndBlockNull();
-        mat->mPEBlock = new J3DPEBlockNull();
+        mat = JKR_NEW J3DLockedMaterial();
+        mat->mColorBlock = JKR_NEW J3DColorBlockNull();
+        mat->mTexGenBlock = JKR_NEW J3DTexGenBlockNull();
+        mat->mTevBlock = JKR_NEW J3DTevBlockNull();
+        mat->mIndBlock = JKR_NEW J3DIndBlockNull();
+        mat->mPEBlock = JKR_NEW J3DPEBlockNull();
         mat->mIndex = idx;
         mat->mMaterialMode = field_0x84[idx];
     }
@@ -340,7 +341,7 @@ J3DMaterial* J3DMaterialFactory::createLockedMaterial(J3DMaterial* mat, int idx,
     mat->mTevBlock->setTevRegOffset(mpPatchingInfo[idx].mTevRegOffset);
     mat->mPEBlock->setFogOffset(mpPatchingInfo[idx].mFogOffset);
     if (mat->mSharedDLObj == NULL) {
-        mat->mSharedDLObj = new J3DDisplayListObj();
+        mat->mSharedDLObj = JKR_NEW J3DDisplayListObj();
         mat->mSharedDLObj->setSingleDisplayList((void*)(mpDisplayListInit[idx].mOffset + (uintptr_t)&mpDisplayListInit[idx]), mpDisplayListInit[idx].mSize);
     }
     return mat;
@@ -504,9 +505,9 @@ J3DTexMtx* J3DMaterialFactory::newTexMtx(int idx, int stage) const {
             f32& ref = tex_mtx_info.mEffectMtx[i / 4][i % 4];
             ref = byteswap(ref);
         }
-        ret = new J3DTexMtx(tex_mtx_info);
+        ret = JKR_NEW J3DTexMtx(tex_mtx_info);
 #else
-        ret = new J3DTexMtx(mpTexMtxInfo[initData->mTexMtxIdx[stage]]);
+        ret = JKR_NEW J3DTexMtx(mpTexMtxInfo[initData->mTexMtxIdx[stage]]);
 #endif
     }
     return ret;
@@ -657,12 +658,12 @@ J3DFog* J3DMaterialFactory::newFog(int idx) const {
         for (int i = 0; i < 10; i++) {
             fogInfo.mFogAdjTable[i] = byteswap(fogInfo.mFogAdjTable[i]);
         }
-        return new J3DFog(fogInfo);
+        return JKR_NEW J3DFog(fogInfo);
 #else
-        return new J3DFog(mpFogInfo[initData->mFogIdx]);
+        return JKR_NEW J3DFog(mpFogInfo[initData->mFogIdx]);
 #endif
     } else {
-        return new J3DFog();
+        return JKR_NEW J3DFog();
     }
 }
 

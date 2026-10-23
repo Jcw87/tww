@@ -94,7 +94,7 @@ cPhs_State daTbox_c::commonShapeSet() {
 
     // Load texture anim, if requested
     if (mdlInfo.btkId > 0) {
-        mpAppearTexAnm = new mDoExt_btkAnm();
+        mpAppearTexAnm = JKR_NEW mDoExt_btkAnm();
         if (mpAppearTexAnm == NULL) {
             return cPhs_ERROR_e;
         }
@@ -109,7 +109,7 @@ cPhs_State daTbox_c::commonShapeSet() {
 
     // Load color anim, if requested
     if (mdlInfo.brkId > 0) {
-        mpAppearRegAnm = new mDoExt_brkAnm();
+        mpAppearRegAnm = JKR_NEW mDoExt_brkAnm();
         if (mpAppearRegAnm == NULL) {
             return cPhs_ERROR_e;
         }
@@ -225,7 +225,7 @@ cPhs_State daTbox_c::bgCheckSet() {
     cBgD_t* bgd = (cBgD_t*)dComIfG_getObjectRes("Dalways", mdlInfo.closedColId);
     JUT_ASSERT(0x195, bgd != NULL);
 
-    mpBgWClosed = new dBgW();
+    mpBgWClosed = JKR_NEW dBgW();
     if (mpBgWClosed == NULL) {
         return cPhs_ERROR_e;
     }
@@ -237,7 +237,7 @@ cPhs_State daTbox_c::bgCheckSet() {
     bgd = (cBgD_t*)dComIfG_getObjectRes("Dalways", mdlInfo.openColId);
     JUT_ASSERT(0x1A6, bgd != NULL);
 
-    mpBgWOpen = new dBgW();
+    mpBgWOpen = JKR_NEW dBgW();
     if (mpBgWOpen == NULL) {
         return cPhs_ERROR_e;
     }
@@ -250,7 +250,7 @@ cPhs_State daTbox_c::bgCheckSet() {
         bgd = (cBgD_t*)dComIfG_getObjectRes("Dalways", dRes_INDEX_DALWAYS_DZB_KINB_00_e);
         JUT_ASSERT(0x1B9, bgd != NULL);
 
-        mpBgWVines = new dBgW();
+        mpBgWVines = JKR_NEW dBgW();
         if (mpBgWVines == NULL) {
             return cPhs_ERROR_e;
         }

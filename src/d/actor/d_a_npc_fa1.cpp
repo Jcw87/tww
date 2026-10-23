@@ -950,7 +950,7 @@ cPhs_State daNpc_Fa1_c::_create() {
 int daNpc_Fa1_c::CreateHeap() {
     J3DModelData* pModelData = (J3DModelData*)dComIfG_getObjectRes("Always", dRes_INDEX_ALWAYS_BDL_FA_e);
     mpMorf =
-        new mDoExt_McaMorf(pModelData,
+        JKR_NEW mDoExt_McaMorf(pModelData,
             &mMcaMorfCallback1, NULL,
             (J3DAnmTransformKey*)dComIfG_getObjectRes("Always", dRes_INDEX_ALWAYS_BCK_FA_e),
             J3DFrameCtrl::EMode_LOOP, 1.0f, 0, -1, 0, NULL,

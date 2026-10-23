@@ -226,7 +226,7 @@ static BOOL daDr_Delete(dr_class* i_this) {
 static BOOL createHeap(fopAc_ac_c* i_actor) {
     dr_class* i_this = (dr_class*)i_actor;
 
-    i_this->mpMorf = new mDoExt_McaMorf(
+    i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Dr", dRes_INDEX_DR_BMD_DR1_e),
         NULL, NULL,
         (J3DAnmTransformKey*)dComIfG_getObjectRes("Dr", dRes_INDEX_DR_BCK_DR_BIKU1_e),

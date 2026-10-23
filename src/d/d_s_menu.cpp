@@ -50,7 +50,7 @@ static void dScnMenu_bmg_data_set() {
     }
     if (mBmgStatus2 == 2) {
         dComIfGp_setMsgDtArchive(l_bmgData2->getArchive());
-        delete l_bmgData2;
+        JKR_DELETE(l_bmgData2);
         mBmgStatus2 = 3;
     }
 }
@@ -68,7 +68,7 @@ static void dScnMenu_tex_data_set() {
     }
     if (mBmgStatus2 == 5) {
         dComIfGp_setActionIconArchive(l_bmgData2->getArchive());
-        delete l_bmgData2;
+        JKR_DELETE(l_bmgData2);
         mBmgStatus2 = 6;
     }
 }
@@ -300,7 +300,7 @@ static BOOL dScnMenu_Delete(menu_of_scene_class* i_this) {
     mBmgStatus2 = 0;
 #endif
     JUTDbPrint::getManager()->changeFont(JFWSystem::systemFont);
-    delete i_this->font;
+    JKR_DELETE(i_this->font);
     JKRFree(i_this->info);
     JKRFree(i_this->fontRes);
     g_HIO.mDisplayFlag &= ~2;
@@ -325,23 +325,23 @@ cPhs_State phase_2(menu_of_scene_class* i_this) {
     }
     i_this->info = (menu_of_scene_class::menu_inf*)i_this->command->getMemAddress();
     JUT_ASSERT(VERSION_SELECT(663, 663, 779, 779), i_this->info != NULL);
-    delete i_this->command;
+    JKR_DELETE(i_this->command);
     menu_of_scene_class::menu_inf* info = i_this->info;
     info->stage = (menu_of_scene_class::stage_inf*)(u32(info->stage) + u32(info));
     for (int i = 0; i < info->num; i++) {
         info->stage[i].roomPtr = (menu_of_scene_class::room_inf*)((u8*)info + u32(info->stage[i].roomPtr));
     }
     if (!l_groupPoint) {
-        l_groupPoint = new s8[info->num];
+        l_groupPoint = JKR_NEW_ARRAY(s8, info->num);
         JUT_ASSERT(VERSION_SELECT(676, 676, 792, 792), l_groupPoint != NULL);
         for (int i = 0; i < info->num; i++) {
             l_groupPoint[i] = 0;
         }
     }
     i_this->fontRes = (ResFONT*)i_this->fontCommand->getMemAddress();
-    delete i_this->fontCommand;
+    JKR_DELETE(i_this->fontCommand);
     if (i_this->fontRes) {
-        i_this->font = new myFontClass(i_this->fontRes, NULL);
+        i_this->font = JKR_NEW myFontClass(i_this->fontRes, NULL);
         if (i_this->font) {
             JUTDbPrint::getManager()->changeFont(i_this->font);
         }

@@ -162,7 +162,7 @@ public:
     u8 getMountMode() const { return mMountMode; }
     bool isFileEntry(u32 param_0) { return getFileAttribute(param_0) & 1; }
 
-protected:
+public:
     virtual ~JKRArchive();
 
 public:

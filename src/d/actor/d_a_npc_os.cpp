@@ -300,7 +300,7 @@ BOOL daNpc_Os_c::createHeap() {
     J3DModelData* modelData = static_cast<J3DModelData*>(dComIfG_getObjectRes("Os", dRes_INDEX_OS_BDL_OS_e));
     JUT_ASSERT(DEMO_SELECT(0x315, 0x2F9), modelData != NULL);
 
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         modelData,
         NULL, NULL,
         static_cast<J3DAnmTransformKey*>(dComIfG_getObjectRes("Os", dRes_INDEX_OS_BCK_OS_MOVE01_e)),

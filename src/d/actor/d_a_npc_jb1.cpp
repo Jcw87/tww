@@ -601,7 +601,7 @@ J3DModelData* daNpc_Jb1_c::create_Anm() {
     J3DModelData* a_mdl_dat = (J3DModelData*)dComIfG_getObjectIDRes("Jb", dRes_ID_JB_BDL_JB_e);
     JUT_ASSERT(VERSION_SELECT(0x450, 0x45A, 0x45F, 0x45F), a_mdl_dat != NULL);
 
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         a_mdl_dat,
         NULL, NULL,
         (J3DAnmTransformKey*)dComIfG_getObjectIDRes("Jb", dRes_ID_JB_BCK_JB_WAIT01_e),

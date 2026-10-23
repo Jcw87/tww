@@ -35,10 +35,10 @@ BOOL JntHit_c::CreateInit() {
         pHitData++;
     }
     
-    mpShapeTypes = new s16[mMaxNum];
-    mpOffsets = new cXyz[posCount];
-    mpRadiuses = new f32[mMaxNum];
-    mpJointIndexes = new s16[mMaxNum];
+    mpShapeTypes = JKR_NEW_ARRAY(s16, mMaxNum);
+    mpOffsets = JKR_NEW_ARRAY(cXyz, posCount);
+    mpRadiuses = JKR_NEW_ARRAY(f32, mMaxNum);
+    mpJointIndexes = JKR_NEW_ARRAY(s16, mMaxNum);
     if (!mpShapeTypes || !mpOffsets || !mpRadiuses || !mpJointIndexes) {
         return FALSE;
     }
@@ -404,7 +404,7 @@ s32 JntHit_c::searchJntHitPosAngleOffset(cXyz* r18, csXyz* r28, cXyz* r29, csXyz
 
 /* 800627DC-8006286C       .text JntHit_create__FP8J3DModelP16__jnt_hit_data_cs */
 JntHit_c* JntHit_create(J3DModel* model, __jnt_hit_data_c* jntHitData, s16 hitDataCount) {
-    JntHit_c * pJntHit = new JntHit_c();
+    JntHit_c * pJntHit = JKR_NEW JntHit_c();
 
     if (pJntHit != NULL) {
         pJntHit->setSearchData(jntHitData);

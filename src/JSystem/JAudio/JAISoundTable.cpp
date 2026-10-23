@@ -22,8 +22,8 @@ void JAInter::SoundTable::init(u8* param_1, u32 param_2) {
     mAddress = param_1;
     mDatasize = param_2;
     mVersion = mAddress[3];
-    mSoundMax = new (JAIBasic::getCurrentJAIHeap(), 4) u16[18];
-    mPointerCategory = new (JAIBasic::getCurrentJAIHeap(), 4) SoundInfo*[18];
+    mSoundMax = JKR_NEW_ARRAY_ARGS(u16, 18, JAIBasic::getCurrentJAIHeap(), 4);
+    mPointerCategory = JKR_NEW_ARRAY_ARGS(SoundInfo*, 18, JAIBasic::getCurrentJAIHeap(), 4);
     for (u8 i = 0; i < 18; i++) {
         mSoundMax[i] = *(u16*)(&mAddress[6 + i*4]);
         mPointerCategory[i] = &((SoundInfo*)&mAddress[0x50])[*(u16*)(&mAddress[8 + i*4])];

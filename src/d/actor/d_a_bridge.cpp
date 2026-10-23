@@ -1388,7 +1388,7 @@ static BOOL CallbackCreateHeap(fopAc_ac_c* a_this) {
         }
     }
 
-    i_this->mpBgW = new dBgWSv();
+    i_this->mpBgW = JKR_NEW dBgWSv();
     if (i_this->mpBgW == NULL) {
         return FALSE;
     }

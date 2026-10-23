@@ -477,7 +477,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     }
     iVar4 = 0;
     if (i_this->m298 == 2) {
-        i_this->pm_bgw = new dBgW();
+        i_this->pm_bgw = JKR_NEW dBgW();
 
         JUT_ASSERT(DEMO_SELECT(781, 801), i_this->pm_bgw != NULL);
         cBgD_t* dzb = (cBgD_t*)dComIfG_getObjectRes("Bdkobj", dRes_INDEX_BDKOBJ_DZB_S_TOWER_BRIDGE_e);

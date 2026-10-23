@@ -34,7 +34,7 @@ bool daObjGaship2::Act_c::create_heap() {
     if (bgw_data != NULL)
 #endif
     {
-        mpBgW = new dBgW();
+        mpBgW = JKR_NEW dBgW();
         if (mpBgW != NULL && (mpBgW->Set(bgw_data, cBgW::MOVE_BG_e, &mMtx) == true)) {
 #if VERSION > VERSION_DEMO
             return false;

@@ -28,7 +28,7 @@ void J3DDrawBuffer::initialize() {
 
 /* 802EC7B4-802EC84C       .text allocBuffer__13J3DDrawBufferFUl */
 J3DError J3DDrawBuffer::allocBuffer(u32 bufSize) {
-    mpBuffer = new (0x20) J3DPacket*[bufSize];
+    mpBuffer = JKR_NEW_ARRAY_ARGS(J3DPacket*, bufSize, 0x20);
     if (mpBuffer == NULL)
         return J3DErrType_OutOfMemory;
 
@@ -42,7 +42,7 @@ J3DError J3DDrawBuffer::allocBuffer(u32 bufSize) {
 J3DDrawBuffer::~J3DDrawBuffer() {
     frameInit();
 
-    delete[] mpBuffer;
+    JKR_DELETE_ARRAY(mpBuffer);
     mpBuffer = NULL;
 }
 

@@ -1132,7 +1132,7 @@ static BOOL dMsg2_Delete(sub_msg2_class* i_Msg) {
     JKRHeap* heap = mDoExt_setCurrentHeap(i_Msg->Heap);
 
     for (int i = 0; i < 3; i++) {
-        delete sScreen2[i];
+        JKR_DELETE(sScreen2[i]);
     }
 
     i_Msg->Heap->free(i_Msg->Tex[0]);
@@ -1142,8 +1142,8 @@ static BOOL dMsg2_Delete(sub_msg2_class* i_Msg) {
 
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 8; j++) {
-            delete bbutton_icon[j][i];
-            delete bbutton_kage[j][i];
+            JKR_DELETE(bbutton_icon[j][i]);
+            JKR_DELETE(bbutton_kage[j][i]);
         }
 
         i_Msg->Heap->free(i_Msg->output_text[i]);
@@ -1172,7 +1172,7 @@ static cPhs_State dMsg2_Create(msg_class* i_this) {
     JKRHeap* heap = mDoExt_setCurrentHeap(i_Msg->Heap);
 
     for (u8 i = 0; i < 3; i++) {
-        sScreen2[i] = new J2DScreen();
+        sScreen2[i] = JKR_NEW J2DScreen();
         sScreen2[i]->set("hukidashi_02.blo", dComIfGp_getMsgArchive());
     }
 
@@ -1186,8 +1186,8 @@ static cPhs_State dMsg2_Create(msg_class* i_this) {
 
     for (u8 i = 0; i < 3; i++) {
         for (int j = 0; j < 8; j++) {
-            bbutton_icon[j][i] = new J2DPicture("font_07_02.bti");
-            bbutton_kage[j][i] = new J2DPicture("font_07_02.bti");
+            bbutton_icon[j][i] = JKR_NEW J2DPicture("font_07_02.bti");
+            bbutton_kage[j][i] = JKR_NEW J2DPicture("font_07_02.bti");
             fopMsgM_blendInit(bbutton_icon[j][i], "font_00.bti");
             fopMsgM_blendInit(bbutton_kage[j][i], "font_00.bti");
             

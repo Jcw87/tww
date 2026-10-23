@@ -109,11 +109,11 @@ dFs_HIO_c::dFs_HIO_c() {
 
 /* 8017FA20-8017FCC0       .text _create__14dFile_select_cFv */
 void dFile_select_c::_create() {
-    fileSel.Scr = new J2DScreen();
+    fileSel.Scr = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(297, 297, 356, 356), fileSel.Scr != NULL);
-    stick = new STControl(5, 2, 3, 2);
+    stick = JKR_NEW STControl(5, 2, 3, 2);
     JUT_ASSERT(VERSION_SELECT(302, 302, 361, 361), stick != NULL);
-    stick2 = new STControl(3, 1, 3, 2);
+    stick2 = JKR_NEW STControl(3, 1, 3, 2);
     JUT_ASSERT(VERSION_SELECT(305, 305, 364, 364), stick2 != NULL);
     fileSel.Scr->set("file_select.blo", archive);
     fileSel.font = mDoExt_getMesgFont();
@@ -149,10 +149,10 @@ void dFile_select_c::_deleteSp() {
 
 /* 8017FCF4-8017FD6C       .text _delete__14dFile_select_cFv */
 void dFile_select_c::_delete() {
-    delete fileSel.Scr;
+    JKR_DELETE(fileSel.Scr);
     mDoExt_removeMesgFont();
-    delete stick;
-    delete stick2;
+    JKR_DELETE(stick);
+    JKR_DELETE(stick2);
     mDoHIO_deleteChild(g_fsHIO.mNo);
 }
 

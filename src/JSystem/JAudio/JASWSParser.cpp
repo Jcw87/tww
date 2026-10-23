@@ -24,7 +24,7 @@ JASystem::TBasicWaveBank* JASystem::WSParser::createBasicWaveBank(void* stream) 
     JKRHeap* heap = TWaveBank::getCurrentHeap();
     const u32 priorFreeSize = heap->getFreeSize();
     THeader* header = (THeader*)stream;
-    TBasicWaveBank* bank = new (heap, 0) TBasicWaveBank();
+    TBasicWaveBank* bank = JKR_NEW_ARGS(heap, 0) TBasicWaveBank();
     if (bank == NULL) {
         return NULL;
     }
@@ -80,7 +80,7 @@ JASystem::TSimpleWaveBank* JASystem::WSParser::createSimpleWaveBank(void* stream
     if (ctrlGroupRaw->mCtrlGroupCount != 1) {
         return NULL;
     }
-    TSimpleWaveBank* bank = new (heap, 0) TSimpleWaveBank();
+    TSimpleWaveBank* bank = JKR_NEW_ARGS(heap, 0) TSimpleWaveBank();
     if (bank == NULL) {
         return NULL;
     }

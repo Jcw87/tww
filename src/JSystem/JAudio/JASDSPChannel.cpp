@@ -101,7 +101,7 @@ void JASystem::TDSPChannel::initAll() {
         OSReport("---- DSPChannel::initAll : already initialized\n");
         return;
     }
-    DSPCH = new (JASDram, 0x20) TDSPChannel[64];
+    DSPCH = JKR_NEW_ARRAY_ARGS(TDSPChannel, 64, JASDram, 0x20);
     JUT_ASSERT(204, DSPCH);
     OSReport("----- JASDSPChannel size : %d\n", 0x14);
     for (u8 i = 0; i < 64; i++) {

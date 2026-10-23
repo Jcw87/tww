@@ -39,7 +39,7 @@ BOOL daObjHami4_c::CreateHeap() {
         mDoMtx_stack_c::scaleM(scale);
         MTXCopy(mDoMtx_stack_c::get(), field_0x2B8[i]);
         mpModels[i]->setBaseTRMtx(mDoMtx_stack_c::get());
-        mdBgW[i] = new dBgW();
+        mdBgW[i] = JKR_NEW dBgW();
         if (mdBgW[i] != NULL) {
             cBgD_t* bgp = (cBgD_t*)dComIfG_getObjectRes("Hami4", dRes_INDEX_HAMI4_DZB_HAMI4_e);
             if(!mdBgW[i]->Set(bgp, dBgW::MOVE_BG_e, &field_0x2B8[i])){

@@ -36,7 +36,7 @@ cPhs_State dMinigame_Starter_c::_create() {
 
         mHeap = mDoExt_createSolidHeapFromGameToCurrent(VERSION_SELECT(0x1300, 0x13E0, 0x14C0, 0x1AC0), 0x20);
         if (mHeap != NULL) {
-            mStarterScrn = new dDlst_StarterScrnDraw_c();
+            mStarterScrn = JKR_NEW dDlst_StarterScrnDraw_c();
 
 #if VERSION == VERSION_PAL
             char resname[32];
@@ -126,7 +126,7 @@ BOOL dMinigame_Starter_c::deleteCheck() {
 
 /* 80206360-802064DC       .text setScreen__23dDlst_StarterScrnDraw_cFPCcP10JKRArchive */
 void dDlst_StarterScrnDraw_c::setScreen(const char* i_layoutName, JKRArchive* i_archive) {
-    mpScrn = new J2DScreen();
+    mpScrn = JKR_NEW J2DScreen();
     mpScrn->set(i_layoutName, i_archive);
 
 #if VERSION == VERSION_PAL

@@ -1707,7 +1707,7 @@ static BOOL daBmd_Delete(bmd_class* i_this) {
 
 /* 00005CF4-000064C0       .text useHeapInit__FP9bmd_class */
 BOOL useHeapInit(bmd_class* i_this) {
-    i_this->mpBodyMorf = new mDoExt_McaMorf(
+    i_this->mpBodyMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Bmd", dRes_INDEX_BMD_BMD_BKM_e),
         NULL,
         NULL,
@@ -1731,7 +1731,7 @@ BOOL useHeapInit(bmd_class* i_this) {
         return FALSE;
     }
 #endif
-    i_this->mpBrkAnm = new mDoExt_brkAnm();
+    i_this->mpBrkAnm = JKR_NEW mDoExt_brkAnm();
     if (i_this->mpBrkAnm == NULL) {
         return FALSE;
     }
@@ -1739,7 +1739,7 @@ BOOL useHeapInit(bmd_class* i_this) {
     if (!i_this->mpBrkAnm->init(model->getModelData(), pBrk, true, J3DFrameCtrl::EMode_NONE)) {
         return FALSE;
     }
-    i_this->mpBtkAnm = new mDoExt_btkAnm();
+    i_this->mpBtkAnm = JKR_NEW mDoExt_btkAnm();
     if (i_this->mpBtkAnm == NULL) {
         return FALSE;
     }
@@ -1747,7 +1747,7 @@ BOOL useHeapInit(bmd_class* i_this) {
     if (!i_this->mpBtkAnm->init(model->getModelData(), pBtk, true, J3DFrameCtrl::EMode_NONE)) {
         return FALSE;
     }
-    i_this->mpHeadMorf = new mDoExt_McaMorf(
+    i_this->mpHeadMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Bmd", dRes_INDEX_BMD_BMD_BKM_COA_e),
         NULL,
         NULL,
@@ -1769,7 +1769,7 @@ BOOL useHeapInit(bmd_class* i_this) {
     for (u16 uVar16 = 0; uVar16 < model->getModelData()->getJointNum(); uVar16++) {
         model->getModelData()->getJointNodePointer(uVar16)->setCallBack(core_nodeCallBack);
     }
-    i_this->mpHeadDeadMorf = new mDoExt_McaMorf(
+    i_this->mpHeadDeadMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Bmd", dRes_INDEX_BMD_BMD_BKM_COA_DEADMODEL_e),
         NULL,
         NULL,
@@ -1786,7 +1786,7 @@ BOOL useHeapInit(bmd_class* i_this) {
     if (i_this->mpHeadDeadMorf->getModel() == NULL) {
         return FALSE;
     }
-    i_this->pm_bgw[5] = new dBgW();
+    i_this->pm_bgw[5] = JKR_NEW dBgW();
     JUT_ASSERT(VERSION_SELECT(3834, 3902, 3905, 3905), i_this->pm_bgw[5] != 0);
 #if VERSION >= VERSION_USA
     if (i_this->pm_bgw[5] == NULL) {
@@ -1802,7 +1802,7 @@ BOOL useHeapInit(bmd_class* i_this) {
     }
 #endif
     for (s32 i = 0; i < ARRAY_SSIZE(i_this->m944); i++) {
-        i_this->pm_bgw[i] = new dBgW();
+        i_this->pm_bgw[i] = JKR_NEW dBgW();
         JUT_ASSERT(VERSION_SELECT(3853, 3921, 3923, 3923), i_this->pm_bgw[i] != 0);
 #if VERSION >= VERSION_USA
         if (i_this->pm_bgw[i] == 0) {
@@ -1818,7 +1818,7 @@ BOOL useHeapInit(bmd_class* i_this) {
         }
 #endif
     }
-    i_this->mpMakarMorf = new mDoExt_McaMorf(
+    i_this->mpMakarMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Bmd", dRes_INDEX_BMD_BMD_CB_e),
         NULL,
         NULL,
@@ -1845,7 +1845,7 @@ BOOL useHeapInit(bmd_class* i_this) {
     if (i_this->mpR00_EFModel == NULL) {
         return FALSE;
     }
-    i_this->mpR00_EFBrk = new mDoExt_brkAnm();
+    i_this->mpR00_EFBrk = JKR_NEW mDoExt_brkAnm();
     if (i_this->mpR00_EFBrk == NULL) {
         return FALSE;
     }

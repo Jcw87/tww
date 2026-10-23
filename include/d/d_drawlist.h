@@ -3,6 +3,7 @@
 
 #include "JSystem/J3DGraphBase/J3DDrawBuffer.h"
 #include "JSystem/J2DGraph/J2DPicture.h"
+#include "JSystem/JKernel/JKRHeap.h"
 #include "SSystem/SComponent/c_bg_s_shdw_draw.h"
 #include "f_op/f_op_view.h"
 #include "m_Do/m_Do_ext.h"
@@ -352,8 +353,8 @@ public:
     bool add(J3DModel*);
     void init();
     ~dDlst_shadowReal_c() {
-        delete mpTexData;
-        delete mpDrawBuffer;
+        JKR_DELETE(mpTexData);
+        JKR_DELETE(mpDrawBuffer);
     }
     dDlst_shadowReal_c() { mState = 0; }
 

@@ -82,7 +82,7 @@ JUTException::JUTException(JUTDirectPrint* directPrint) : JKRThread(0x4000, 0x10
 JUTException* JUTException::create(JUTDirectPrint* directPrint) {
     if (!sErrorManager) {
         JKRHeap* systemHeap = JKRGetSystemHeap();
-        sErrorManager = new (systemHeap, 0) JUTException(directPrint);
+        sErrorManager = JKR_NEW_ARGS(systemHeap, 0) JUTException(directPrint);
         sErrorManager->resume();
     }
 
@@ -840,7 +840,7 @@ void JUTException::appendMapFile(const char* path) {
         }
     }
 
-    JUTExMapFile* mapFile = new JUTExMapFile((char*)path);
+    JUTExMapFile* mapFile = JKR_NEW JUTExMapFile((char*)path);
     sMapFileList.append(&mapFile->mLink);
 }
 

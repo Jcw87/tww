@@ -643,7 +643,7 @@ static BOOL daSss_Delete(sss_class* i_this) {
 
 /* 00002720-000028A0       .text useHeapInit__FP9sss_class */
 BOOL useHeapInit(sss_class* i_this) {
-    i_this->mpMorf = new mDoExt_McaMorf(
+    i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*) dComIfG_getObjectRes("Sss", dRes_INDEX_SSS_BMD_SSS_HAND_e),
         NULL, NULL,
         (J3DAnmTransformKey*) dComIfG_getObjectRes("Sss", dRes_INDEX_SSS_BCK_SSS_HIRAKU_e),

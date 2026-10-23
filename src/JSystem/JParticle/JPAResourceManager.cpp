@@ -16,7 +16,7 @@
 JPATextureResource::JPATextureResource(u32 num, JKRHeap* heap) {
     registNum = 0;
     maxNum = num;
-    pTexResArray = new(heap, 0) JPATexture*[maxNum];
+    pTexResArray = JKR_NEW_ARRAY_ARGS(JPATexture*, maxNum, heap, 0);
     JUT_ASSERT(24, pTexResArray);
     defaultTex.initialize(heap);
 }
@@ -36,7 +36,7 @@ static void dummy() {
 JPAEmitterResource::JPAEmitterResource(u32 num, JKRHeap* heap) {
     registNum = 0;
     maxNum = num;
-    pEmtrResArray = new(heap, 0) JPAEmitterData*[maxNum];
+    pEmtrResArray = JKR_NEW_ARRAY_ARGS(JPAEmitterData*, maxNum, heap, 0);
     JUT_ASSERT(93, pEmtrResArray);
 }
 

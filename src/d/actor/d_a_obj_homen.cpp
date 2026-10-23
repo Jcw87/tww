@@ -238,7 +238,7 @@ bool Act_c::create_heap() {
     if (bgw_data != NULL)
 #endif
     {
-        mpBgW = new dBgW();
+        mpBgW = JKR_NEW dBgW();
 #if VERSION == VERSION_DEMO
         if (mpBgW != NULL && mpBgW->Set(bgw_data, cBgW::MOVE_BG_e, &mMtx)) {
             r28 |= 1;

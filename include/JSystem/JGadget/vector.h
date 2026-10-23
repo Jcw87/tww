@@ -36,7 +36,7 @@ struct TVector {
     ~TVector() {
         Confirm();
         clear();
-        delete mBegin;
+        JKR_DELETE(mBegin);
     }
 
     void insert(T* position, u32 count, T const& value)

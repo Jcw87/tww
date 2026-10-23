@@ -7,6 +7,7 @@
 
 #include "JSystem/J2DGraph/J2DPicture.h"
 #include "JSystem/JKernel/JKRFileLoader.h"
+#include "JSystem/JKernel/JKRHeap.h"
 #include "JSystem/JSupport/JSURandomInputStream.h"
 #include "JSystem/JUtility/JUTResource.h"
 #include "JSystem/JUtility/JUTPalette.h"
@@ -69,11 +70,11 @@ J2DPicture::J2DPicture(J2DPane* parent, JSURandomInputStream* stream) : mpPalett
     mNumTexture = 0;
     mValidTexture = 1;
     if (timg) {
-        mpTexture[0] = new JUTTexture(timg, 0);
+        mpTexture[0] = JKR_NEW JUTTexture(timg, 0);
         mNumTexture++;
     }
     if (tlut) {
-        mpPalette = new JUTPalette(GX_TLUT0, tlut);
+        mpPalette = JKR_NEW JUTPalette(GX_TLUT0, tlut);
         mpTexture[0]->attachPalette(mpPalette);
     }
     setBlendRatio(1.0f, 1.0f, 1.0f, 1.0f);
@@ -123,12 +124,12 @@ void J2DPicture::private_initiate(const ResTIMG* pTimg, const ResTLUT* pTlut) {
     mValidTexture = 1;
     mNumTexture = 0;
     if (pTimg) {
-        mpTexture[0] = new JUTTexture(pTimg, 0);
+        mpTexture[0] = JKR_NEW JUTTexture(pTimg, 0);
         mNumTexture++;
     }
     mpPalette = NULL;
     if (pTlut) {
-        mpPalette = new JUTPalette(GX_TLUT0, (ResTLUT*)pTlut);
+        mpPalette = JKR_NEW JUTPalette(GX_TLUT0, (ResTLUT*)pTlut);
         mpTexture[0]->attachPalette(mpPalette);
     }
 }
@@ -149,10 +150,10 @@ void J2DPicture::initinfo() {
 J2DPicture::~J2DPicture() {
     for (int i = 0; i < mNumTexture; i++) {
         if (mValidTexture & 1 << i) {
-            delete mpTexture[i];
+            JKR_DELETE(mpTexture[i]);
         }
     }
-    delete mpPalette;
+    JKR_DELETE(mpPalette);
 }
 
 /* 802D3824-802D3A08       .text insert__10J2DPictureFPC7ResTIMGUcf */
@@ -160,7 +161,7 @@ bool J2DPicture::insert(const ResTIMG* pTimg, u8 idx, f32 param_3) {
     if (!pTimg || mNumTexture >= 4 || idx >= 4 || idx > mNumTexture) {
         return false;
     }
-    JUTTexture* texture = new JUTTexture(pTimg, 0);
+    JUTTexture* texture = JKR_NEW JUTTexture(pTimg, 0);
     for (u8 i = 3; idx < i; i--) {
         mpTexture[i] = mpTexture[i - 1];
         mBlendKonstColorF[i] = mBlendKonstColorF[i - 1];
@@ -192,7 +193,7 @@ bool J2DPicture::remove(u8 idx) {
         return false;
     }
     if (mValidTexture & 1 << idx) {
-        delete mpTexture[idx];
+        JKR_DELETE(mpTexture[idx]);
     }
     for (u8 i = idx; i < mNumTexture - 1; i++) {
         mpTexture[i] = mpTexture[i + 1];

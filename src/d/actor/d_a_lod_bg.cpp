@@ -236,7 +236,7 @@ BOOL daLodbg_c::execReadWait() {
 #if VERSION > VERSION_DEMO
     JUT_ASSERT(VERSION_SELECT(506, 506, 535, 535), mArchive == NULL);
     mArchive = mMountCommand->getArchive();
-    delete mMountCommand;
+    JKR_DELETE(mMountCommand);
     mMountCommand = NULL;
 #endif
 

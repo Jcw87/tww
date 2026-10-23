@@ -212,10 +212,10 @@ dScnOpen_proc_c::dScnOpen_proc_c() {
 
     JKRHeap* old_heap = mDoExt_setCurrentHeap(exp_heap);
 
-    m_Screen = new J2DScreen();
+    m_Screen = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(211, 212, 231, 231), m_Screen != NULL);
 
-    m_message = new dScnOpen_message_c(exp_heap);
+    m_message = JKR_NEW dScnOpen_message_c(exp_heap);
     JUT_ASSERT(VERSION_SELECT(213, 214, 233, 233), m_message != NULL);
 
     dRes_info_c* resInfo = dComIfG_getObjectResInfo("Opening");
@@ -260,10 +260,10 @@ dScnOpen_proc_c::dScnOpen_proc_c() {
 dScnOpen_proc_c::~dScnOpen_proc_c() {
     JKRHeap* old_heap = mDoExt_setCurrentHeap(exp_heap);
 
-    delete m_Screen;
+    JKR_DELETE(m_Screen);
     m_Screen = NULL;
 
-    delete m_message;
+    JKR_DELETE(m_message);
     m_message = NULL;
 
     mDoExt_setCurrentHeap(old_heap);

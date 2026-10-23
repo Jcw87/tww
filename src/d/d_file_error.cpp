@@ -36,10 +36,10 @@ dFe_HIO_c::dFe_HIO_c() {
 
 /* 8017DBA8-8017DDEC       .text _create__13dFile_error_cFv */
 void dFile_error_c::_create() {
-    fileErr.Scr = new MyScreen();
+    fileErr.Scr = JKR_NEW MyScreen();
     JUT_ASSERT(VERSION_SELECT(103, 103, 116, 116), fileErr.Scr != NULL);
 
-    stick = new STControl(5, 2, 3, 2, 0.9, 0.5, 0, 0x2000);
+    stick = JKR_NEW STControl(5, 2, 3, 2, 0.9, 0.5, 0, 0x2000);
     JUT_ASSERT(VERSION_SELECT(108, 108, 121, 121), stick != NULL);
 
     archive = dComIfGp_getErrorResArchive();
@@ -64,11 +64,11 @@ void dFile_error_c::initial() {
 
 /* 8017DE20-8017DEA4       .text _delete__13dFile_error_cFv */
 void dFile_error_c::_delete() {
-    delete fileErr.Scr;
+    JKR_DELETE(fileErr.Scr);
 
     mDoExt_removeMesgFont();
 
-    delete stick;
+    JKR_DELETE(stick);
 
     archive->removeResourceAll();
 

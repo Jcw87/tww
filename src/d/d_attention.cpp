@@ -84,7 +84,7 @@ dAttention_c::dAttention_c(fopAc_ac_c* i_player, u32 i_padNo) {
     }
 
     for (s32 i = 0; i < (s32)ARRAY_SIZE(draw); i++) {
-        draw[i].anm = new mDoExt_McaMorf(
+        draw[i].anm = JKR_NEW mDoExt_McaMorf(
             modelData,
             &mCallBack, NULL,
             (J3DAnmTransformKey*)dComIfG_getObjectRes("Always", dRes_INDEX_ALWAYS_BCK_YJ_LOOP_e),
@@ -95,7 +95,7 @@ dAttention_c::dAttention_c(fopAc_ac_c* i_player, u32 i_padNo) {
         );
         JUT_ASSERT(0xe3, draw[i].anm != NULL && draw[i].anm->getModel() != NULL);
         draw[i].mpAnmClr = NULL;
-        draw[i].mpAnmMatClr = new J3DMatColorAnm[anmColNum];
+        draw[i].mpAnmMatClr = JKR_NEW_ARRAY(J3DMatColorAnm, anmColNum);
     }
 
     mDoExt_restoreCurrentHeap();

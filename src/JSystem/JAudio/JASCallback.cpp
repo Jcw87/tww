@@ -18,7 +18,7 @@ bool JASystem::Kernel::callbackInit;
 /* 8027BA70-8027BB24       .text resetCallback__Q28JASystem6KernelFv */
 void JASystem::Kernel::resetCallback() {
     if (callbackInit != true) {
-        callList = (unk_callList*)new (JASDram, 0) unk_callList[maxCallbacksUser];
+        callList = (unk_callList*)JKR_NEW_ARRAY_ARGS(unk_callList, maxCallbacksUser, JASDram, 0);
         JUT_ASSERT(58, callList != NULL);
         BOOL enable = OSDisableInterrupts();
         for (int i = 0; i < maxCallbacksUser; i++) {

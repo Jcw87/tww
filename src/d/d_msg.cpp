@@ -206,7 +206,7 @@ void dMsg_arw_pane_parts_set(fopMsgM_pane_class* pDst, fopMsgM_pane_class* pSrc)
 
 /* 8020AE28-8020B958       .text dMsg_screenDataSetTalk__FP13sub_msg_class */
 void dMsg_screenDataSetTalk(sub_msg_class* i_Msg) {
-    sScreen = new MyScreen();
+    sScreen = JKR_NEW MyScreen();
     sScreen->set("hukidashi_00.blo", dComIfGp_getMsgArchive());
     fopMsgM_setPaneData(&i_Msg->m049C, sScreen->search('ms00'));
     fopMsgM_setPaneData(&i_Msg->mPane_Arrow, sScreen->search('yz00'));
@@ -293,7 +293,7 @@ void dMsg_screenDataSetTalk(sub_msg_class* i_Msg) {
 
 /* 8020B958-8020CC6C       .text dMsg_screenDataSetItem__FP13sub_msg_class */
 void dMsg_screenDataSetItem(sub_msg_class* i_Msg) {
-    sScreen = new MyScreen();
+    sScreen = JKR_NEW MyScreen();
     sScreen->set("hukidashi_09.blo", dComIfGp_getMsgArchive());
     fopMsgM_setPaneData(&i_Msg->m049C, sScreen->search('ms90'));
     fopMsgM_setPaneData(&i_Msg->mPane_Arrow, sScreen->search('yz90'));
@@ -469,7 +469,7 @@ void dMsg_screenDataSetItem(sub_msg_class* i_Msg) {
 
 /* 8020CC6C-8020D160       .text dMsg_screenDataSetDemo__FP13sub_msg_class */
 void dMsg_screenDataSetDemo(sub_msg_class* i_Msg) {
-    sScreen = new MyScreen();
+    sScreen = JKR_NEW MyScreen();
     sScreen->set("hukidashi_05.blo", dComIfGp_getMsgArchive());
     fopMsgM_setPaneData(&i_Msg->m0544[0], sScreen->search('tx82'));
     fopMsgM_setPaneData(&i_Msg->m0544[1], sScreen->search('tx83'));
@@ -554,7 +554,7 @@ void dMsg_screenDataSetTact(sub_msg_class* i_Msg) {
     static const u32 bs_t[] = {'bs01', 'bs02', 'bs03', 'bs04', 'bs05', 'bs06'};
     static const u32 i0_t[] = {'i011', 'i021', 'i031', 'i041', 'i051', 'i061'};
 
-    sScreen = new MyScreen();
+    sScreen = JKR_NEW MyScreen();
     sScreen->set("hukidashi_14.blo", dComIfGp_getMsgArchive());
     if (i_Msg->mMsgNo >= 0x5ac && i_Msg->mMsgNo <= 0x5b2) {
         fopMsgM_setPaneData(&i_Msg->m049C, sScreen, 'm141');
@@ -581,7 +581,7 @@ void dMsg_screenDataSetTact(sub_msg_class* i_Msg) {
     }
     if (i_Msg->mMsgNo == 0x5b3 || i_Msg->mMsgNo == 0x5b4) {
         JUT_ASSERT(1036, dComIfGp_getMelodyNum() <= 7);
-        sScreen2 = new J2DScreen();
+        sScreen2 = JKR_NEW J2DScreen();
         sScreen2->set(mLayout[dComIfGp_getMelodyNum()], dComIfGp_getMsgArchive());
         for (s32 i = 0; i < mBeatNum[dComIfGp_getMelodyNum()]; i++) {
             fopMsgM_setPaneData(&i_Msg->m08C4[i], sScreen2, ar_t[i]);
@@ -657,9 +657,9 @@ void dMsg_screenDataSet(sub_msg_class* i_Msg) {
     JUT_ASSERT(1159, textFont != NULL);
 #endif
     for (s32 i = 0; i < 3; i++) {
-        numberPane[i] = new J2DTextBox("rock_24_20_4i_usa.bfn", "0");
+        numberPane[i] = JKR_NEW J2DTextBox("rock_24_20_4i_usa.bfn", "0");
     }
-    maskPane = new J2DPicture("black.bti");
+    maskPane = JKR_NEW J2DPicture("black.bti");
     switch (i_Msg->mMesgEntry.mTextboxType) {
     case 5:
         dMsg_screenDataSetDemo(i_Msg);
@@ -2907,9 +2907,9 @@ static BOOL dMsg_Delete(sub_msg_class* i_Msg) {
             i_Msg->m10B4[i]->quitImmortalEmitter();
         }
     }
-    delete (MyScreen*)sScreen;
+    JKR_DELETE((MyScreen*)sScreen);
     if (sScreen2 != NULL) {
-        delete (J2DScreen*)sScreen2;
+        JKR_DELETE((J2DScreen*)sScreen2);
     }
 #if VERSION >= VERSION_USA
     if (dMsg_font_flag != 0) {
@@ -2922,13 +2922,13 @@ static BOOL dMsg_Delete(sub_msg_class* i_Msg) {
     mDoExt_removeRubyFont();
 #endif
     for (s32 i = 0; i < 8; i++) {
-        delete (J2DPicture*)button_icon[i];
-        delete (J2DPicture*)button_kage[i];
+        JKR_DELETE((J2DPicture*)button_icon[i]);
+        JKR_DELETE((J2DPicture*)button_kage[i]);
     }
-    delete (J2DPicture*)arrowPane;
-    delete (J2DPicture*)maskPane;
+    JKR_DELETE((J2DPicture*)arrowPane);
+    JKR_DELETE((J2DPicture*)maskPane);
     for (s32 i = 0; i < 3; i++) {
-        delete (J2DTextBox*)numberPane[i];
+        JKR_DELETE((J2DTextBox*)numberPane[i]);
     }
     i_Msg->mpHeap->free(i_Msg->output_text);
     i_Msg->mpHeap->free(i_Msg->output_rub);
@@ -2973,8 +2973,8 @@ static cPhs_State dMsg_Create(msg_class* i_this) {
     i_Msg->mMesgCameraTagInfo = dComIfGp_getMesgCameraTagInfo();
     dMsg_screenDataSet(i_Msg);
     for (s32 i = 0; i < 8; i++) {
-        button_icon[i] = new J2DPicture("font_07_02.bti");
-        button_kage[i] = new J2DPicture("font_07_02.bti");
+        button_icon[i] = JKR_NEW J2DPicture("font_07_02.bti");
+        button_kage[i] = JKR_NEW J2DPicture("font_07_02.bti");
         fopMsgM_blendInit(button_icon[i], "font_00.bti");
         fopMsgM_blendInit(button_kage[i], "font_00.bti");
         button_icon[i]->hide();
@@ -2983,7 +2983,7 @@ static cPhs_State dMsg_Create(msg_class* i_this) {
         button_kage[i]->setAlpha(0);
         buttonTimer[i] = -1;
     }
-    arrowPane = new J2DPicture("font_10.bti");
+    arrowPane = JKR_NEW J2DPicture("font_10.bti");
     i_Msg->output_text = (char*)i_Msg->mpHeap->alloc(0x385, 4);
     JUT_ASSERT(5444, i_Msg->output_text != NULL);
     i_Msg->output_rub = (char*)i_Msg->mpHeap->alloc(0x385, 4);

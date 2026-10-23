@@ -659,7 +659,7 @@ static BOOL daDr2_Delete(dr2_class* i_this) {
 static BOOL useHeapInit(fopAc_ac_c* a_this) {
     dr2_class* i_this = (dr2_class*)a_this;
 
-    i_this->mpMorf1 = new mDoExt_McaMorf(
+    i_this->mpMorf1 = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Dr2", dRes_INDEX_DR2_BMD_DR_SIPPO_e),
         NULL, NULL, NULL, J3DFrameCtrl::EMode_LOOP, 1.0f, 0, -1, 0, NULL, 0, 0x11020203
     );
@@ -689,7 +689,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         return FALSE;
     }
 
-    i_this->unk_420 = new mDoExt_btkAnm();
+    i_this->unk_420 = JKR_NEW mDoExt_btkAnm();
     if (i_this->unk_420 == NULL) {
         return FALSE;
     }
@@ -712,7 +712,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         }
     }
 
-    i_this->mpMorf2 = new mDoExt_McaMorf((J3DModelData*)dComIfG_getObjectRes("Dr2", dRes_INDEX_DR2_BMD_DR_e), 
+    i_this->mpMorf2 = JKR_NEW mDoExt_McaMorf((J3DModelData*)dComIfG_getObjectRes("Dr2", dRes_INDEX_DR2_BMD_DR_e), 
                             NULL, NULL, (J3DAnmTransformKey*)dComIfG_getObjectRes("Dr2", dRes_INDEX_DR2_BCK_DR_BOSS_DEMO1_e), 
                             J3DFrameCtrl::EMode_LOOP, 1.0f, 0, -1, 0, NULL, 0, 0x11020203);
 
@@ -736,7 +736,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         return FALSE;
     }
 
-    i_this->unk_430 = new mDoExt_btkAnm();
+    i_this->unk_430 = JKR_NEW mDoExt_btkAnm();
     if (i_this->unk_430 == NULL) {
         return FALSE;
     }
@@ -746,7 +746,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         return FALSE;
     }
 
-    i_this->unk_434 = new mDoExt_btkAnm();
+    i_this->unk_434 = JKR_NEW mDoExt_btkAnm();
     if (i_this->unk_434 == NULL) {
         return FALSE;
     }
@@ -756,7 +756,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         return FALSE;
     }
 
-    i_this->unk_438 = new mDoExt_brkAnm();
+    i_this->unk_438 = JKR_NEW mDoExt_brkAnm();
     if (i_this->unk_438 == NULL) {
         return FALSE;
     }
@@ -766,12 +766,12 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
         return FALSE;
     }
 
-    i_this->mpBgW1 = new dBgW();
+    i_this->mpBgW1 = JKR_NEW dBgW();
     if (i_this->mpBgW1 == NULL) {
         return FALSE;
     }
 
-    i_this->mpBgW2 = new dBgW();
+    i_this->mpBgW2 = JKR_NEW dBgW();
     if (i_this->mpBgW2 == NULL) {
         return FALSE;
     }

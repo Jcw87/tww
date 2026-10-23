@@ -3880,7 +3880,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     J3DModelData* modelData;
     J3DModel* model;
 
-    i_this->mpBodyMorf = new mDoExt_McaMorf(
+    i_this->mpBodyMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Tn", dRes_INDEX_TN_BMD_TN_MAIN_e),
         NULL,
         NULL,
@@ -3909,7 +3909,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
             model->getModelData()->getJointNodePointer(i)->setCallBack(nodeCallBack_mimi);
         }
     }
-    i_this->mpShieldMorf = new mDoExt_McaMorf(
+    i_this->mpShieldMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Tn", dRes_INDEX_TN_BMD_TN_MAIN_e),
         NULL,
         NULL,
@@ -3926,7 +3926,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     model = i_this->mpShieldMorf->getModel();
     model->setUserArea((uintptr_t)i_this);
     model->getModelData()->getJointNodePointer(TN_MAIN_JNT_J_TN_MUNE1_e)->setCallBack(nodeCallBack_kata);
-    i_this->mpBrkAnm = new mDoExt_brkAnm();
+    i_this->mpBrkAnm = JKR_NEW mDoExt_brkAnm();
     if (i_this->mpBrkAnm == NULL) {
         return FALSE;
     }
@@ -3941,7 +3941,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     }
     for (s32 i = 0; i < ARRAY_SSIZE(i_this->mParts); i++) {
         if (i == 0) {
-            i_this->mpArmorMorf = new mDoExt_McaMorf(
+            i_this->mpArmorMorf = JKR_NEW mDoExt_McaMorf(
                 (J3DModelData*)dComIfG_getObjectRes("Tn", dRes_INDEX_TN_BMD_TN_YOROI1_e), // Body armor
                 NULL,
                 NULL,
@@ -3968,7 +3968,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
             return FALSE;
         }
         if (i < 3) {
-            i_this->mParts[i].mpPartBrkAnm = new mDoExt_brkAnm();
+            i_this->mParts[i].mpPartBrkAnm = JKR_NEW mDoExt_brkAnm();
             if (i_this->mParts[i].mpPartBrkAnm == 0) {
                 return FALSE;
             }

@@ -43,7 +43,7 @@ BOOL daPds_c::CreateHeap() {
         return FALSE;
     }
 
-    mpBgW = new dBgW();
+    mpBgW = JKR_NEW dBgW();
 
     if (mpBgW != NULL) {
         if (mpBgW->Set((cBgD_t*)dComIfG_getObjectRes(m_arcname, dRes_INDEX_HDAI1_DZB_HDAI_e), cBgW::MOVE_BG_e, &mMtx) == true) {

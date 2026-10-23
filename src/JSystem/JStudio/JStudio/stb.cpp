@@ -321,7 +321,7 @@ JStudio::TObject* TFactory::create(const data::TParse_TBlock_object&) {
 
 /* 802756AC-802756E8       .text destroy__Q37JStudio3stb8TFactoryFPQ37JStudio3stb7TObject */
 void TFactory::destroy(TObject* p) {
-    delete p;
+    JKR_DELETE(p);
 }
 
 /* 802756E8-80275708       .text __ct__Q37JStudio3stb6TParseFPQ37JStudio3stb8TControl */

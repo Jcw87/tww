@@ -680,7 +680,7 @@ static BOOL daBmdfoot_Delete(bmdfoot_class* i_this) {
 
 /* 000026B0-000029B4       .text useHeapInit__FP13bmdfoot_class */
 static int useHeapInit(bmdfoot_class* i_this) {
-    i_this->mpBodyVineMorf = new mDoExt_McaMorf(
+    i_this->mpBodyVineMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Bmdfoot", dRes_INDEX_BMDFOOT_BMD_ASI_e),
         NULL,
         NULL,
@@ -708,7 +708,7 @@ static int useHeapInit(bmdfoot_class* i_this) {
     for (u16 i = 0; i < model->getModelData()->getJointNum(); i++) {
         model->getModelData()->getJointNodePointer(i)->setCallBack(nodeCallBack);
     }
-    i_this->btk = new mDoExt_btkAnm();
+    i_this->btk = JKR_NEW mDoExt_btkAnm();
     JUT_ASSERT(DEMO_SELECT(1416, 1426), i_this->btk);
     J3DAnmTextureSRTKey* pBtk = (J3DAnmTextureSRTKey*)dComIfG_getObjectRes("Bmdfoot", dRes_INDEX_BMDFOOT_BTK_ASI_e);
 #if VERSION == VERSION_DEMO
@@ -719,7 +719,7 @@ static int useHeapInit(bmdfoot_class* i_this) {
     }
 #endif
 
-    i_this->mpFloorVineMorf = new mDoExt_McaMorf(
+    i_this->mpFloorVineMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Bmdfoot", dRes_INDEX_BMDFOOT_BMD_ASI_e),
         NULL,
         NULL,

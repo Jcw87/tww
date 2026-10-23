@@ -43,7 +43,7 @@ bool daObjVteng_c::create_heap() {
         JUT_ASSERT(0xb7, FALSE);
         ret = false;
     } else {
-        mpMorf = new mDoExt_McaMorf(
+        mpMorf = JKR_NEW mDoExt_McaMorf(
             pModelData,
             NULL, NULL,
             pAnm,

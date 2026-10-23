@@ -1501,16 +1501,16 @@ void JASystem::TTrack::registerSeqCallback(u16 (*param_1)(TTrack*, u16)) {
 
 /* 80283CE8-80283E9C       .text newMemPool__Q28JASystem6TTrackFi */
 void JASystem::TTrack::newMemPool(int param_1) {
-    TTrack* runner = (TTrack*)new (JASDram, 0) u8[sizeof(TTrack)];
+    TTrack* runner = (TTrack*)JKR_NEW_ARRAY_ARGS(u8, sizeof(TTrack), JASDram, 0);
     JUT_ASSERT(2218, runner);
-    TOuterParam* outer = new (JASDram, 0) TOuterParam();
+    TOuterParam* outer = JKR_NEW_ARGS(JASDram, 0) TOuterParam();
     JUT_ASSERT(2220, outer);
     runner->assignExtBuffer(outer);
     sFreeList = runner;
     for (int i = 1; i < param_1; i++) {
-        runner->next = (TTrack*)new (JASDram, 0) u8[sizeof(TTrack)];
+        runner->next = (TTrack*)JKR_NEW_ARRAY_ARGS(u8, sizeof(TTrack), JASDram, 0);
         JUT_ASSERT(2228, runner->next);
-        TOuterParam* outer = new (JASDram, 0) TOuterParam();
+        TOuterParam* outer = JKR_NEW_ARGS(JASDram, 0) TOuterParam();
         JUT_ASSERT(2230, outer);
         runner->next->assignExtBuffer(outer);
         runner = runner->next;

@@ -110,7 +110,7 @@ bool Act_c::create_heap() {
     J3DAnmTextureSRTKey* btk_data = static_cast<J3DAnmTextureSRTKey*>(dComIfG_getObjectRes(M_arcname, sVar8));
     JUT_ASSERT(475, btk_data != NULL);
 
-    mpBtk = new mDoExt_btkAnm();
+    mpBtk = JKR_NEW mDoExt_btkAnm();
     if (mpBtk != NULL && mpBtk->init(modelData, btk_data, true, J3DFrameCtrl::EMode_LOOP)) {
         bVar1 = TRUE;
     }

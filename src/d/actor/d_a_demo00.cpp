@@ -137,7 +137,7 @@ BOOL awaCheck(J3DModel* model) {
                     || strcmp(name, "cy_kankyo") == 0
 #endif
                 ) {
-                    J3DSkinDeform* deform = new J3DSkinDeform();
+                    J3DSkinDeform* deform = JKR_NEW J3DSkinDeform();
                     if (deform == NULL)
                         return FALSE;
 
@@ -171,7 +171,7 @@ BOOL daDemo00_c::createHeap() {
         u32 r28 = 0x11000002;
         
         if (mModel.mID.mBtpID != -1) {
-            mModel.mpBtpAnm = new mDoExt_btpAnm();
+            mModel.mpBtpAnm = JKR_NEW mDoExt_btpAnm();
             if (mModel.mpBtpAnm == NULL) {
                 return FALSE;
             }
@@ -187,7 +187,7 @@ BOOL daDemo00_c::createHeap() {
         }
         
         if (mModel.mID.mBtkID != -1) {
-            mModel.mpBtkAnm = new mDoExt_btkAnm();
+            mModel.mpBtkAnm = JKR_NEW mDoExt_btkAnm();
             if (mModel.mpBtkAnm == NULL) {
                 return FALSE;
             }
@@ -207,7 +207,7 @@ BOOL daDemo00_c::createHeap() {
         }
         
         if (mModel.mID.mBrkID != -1) {
-            mModel.mpBrkAnm = new mDoExt_brkAnm();
+            mModel.mpBrkAnm = JKR_NEW mDoExt_brkAnm();
             if (mModel.mpBrkAnm == NULL) {
                 return FALSE;
             }
@@ -229,7 +229,7 @@ BOOL daDemo00_c::createHeap() {
         } else {
             J3DAnmTransformKey* anm = (J3DAnmTransformKey*)dComIfG_getObjectIDRes(dStage_roomControl_c::getDemoArcName(), (u16)mModel.mID.mBckID);
             JUT_ASSERT(DEMO_SELECT(304, 328), anm != NULL);
-            mModel.mpMorf = new mDoExt_McaMorf(
+            mModel.mpMorf = JKR_NEW mDoExt_McaMorf(
                 modelData,
                 NULL,
                 NULL,
@@ -253,7 +253,7 @@ BOOL daDemo00_c::createHeap() {
         }
         
         if (field_0x29c == 3) {
-            mModel.mpInvisibleModel = new mDoExt_invisibleModel();
+            mModel.mpInvisibleModel = JKR_NEW mDoExt_invisibleModel();
             if (mModel.mpInvisibleModel == NULL) {
                 return FALSE;
             }
@@ -265,7 +265,7 @@ BOOL daDemo00_c::createHeap() {
         }
         
         if (mModel.mID.mShadowID != -1) {
-            mModel.mpShadow = new daDemo00_shadow_c();
+            mModel.mpShadow = JKR_NEW daDemo00_shadow_c();
             if (mModel.mpShadow == NULL) {
                 return FALSE;
             }
@@ -273,7 +273,7 @@ BOOL daDemo00_c::createHeap() {
             setShadowSize();
         }
         
-        mModel.mBgc = new daDemo00_bgc_c();
+        mModel.mBgc = JKR_NEW daDemo00_bgc_c();
         if (mModel.mBgc == NULL) {
             return FALSE;
         }
@@ -281,7 +281,7 @@ BOOL daDemo00_c::createHeap() {
     }
 
     if (mModel.mID.mPlightID != -1) {
-        mModel.mpPlight = new DEMO_PLIGHT();
+        mModel.mpPlight = JKR_NEW DEMO_PLIGHT();
         if (mModel.mpPlight == NULL) {
             return FALSE;
         }

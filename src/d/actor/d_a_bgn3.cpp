@@ -1151,7 +1151,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     ResTIMG* pBti;
     bgn3_class* i_this = (bgn3_class*)a_this;
 
-    i_this->mpMorf = new mDoExt_McaMorf(
+    i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Bgn", dRes_INDEX_BGN_BDL_BGN_HEAD1_e),
         NULL,
         NULL,
@@ -1195,7 +1195,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     if (i_this->mpJyakutenBModel == NULL) {
         return FALSE;
     }
-    i_this->mJyakutenBBrkAnm = new mDoExt_brkAnm();
+    i_this->mJyakutenBBrkAnm = JKR_NEW mDoExt_brkAnm();
 #if VERSION > VERSION_DEMO
     if (i_this->mJyakutenBBrkAnm == NULL) {
         return FALSE;
@@ -1210,7 +1210,7 @@ static BOOL useHeapInit(fopAc_ac_c* a_this) {
     if (i_this->mpJyakutenCModel == NULL) {
         return FALSE;
     }
-    i_this->mJyakutenCBrkAnm = new mDoExt_brkAnm();
+    i_this->mJyakutenCBrkAnm = JKR_NEW mDoExt_brkAnm();
 #if VERSION > VERSION_DEMO
     if (i_this->mJyakutenCBrkAnm == NULL) {
         return FALSE;

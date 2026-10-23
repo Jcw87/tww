@@ -108,7 +108,7 @@ static BOOL daDEMO_DK_Delete(demo_dk_class* i_this) {
 static BOOL useHeapInit(fopAc_ac_c* a_this) {
     demo_dk_class* i_this = (demo_dk_class*)a_this;
 
-    i_this->mpMorf = new mDoExt_McaMorf(
+    i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("DEMO_DK", dRes_INDEX_DEMO_DK_BMD_DK_L_e),
         NULL, NULL, 
         (J3DAnmTransform*)dComIfG_getObjectRes("DEMO_DK", dRes_INDEX_DEMO_DK_BCK_DK_L_WAIT1_e),

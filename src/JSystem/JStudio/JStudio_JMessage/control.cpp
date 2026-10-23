@@ -16,7 +16,7 @@ namespace {
 inline JStudio::TObject_message* message_creator(const JStudio::stb::data::TParse_TBlock_object& data,
                                                  TAdaptor_message* adaptor)
 {
-    JStudio::TObject_message* object = new JStudio::TObject_message(data, adaptor);
+    JStudio::TObject_message* object = JKR_NEW JStudio::TObject_message(data, adaptor);
 
     if (!object) {
         return NULL;
@@ -30,7 +30,7 @@ inline JStudio::TObject_message* message_creator(const JStudio::stb::data::TPars
 /* 8027A3F4-8027A4A8       .text createObject_MESSAGE_JMS___Q216JStudio_JMessage21@unnamed@control_cpp@FRCQ47JStudio3stb4data20TParse_TBlock_objectPQ28JMessage8TControl */
 JStudio::TObject_message* createObject_MESSAGE_JMS_(const JStudio::stb::data::TParse_TBlock_object& data, JMessage::TControl* system)
 {
-    TAdaptor_message* adaptor = new TAdaptor_message(system);
+    TAdaptor_message* adaptor = JKR_NEW TAdaptor_message(system);
     if (!adaptor) {
         return NULL;
     }

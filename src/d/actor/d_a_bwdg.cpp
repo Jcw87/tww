@@ -202,7 +202,7 @@ static BOOL daBwdg_Delete(bwdg_class* i_this) {
 static BOOL useHeapInit(fopAc_ac_c* i_actor) {
     bwdg_class* i_this = (bwdg_class*)i_actor;
     
-    i_this->mpBgW = new dBgWHf();
+    i_this->mpBgW = JKR_NEW dBgWHf();
     if (i_this->mpBgW == NULL) {
         return FALSE;
     }

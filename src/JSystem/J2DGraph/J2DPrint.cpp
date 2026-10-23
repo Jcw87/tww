@@ -69,9 +69,9 @@ char* J2DPrint::setBuffer(u32 size) {
     JUT_ASSERT(324, size > 0);
     char* tmp = mStrBuff;
     if (mHeapFlag) {
-        delete mStrBuff;
+        JKR_DELETE(mStrBuff);
     }
-    mStrBuff = new(JKRHeap::sSystemHeap, 0) char[size];
+    mStrBuff = JKR_NEW_ARRAY_ARGS(char, size, JKRHeap::sSystemHeap, 0);
     mStrBuffSize = size;
     mHeapFlag = true;
     return tmp;

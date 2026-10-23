@@ -103,15 +103,15 @@ void JAInter::StreamMgr::init() {
     JUT_ASSERT_MSG(46, soundObjects, "JAIStreamMgr::initHeap Cannot Alloc Heap!!\n");
     streamControl.init(soundObjects, JAIGlobalParameter::getParamStreamControlBufferMax());
     for (int i = 0; i < JAIGlobalParameter::getParamStreamParameterBufferMax(); i++) {
-        StreamParameter* _para = new (JAIBasic::getCurrentJAIHeap(), 32) StreamParameter();
+        StreamParameter* _para = JKR_NEW_ARGS(JAIBasic::getCurrentJAIHeap(), 32) StreamParameter();
         JUT_ASSERT_MSG(52, _para, "JAIStreamMgr::initHeap Cannot Alloc Heap!!\n");
-        _para->pan = new (JAIBasic::getCurrentJAIHeap(), 32) MoveParaSet[JAIGlobalParameter::getParamStreamParameterLines()];
+        _para->pan = JKR_NEW_ARRAY_ARGS(MoveParaSet, JAIGlobalParameter::getParamStreamParameterLines(), JAIBasic::getCurrentJAIHeap(), 32);
         JUT_ASSERT_MSG(54, _para->pan, "JAIStreamMgr::initHeap Cannot Alloc Heap!!\n");
-        _para->pitch = new (JAIBasic::getCurrentJAIHeap(), 32) MoveParaSet[JAIGlobalParameter::getParamStreamParameterLines()];
+        _para->pitch = JKR_NEW_ARRAY_ARGS(MoveParaSet, JAIGlobalParameter::getParamStreamParameterLines(), JAIBasic::getCurrentJAIHeap(), 32);
         JUT_ASSERT_MSG(56, _para->pitch, "JAIStreamMgr::initHeap Cannot Alloc Heap!!\n");
         streamControl.Buffer[i].field_0x3c = _para;
     }
-    streamUpdate = new (JAIBasic::getCurrentJAIHeap(), 32) streamUpdate_t();
+    streamUpdate = JKR_NEW_ARGS(JAIBasic::getCurrentJAIHeap(), 32) streamUpdate_t();
     JUT_ASSERT_MSG(61, streamUpdate, "JAIStreamMgr::initHeap Cannot Alloc Heap!!\n");
     streamUpdate_t* tmp = streamUpdate;
     tmp->field_0x0 = 0;

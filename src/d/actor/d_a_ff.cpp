@@ -266,7 +266,7 @@ static BOOL useHeapInit(fopAc_ac_c* i_this) {
         if (a_this->mpModel[i] == NULL) {
             return FALSE;
         }
-        a_this->mBrkAnm[i] = new mDoExt_brkAnm();
+        a_this->mBrkAnm[i] = JKR_NEW mDoExt_brkAnm();
         if (a_this->mBrkAnm[i] == NULL) {
             return FALSE;
         }

@@ -158,7 +158,7 @@ void JAIBasic::initAudioThread(JKRSolidHeap* param_1, u32 param_2, u8 param_3) {
 
 /* 8029011C-8029031C       .text initCamera__8JAIBasicFv */
 void JAIBasic::initCamera() {
-    mAudioCamera = new (JAIBasic::getCurrentJAIHeap(), 0x20) JAInter::Camera[JAIGlobalParameter::audioCameraMax];
+    mAudioCamera = JKR_NEW_ARRAY_ARGS(JAInter::Camera, JAIGlobalParameter::audioCameraMax, JAIBasic::getCurrentJAIHeap(), 0x20);
     JUT_ASSERT_MSG(291, mAudioCamera, "JAIBasic::initAllocParameter Cannot Alloc Heap!! (mAudioCamera)\n");
     if (!mAudioCamera->field_0x0) {
         JAInter::Const::nullCamera.field_0x0->x = 0.0f;
@@ -550,9 +550,9 @@ void JAIBasic::setSeExtParameter(JAISound* i_sound) {
 /* 80291114-802911A8       .text makeSound__8JAIBasicFUl */
 JAISound* JAIBasic::makeSound(u32 param_1) {
     if (field_0x8) {
-        return new (field_0x8, 0) JAISound[param_1];
+        return JKR_NEW_ARRAY_ARGS(JAISound, param_1, field_0x8, 0);
     } else {
-        return new (JASDram, 0) JAISound[param_1];
+        return JKR_NEW_ARRAY_ARGS(JAISound, param_1, JASDram, 0);
     }
 }
 

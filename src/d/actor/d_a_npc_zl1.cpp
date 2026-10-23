@@ -2918,12 +2918,12 @@ BOOL daNpc_Zl1_c::bodyCreateHeap() {
     J3DMaterial* pMat1;
     for (u16 i = 0; i < a_mdl_dat->getMaterialNum(); i++) {
         pMat1 = a_mdl_dat->getMaterialNodePointer(i);
-        daNpc_Zl1_matAnm_c * pMatAnm = new daNpc_Zl1_matAnm_c();
+        daNpc_Zl1_matAnm_c * pMatAnm = JKR_NEW daNpc_Zl1_matAnm_c();
         
         pMat1->setMaterialAnm(pMatAnm);
     }
 
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         a_mdl_dat,
         NULL, NULL, NULL,
         J3DFrameCtrl::EMode_NULL, 1.0f, 0, -1, 1, NULL,

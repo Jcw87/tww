@@ -249,7 +249,7 @@ cPhs_State phase_3(room_of_scene_class* i_this) {
 
         JUT_ASSERT(DEMO_SELECT(477, 533), i_this->sceneCommand->getMemAddress() != NULL);
         dComIfGp_particle_createRoomScene(i_this->sceneCommand->getMemAddress());
-        delete i_this->sceneCommand;
+        JKR_DELETE(i_this->sceneCommand);
     }
 
     objectSetCheck(i_this);

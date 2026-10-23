@@ -100,42 +100,42 @@ BOOL daObjEff::Act_c::solidHeapCB(fopAc_ac_c *i_this) {
 
 /* 000005B0-00000600       .text create_heap_barrel_smoke__Q28daObjEff5Act_cFv */
 bool daObjEff::Act_c::create_heap_barrel_smoke() {
-    BarrelSmokeCB *barrel_smoke_cb = new BarrelSmokeCB();
+    BarrelSmokeCB *barrel_smoke_cb = JKR_NEW BarrelSmokeCB();
     mParticleCallback = barrel_smoke_cb;
     return mParticleCallback != NULL;
 }
 
 /* 00000600-00000650       .text create_heap_stool_smoke__Q28daObjEff5Act_cFv */
 bool daObjEff::Act_c::create_heap_stool_smoke() {
-    StoolSmokeCB *stool_smoke_cb = new StoolSmokeCB();
+    StoolSmokeCB *stool_smoke_cb = JKR_NEW StoolSmokeCB();
     mParticleCallback = stool_smoke_cb;
     return mParticleCallback != NULL;
 }
 
 /* 00000650-000006A0       .text create_heap_skull_smoke__Q28daObjEff5Act_cFv */
 bool daObjEff::Act_c::create_heap_skull_smoke() {
-    SkullSmokeCB *skull_smoke_cb = new SkullSmokeCB();
+    SkullSmokeCB *skull_smoke_cb = JKR_NEW SkullSmokeCB();
     mParticleCallback = skull_smoke_cb;
     return mParticleCallback != NULL;
 }
 
 /* 000006A0-000006F0       .text create_heap_land_smoke__Q28daObjEff5Act_cFv */
 bool daObjEff::Act_c::create_heap_land_smoke() {
-    LandSmokeCB *land_smoke_cb = new LandSmokeCB();
+    LandSmokeCB *land_smoke_cb = JKR_NEW LandSmokeCB();
     mParticleCallback = land_smoke_cb;
     return mParticleCallback != NULL;
 }
 
 /* 000006F0-00000740       .text create_heap_pinecone_smoke__Q28daObjEff5Act_cFv */
 bool daObjEff::Act_c::create_heap_pinecone_smoke() {
-    PineconeSmokeCB *pinecone_smoke_cb = new PineconeSmokeCB();
+    PineconeSmokeCB *pinecone_smoke_cb = JKR_NEW PineconeSmokeCB();
     mParticleCallback = pinecone_smoke_cb;
     return mParticleCallback != NULL;
 }
 
 /* 00000740-00000790       .text create_heap_woodBox_smoke__Q28daObjEff5Act_cFv */
 bool daObjEff::Act_c::create_heap_woodBox_smoke() {
-    WoodBoxSmokeCB *woodbox_smoke_cb = new WoodBoxSmokeCB();
+    WoodBoxSmokeCB *woodbox_smoke_cb = JKR_NEW WoodBoxSmokeCB();
     mParticleCallback = woodbox_smoke_cb;
     return mParticleCallback != NULL;
 }

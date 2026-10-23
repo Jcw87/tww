@@ -1871,7 +1871,7 @@ BOOL daNpc_Tc_c::_createHeap() {
     J3DModelData* modelData = static_cast<J3DModelData*>(dComIfG_getObjectRes("Tc", dRes_INDEX_TC_BDL_TC_e));
     JUT_ASSERT(DEMO_SELECT(0xA26, 0xA30), modelData != NULL);
 
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         modelData,
         NULL, NULL, NULL,
         J3DFrameCtrl::EMode_NULL, 1.0f, 0, -1, 1,

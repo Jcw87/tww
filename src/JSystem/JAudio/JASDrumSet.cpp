@@ -96,27 +96,27 @@ JASystem::TDrumSet::TPerc::TPerc() {
 
 /* 80285554-802855B0       .text __dt__Q38JASystem8TDrumSet5TPercFv */
 JASystem::TDrumSet::TPerc::~TPerc() {
-    delete[] mEffect;
-    delete[] mVelomap;
+    JKR_DELETE_ARRAY(mEffect);
+    JKR_DELETE_ARRAY(mVelomap);
 }
 
 /* 802855B0-80285664       .text setEffectCount__Q38JASystem8TDrumSet5TPercFUl */
 void JASystem::TDrumSet::TPerc::setEffectCount(u32 param_1) {
-    delete[] mEffect;
+    JKR_DELETE_ARRAY(mEffect);
     mEffectCount = param_1;
     if (param_1 == 0) {
         mEffect = NULL;
         return;
     }
-    mEffect = new (TBank::getCurrentHeap(), 0) TInstEffect*[param_1];
+    mEffect = JKR_NEW_ARRAY_ARGS(TInstEffect*, param_1, TBank::getCurrentHeap(), 0);
     JUT_ASSERT(146, mEffect != NULL);
     Calc::bzero(mEffect, param_1 * 4);
 }
 
 /* 80285664-802856F8       .text setVeloRegionCount__Q38JASystem8TDrumSet5TPercFUl */
 void JASystem::TDrumSet::TPerc::setVeloRegionCount(u32 param_1) {
-    delete[] mVelomap;
-    mVelomap = new (TBank::getCurrentHeap(), 0) TBasicInst::TVeloRegion[param_1];
+    JKR_DELETE_ARRAY(mVelomap);
+    mVelomap = JKR_NEW_ARRAY_ARGS(TBasicInst::TVeloRegion, param_1, TBank::getCurrentHeap(), 0);
     JUT_ASSERT(155, mVelomap != NULL);
     mVelomapCount = param_1;
 }

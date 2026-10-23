@@ -346,7 +346,7 @@ cPhs_State daNpcMn_c::_create() {
 /* 00000904-00000BE0       .text createHeap__9daNpcMn_cFv */
 BOOL daNpcMn_c::createHeap() {
     J3DModelData* modelData = (J3DModelData*)dComIfG_getObjectIDRes(l_arcname_tbl[0], l_bmd_ix_tbl[0]);
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         modelData,
         NULL,
         NULL,

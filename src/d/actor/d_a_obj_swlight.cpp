@@ -85,7 +85,7 @@ bool Act_c::create_heap() {
     BOOL iVar6 = m2B0.init(modelData, bck, true, J3DFrameCtrl::EMode_LOOP, 1.0f, 0, -1, false);
     bool bVar1 = false;
 
-    m2C0 = new dBgW();
+    m2C0 = JKR_NEW dBgW();
     if (m2C0 != NULL) {
         cBgD_t* bgw_data = static_cast<cBgD_t*>(dComIfG_getObjectRes(M_arcname, dRes_INDEX_MMIRROR_DZB_MSUSW_e));
         JUT_ASSERT(361, bgw_data != NULL);

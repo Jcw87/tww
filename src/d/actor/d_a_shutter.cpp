@@ -54,7 +54,7 @@ BOOL daShutter_c::CreateHeap() {
         if (!mpModel[i]) {
             return FALSE;
         }
-        mdBgW[i] = new dBgW();
+        mdBgW[i] = JKR_NEW dBgW();
         if (mdBgW[i]) {
             if (mdBgW[i]->Set((cBgD_t *)dComIfG_getObjectRes(m_arcname[mType], m_dzbidx[mType]), cBgW::MOVE_BG_e, &mMtx[i]) == true) {
                 return FALSE;

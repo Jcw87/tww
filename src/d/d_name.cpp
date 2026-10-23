@@ -81,10 +81,10 @@ static selProcFunc SelProc[] = {
 
 /* 80215F64-80216190       .text _create__7dName_cFv */
 void dName_c::_create() {
-    nameIn.NameInScr = new J2DScreen();
+    nameIn.NameInScr = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(208, 208, 212, 212), nameIn.NameInScr != NULL);
 
-    stick = new STControl(5, 2, 3, 2);
+    stick = JKR_NEW STControl(5, 2, 3, 2);
     JUT_ASSERT(VERSION_SELECT(212, 212, 216, 216), stick != NULL);
     stick->setWaitParm(5, 2, 3, 2, 0.9f, 0.5f, 0, 0x800);
 
@@ -111,9 +111,9 @@ void dName_c::initial() {
 
 /* 802161C4-80216248       .text _delete__7dName_cFv */
 void dName_c::_delete() {
-    delete nameIn.NameInScr;
+    JKR_DELETE(nameIn.NameInScr);
     mDoExt_removeMesgFont();
-    delete stick;
+    JKR_DELETE(stick);
     archive->removeResourceAll();
     mDoHIO_deleteChild(g_nmHIO.id);
 }

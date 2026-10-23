@@ -591,7 +591,7 @@ void daPy_lk_c::setBlurPosResource(u16 i_resIdx) {
 J3DAnmTransform* daPy_lk_c::getItemAnimeResource(u16 i_resIdx) {
     JKRReadIdxResource(m_item_bck_buffer, 0x1000, i_resIdx, dComIfGp_getAnmArchive());
     JKRHeap* oldHeap = setAnimeHeap(mpItemAnimeHeap);
-    mDoExt_transAnmBas* bas = new mDoExt_transAnmBas(NULL);
+    mDoExt_transAnmBas* bas = JKR_NEW mDoExt_transAnmBas(NULL);
     J3DAnmLoaderDataBase::setResource(bas, m_item_bck_buffer);
     mDoExt_setCurrentHeap(oldHeap);
     return bas;
@@ -11734,20 +11734,20 @@ static BOOL daPy_Delete(daPy_lk_c* i_this) {
 
 /* 80123078-80123360       .text initTextureAnime__9daPy_lk_cFv */
 void daPy_lk_c::initTextureAnime() {
-    m_tex_anm_heap.m_buffer = new(0x20) u8[0x1000];
+    m_tex_anm_heap.m_buffer = JKR_NEW_ARRAY_ARGS(u8, 0x1000, 0x20);
     JUT_ASSERT(VERSION_SELECT(20682, 20789, 20869, 20869), m_tex_anm_heap.m_buffer != NULL);
     
     JKRReadIdxResource(m_tex_anm_heap.m_buffer, 0x1000, dRes_INDEX_LKANM_BTP_TMABAA_e, dComIfGp_getAnmArchive());
     J3DAnmTexPattern* btp = static_cast<J3DAnmTexPattern*>(J3DAnmLoaderDataBase::load(m_tex_anm_heap.m_buffer));
     btp->searchUpdateMaterialID(mpCLModelData);
     u16 material_num = btp->getUpdateMaterialNum();
-    m_texNoAnms = new J3DTexNoAnm[material_num];
+    m_texNoAnms = JKR_NEW_ARRAY(J3DTexNoAnm, material_num);
     JUT_ASSERT(VERSION_SELECT(20698, 20805, 20885, 20885), m_texNoAnms != NULL);
     
     for (u16 i = 0; i < material_num; i++) {
         u16 matID = btp->getUpdateMaterialID(i);
         if (matID != 0xFFFF) {
-            J3DMaterialAnm* mat_anm = new J3DMaterialAnm();
+            J3DMaterialAnm* mat_anm = JKR_NEW J3DMaterialAnm();
             JUT_ASSERT(VERSION_SELECT(20707, 20814, 20894, 20894), mat_anm != NULL);
             
             if (matID != 1 && matID != 4) {
@@ -11784,7 +11784,7 @@ void daPy_lk_c::initTextureAnime() {
 
 /* 80123360-80123830       .text initTextureScroll__9daPy_lk_cFv */
 void daPy_lk_c::initTextureScroll() {
-    m_tex_scroll_heap.m_buffer = new(0x20) u8[0x800];
+    m_tex_scroll_heap.m_buffer = JKR_NEW_ARRAY_ARGS(u8, 0x800, 0x20);
     JUT_ASSERT(VERSION_SELECT(20757, 20864, 20944, 20944), m_tex_scroll_heap.m_buffer != NULL);
     
     JKRReadIdxResource(m_tex_scroll_heap.m_buffer, 0x800, dRes_INDEX_LKANM_BTK_TMABA_e, dComIfGp_getAnmArchive());
@@ -11793,7 +11793,7 @@ void daPy_lk_c::initTextureScroll() {
     u16 material_num = btk->getUpdateMaterialNum();
     JUT_ASSERT(VERSION_SELECT(20771, 20878, 20958, 20958), material_num == 2);
     
-    m_texMtxAnm = new J3DTexMtxAnm[material_num];
+    m_texMtxAnm = JKR_NEW_ARRAY(J3DTexMtxAnm, material_num);
     JUT_ASSERT(VERSION_SELECT(20774, 20881, 20961, 20961), m_texMtxAnm != NULL);
     
     for (u16 no = 0; no < material_num; no++) {
@@ -11802,7 +11802,7 @@ void daPy_lk_c::initTextureScroll() {
             continue;
         }
         
-        m_tex_eye_scroll[no] = new daPy_matAnm_c();
+        m_tex_eye_scroll[no] = JKR_NEW daPy_matAnm_c();
         JUT_ASSERT(VERSION_SELECT(20785, 20892, 20972, 20972), m_tex_eye_scroll[no] != NULL);
         
         mpCLModelData->getMaterialNodePointer(matID)->change();
@@ -11816,7 +11816,7 @@ void daPy_lk_c::initTextureScroll() {
         
         J3DTexMtx* tmtx;
         if (mtl->getTexMtx(texMtxID) == NULL) {
-            tmtx = new J3DTexMtx();
+            tmtx = JKR_NEW J3DTexMtx();
             JUT_ASSERT(VERSION_SELECT(20797, 20904, 20984, 20984), tmtx != NULL);
             mtl->setTexMtx(texMtxID, tmtx);
         }
@@ -11870,7 +11870,7 @@ BOOL daPy_lk_c::createHeap() {
     
     tmp_modelData = initModel(&mpShmsModel, dRes_INDEX_LINK_BDL_SHMS_e, 0x37221222);
     mpTshmsBtk = entryBtk(tmp_modelData, dRes_INDEX_LINK_BTK_TSHMS_e);
-    J3DSkinDeform* shmsSkinDeform = new J3DSkinDeform();
+    J3DSkinDeform* shmsSkinDeform = JKR_NEW J3DSkinDeform();
     if (!shmsSkinDeform) { JUT_ASSERT(VERSION_SELECT(20890, 20997, 21077, 21077), FALSE); }
     if (mpShmsModel->setSkinDeform(shmsSkinDeform, 1) != J3DErrType_Success ) { JUT_ASSERT(VERSION_SELECT(20893, 21000, 21080, 21080), FALSE); }
     
@@ -11941,28 +11941,28 @@ BOOL daPy_lk_c::createHeap() {
     JUT_ASSERT(VERSION_SELECT(21018, 21125, 21205, 21205), tmp_modelData != NULL);
     mpGicer01Btk = entryBtk(tmp_modelData, dRes_INDEX_LINK_BTK_GICER01_e);
     
-    m_old_fdata = new mDoExt_MtxCalcOldFrame(new J3DTransformInfo[CL_NUM_JNTS_e], new Quaternion[CL_NUM_JNTS_e]);
+    m_old_fdata = JKR_NEW mDoExt_MtxCalcOldFrame(JKR_NEW_ARRAY(J3DTransformInfo, CL_NUM_JNTS_e), JKR_NEW_ARRAY(Quaternion, CL_NUM_JNTS_e));
     JUT_ASSERT(VERSION_SELECT(21046, 21153, 21233, 21233), m_old_fdata != NULL);
     
-    m_pbCalc[PART_UNDER_e] = new mDoExt_MtxCalcAnmBlendTblOld(m_old_fdata, ARRAY_SIZE(mAnmRatioUnder), mAnmRatioUnder);
+    m_pbCalc[PART_UNDER_e] = JKR_NEW mDoExt_MtxCalcAnmBlendTblOld(m_old_fdata, ARRAY_SIZE(mAnmRatioUnder), mAnmRatioUnder);
     JUT_ASSERT(VERSION_SELECT(21052, 21159, 21239, 21239), m_pbCalc[PART_UNDER_e] != NULL);
     
-    m_pbCalc[PART_UPPER_e] = new mDoExt_MtxCalcAnmBlendTblOld(m_old_fdata, ARRAY_SIZE(mAnmRatioUpper), mAnmRatioUpper);
+    m_pbCalc[PART_UPPER_e] = JKR_NEW mDoExt_MtxCalcAnmBlendTblOld(m_old_fdata, ARRAY_SIZE(mAnmRatioUpper), mAnmRatioUpper);
     JUT_ASSERT(VERSION_SELECT(21058, 21165, 21245, 21245), m_pbCalc[PART_UPPER_e] != NULL);
     
     initTextureScroll();
     initTextureAnime();
     
-    m_HIO = new daPy_HIO_c();
+    m_HIO = JKR_NEW daPy_HIO_c();
     JUT_ASSERT(VERSION_SELECT(21067, 21174, 21254, 21254), m_HIO != NULL);
     
-    m_anm_heap_under[UNDER_MOVE0_e].m_buffer = new(0x20) u8[0xB400];
+    m_anm_heap_under[UNDER_MOVE0_e].m_buffer = JKR_NEW_ARRAY_ARGS(u8, 0xB400, 0x20);
     JUT_ASSERT(VERSION_SELECT(21072, 21179, 21259, 21259), m_anm_heap_under[UNDER_MOVE0_e].m_buffer != NULL);
     
-    m_sanm_buffer = new(0x20) u8[0x200];
+    m_sanm_buffer = JKR_NEW_ARRAY_ARGS(u8, 0x200, 0x20);
     JUT_ASSERT(VERSION_SELECT(21079, 21186, 21266, 21266), m_sanm_buffer != NULL);
     
-    m_item_bck_buffer = new(0x20) u8[0x1000];
+    m_item_bck_buffer = JKR_NEW_ARRAY_ARGS(u8, 0x1000, 0x20);
     JUT_ASSERT(VERSION_SELECT(21082, 21189, 21269, 21269), m_item_bck_buffer != NULL);
     
     return TRUE;
@@ -11983,16 +11983,16 @@ void daPy_lk_c::createAnimeHeap(JKRSolidHeap** pHeap, daPy_HEAP_TYPE heapType) {
     *pHeap = mDoExt_createSolidHeapFromGameToCurrent(heapSize, 0x20);
     
     if (heapType == HEAP_TYPE_ITEM_ANIME_e) {
-        mDoExt_transAnmBas* tmp_trans_bas = new mDoExt_transAnmBas(NULL);
+        mDoExt_transAnmBas* tmp_trans_bas = JKR_NEW mDoExt_transAnmBas(NULL);
         JUT_ASSERT(VERSION_SELECT(21120, 21227, 21307, 21307), tmp_trans_bas != NULL);
     } else if (heapType == HEAP_TYPE_UNDER_UPPER_e) {
-        J3DAnmTransformKey* tmp_trans = new J3DAnmTransformKey;
+        J3DAnmTransformKey* tmp_trans = JKR_NEW J3DAnmTransformKey;
         JUT_ASSERT(VERSION_SELECT(21123, 21230, 21310, 21310), tmp_trans != NULL);
     } else if (heapType == HEAP_TYPE_TEXTURE_ANIME_e) {
-        J3DAnmTexPattern* tmp_tp = new J3DAnmTexPattern;
+        J3DAnmTexPattern* tmp_tp = JKR_NEW J3DAnmTexPattern;
         JUT_ASSERT(VERSION_SELECT(21126, 21233, 21313, 21313), tmp_tp != NULL);
     } else { // heapType == HEAP_TYPE_TEXTURE_SCROLL_e
-        J3DAnmTextureSRTKey* tmp_tk = new J3DAnmTextureSRTKey;
+        J3DAnmTextureSRTKey* tmp_tk = JKR_NEW J3DAnmTextureSRTKey;
         JUT_ASSERT(VERSION_SELECT(21129, 21236, 21316, 21316), tmp_tk != NULL);
     }
     
@@ -12183,13 +12183,13 @@ void daPy_lk_c::playerInit() {
     m34F0 = -1;
     
     mpItemHeaps[0] = mDoExt_createSolidHeapFromGameToCurrent(0xE600, 0x20);
-    u8* dummy_data = new u8[0xE600];
+    u8* dummy_data = JKR_NEW_ARRAY(u8, 0xE600);
     JUT_ASSERT(VERSION_SELECT(21464, 21571, 21651, 21651), dummy_data != NULL);
     mDoExt_restoreCurrentHeap();
     mDoExt_adjustSolidHeap(mpItemHeaps[0]);
     
     mpItemHeaps[1] = mDoExt_createSolidHeapFromGameToCurrent(0xE600, 0x20);
-    dummy_data = new u8[0xE600];
+    dummy_data = JKR_NEW_ARRAY(u8, 0xE600);
     JUT_ASSERT(VERSION_SELECT(21470, 21577, 21657, 21657), dummy_data != NULL);
     mDoExt_restoreCurrentHeap();
     mDoExt_adjustSolidHeap(mpItemHeaps[1]);

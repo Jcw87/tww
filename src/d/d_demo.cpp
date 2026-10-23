@@ -490,7 +490,7 @@ dDemo_actor_c* dDemo_object_c::appendActor(fopAc_ac_c* ac) {
     if (mNumActor >= ARRAY_SIZE(mpActors))
         return NULL;
 
-    demoActor = new dDemo_actor_c();
+    demoActor = JKR_NEW dDemo_actor_c();
     if (demoActor == NULL)
         return NULL;
 
@@ -557,23 +557,23 @@ dDemo_fog_c* dDemo_object_c::createFog() {
 /* 8006A544-8006A678       .text remove__14dDemo_object_cFv */
 void dDemo_object_c::remove() {
     while (mNumActor)
-        delete mpActors[--mNumActor];
+        JKR_DELETE(mpActors[--mNumActor]);
 
     if (mpCamera != NULL) {
-        delete mpCamera;
+        JKR_DELETE(mpCamera);
         mpCamera = NULL;
     }
 
     if (mpAmbient != NULL) {
-        delete mpAmbient;
+        JKR_DELETE(mpAmbient);
         mpAmbient = NULL;
     }
 
     while (mNumLight)
-        delete mpLight[--mNumLight];
+        JKR_DELETE(mpLight[--mNumLight]);
 
     if (mpFog != NULL) {
-        delete mpFog;
+        JKR_DELETE(mpFog);
         mpFog = NULL;
     }
 }
@@ -645,14 +645,14 @@ dDemo_manager_c::dDemo_manager_c() {
 /* 8006ADA0-8006AEFC       .text __dt__15dDemo_manager_cFv */
 dDemo_manager_c::~dDemo_manager_c() {
     remove();
-    delete mFactory;
-    delete mMessage;
-    delete mParticle;
-    delete mAudio;
-    delete mStage;
-    delete mControl;
-    delete mSystem;
-    delete mMesgControl;
+    JKR_DELETE(mFactory);
+    JKR_DELETE(mMessage);
+    JKR_DELETE(mParticle);
+    JKR_DELETE(mAudio);
+    JKR_DELETE(mStage);
+    JKR_DELETE(mControl);
+    JKR_DELETE(mSystem);
+    JKR_DELETE(mMesgControl);
 }
 
 /* 8006AF5C-8006AFBC       .text __dt__14dDemo_system_cFv */

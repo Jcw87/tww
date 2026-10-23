@@ -2480,7 +2480,7 @@ BOOL daNpc_Ls1_c::bodyCreateHeap() {
 
     for (u16 i = 0; i < a_mdl_dat->getMaterialNum(); i++) {
         J3DMaterial* mat = a_mdl_dat->getMaterialNodePointer(i);
-        mat->setMaterialAnm(new daNpc_Ls1_matAnm_c());
+        mat->setMaterialAnm(JKR_NEW daNpc_Ls1_matAnm_c());
     }
 
     mpMorf = new mDoExt_McaMorf(

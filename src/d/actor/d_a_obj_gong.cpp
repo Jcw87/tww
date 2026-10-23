@@ -43,7 +43,7 @@ bool daObjGong::Act_c::create_heap() {
     J3DAnmTransformKey* bck = static_cast<J3DAnmTransformKey*>(dComIfG_getObjectRes(M_arcname, dRes_INDEX_VDORA_BCK_05_VDORA_CUT02_HIT_e));
     JUT_ASSERT(0xbd, (modelData != NULL) && (bck != NULL));
 
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         modelData,
         NULL, NULL,
         bck,
@@ -56,7 +56,7 @@ bool daObjGong::Act_c::create_heap() {
 
     bool ret = false;
     if (model != NULL) {
-        J3DSkinDeform * deform = new J3DSkinDeform();
+        J3DSkinDeform * deform = JKR_NEW J3DSkinDeform();
         if (deform != NULL) {
             s32 err = model->setSkinDeform(deform, 1);
             JUT_ASSERT(0xd7, (err == J3DErrType_Success) || (err == J3DErrType_OutOfMemory));

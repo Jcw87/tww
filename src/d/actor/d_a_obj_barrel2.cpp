@@ -196,7 +196,7 @@ bool daObjBarrel2::Act_c::create_heap() {
     J3DAnmTevRegKey* brk_data = (J3DAnmTevRegKey*)dComIfG_getObjectRes(M_arcname, attr()->m02);
     JUT_ASSERT(543, brk_data != NULL);
 
-    m29C = new mDoExt_brkAnm();
+    m29C = JKR_NEW mDoExt_brkAnm();
 
     s32 iVar5 = 0;
     if (m29C != NULL) {

@@ -6,6 +6,7 @@
 #include "JSystem/JSystem.h" // IWYU pragma: keep
 
 #include "JSystem/JUtility/JUTDirectPrint.h"
+#include "JSystem/JKernel/JKRHeap.h"
 #include "stdio.h"
 #include "dolphin/os/OSCache.h"
 
@@ -19,7 +20,7 @@ JUTDirectPrint::JUTDirectPrint() {
 /* 802C6F98-802C6FE0       .text start__14JUTDirectPrintFv */
 JUTDirectPrint* JUTDirectPrint::start() {
     if (!sDirectPrint) {
-        sDirectPrint = new JUTDirectPrint();
+        sDirectPrint = JKR_NEW JUTDirectPrint();
     }
 
     return sDirectPrint;

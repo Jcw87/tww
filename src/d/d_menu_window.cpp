@@ -189,7 +189,7 @@ void dMs_item_create(sub_ms_screen_class* i_Ms) {
     JUT_ASSERT(1957, i_Ms->title_p != NULL);
 #endif
 
-    dMi_c = new dMenu_Item_c();
+    dMi_c = JKR_NEW dMenu_Item_c();
     JUT_ASSERT(VERSION_SELECT(2004, 1890, 1962, 1962), dMi_c != NULL);
 
     for (int i = 0; i < 21; i++) {
@@ -245,7 +245,7 @@ void dMs_item_delete(sub_ms_screen_class* i_Ms) {
         dComIfGp_setButtonInfo(0, dMi_c->getNowItem());
 
         dMi_c->_delete();
-        delete dMi_c;
+        JKR_DELETE(dMi_c);
         dMi_c = NULL;
     }
 
@@ -275,7 +275,7 @@ void dMs_collect_create(sub_ms_screen_class* i_Ms) {
         i_Ms->field_0x1B2++;
     }
 
-    dMc_c = new dMenu_Collect_c();
+    dMc_c = JKR_NEW dMenu_Collect_c();
     JUT_ASSERT(VERSION_SELECT(2136, 2022, 2112, 2112), dMc_c != NULL);
 
     dMc_c->setTactTexBuffer(i_Ms->buffer_p[0]);
@@ -338,7 +338,7 @@ void dMs_collect_create2(sub_ms_screen_class* i_Ms) {
         i_Ms->field_0x1B2++;
     }
 
-    dMc_c = new dMenu_Collect_c();
+    dMc_c = JKR_NEW dMenu_Collect_c();
     JUT_ASSERT(VERSION_SELECT(2218, 2104, 2205, 2205), dMc_c != NULL);
 
     dMc_c->setTactTexBuffer(i_Ms->buffer_p[0]);
@@ -406,7 +406,7 @@ void dMs_collect_delete(sub_ms_screen_class* i_Ms) {
         dComIfGp_setButtonInfo(1, dMc_c->getNowItem());
 
         dMc_c->_delete();
-        delete dMc_c;
+        JKR_DELETE(dMc_c);
         dMc_c = NULL;
     }
 
@@ -428,7 +428,7 @@ void dMs_fmap_create(sub_ms_screen_class* i_Ms) {
         JUT_ASSERT(VERSION_SELECT(2346, 2232, 2347, 2347), i_Ms->dummy[i] != NULL);
     }
 
-    dMf_c = new dMenu_Fmap_c();
+    dMf_c = JKR_NEW dMenu_Fmap_c();
     JUT_ASSERT(VERSION_SELECT(2351, 2237, 2352, 2352), dMf_c != NULL);
 
     dMf_c->setSvPtr(&dMv_CIO_c);
@@ -438,7 +438,7 @@ void dMs_fmap_create(sub_ms_screen_class* i_Ms) {
 
     dMf_c->_create();
 
-    dMs_capture_c = new dDlst_MENU_CAPTURE_c();
+    dMs_capture_c = JKR_NEW dDlst_MENU_CAPTURE_c();
     JUT_ASSERT(VERSION_SELECT(2361, 2247, 2362, 2362), dMs_capture_c != NULL);
 
     if (i_Ms->mMenuProc == MENU_STATE_FMAP_OPEN_WALLPAPER) {
@@ -469,12 +469,12 @@ void dMs_fmap_delete(sub_ms_screen_class* i_Ms) {
 
     if (dMf_c != NULL) {
         dMf_c->_delete();
-        delete dMf_c;
+        JKR_DELETE(dMf_c);
         dMf_c = NULL;
     }
 
     if (dMs_capture_c != NULL) {
-        delete dMs_capture_c;
+        JKR_DELETE(dMs_capture_c);
         dMs_capture_c = NULL;
     }
 }
@@ -504,7 +504,7 @@ void dMs_dmap_create(sub_ms_screen_class* i_Ms) {
         i_Ms->field_0x1B2++;
     }
 
-    dMd_c = new dMenu_Dmap_c();
+    dMd_c = JKR_NEW dMenu_Dmap_c();
     JUT_ASSERT(VERSION_SELECT(2479, 2365, 2480, 2480), dMd_c != NULL);
 
     for (int i = 0; i < 3; i++) {
@@ -518,7 +518,7 @@ void dMs_dmap_create(sub_ms_screen_class* i_Ms) {
 
     dMd_c->_create();
 
-    dMs_capture_c = new dDlst_MENU_CAPTURE_c();
+    dMs_capture_c = JKR_NEW dDlst_MENU_CAPTURE_c();
     JUT_ASSERT(VERSION_SELECT(2490, 2376, 2491, 2491), dMs_capture_c != NULL);
 }
 
@@ -548,12 +548,12 @@ void dMs_dmap_delete(sub_ms_screen_class* i_Ms) {
 
     if (dMd_c != NULL) {
         dMd_c->_delete();
-        delete dMd_c;
+        JKR_DELETE(dMd_c);
         dMd_c = NULL;
     }
 
     if (dMs_capture_c != NULL) {
-        delete dMs_capture_c;
+        JKR_DELETE(dMs_capture_c);
         dMs_capture_c = NULL;
     }
 }
@@ -562,12 +562,12 @@ void dMs_dmap_delete(sub_ms_screen_class* i_Ms) {
 void dMs_name_create(sub_ms_screen_class*) {
     dComIfGp_setHeapLockFlag(10);
 
-    dNm_c = new dName_c();
+    dNm_c = JKR_NEW dName_c();
     JUT_ASSERT(VERSION_SELECT(2568, 2454, 2569, 2569), dNm_c != NULL);
 
     dNm_c->_create();
 
-    dMs_capture_c = new dDlst_MENU_CAPTURE_c();
+    dMs_capture_c = JKR_NEW dDlst_MENU_CAPTURE_c();
     JUT_ASSERT(VERSION_SELECT(2572, 2458, 2573, 2573), dMs_capture_c != NULL);
 }
 
@@ -575,12 +575,12 @@ void dMs_name_create(sub_ms_screen_class*) {
 void dMs_name_delete(sub_ms_screen_class*) {
     if (dNm_c != NULL) {
         dNm_c->_delete();
-        delete dNm_c;
+        JKR_DELETE(dNm_c);
         dNm_c = NULL;
     }
 
     if (dMs_capture_c != NULL) {
-        delete dMs_capture_c;
+        JKR_DELETE(dMs_capture_c);
         dMs_capture_c = NULL;
     }
 }
@@ -594,12 +594,12 @@ static void dummy1() {
 void dMs_save_delete(sub_ms_screen_class*) {
     if (dMs_c != NULL) {
         dMs_c->_delete();
-        delete dMs_c;
+        JKR_DELETE(dMs_c);
         dMs_c = NULL;
     }
 
     if (dMs_capture_c != NULL) {
-        delete dMs_capture_c;
+        JKR_DELETE(dMs_capture_c);
         dMs_capture_c = NULL;
     }
 }
@@ -609,16 +609,16 @@ void dMs_cloth_create(sub_ms_screen_class* i_Ms) {
     dComIfGp_setHeapLockFlag(1);
     JKRArchive* arc = dComIfGp_getClothResArchive();
 
-    cloth_c = new dMCloth_c();
+    cloth_c = JKR_NEW dMCloth_c();
     JUT_ASSERT(VERSION_SELECT(2673, 2559, 2674, 2674), cloth_c != NULL);
 
     cloth_c->setArchive(arc);
     cloth_c->init();
 
-    dMs_cloth_c = new dDlst_MENU_CLOTH_c();
+    dMs_cloth_c = JKR_NEW dDlst_MENU_CLOTH_c();
     JUT_ASSERT(VERSION_SELECT(2679, 2565, 2680, 2680), dMs_cloth_c != NULL);
 
-    dMs_capture_c = new dDlst_MENU_CAPTURE_c();
+    dMs_capture_c = JKR_NEW dDlst_MENU_CAPTURE_c();
     JUT_ASSERT(VERSION_SELECT(2682, 2568, 2683, 2683), dMs_capture_c != NULL);
 
     i_Ms->childHeap = JKRExpHeap::create(0x506A1, i_Ms->parentHeap_0xfc, false);
@@ -632,15 +632,15 @@ void dMs_cloth_delete(sub_ms_screen_class* i_Ms) {
         i_Ms->childHeap = NULL;
     }
     if (dMs_cloth_c) {
-        delete dMs_cloth_c;
+        JKR_DELETE(dMs_cloth_c);
         dMs_cloth_c = NULL;
     }
     if (cloth_c) {
-        delete cloth_c;
+        JKR_DELETE(cloth_c);
         cloth_c = NULL;
     }
     if (dMs_capture_c) {
-        delete dMs_capture_c;
+        JKR_DELETE(dMs_capture_c);
         dMs_capture_c = NULL;
     }
 }
@@ -649,26 +649,26 @@ void dMs_cloth_delete(sub_ms_screen_class* i_Ms) {
 void dMs_clothOnly_create(sub_ms_screen_class*) {
     JKRArchive* arc = dComIfGp_getClothResArchive();
 
-    cloth_c = new dMCloth_c();
+    cloth_c = JKR_NEW dMCloth_c();
     JUT_ASSERT(VERSION_SELECT(2743, 2629, 2744, 2744), cloth_c != NULL);
 
     cloth_c->setArchive(arc);
     cloth_c->setClothType(MENU_CLOTH_TYPE_CLOTH_ONLY);
     cloth_c->init();
 
-    dMs_cloth_c = new dDlst_MENU_CLOTH_c();
+    dMs_cloth_c = JKR_NEW dDlst_MENU_CLOTH_c();
     JUT_ASSERT(VERSION_SELECT(2750, 2636, 2751, 2751), dMs_cloth_c != NULL);
 }
 
 /* 801DD270-801DD308       .text dMs_clothOnly_delete__FP19sub_ms_screen_class */
 void dMs_clothOnly_delete(sub_ms_screen_class*) {
     if (dMs_cloth_c) {
-        delete dMs_cloth_c;
+        JKR_DELETE(dMs_cloth_c);
         dMs_cloth_c = NULL;
     }
     if (cloth_c) {
         dComIfGp_getClothResArchive()->removeResourceAll();
-        delete cloth_c;
+        JKR_DELETE(cloth_c);
         cloth_c = NULL;
     }
 }

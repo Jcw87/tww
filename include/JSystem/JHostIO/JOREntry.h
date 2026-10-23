@@ -89,7 +89,7 @@ public:
 
     static JHIComPortManager<T>* create() {
         if (instance == NULL) {
-            instance = new JHIComPortManager<T>();
+            instance = JKR_NEW JHIComPortManager<T>();
         }
 
         return instance;

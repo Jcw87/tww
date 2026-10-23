@@ -375,7 +375,7 @@ static BOOL CallbackCreateHeap(fopAc_ac_c* i_this) {
     }
     else {
         JUT_ASSERT(DEMO_SELECT(928, 946), modelData != NULL);
-        actor->pm_bgw = new dBgW();
+        actor->pm_bgw = JKR_NEW dBgW();
         JUT_ASSERT(DEMO_SELECT(933, 951), actor->pm_bgw != NULL);
         actor->pm_bgw->Set(static_cast<cBgD_t*>(dComIfG_getObjectRes("Kita", dRes_INDEX_KITA_DZB_HLIF_00_e)), cBgW::MOVE_BG_e, &actor->mBgwMtx);
         actor->pm_bgw->SetCrrFunc(dBgS_MoveBGProc_Typical);

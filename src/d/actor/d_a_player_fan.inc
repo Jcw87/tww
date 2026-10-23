@@ -152,7 +152,7 @@ void daPy_lk_c::setParachuteFanModel(f32 f31) {
     JKRHeap* oldHeap = setItemHeap();
     modelData = static_cast<J3DModelData*>(dComIfG_getObjectRes(l_arcName, dRes_INDEX_LINK_BDL_FANB_e));
 
-    mpParachuteFanMorf = new mDoExt_McaMorf(
+    mpParachuteFanMorf = JKR_NEW mDoExt_McaMorf(
         modelData,
         NULL,
         NULL,

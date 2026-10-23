@@ -30,7 +30,7 @@ bool daObjRforce::Act_c::create_heap() {
     if(bgw_data != NULL)
 #endif
     {
-        mpBgw = new dBgW();
+        mpBgw = JKR_NEW dBgW();
         if(mpBgw != NULL){
             if(mpBgw->Set(bgw_data, cBgW::MOVE_BG_e, &mtx) == true) {
 #if VERSION > VERSION_DEMO

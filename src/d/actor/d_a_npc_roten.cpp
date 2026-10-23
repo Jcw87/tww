@@ -1659,7 +1659,7 @@ cPhs_State daNpcRoten_c::_create() {
 /* 00000A24-00000E88       .text createHeap__12daNpcRoten_cFv */
 BOOL daNpcRoten_c::createHeap() {
     J3DModelData* modelData = (J3DModelData*)(dComIfG_getObjectIDRes(l_arcname_tbl[mNpcNo], l_bmd_ix_tbl[mNpcNo]));
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         modelData,
         NULL, NULL,
         (J3DAnmTransformKey*)(dComIfG_getObjectIDRes(l_arcname_tbl[mNpcNo], l_bck_ix_tbl[mNpcNo][field_0x9C0])),
@@ -1674,7 +1674,7 @@ BOOL daNpcRoten_c::createHeap() {
     }
     
     J3DModelData* headModelData = (J3DModelData*)(dComIfG_getObjectIDRes(l_arcname_tbl[mNpcNo], l_head_bmd_ix_tbl[mNpcNo]));
-    field_0x6D8 = new mDoExt_McaMorf(
+    field_0x6D8 = JKR_NEW mDoExt_McaMorf(
         headModelData,
         NULL, NULL,
         (J3DAnmTransformKey*)(dComIfG_getObjectIDRes(l_arcname_tbl[mNpcNo], l_head_bck_ix_tbl[mNpcNo])),

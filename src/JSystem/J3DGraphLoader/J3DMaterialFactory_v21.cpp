@@ -8,6 +8,7 @@
 #include "JSystem/J3DGraphLoader/J3DMaterialFactory_v21.h"
 #include "JSystem/J3DGraphLoader/J3DModelLoader.h"
 #include "JSystem/J3DGraphBase/J3DMatBlock.h"
+#include "JSystem/JKernel/JKRHeap.h"
 #include "JSystem/JSupport/JSupport.h"
 
 /* 802F9A88-802F9C68       .text __ct__22J3DMaterialFactory_v21FRC20J3DMaterialBlock_v21 */
@@ -92,7 +93,7 @@ J3DMaterial* J3DMaterialFactory_v21::create(J3DMaterial* i_material, int i_idx, 
     u32 pe_flag = getMdlDataFlag_PEFlag(i_flags);
     BOOL ind_flag = (i_flags & 0x1000000) ? TRUE : FALSE;
     if (i_material == NULL) {
-        i_material = new J3DMaterial();
+        i_material = JKR_NEW J3DMaterial();
     }
     i_material->mColorBlock = J3DMaterial::createColorBlock(color_flag);
     i_material->mTexGenBlock = J3DMaterial::createTexGenBlock(texgen_flag);
@@ -221,7 +222,7 @@ J3DTexMtx* J3DMaterialFactory_v21::newTexMtx(int idx, int stage) const {
     J3DTexMtx* ret = NULL;
     J3DMaterialInitData_v21* initData = &mpMaterialInitData[mpMaterialID[idx]];
     if (initData->mTexMtxIdx[stage] != 0xFFFF)
-        ret = new J3DTexMtx(mpTexMtxInfo[initData->mTexMtxIdx[stage]]);
+        ret = JKR_NEW J3DTexMtx(mpTexMtxInfo[initData->mTexMtxIdx[stage]]);
     return ret;
 }
 
@@ -305,9 +306,9 @@ J3DTevSwapModeTable J3DMaterialFactory_v21::newTevSwapModeTable(int idx, int sta
 J3DFog* J3DMaterialFactory_v21::newFog(int idx) const {
     J3DMaterialInitData_v21* initData = &mpMaterialInitData[mpMaterialID[idx]];
     if (initData->mFogIdx != 0xFFFF)
-        return new J3DFog(mpFogInfo[initData->mFogIdx]);
+        return JKR_NEW J3DFog(mpFogInfo[initData->mFogIdx]);
     else
-        return new J3DFog();
+        return JKR_NEW J3DFog();
 }
 
 /* 802FADC4-802FAE44       .text newAlphaComp__22J3DMaterialFactory_v21CFi */

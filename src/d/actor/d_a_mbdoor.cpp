@@ -157,7 +157,7 @@ BOOL daMbdoor_c::CreateHeap() {
     mpToModel = mDoExt_J3DModel__create(modelData, 0x80000, 0x11000022);
     if (!mpToModel) { return FALSE; }
     
-    mpBgW = new dBgW();
+    mpBgW = JKR_NEW dBgW();
     if (!mpBgW) { return FALSE; }
     cBgD_t* dzbData = (cBgD_t*)dComIfG_getObjectRes(getArcName(), getDzb());
     if (!dzbData) { return FALSE; }

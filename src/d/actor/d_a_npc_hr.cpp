@@ -2140,7 +2140,7 @@ BOOL daNpc_Hr_c::CreateHeap() {
     J3DModelData* modelData = (J3DModelData*)dComIfG_getObjectRes("Hr", dRes_INDEX_HR_BDL_HR_e);
     JUT_ASSERT(DEMO_SELECT(3341, 3392), modelData);
 
-    mpHrMorf = new mDoExt_McaMorf(
+    mpHrMorf = JKR_NEW mDoExt_McaMorf(
         modelData,
         NULL, NULL,
         (J3DAnmTransformKey*)dComIfG_getObjectRes("Hr", dRes_INDEX_HR_BCK_H_WAIT01_e),
@@ -2176,7 +2176,7 @@ BOOL daNpc_Hr_c::CreateHeap() {
     J3DModelData* antModelData = (J3DModelData*)dComIfG_getObjectRes("Hr", ant_bdl_table[getShapeType()]);
     JUT_ASSERT(DEMO_SELECT(3404, 3455), antModelData);
 
-    mpAntennaMorf = new mDoExt_McaMorf(
+    mpAntennaMorf = JKR_NEW mDoExt_McaMorf(
         antModelData,
         NULL, NULL,
         (J3DAnmTransformKey*)dComIfG_getObjectRes("Hr", ant_bck_table[getShapeType()]),

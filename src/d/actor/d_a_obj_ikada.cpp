@@ -1514,7 +1514,7 @@ BOOL daObj_Ikada_c::_createHeap() {
 
     setMtx();
 
-    mpBgW = new dBgW();
+    mpBgW = JKR_NEW dBgW();
     if (mpBgW == NULL) {
         return FALSE;
     }

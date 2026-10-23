@@ -16,9 +16,9 @@ f32* JASystem::Calc::JASC_DOL2TABLE;
 
 /* 8027A804-8027A9C8       .text initSinfT__Q28JASystem4CalcFv */
 void JASystem::Calc::initSinfT() {
-    JASC_SINTABLE = new (JASDram, 0) f32[257];
+    JASC_SINTABLE = JKR_NEW_ARRAY_ARGS(f32, 257, JASDram, 0);
     JUT_ASSERT(49, JASC_SINTABLE != NULL);
-    JASC_DOL2TABLE = new (JASDram, 0) f32[257];
+    JASC_DOL2TABLE = JKR_NEW_ARRAY_ARGS(f32, 257, JASDram, 0);
     JUT_ASSERT(51, JASC_DOL2TABLE != NULL);
     for (u32 i = 0; i < 257; i++) {
         JASC_SINTABLE[i] = sin((M_PI / 2) * i / 256.0f);

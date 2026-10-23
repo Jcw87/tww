@@ -85,7 +85,7 @@ bool isCurrentSolidHeap() {
 int mDoExt_baseAnm::initPlay(s16 i_frameMax, int i_attribute, f32 i_rate, s16 i_startF, s16 i_endF, bool i_modify) {
     JUT_ASSERT(VERSION_SELECT(412, 412, 421, 421), i_modify || isCurrentSolidHeap());
     if (!i_modify) {
-        mFrameCtrl = new J3DFrameCtrl();
+        mFrameCtrl = JKR_NEW J3DFrameCtrl();
         if (!mFrameCtrl) {
             return 0;
         }
@@ -140,7 +140,7 @@ int mDoExt_bpkAnm::init(J3DMaterialTable* i_matTable, J3DAnmColor* i_bpk, BOOL i
     if (!i_modify) {
         mUpdateMaterialNum = updateMaterialNum;
         JUT_ASSERT(VERSION_SELECT(532, 532, 541, 541), mUpdateMaterialNum);
-        field_0xc = new J3DMatColorAnm[mUpdateMaterialNum];
+        field_0xc = JKR_NEW_ARRAY(J3DMatColorAnm, mUpdateMaterialNum);
         if (!field_0xc) {
             return 0;
         }
@@ -202,7 +202,7 @@ int mDoExt_btpAnm::init(J3DMaterialTable* i_matTable, J3DAnmTexPattern* i_btp, B
     if (!i_modify) {
         mUpdateMaterialNum = updateMaterialNum;
         JUT_ASSERT(VERSION_SELECT(648, 648, 658, 658), mUpdateMaterialNum);
-        field_0xc = new J3DTexNoAnm[mUpdateMaterialNum];
+        field_0xc = JKR_NEW_ARRAY(J3DTexNoAnm, mUpdateMaterialNum);
         if (!field_0xc) {
             return 0;
         }
@@ -262,12 +262,12 @@ int mDoExt_btkAnm::init(J3DMaterialTable* i_matTable, J3DAnmTextureSRTKey* i_btk
                 if (texMtxId != 0xFF) {
                     J3DTexMtx* texMtx = material->getTexMtx(texMtxId);
                     if (!texMtx) {
-                        texMtx = new J3DTexMtx();
+                        texMtx = JKR_NEW J3DTexMtx();
                     }
                 }
             }
         }
-        mpTexMtxAnm = new J3DTexMtxAnm[mUpdateMaterialNum];
+        mpTexMtxAnm = JKR_NEW_ARRAY(J3DTexMtxAnm, mUpdateMaterialNum);
         if (!mpTexMtxAnm) {
             return 0;
         }
@@ -330,7 +330,7 @@ int mDoExt_brkAnm::init(J3DMaterialTable* i_matTable, J3DAnmTevRegKey* i_brk, BO
     u16 CRegUpdateMaterialNum = mpAnm->getCRegUpdateMaterialNum();
     if (!i_modify) {
         mCRegUpdateMaterialNum = CRegUpdateMaterialNum;
-        mpCRegAnm = new J3DTevColorAnm[mCRegUpdateMaterialNum];
+        mpCRegAnm = JKR_NEW_ARRAY(J3DTevColorAnm, mCRegUpdateMaterialNum);
         if (!mpCRegAnm) {
             return 0;
         }
@@ -339,7 +339,7 @@ int mDoExt_brkAnm::init(J3DMaterialTable* i_matTable, J3DAnmTevRegKey* i_brk, BO
     u16 KRegUpdateMaterialNum = mpAnm->getKRegUpdateMaterialNum();
     if (!i_modify) {
         mKRegUpdateMaterialNum = KRegUpdateMaterialNum;
-        mpKRegAnm = new J3DTevKColorAnm[mKRegUpdateMaterialNum];
+        mpKRegAnm = JKR_NEW_ARRAY(J3DTevKColorAnm, mKRegUpdateMaterialNum);
         if (!mpKRegAnm) {
             return 0;
         }
@@ -393,7 +393,7 @@ int mDoExt_bvaAnm::init(J3DModel* i_model, J3DAnmVisibilityFull* i_bva, BOOL i_a
     JUT_ASSERT(VERSION_SELECT(991, 991, 1004, 1004), i_model != NULL && i_bva != NULL);
     mpAnm = i_bva;
     if (!i_modify) {
-        field_0xc = new J3DVisibilityManager(mpAnm);
+        field_0xc = JKR_NEW J3DVisibilityManager(mpAnm);
         if (!field_0xc) {
             return 0;
         }
@@ -433,7 +433,7 @@ int mDoExt_bckAnm::init(J3DModelData* i_modelData, J3DAnmTransform* i_bck, BOOL 
     JUT_ASSERT(VERSION_SELECT(1053, 1053, 1067, 1067), i_bck != NULL);
     mpAnm = i_bck;
     if (!i_modify) {
-        mAnm = new J3DMtxCalcMayaAnm(mpAnm);
+        mAnm = JKR_NEW J3DMtxCalcMayaAnm(mpAnm);
         if (!mAnm) {
             return 0;
         }
@@ -739,7 +739,7 @@ void mDoExt_backupMatBlock_c::restore(J3DMaterial* i_material) {
 /* 80010920-800109F4       .text create__23mDoExt_backupMaterial_cFP12J3DModelData */
 bool mDoExt_backupMaterial_c::create(J3DModelData* i_modelData) {
     if (!mBackupMatBlock) {
-        mBackupMatBlock = new mDoExt_backupMatBlock_c[i_modelData->getMaterialNum()];
+        mBackupMatBlock = JKR_NEW_ARRAY(mDoExt_backupMatBlock_c, i_modelData->getMaterialNum());
         if (!mBackupMatBlock) {
             return false;
         }
@@ -761,7 +761,7 @@ mDoExt_backupMatBlock_c::mDoExt_backupMatBlock_c() {}
 
 /* 80011294-80011300       .text create__23mDoExt_backupMaterial_cFUs */
 bool mDoExt_backupMaterial_c::create(u16 param_0) {
-    mBackupMatBlock = new mDoExt_backupMatBlock_c[param_0];
+    mBackupMatBlock = JKR_NEW_ARRAY(mDoExt_backupMatBlock_c, param_0);
     return mBackupMatBlock != NULL;
 }
 
@@ -779,7 +779,7 @@ void mDoExt_backupMaterial_c::restore(J3DModelData* i_modelData) {
 BOOL mDoExt_invisibleModel::create(J3DModel* model) {
     J3DModelData* modelData = model->getModelData();
 
-    mpPackets = new mDoExt_invJntPacket[modelData->getJointNum()];
+    mpPackets = JKR_NEW_ARRAY(mDoExt_invJntPacket, modelData->getJointNum());
     if (!mpPackets) {
         return false;
     }
@@ -1303,18 +1303,18 @@ mDoExt_McaMorf::mDoExt_McaMorf(J3DModelData* modelData, mDoExt_McaMorfCallBack1_
         }
     }
     if (param_8) {
-        mpSound = new mDoExt_zelAnime();
+        mpSound = JKR_NEW mDoExt_zelAnime();
         if (!mpSound) {
             goto ERROR_EXIT;
         }
     }
     setAnm(anmTransform, loopMode, 0.0f, playSpeed, startFrame, endFrame, basAnm);
     mPrevMorf = -1.0f;
-    mpTransformInfo = new J3DTransformInfo[modelData->getJointNum()];
+    mpTransformInfo = JKR_NEW_ARRAY(J3DTransformInfo, modelData->getJointNum());
     if (!mpTransformInfo) {
         goto ERROR_EXIT;
     }
-    mpQuat = new Quaternion[modelData->getJointNum()];
+    mpQuat = JKR_NEW_ARRAY(Quaternion, modelData->getJointNum());
     if (!mpQuat) {
         goto ERROR_EXIT;
     }
@@ -1590,19 +1590,19 @@ mDoExt_McaMorf2::mDoExt_McaMorf2(J3DModelData* modelData, mDoExt_McaMorfCallBack
         }
     }
     if (param_8) {
-        mpSound = new mDoExt_zelAnime();
+        mpSound = JKR_NEW mDoExt_zelAnime();
         if (!mpSound) {
             ERROR_EXIT();
             return;
         }
     }
     setAnm(anmTransform1, anmTransform2, 0.0f, loopMode, 0.0f, param_5, param_6, param_7, basAnm);
-    mpTransformInfo = new J3DTransformInfo[modelData->getJointNum()];
+    mpTransformInfo = JKR_NEW_ARRAY(J3DTransformInfo, modelData->getJointNum());
     if (!mpTransformInfo) {
         ERROR_EXIT();
         return;
     }
-    mpQuat = new Quaternion[modelData->getJointNum()];
+    mpQuat = JKR_NEW_ARRAY(Quaternion, modelData->getJointNum());
     if (!mpQuat) {
         ERROR_EXIT();
         return;
@@ -1885,12 +1885,12 @@ void mDoExt_invJntPacket::draw() {
 
 /* 800143B8-80014580       .text init__15mDoExt_3Dline_cFUsii */
 BOOL mDoExt_3Dline_c::init(u16 numSegments, BOOL hasSize, BOOL hasTex) {
-    mpSegments = new cXyz[numSegments];
+    mpSegments = JKR_NEW_ARRAY(cXyz, numSegments);
     if (mpSegments == NULL)
         return FALSE;
 
     if (hasSize) {
-        mpSize = new u8[numSegments];
+        mpSize = JKR_NEW_ARRAY(u8, numSegments);
         if (mpSize == NULL)
             return FALSE;
     } else {
@@ -1898,20 +1898,20 @@ BOOL mDoExt_3Dline_c::init(u16 numSegments, BOOL hasSize, BOOL hasTex) {
     }
 
     u32 numArr = numSegments * 2;
-    mPosArr[0] = new cXyz[numArr];
+    mPosArr[0] = JKR_NEW_ARRAY(cXyz, numArr);
     if (mPosArr[0] == NULL)
         return FALSE;
 
-    mPosArr[1] = new cXyz[numArr];
+    mPosArr[1] = JKR_NEW_ARRAY(cXyz, numArr);
     if (mPosArr[1] == NULL)
         return FALSE;
 
     if (hasTex) {
-        mTexArr[0] = new cXy[numArr];
+        mTexArr[0] = JKR_NEW_ARRAY(cXy, numArr);
         if (mTexArr[0] == NULL)
             return FALSE;
 
-        mTexArr[1] = new cXy[numArr];
+        mTexArr[1] = JKR_NEW_ARRAY(cXy, numArr);
         if (mTexArr[1] == NULL)
             return FALSE;
 
@@ -1935,7 +1935,7 @@ BOOL mDoExt_3Dline_c::init(u16 numSegments, BOOL hasSize, BOOL hasTex) {
 BOOL mDoExt_3DlineMat0_c::init(u16 numLines, u16 numSegments, BOOL hasSize) {
     mNumLines = numLines;
     mMaxSegments = numSegments;
-    mpLines = new mDoExt_3Dline_c[numLines];
+    mpLines = JKR_NEW_ARRAY(mDoExt_3Dline_c, numLines);
     if (mpLines == NULL)
         return FALSE;
 
@@ -2199,7 +2199,7 @@ void mDoExt_3DlineMat0_c::update(u16 i_segs, GXColor& i_color, dKy_tevstr_c* i_t
 BOOL mDoExt_3DlineMat1_c::init(u16 numLines, u16 numSegments, ResTIMG* i_img, BOOL hasSize) {
     mNumLines = numLines;
     mMaxSegments = numSegments;
-    mpLines = new mDoExt_3Dline_c[numLines];
+    mpLines = JKR_NEW_ARRAY(mDoExt_3Dline_c, numLines);
     if (mpLines == NULL)
         return FALSE;
 
@@ -3102,21 +3102,21 @@ void mDoExt_initFontCommon(JUTFont** p_font, ResFONT** p_resfont, JKRHeap* p_hea
 #else
         u32 temp = (((param_8+0x1F) & ~0x1F) + 0x40) * param_7;
 #endif
-        JUTCacheFont* cacheFont = new(p_heap, 0) JUTCacheFont(*p_resfont, temp, p_heap);
+        JUTCacheFont* cacheFont = JKR_NEW_ARGS(p_heap, 0) JUTCacheFont(*p_resfont, temp, p_heap);
         if (cacheFont->isValid()) {
             *p_font = cacheFont;
         }
         JKRRemoveResource(*p_resfont, NULL);
         *p_resfont = NULL;
     } else {
-        JUTResFont* resFont = new JUTResFont(*p_resfont, p_heap);
+        JUTResFont* resFont = JKR_NEW JUTResFont(*p_resfont, p_heap);
         *p_font = resFont;
     }
     
     if (*p_font && !(*p_font)->isValid()) {
         // "\nFailed to create cache font class\n"
         OSReport_FatalError("\nキャッシュフォントクラス作成に失敗しました\n");
-        delete *p_font;
+        JKR_DELETE(*p_font);
         *p_font = NULL;
     }
     
@@ -3191,7 +3191,7 @@ void mDoExt_removeMesgFont() {
         JUT_ASSERT(VERSION_SELECT(6635, 6728, 6739, 6739), mDoExt_font0_getCount > 0);
         
         if (mDoExt_font0_getCount == 0) {
-            delete mDoExt_font0;
+            JKR_DELETE(mDoExt_font0);
             mDoExt_font0 = NULL;
             
             if (mDoExt_resfont0) {
@@ -3241,7 +3241,7 @@ void mDoExt_removeRubyFont() {
         JUT_ASSERT(VERSION_SELECT(6658, 6751, 6793, 6793), mDoExt_font1_getCount > 0);
         
         if (mDoExt_font1_getCount == 0) {
-            delete mDoExt_font1;
+            JKR_DELETE(mDoExt_font1);
             mDoExt_font1 = NULL;
             
             if (mDoExt_resfont1) {
@@ -3254,7 +3254,7 @@ void mDoExt_removeRubyFont() {
 
 /* 80016BB8-80016C98       .text mDoExt_J3DModel__create__FP12J3DModelDataUlUl */
 J3DModel* mDoExt_J3DModel__create(J3DModelData* i_modelData, u32 i_modelFlag, u32 i_differedDlistFlag) {
-    J3DModel* model = new J3DModel();
+    J3DModel* model = JKR_NEW J3DModel();
     if (model) {
         BOOL isDisplayList = i_modelData->getModelDataType() == 1;
         if (isDisplayList && i_modelFlag == 0) {

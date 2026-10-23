@@ -14,7 +14,7 @@ namespace {
 // TODO: supposed to use JStudio::TObject::createFromAdaptor instead of this somehow
 static inline JStudio::TObject_particle* create(const JStudio::stb::data::TParse_TBlock_object& data, TAdaptor_particle* adaptor)
 {
-    JStudio::TObject_particle* object = new JStudio::TObject_particle(data, adaptor);
+    JStudio::TObject_particle* object = JKR_NEW JStudio::TObject_particle(data, adaptor);
     if (object == NULL) {
         // TODO: This should probably delete the adaptor in NONMATCHING builds, if the object couldn't get created.
         return NULL;
@@ -30,7 +30,7 @@ static inline JStudio::TObject_particle* create(const JStudio::stb::data::TParse
 JStudio::TObject_particle* createObject_PARTICLE_JPA_(const JStudio::stb::data::TParse_TBlock_object& data, JPAEmitterManager* manager,
                                                       const JStage::TSystem* system)
 {
-    TAdaptor_particle* adaptor = new TAdaptor_particle(manager, system);
+    TAdaptor_particle* adaptor = JKR_NEW TAdaptor_particle(manager, system);
     if (adaptor == NULL) {
         return NULL;
     }

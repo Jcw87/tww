@@ -863,7 +863,7 @@ static BOOL useHeapInit(fopAc_ac_c* i_actor) {
     J3DModel* model;
     bwds_class* i_this = (bwds_class*)i_actor;
 
-    i_this->mpMorf = new mDoExt_McaMorf(
+    i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("Bwds", dRes_INDEX_BWDS_BDL_KOBOSS_HEAD_e),
         NULL,
         NULL,
@@ -892,7 +892,7 @@ static BOOL useHeapInit(fopAc_ac_c* i_actor) {
     }
 
     for (s32 i = 0; i < 0x2; i++) {
-        i_this->mp18B0[i] = new mDoExt_McaMorf(
+        i_this->mp18B0[i] = JKR_NEW mDoExt_McaMorf(
             (J3DModelData*)dComIfG_getObjectRes("Bwd", s_bdl[i]),
             NULL,
             NULL,
@@ -911,7 +911,7 @@ static BOOL useHeapInit(fopAc_ac_c* i_actor) {
             return FALSE;
         }
         modelData = i_this->mp18B0[i]->getModel()->getModelData();
-        i_this->mp18B8[i] = new mDoExt_btkAnm();
+        i_this->mp18B8[i] = JKR_NEW mDoExt_btkAnm();
         if (!i_this->mp18B8[i]) {
             return FALSE;
         }
@@ -924,7 +924,7 @@ static BOOL useHeapInit(fopAc_ac_c* i_actor) {
             return FALSE;
         }
 
-        i_this->mp18C0[i] = new mDoExt_brkAnm();
+        i_this->mp18C0[i] = JKR_NEW mDoExt_brkAnm();
 
         ret = i_this->mp18C0[i]->init(
             modelData, (J3DAnmTevRegKey*)dComIfG_getObjectRes("Bwd", s_brk[i]), TRUE, J3DFrameCtrl::EMode_LOOP

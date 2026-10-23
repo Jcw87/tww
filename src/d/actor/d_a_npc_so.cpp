@@ -317,7 +317,7 @@ BOOL daNpc_So_c::_createHeap() {
     J3DModelData* modelData = static_cast<J3DModelData*>(dComIfG_getObjectRes(m_arc_name, dRes_INDEX_SO_BDL_SO_e));
     JUT_ASSERT(DEMO_SELECT(537, 509), modelData != NULL);
 
-    mpMorf = new mDoExt_McaMorf(modelData, NULL, NULL, NULL, ~J3DFrameCtrl::EMode_NONE, 1.0f, 0, -1, 1, NULL, 0x80000, 0x11020022);
+    mpMorf = JKR_NEW mDoExt_McaMorf(modelData, NULL, NULL, NULL, ~J3DFrameCtrl::EMode_NONE, 1.0f, 0, -1, 1, NULL, 0x80000, 0x11020022);
     if (mpMorf == NULL || mpMorf->getModel() == NULL) {
         return FALSE;
     }

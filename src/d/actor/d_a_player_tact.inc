@@ -40,7 +40,7 @@ void daPy_lk_c::setTactModel() {
     JKRHeap* oldHeap = setItemHeap();
 
     J3DModelData* modelData = initModel(&mpEquipItemModel, dRes_INDEX_LINK_BDL_TAKT_e, 0x37221222);
-    u8* buffer = new (0x20) u8[0x400];
+    u8* buffer = JKR_NEW_ARRAY_ARGS(u8, 0x400, 0x20);
     dComIfGp_getAnmArchive()->readIdxResource(buffer, 0x400, dRes_INDEX_LKANM_BRK_TTAKT_e);
     mpEquipItemBrk = (J3DAnmTevRegKey*)J3DAnmLoaderDataBase::load(buffer);
     mpEquipItemBrk->setFrame(0.0f);

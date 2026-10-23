@@ -4248,7 +4248,7 @@ static BOOL boss_useHeapInit(fopAc_ac_c* a_this) {
     J3DAnmTevRegKey* pBrk;
     bpw_class* i_this = (bpw_class*)a_this;
 
-    i_this->mpMorf = new mDoExt_McaMorf(
+    i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("BPW", dRes_INDEX_BPW_BDL_BPW_e),
         NULL,
         NULL,
@@ -4270,7 +4270,7 @@ static BOOL boss_useHeapInit(fopAc_ac_c* a_this) {
         i_this->mpMorf->getModel()->getModelData()->getJointNodePointer(i)->setCallBack(body_nodeCallBack);
     }
     model = i_this->mpMorf->getModel();
-    i_this->mpLightFreezeBrkAnm = new mDoExt_brkAnm();
+    i_this->mpLightFreezeBrkAnm = JKR_NEW mDoExt_brkAnm();
     if (i_this->mpLightFreezeBrkAnm == NULL) {
         return FALSE;
     }
@@ -4278,7 +4278,7 @@ static BOOL boss_useHeapInit(fopAc_ac_c* a_this) {
     if (!i_this->mpLightFreezeBrkAnm->init(model->getModelData(), pBrk, true, J3DFrameCtrl::EMode_NONE)) {
         return FALSE;
     }
-    i_this->mpLightStunBrkAnm = new mDoExt_brkAnm();
+    i_this->mpLightStunBrkAnm = JKR_NEW mDoExt_brkAnm();
     if (i_this->mpLightStunBrkAnm == NULL) {
         return FALSE;
     }
@@ -4286,7 +4286,7 @@ static BOOL boss_useHeapInit(fopAc_ac_c* a_this) {
     if (!i_this->mpLightStunBrkAnm->init(model->getModelData(), pBrk, true, J3DFrameCtrl::EMode_LOOP)) {
         return FALSE;
     }
-    i_this->mpCurseStartBrkAnm = new mDoExt_brkAnm();
+    i_this->mpCurseStartBrkAnm = JKR_NEW mDoExt_brkAnm();
     if (i_this->mpCurseStartBrkAnm == NULL) {
         return FALSE;
     }
@@ -4294,7 +4294,7 @@ static BOOL boss_useHeapInit(fopAc_ac_c* a_this) {
     if (!i_this->mpCurseStartBrkAnm->init(model->getModelData(), pBrk, true, J3DFrameCtrl::EMode_NONE)) {
         return FALSE;
     }
-    i_this->mpCurseEndBrkAnm = new mDoExt_brkAnm();
+    i_this->mpCurseEndBrkAnm = JKR_NEW mDoExt_brkAnm();
     if (i_this->mpCurseEndBrkAnm == NULL) {
         return FALSE;
     }
@@ -4302,7 +4302,7 @@ static BOOL boss_useHeapInit(fopAc_ac_c* a_this) {
     if (!i_this->mpCurseEndBrkAnm->init(model->getModelData(), pBrk, true, J3DFrameCtrl::EMode_NONE)) {
         return FALSE;
     }
-    i_this->mpDefaultBrkAnm = new mDoExt_brkAnm();
+    i_this->mpDefaultBrkAnm = JKR_NEW mDoExt_brkAnm();
     if (i_this->mpDefaultBrkAnm == NULL) {
         return FALSE;
     }
@@ -4406,7 +4406,7 @@ void body_create_init(bpw_class* i_this) {
 static BOOL kantera_useHeapInit(fopAc_ac_c* a_this) {
     bpw_class* i_this = (bpw_class*)a_this;
 
-    i_this->mpMorf = new mDoExt_McaMorf(
+    i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("BPW", dRes_INDEX_BPW_BDL_BPW_KAN1_e), NULL, NULL, NULL, J3DFrameCtrl::EMode_RESET, 1.0f, 0, -1, 1, NULL, 0x80000, 0x37441422
     );
     if ((i_this->mpMorf == NULL) || (i_this->mpMorf->getModel() == NULL)) {
@@ -4417,7 +4417,7 @@ static BOOL kantera_useHeapInit(fopAc_ac_c* a_this) {
         i_this->mpMorf->getModel()->getModelData()->getJointNodePointer(i)->setCallBack(kantera_nodeCallBack);
     }
     J3DModel* model = i_this->mpMorf->getModel();
-    i_this->mpLanternGlowBrkAnm = new mDoExt_brkAnm();
+    i_this->mpLanternGlowBrkAnm = JKR_NEW mDoExt_brkAnm();
     if (i_this->mpLanternGlowBrkAnm == NULL) {
         return FALSE;
     }
@@ -4479,7 +4479,7 @@ void kantera_create_init(bpw_class* i_this) {
 static BOOL fire_useHeapInit(fopAc_ac_c* a_this) {
     bpw_class* i_this = (bpw_class*)a_this;
 
-    i_this->mpMorf = new mDoExt_McaMorf(
+    i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("BPW", dRes_INDEX_BPW_BDL_BPW_KAN1_e), NULL, NULL, NULL, J3DFrameCtrl::EMode_RESET, 1.0f, 0, -1, 1, NULL, 0x80000, 0x37441422
     );
     if ((i_this->mpMorf == NULL) || (i_this->mpMorf->getModel() == NULL)) {
@@ -4533,7 +4533,7 @@ void damage_ball_create_init(bpw_class* i_this) {
 static BOOL tori_useHeapInit(fopAc_ac_c* a_this) {
     bpw_class* i_this = (bpw_class*)a_this;
 
-    i_this->mpMorf = new mDoExt_McaMorf(
+    i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("BPW", dRes_INDEX_BPW_BDL_BPW_e),
         NULL,
         NULL,

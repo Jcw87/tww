@@ -2021,21 +2021,21 @@ int dMenu_Item_c::equipBeastItem(int param_0) {
 
 /* 801CF12C-801CF510       .text _create__12dMenu_Item_cFv */
 void dMenu_Item_c::_create() {
-    scrn = new J2DScreen();
+    scrn = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(2569, 2574, 2647, 2647), scrn != NULL);
     scrn->set("menu_item_02.blo", archive);
 
-    stick = new STControl(5, 2, 3, 2);
+    stick = JKR_NEW STControl(5, 2, 3, 2);
     JUT_ASSERT(VERSION_SELECT(2573, 2578, 2651, 2651), stick != NULL);
     stick->setWaitParm(5, 2, 3, 2, 0.9f, 0.5f, 0, 0x800);
 
-    outFont = new dDlst_2DOutFont_c();
+    outFont = JKR_NEW dDlst_2DOutFont_c();
     JUT_ASSERT(VERSION_SELECT(2577, 2582, 2655, 2655), outFont != NULL);
     #if VERSION >= VERSION_USA
     outFont->m74 = 1;
     #endif
 
-    dMs_c = new dMenu_save_c();
+    dMs_c = JKR_NEW dMenu_save_c();
     JUT_ASSERT(VERSION_SELECT(2580, 2585, 2659, 2659), dMs_c != NULL);
     dMs_c->setUseType(0);
     dMs_c->_create();
@@ -2087,12 +2087,12 @@ void dMenu_Item_c::_delete() {
         }
     }
 
-    delete scrn;
-    delete stick;
-    delete outFont;
+    JKR_DELETE(scrn);
+    JKR_DELETE(stick);
+    JKR_DELETE(outFont);
     
     dMs_c->_delete();
-    delete dMs_c;
+    JKR_DELETE(dMs_c);
 
     archive->removeResourceAll();
     mDoHIO_deleteChild(g_miHIO.mNo);

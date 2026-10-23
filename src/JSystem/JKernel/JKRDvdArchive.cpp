@@ -49,7 +49,7 @@ JKRDvdArchive::~JKRDvdArchive() {
         }
 
         if (mDvdFile) {
-            delete mDvdFile;
+            JKR_DELETE(mDvdFile);
         }
 
         getVolumeList().remove(&mFileLoaderLink);
@@ -76,7 +76,7 @@ bool JKRDvdArchive::open(s32 entryNum) {
     mFiles = NULL;
     mStringTable = NULL;
 
-    mDvdFile = new (JKRGetSystemHeap(), 0) JKRDvdFile(entryNum);
+    mDvdFile = JKR_NEW_ARGS(JKRGetSystemHeap(), 0) JKRDvdFile(entryNum);
     if (!mDvdFile) {
         mMountMode = UNKNOWN_MOUNT_MODE;
         return false;
@@ -141,7 +141,7 @@ cleanup:
     if (mMountMode == UNKNOWN_MOUNT_MODE) {
         OSReport(":::Cannot alloc memory [%s][%d]\n", __FILE__, 382);
         if (mDvdFile) {
-            delete mDvdFile;
+            JKR_DELETE(mDvdFile);
         }
         return false;
     }

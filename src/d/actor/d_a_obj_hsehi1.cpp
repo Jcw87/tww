@@ -171,7 +171,7 @@ BOOL daObj_hsh_c::createHeap() {
             return FALSE;
         }
 
-        mpBgW = new dBgW();
+        mpBgW = JKR_NEW dBgW();
         if (mpBgW != NULL) {
             cBgD_t* dzb = (cBgD_t*)dComIfG_getObjectRes("Hsehi1", dRes_INDEX_HSEHI1_DZB_HSEHI1_e);
             if (mpBgW->Set(dzb, cBgW::MOVE_BG_e, &mMtx)) {
@@ -189,7 +189,7 @@ BOOL daObj_hsh_c::createHeap() {
             return FALSE;
         }
 
-        mpBgW = new dBgW();
+        mpBgW = JKR_NEW dBgW();
         if (mpBgW != NULL) {
             cBgD_t* dzb = (cBgD_t*)dComIfG_getObjectRes("Hsehi2", dRes_INDEX_HSEHI2_DZB_HSEHI2_e);
             if (mpBgW->Set(dzb, cBgW::MOVE_BG_e, &mMtx)) {

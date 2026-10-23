@@ -314,24 +314,24 @@ void dMenu_Fmap_c::_create() {
     mSalvagePntIdx = dComIfGs_getRandomSalvagePoint();
 #endif
 
-    fmapDl.scrn = new J2DScreen();
+    fmapDl.scrn = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(594, 560, 571, 571), fmapDl.scrn != NULL);
     fmapDl.scrn->set("f_map.blo", dComIfGp_getFmapResArchive());
 
-    outFont = new dDlst_2DOutFont_c();
+    outFont = JKR_NEW dDlst_2DOutFont_c();
     JUT_ASSERT(VERSION_SELECT(598, 564, 575, 575), outFont != NULL);
 #if VERSION > VERSION_JPN
     outFont->m74 = 1;
 #endif
 
-    outFont2 = new dDlst_2DOutFont_c();
+    outFont2 = JKR_NEW dDlst_2DOutFont_c();
     JUT_ASSERT(VERSION_SELECT(601, 567, 579, 579), outFont2 != NULL);
 
-    stick = new STControl(5, 2, 3, 2, 0.9f, 0.5f, 0, 0x2000);
+    stick = JKR_NEW STControl(5, 2, 3, 2, 0.9f, 0.5f, 0, 0x2000);
     JUT_ASSERT(VERSION_SELECT(604, 570, 582, 582), stick != NULL);
     stick->setWaitParm(5, 2, 3, 2, 0.9f, 0.5f, 0, 0x800);
 
-    mChkPntTxt_p = new (0x20) FMapTIMG;
+    mChkPntTxt_p = JKR_NEW_ARGS(0x20) FMapTIMG;
     JUT_ASSERT(VERSION_SELECT(608, 574, 586, 586), mChkPntTxt_p != NULL);
 
     screenSet();
@@ -1871,11 +1871,11 @@ void dMenu_Fmap_c::_draw() {
 /* 801B4E6C-801B4F40       .text _delete__12dMenu_Fmap_cFv */
 void dMenu_Fmap_c::_delete() {
     mFmap2._delete();
-    delete fmapDl.scrn;
-    delete stick;
-    delete mChkPntTxt_p;
-    delete outFont;
-    delete outFont2;
+    JKR_DELETE(fmapDl.scrn);
+    JKR_DELETE(stick);
+    JKR_DELETE(mChkPntTxt_p);
+    JKR_DELETE(outFont);
+    JKR_DELETE(outFont2);
     dComIfGp_getFmapResArchive()->removeResourceAll();
 #if VERSION > VERSION_DEMO
     dComIfGp_getFmapArchive()->removeResourceAll();

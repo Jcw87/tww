@@ -340,7 +340,7 @@ void daComing3::Act_c::eff_break_tsubo() {
     JPABaseEmitter* baseEmitter = (JPABaseEmitter*)dComIfGp_particle_set(dPa_name::ID_AK_JN_M_TUBOHAHEN, &sp1C, NULL, &sp34);
     if (baseEmitter != NULL) {
         dPa_J3DmodelEmitter_c* modelEmitter;
-        modelEmitter = new dPa_J3DmodelEmitter_c(baseEmitter, modelData, tevStr, texPattern, 0, 0);
+        modelEmitter = JKR_NEW dPa_J3DmodelEmitter_c(baseEmitter, modelData, tevStr, texPattern, 0, 0);
         if (modelEmitter != NULL) {
             dComIfGp_particle_addModelEmitter(modelEmitter);
         }

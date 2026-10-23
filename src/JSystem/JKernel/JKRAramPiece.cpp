@@ -13,7 +13,7 @@
 
 /* 802B5C14-802B5C94       .text prepareCommand__12JKRAramPieceFiUlUlUlP12JKRAramBlockPFUl_v */
 JKRAMCommand* JKRAramPiece::prepareCommand(int direction, uintptr_t src, uintptr_t dst, u32 length, JKRAramBlock* block, JKRAMCommand::AsyncCallback callback) {
-    JKRAMCommand* command = new (JKRHeap::getSystemHeap(), -4) JKRAMCommand();
+    JKRAMCommand* command = JKR_NEW_ARGS(JKRHeap::getSystemHeap(), -4) JKRAMCommand();
     command->mTransferDirection = direction;
     command->mSrc = src;
     command->mDst = dst;
@@ -42,7 +42,7 @@ JKRAMCommand* JKRAramPiece::orderAsync(int direction, uintptr_t source, uintptr_
         OSPanic(__FILE__, 102, "Abort.");
     }
 
-    Message* message = new (JKRHeap::getSystemHeap(), -4) Message();
+    Message* message = JKR_NEW_ARGS(JKRHeap::getSystemHeap(), -4) Message();
     JKRAMCommand* command =
         JKRAramPiece::prepareCommand(direction, source, destination, length, block, callback);
     message->field_0x00 = 1;
@@ -87,7 +87,7 @@ BOOL JKRAramPiece::orderSync(int direction, uintptr_t source, uintptr_t destinat
     JKRAMCommand* command =
         JKRAramPiece::orderAsync(direction, source, destination, length, block, NULL);
     BOOL result = JKRAramPiece::sync(command, 0);
-    delete command;
+    JKR_DELETE(command);
 
     unlock();
     return result;
@@ -143,10 +143,10 @@ JKRAMCommand::JKRAMCommand() : mPieceLink(this), field_0x30(this) {
 /* 802B60F8-802B61A0       .text __dt__12JKRAMCommandFv */
 JKRAMCommand::~JKRAMCommand() {
     if (field_0x8C) {
-        delete field_0x8C;
+        JKR_DELETE(field_0x8C);
     }
     if (field_0x90) {
-        delete field_0x90;
+        JKR_DELETE(field_0x90);
     }
 
     if (field_0x94) {

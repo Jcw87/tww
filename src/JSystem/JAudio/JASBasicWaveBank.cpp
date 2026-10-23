@@ -21,11 +21,11 @@ JASystem::TBasicWaveBank::TBasicWaveBank() {
 
 /* 802859C8-80285A74       .text __dt__Q28JASystem14TBasicWaveBankFv */
 JASystem::TBasicWaveBank::~TBasicWaveBank() {
-    delete[] mWaveTable;
+    JKR_DELETE_ARRAY(mWaveTable);
     for (int i = 0; i < mWaveGroupCount; i++) {
-        delete mWaveGroupArray[i];
+        JKR_DELETE(mWaveGroupArray[i]);
     }
-    delete[] mWaveGroupArray;
+    JKR_DELETE_ARRAY(mWaveGroupArray);
 }
 
 /* 80285A74-80285AFC       .text getWaveGroup__Q28JASystem14TBasicWaveBankFi */
@@ -40,21 +40,21 @@ JASystem::TBasicWaveBank::TWaveGroup* JASystem::TBasicWaveBank::getWaveGroup(int
 /* 80285AFC-80285C10       .text setGroupCount__Q28JASystem14TBasicWaveBankFUl */
 void JASystem::TBasicWaveBank::setGroupCount(u32 param_1) {
     for (int i = 0; i < mWaveGroupCount; i++) {
-        delete mWaveGroupArray[i];
+        JKR_DELETE(mWaveGroupArray[i]);
     }
-    delete[] mWaveGroupArray;
+    JKR_DELETE_ARRAY(mWaveGroupArray);
     mWaveGroupCount = param_1;
-    mWaveGroupArray = new (getCurrentHeap(), 0) TWaveGroup*[param_1];
+    mWaveGroupArray = JKR_NEW_ARRAY_ARGS(TWaveGroup*, param_1, getCurrentHeap(), 0);
     JUT_ASSERT(58, mWaveGroupArray != NULL);
     for (int i = 0; i < mWaveGroupCount; i++) {
-        mWaveGroupArray[i] = new (getCurrentHeap(), 0) TWaveGroup(this);
+        mWaveGroupArray[i] = JKR_NEW_ARGS(getCurrentHeap(), 0) TWaveGroup(this);
     }
 }
 
 /* 80285C10-80285CB0       .text setWaveTableSize__Q28JASystem14TBasicWaveBankFUl */
 void JASystem::TBasicWaveBank::setWaveTableSize(u32 param_1) {
-    delete[] mWaveTable;
-    mWaveTable = new (getCurrentHeap(), 0) TWaveInfo*[param_1];
+    JKR_DELETE_ARRAY(mWaveTable);
+    mWaveTable = JKR_NEW_ARRAY_ARGS(TWaveInfo*, param_1, getCurrentHeap(), 0);
     JUT_ASSERT(70, mWaveTable != NULL);
     Calc::bzero(mWaveTable, param_1 * 4);
     mWaveCount = param_1;
@@ -120,7 +120,7 @@ JASystem::TBasicWaveBank::TWaveGroup::TWaveGroup(TBasicWaveBank* param_1) {
 
 /* 80285EB0-80285F64       .text __dt__Q38JASystem14TBasicWaveBank10TWaveGroupFv */
 JASystem::TBasicWaveBank::TWaveGroup::~TWaveGroup() {
-    delete[] mCtrlWaveArray;
+    JKR_DELETE_ARRAY(mCtrlWaveArray);
 }
 
 /* 80285F64-80285FC4       .text __dt__Q38JASystem14TBasicWaveBank9TWaveInfoFv */
@@ -128,9 +128,9 @@ JASystem::TBasicWaveBank::TWaveInfo::~TWaveInfo() {}
 
 /* 80285FC4-802860B8       .text setWaveCount__Q38JASystem14TBasicWaveBank10TWaveGroupFUl */
 void JASystem::TBasicWaveBank::TWaveGroup::setWaveCount(u32 num) {
-    delete[] mCtrlWaveArray;
+    JKR_DELETE_ARRAY(mCtrlWaveArray);
     mWaveCount = num;
-    mCtrlWaveArray = new (getCurrentHeap(), 0) TWaveInfo[num];
+    mCtrlWaveArray = JKR_NEW_ARRAY_ARGS(TWaveInfo, num, getCurrentHeap(), 0);
     JUT_ASSERT(180, mCtrlWaveArray != NULL);
     for (int i = 0; i < num; i++) {
         mCtrlWaveArray[i].mWaveHandle.mHeap = &mHeap;

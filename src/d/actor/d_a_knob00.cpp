@@ -108,7 +108,7 @@ BOOL daKnob00_c::CreateHeap() {
 #endif
     }
 
-    mpBgW = new dBgW();
+    mpBgW = JKR_NEW dBgW();
     if (mpBgW == NULL) {
         return FALSE;
     }

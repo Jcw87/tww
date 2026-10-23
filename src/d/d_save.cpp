@@ -1427,7 +1427,7 @@ void dSv_info_c::reinit() {
         dSv_event_flag_c::UNK_3401,
     };
 
-    u8* r29 = new u8[ARRAY_SIZE(l_holdEventReg)];
+    u8* r29 = JKR_NEW_ARRAY(u8, ARRAY_SIZE(l_holdEventReg));
     for (int i = 0; i < ARRAY_SIZE(l_holdEventReg); i++) {
         r29[i] = dComIfGs_getEventReg(l_holdEventReg[i]);
     }

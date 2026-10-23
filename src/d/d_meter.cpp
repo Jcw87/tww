@@ -4877,7 +4877,7 @@ void dMeter_metronomeInit(sub_meter_class* i_Meter) {
     i_Meter->field_0x3028 = 0;
     if (dMn_c != NULL) {
         dMn_c->_delete();
-        delete dMn_c;
+        JKR_DELETE(dMn_c);
         dMn_c = NULL;
     }
 #endif
@@ -4908,7 +4908,7 @@ void dMeter_metronomeMove(sub_meter_class* i_Meter) {
         !(i_Meter->mStatusFlags & dMtrStts_UNK800000_e) && !(i_Meter->mStatusFlags & dMtrStts_UNK20_e))
     {
         if (metronomeFlag == 0 && dMn_c == NULL) {
-            dMn_c = new dMetronome_c();
+            dMn_c = JKR_NEW dMetronome_c();
             JUT_ASSERT(8755, dMn_c != NULL);
             dMn_c->_create();
             dMn_c->initialize();
@@ -4923,7 +4923,7 @@ void dMeter_metronomeMove(sub_meter_class* i_Meter) {
                 dMn_c->_move();
             } else {
                 dMn_c->_delete();
-                delete dMn_c;
+                JKR_DELETE(dMn_c);
                 dMn_c = NULL;
             }
         }
@@ -4934,7 +4934,7 @@ void dMeter_metronomeMove(sub_meter_class* i_Meter) {
         !(i_Meter->mStatusFlags & dMtrStts_UNK800000_e) && !(i_Meter->mStatusFlags & dMtrStts_UNK20_e))
     {
         if (i_Meter->field_0x3028 == 0 && dMn_c == NULL) {
-            dMn_c = new dMetronome_c();
+            dMn_c = JKR_NEW dMetronome_c();
             JUT_ASSERT(VERSION_SELECT(0, 8887, 9008, 9007), dMn_c != NULL);
             dMn_c->_create();
             dMn_c->initialize();
@@ -4955,7 +4955,7 @@ void dMeter_metronomeMove(sub_meter_class* i_Meter) {
         } else if (i_Meter->field_0x3028 == 2 && dMn_c != NULL) {
             i_Meter->field_0x3028 = 0;
             dMn_c->_delete();
-            delete dMn_c;
+            JKR_DELETE(dMn_c);
             dMn_c = NULL;
         }
     }
@@ -6187,7 +6187,7 @@ void dMeter_moveItemInit(sub_meter_class* i_Meter) {
     const char* filename = dItem_data::getTexture(dItemNo_BOW_e);
     JKRReadTypeResource(i_Meter->moveIconTex[0], 0xc00, 'TIMG', filename, archive);
     DCStoreRangeNoSync(i_Meter->moveIconTex[0], 0xc00);
-    moveItemPane = new J2DPicture(i_Meter->moveIconTex[0]);
+    moveItemPane = JKR_NEW J2DPicture(i_Meter->moveIconTex[0]);
 }
 
 /* 801FFF30-80200398       .text dMeter_moveItemMove__FP15sub_meter_class */
@@ -6426,8 +6426,8 @@ void dMeter_swimMove(sub_meter_class* i_Meter) {
             i_Meter->field_0x2da0.mUserArea = 0;
             if (sScrTimer1 != NULL && sScrTimer2 != NULL) {
                 dComIfGp_getSwimResArchive()->removeResourceAll();
-                delete sScrTimer1;
-                delete sScrTimer2;
+                JKR_DELETE(sScrTimer1);
+                JKR_DELETE(sScrTimer2);
                 sScrTimer1 = NULL;
                 sScrTimer2 = NULL;
             }
@@ -6444,8 +6444,8 @@ void dMeter_swimMove(sub_meter_class* i_Meter) {
             i_Meter->field_0x2da0.mUserArea = 0;
             if (sScrTimer1 != NULL && sScrTimer2 != NULL) {
                 dComIfGp_getSwimResArchive()->removeResourceAll();
-                delete sScrTimer1;
-                delete sScrTimer2;
+                JKR_DELETE(sScrTimer1);
+                JKR_DELETE(sScrTimer2);
                 sScrTimer1 = NULL;
                 sScrTimer2 = NULL;
             }
@@ -7199,9 +7199,9 @@ void dMeter_screenDataSet(sub_meter_class* i_Meter) {
 
 /* 8020408C-8020438C       .text dMeter_screenDataTimeSet__FP15sub_meter_class */
 void dMeter_screenDataTimeSet(sub_meter_class* i_Meter) {
-    sScrTimer1 = new J2DScreen();
+    sScrTimer1 = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(12863, 12863, 12863, 12862), sScrTimer1 != NULL);
-    sScrTimer2 = new J2DScreen();
+    sScrTimer2 = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(12865, 12865, 12865, 12864), sScrTimer2 != NULL);
     sScrTimer1->set("time_swim_1.blo", dComIfGp_getSwimResArchive());
     sScrTimer2->set("time_swim_2.blo", dComIfGp_getSwimResArchive());
@@ -7478,7 +7478,7 @@ static BOOL dMeter_Delete(sub_meter_class* i_Meter) {
     }
     if (dMn_c != NULL) {
         dMn_c->_delete();
-        delete dMn_c;
+        JKR_DELETE(dMn_c);
         dMn_c = NULL;
     }
     for (int i = 0; i < 3; i++) {
@@ -7491,21 +7491,21 @@ static BOOL dMeter_Delete(sub_meter_class* i_Meter) {
             i_Meter->heap->free(i_Meter->moveIconTex[i]);
         }
     }
-    delete sMainParts1;
-    delete sMainParts2;
-    delete sMainParts3;
+    JKR_DELETE(sMainParts1);
+    JKR_DELETE(sMainParts2);
+    JKR_DELETE(sMainParts3);
     if (sScrTimer1 != NULL && sScrTimer2 != NULL) {
         dComIfGp_getSwimResArchive()->removeResourceAll();
-        delete sScrTimer1;
-        delete sScrTimer2;
+        JKR_DELETE(sScrTimer1);
+        JKR_DELETE(sScrTimer2);
         sScrTimer1 = NULL;
         sScrTimer2 = NULL;
     }
-    delete sChoiceRoad;
+    JKR_DELETE(sChoiceRoad);
 #if VERSION > VERSION_DEMO
     sChoiceRoad = NULL;
 #endif
-    delete moveItemPane;
+    JKR_DELETE(moveItemPane);
 #if VERSION > VERSION_DEMO
     moveItemPane = NULL;
 #endif
@@ -7552,19 +7552,19 @@ static cPhs_State dMeter_Create(msg_class* i_this) {
     JUT_ASSERT(VERSION_SELECT(13172, 13354, 13475, 13474), i_Meter->heap != NULL);
 
     JKRHeap* oldHeap = mDoExt_setCurrentHeap(i_Meter->heap);
-    sMainParts1 = new MyScreen();
+    sMainParts1 = JKR_NEW MyScreen();
     JUT_ASSERT(VERSION_SELECT(13177, 13359, 13480, 13479), sMainParts1 != NULL);
     sMainParts1->set("main_parts1.blo", dComIfGp_getMenuArchive());
 
-    sMainParts2 = new J2DScreen();
+    sMainParts2 = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(13181, 13363, 13484, 13483), sMainParts2 != NULL);
     sMainParts2->set("main_parts2.blo", dComIfGp_getMenuArchive());
 
-    sMainParts3 = new J2DScreen();
+    sMainParts3 = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(13185, 13367, 13488, 13487), sMainParts3 != NULL);
     sMainParts3->set("main_parts3.blo", dComIfGp_getMenuArchive());
 
-    sChoiceRoad = new J2DScreen();
+    sChoiceRoad = JKR_NEW J2DScreen();
     JUT_ASSERT(VERSION_SELECT(13189, 13371, 13492, 13491), sChoiceRoad != NULL);
     sChoiceRoad->set("choice_road.blo", dComIfGp_getMenuArchive());
 

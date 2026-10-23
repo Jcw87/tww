@@ -180,12 +180,12 @@ void JASystem::TWaveArc::setFileName(const char* param_1) {
     char* currentDir = WaveArcLoader::getCurrentDir();
     size_t size = strlen(currentDir);
     size += strlen(param_1);
-    char* str = new (JKRGetSystemHeap(), -4) char[size + 1];
+    char* str = JKR_NEW_ARRAY_ARGS(char, size + 1, JKRGetSystemHeap(), -4);
     strcpy(str, currentDir);
     strcat(str, param_1);
     str[size] = 0;
     s32 entry = DVDConvertPathToEntrynum(str);
-    delete[] str;
+    JKR_DELETE_ARRAY(str);
     if (entry >= 0) {
         setEntryNum(entry);
     }

@@ -15,7 +15,7 @@ bool dBgWSv::Set(cBgD_t* bgd, u32 flag) {
     if (ChkNoCrrPos()) {
         return false;
     }
-    SetBackVtx(new Vec[pm_bgd->m_v_num]);
+    SetBackVtx(JKR_NEW_ARRAY(Vec, pm_bgd->m_v_num));
     if (GetBackVtx() == NULL) {
         return true;
     }

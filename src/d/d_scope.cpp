@@ -1242,16 +1242,16 @@ static BOOL dScp_Delete(sub_scp_class* i_this) {
     sub_scp_class* scp = i_this;
     JKRHeap* heap = mDoExt_setCurrentHeap(i_this->mpHeap);
 
-    delete dScp_ScpScreen;
-    delete dScp_MsgScreen;
+    JKR_DELETE(dScp_ScpScreen);
+    JKR_DELETE(dScp_MsgScreen);
 
     mDoExt_removeMesgFont();
     mDoExt_removeRubyFont();
 
     for (int i = 0; i < 8; i++) {
 
-        delete sbutton_icon[i];
-        delete sbutton_kage[i];
+        JKR_DELETE(sbutton_icon[i]);
+        JKR_DELETE(sbutton_kage[i]);
     }
 
     scp->mpHeap->free(scp->oTx);
@@ -1288,7 +1288,7 @@ static cPhs_State dScp_Create(msg_class* i_this) {
 
     JKRHeap* heap = mDoExt_setCurrentHeap(i_Scp->mpHeap);
 
-    dScp_ScpScreen = new J2DScreen();
+    dScp_ScpScreen = JKR_NEW J2DScreen();
     u8 scope_type = dComIfGp_getScopeType();
 
     if (scope_type == dScpTyp_UNK0_e) {
@@ -1297,14 +1297,14 @@ static cPhs_State dScp_Create(msg_class* i_this) {
         dScp_ScpScreen->set("wipe_00.blo", dComIfGp_getScopeResArchive());
     }
 
-    dScp_MsgScreen = new J2DScreen();
+    dScp_MsgScreen = JKR_NEW J2DScreen();
     dScp_MsgScreen->set("hukidashi_08.blo", dComIfGp_getMsgArchive());
 
     dScp_ScreenDataSet(i_Scp);
 
     for (int i = 0; i < 8; i++) {
-        sbutton_icon[i] = new J2DPicture("font_07_02.bti");
-        sbutton_kage[i] = new J2DPicture("font_07_02.bti");
+        sbutton_icon[i] = JKR_NEW J2DPicture("font_07_02.bti");
+        sbutton_kage[i] = JKR_NEW J2DPicture("font_07_02.bti");
         fopMsgM_blendInit(sbutton_icon[i], "font_00.bti");
         fopMsgM_blendInit(sbutton_kage[i], "font_00.bti");
         sbutton_icon[i]->hide();

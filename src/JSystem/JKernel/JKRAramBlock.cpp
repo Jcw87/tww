@@ -42,7 +42,7 @@ JKRAramBlock* JKRAramBlock::allocHead(u32 size, u8 groupId, JKRAramHeap* aramHea
     u32 freeSize = mFreeSize;
     u32 nextFreeSize = freeSize - size;
 
-    JKRAramBlock* block = new (aramHeap->getMgrHeap(), 0) JKRAramBlock(nextAddress, size, nextFreeSize, groupId, false);
+    JKRAramBlock* block = JKR_NEW_ARGS(aramHeap->getMgrHeap(), 0) JKRAramBlock(nextAddress, size, nextFreeSize, groupId, false);
 
     mFreeSize = 0;
     JSULink<JKRAramBlock>* next = mBlockLink.getNext();
@@ -59,7 +59,7 @@ JKRAramBlock* JKRAramBlock::allocTail(u32 size, u8 groupId, JKRAramHeap* aramHea
     u32 endAddress = address + usedSize + freeSize;
     u32 tailAddress = endAddress - size;
 
-    JKRAramBlock* block = new (aramHeap->getMgrHeap(), 0) JKRAramBlock(tailAddress, size, 0, groupId, true);
+    JKRAramBlock* block = JKR_NEW_ARGS(aramHeap->getMgrHeap(), 0) JKRAramBlock(tailAddress, size, 0, groupId, true);
 
     mFreeSize -= size;
     JSULink<JKRAramBlock>* next = mBlockLink.getNext();

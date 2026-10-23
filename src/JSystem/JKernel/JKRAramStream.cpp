@@ -16,7 +16,7 @@ JKRAramStream* JKRAramStream::sAramStreamObject;
 /* 802B61E4-802B6254       .text create__13JKRAramStreamFl */
 JKRAramStream* JKRAramStream::create(s32 priority) {
     if (!sAramStreamObject) {
-        sAramStreamObject = new (JKRGetSystemHeap(), 0) JKRAramStream(priority);
+        sAramStreamObject = JKR_NEW_ARGS(JKRGetSystemHeap(), 0) JKRAramStream(priority);
         JKRResetAramTransferBuffer();
     }
 
@@ -138,7 +138,7 @@ JKRHeap* JKRAramStream::transHeap;
 
 /* 802B6568-802B6624       .text write_StreamToAram_Async__13JKRAramStreamFP18JSUFileInputStreamUlUlUl */
 JKRAramStreamCommand* JKRAramStream::write_StreamToAram_Async(JSUFileInputStream* stream, u32 addr, u32 size, u32 offset) {
-    JKRAramStreamCommand* command = new (JKRGetSystemHeap(), -4) JKRAramStreamCommand();
+    JKRAramStreamCommand* command = JKR_NEW_ARGS(JKRGetSystemHeap(), -4) JKRAramStreamCommand();
     command->mType = JKRAramStreamCommand::WRITE;
     command->mAddress = addr;
     command->mSize = size;

@@ -2674,7 +2674,7 @@ static BOOL createHeap(fopAc_ac_c* a_this) {
     };
     st_class* i_this = (st_class*)a_this;
 
-    i_this->mpMorf = new mDoExt_McaMorf(
+    i_this->mpMorf = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("St", dRes_INDEX_ST_BDL_ST_e),
         NULL,
         NULL,
@@ -2700,7 +2700,7 @@ static BOOL createHeap(fopAc_ac_c* a_this) {
         }
     }
 #endif
-    i_this->mpMorf2 = new mDoExt_McaMorf(
+    i_this->mpMorf2 = JKR_NEW mDoExt_McaMorf(
         (J3DModelData*)dComIfG_getObjectRes("St", dRes_INDEX_ST_BDL_HEADB_e),
         NULL,
         NULL,

@@ -237,7 +237,7 @@ BOOL daRd_c::_createHeap() {
     J3DModelData* modelData = static_cast<J3DModelData*>(dComIfG_getObjectRes(m_arc_name, dRes_INDEX_RD_BDL_RD_e));
     JUT_ASSERT(DEMO_SELECT(502, 504), modelData != NULL);
     
-    mpMorf = new mDoExt_McaMorf(
+    mpMorf = JKR_NEW mDoExt_McaMorf(
         modelData,
         NULL, NULL,
         static_cast<J3DAnmTransformKey*>(dComIfG_getObjectRes(m_arc_name, dRes_INDEX_RD_BCK_SUWARIP_e)),
