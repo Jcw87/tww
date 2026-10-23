@@ -312,7 +312,7 @@ public:
 
 private:
     /* 0x0004 */ u8 padding_0x4[0x18 - 0x4];
-    /* 0x0018 */ ResTIMG * mChkPntTxt_p;
+    /* 0x0018 */ FMapTIMG* mChkPntTxt_p;
     /* 0x001C */ dDlst_FMAP_c fmapDl;
     /* 0x0024 */ dMenu_Fmap2_c mFmap2;
     /* 0x2878 */ dMenu_FmapSv_c* fmapSv;

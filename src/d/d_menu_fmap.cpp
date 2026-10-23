@@ -331,7 +331,7 @@ void dMenu_Fmap_c::_create() {
     JUT_ASSERT(VERSION_SELECT(604, 570, 582, 582), stick != NULL);
     stick->setWaitParm(5, 2, 3, 2, 0.9f, 0.5f, 0, 0x800);
 
-    mChkPntTxt_p = (ResTIMG*)operator new (0x2c00, 0x20);
+    mChkPntTxt_p = new (0x20) FMapTIMG;
     JUT_ASSERT(VERSION_SELECT(608, 574, 586, 586), mChkPntTxt_p != NULL);
 
     screenSet();

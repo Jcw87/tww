@@ -15,6 +15,11 @@ class STControl;
 class dDlst_2DOutFont_c;
 class mDoDvdThd_mountArchive_c;
 
+// fake name
+struct FMapTIMG : public ResTIMG {
+    /* 0x20 */ u8 mImageData[0x2BE0];
+};
+
 class dDlst_FMAP2GS_c : public dDlst_base_c {
 public:
     virtual ~dDlst_FMAP2GS_c() {}
@@ -212,8 +217,8 @@ public:
     }
 
 private:
-    /* 0x0004 */ ResTIMG* mChkPntTxt_p;
-    /* 0x0008 */ ResTIMG* mCmapTxtMain_p[2];
+    /* 0x0004 */ FMapTIMG* mChkPntTxt_p;
+    /* 0x0008 */ FMapTIMG* mCmapTxtMain_p[2];
     /* 0x0010 */ dMenu_FmapSv_c* fmapSv;
     /* 0x0014 */ u8 padding_0x14[0x18 - 0x14];
     /* 0x0018 */ mDoDvdThd_mountArchive_c* mpMount;

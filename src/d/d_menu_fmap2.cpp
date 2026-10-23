@@ -168,11 +168,11 @@ void dMenu_Fmap2_c::_create() {
     JUT_ASSERT(VERSION_SELECT(310, 310, 333, 333), outFontS[1] != NULL);
     mFont = mDoExt_getMesgFont();
     mRFont = mDoExt_getRubyFont();
-    mChkPntTxt_p = (ResTIMG*)operator new(0x2c00, 0x20);
+    mChkPntTxt_p = new(0x20) FMapTIMG;
     JUT_ASSERT(VERSION_SELECT(317, 317, 340, 340), mChkPntTxt_p != NULL);
-    mCmapTxtMain_p[0] = (ResTIMG*)operator new(0x2c00, 0x20);
+    mCmapTxtMain_p[0] = new(0x20) FMapTIMG;
     JUT_ASSERT(VERSION_SELECT(321, 321, 344, 344), mCmapTxtMain_p[0] != NULL);
-    mCmapTxtMain_p[1] = (ResTIMG*)operator new(0x2c00, 0x20);
+    mCmapTxtMain_p[1] = new(0x20) FMapTIMG;
     JUT_ASSERT(VERSION_SELECT(323, 323, 346, 346), mCmapTxtMain_p[1] != NULL);
     screenSet();
 mSpMapDrawMode = SP_MAP_DRAW_OFF;
