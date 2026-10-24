@@ -567,16 +567,16 @@ public:
 
     int StartEventCamera(int, int, ...);
     int EndEventCamera(int);
-    int searchEventArgData(char*);
+    int searchEventArgData(CONST char*);
     bool getEvIntData(int*, CONST char*);
-    char* getEvStringPntData(char*);
+    char* getEvStringPntData(CONST char*);
     bool getEvIntData(int*, CONST char*, int);
-    bool getEvFloatData(f32*, char*, f32);
-    bool getEvXyzData(cXyz*, char*, cXyz);
+    bool getEvFloatData(f32*, CONST char*, f32);
+    bool getEvXyzData(cXyz*, CONST char*, cXyz);
     bool getEvStringData(char*, CONST char*, CONST char*);
-    char* getEvStringPntData(char*, char*);
-    fopAc_ac_c* getEvActor(char*);
-    fopAc_ac_c* getEvActor(char*, char*);
+    CONST char* getEvStringPntData(CONST char*, CONST char*);
+    fopAc_ac_c* getEvActor(CONST char*);
+    fopAc_ac_c* getEvActor(CONST char*, CONST char*);
     bool pauseEvCamera();
     bool fixedFrameEvCamera();
     bool stokerEvCamera();

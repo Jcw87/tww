@@ -58,7 +58,7 @@ int dCamera_c::EndEventCamera(int param_1) {
 }
 
 /* 800B01BC-800B0248       .text searchEventArgData__9dCamera_cFPc */
-int dCamera_c::searchEventArgData(char* name) {
+int dCamera_c::searchEventArgData(CONST char* name) {
     int i;
     bool found = false;
     for (i = 0; i < 8; i++) {
@@ -90,7 +90,7 @@ bool dCamera_c::getEvIntData(int* data, CONST char* name) {
 }
 
 /* 800B0310-800B03BC       .text getEvStringPntData__9dCamera_cFPc */
-char* dCamera_c::getEvStringPntData(char* name) {
+char* dCamera_c::getEvStringPntData(CONST char* name) {
     char* string = NULL;
     if (chkFlag(0x20000000)) {
         int index = searchEventArgData(name);
@@ -125,7 +125,7 @@ bool dCamera_c::getEvIntData(int* data, CONST char* name, int default_value) {
 }
 
 /* 800B0484-800B055C       .text getEvFloatData__9dCamera_cFPfPcf */
-bool dCamera_c::getEvFloatData(f32* data, char* name, f32 default_value) {
+bool dCamera_c::getEvFloatData(f32* data, CONST char* name, f32 default_value) {
     if (chkFlag(0x20000000)) {
         int index = searchEventArgData(name);
         if (index == -1) {
@@ -143,7 +143,7 @@ bool dCamera_c::getEvFloatData(f32* data, char* name, f32 default_value) {
 }
 
 /* 800B055C-800B066C       .text getEvXyzData__9dCamera_cFP4cXyzPc4cXyz */
-bool dCamera_c::getEvXyzData(cXyz* data, char* name, cXyz default_value) {
+bool dCamera_c::getEvXyzData(cXyz* data, CONST char* name, cXyz default_value) {
     if (chkFlag(0x20000000)) {
         int index = searchEventArgData(name);
         if (index == -1) {
@@ -161,7 +161,7 @@ bool dCamera_c::getEvXyzData(cXyz* data, char* name, cXyz default_value) {
 }
 
 /* 800B066C-800B074C       .text getEvStringData__9dCamera_cFPcPcPc */
-bool dCamera_c::getEvStringData(char* data, CONST char* name, char* default_value) {
+bool dCamera_c::getEvStringData(char* data, CONST char* name, CONST char* default_value) {
     if (chkFlag(0x20000000)) {
         int index = searchEventArgData(name);
         if (index == -1)
@@ -178,8 +178,8 @@ bool dCamera_c::getEvStringData(char* data, CONST char* name, char* default_valu
 }
 
 /* 800B074C-800B07F4       .text getEvStringPntData__9dCamera_cFPcPc */
-char* dCamera_c::getEvStringPntData(char* name, char* default_value) {
-    char* string = NULL;
+const char* dCamera_c::getEvStringPntData(CONST char* name, const char* default_value) {
+    CONST char* string = NULL;
     if (chkFlag(0x20000000)) {
         int index = searchEventArgData(name);
         string = index == -1 ? default_value : (char*)mEventData.mEventParams[index].mValue;
@@ -192,7 +192,7 @@ char* dCamera_c::getEvStringPntData(char* name, char* default_value) {
 }
 
 /* 800B07F4-800B0904       .text getEvActor__9dCamera_cFPc */
-fopAc_ac_c* dCamera_c::getEvActor(char* name) {
+fopAc_ac_c* dCamera_c::getEvActor(CONST char* name) {
     char* string = getEvStringPntData(name);
     if (string == NULL)
         return NULL;
@@ -215,7 +215,7 @@ fopAc_ac_c* dCamera_c::getEvActor(char* name) {
 }
 
 /* 800B0904-800B0A20       .text getEvActor__9dCamera_cFPcPc */
-fopAc_ac_c* dCamera_c::getEvActor(char* name, char* default_value) {
+fopAc_ac_c* dCamera_c::getEvActor(CONST char* name, CONST char* default_value) {
     char string[16];
     string[0] = 0;
     getEvStringData(string, name, default_value);
@@ -3094,7 +3094,7 @@ bool dCamera_c::fixedFramesEvCamera() {
         cXyz center;
         cXyz eye;
         data->count = 9999;
-        char* key = "Centers";
+        CONST char* key = "Centers";
         dEvent_manager_c* manager = dComIfGp_getPEvtManager();
         int count = manager->getMySubstanceNum(mEventData.mStaffIdx, key);
         if (count != 0) {
@@ -3170,7 +3170,7 @@ bool dCamera_c::bSplineEvCamera() {
     bool finished = false;
     if (m11C == 0) {
         data->count = 9999;
-        char* key = "Centers";
+        CONST char* key = "Centers";
         dEvent_manager_c* manager = dComIfGp_getPEvtManager();
         int count = manager->getMySubstanceNum(mEventData.mStaffIdx, key);
         if (count != 0) {
