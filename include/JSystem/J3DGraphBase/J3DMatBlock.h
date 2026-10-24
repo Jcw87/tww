@@ -10,13 +10,13 @@
 
 struct J3DGXColorS10 {
     J3DGXColorS10() {}
+#if __MWERKS__
     J3DGXColorS10(GXColorS10& other) {
         mColor.r = other.r;
         mColor.g = other.g;
         mColor.b = other.b;
         mColor.a = other.a;
     }
-#if __MWERKS__
     J3DGXColorS10(J3DGXColorS10& other) {
         mColor.r = other.mColor.r;
         mColor.g = other.mColor.g;
@@ -24,6 +24,12 @@ struct J3DGXColorS10 {
         mColor.a = other.mColor.a;
     }
 #else
+    J3DGXColorS10(const GXColorS10& other) {
+        mColor.r = other.r;
+        mColor.g = other.g;
+        mColor.b = other.b;
+        mColor.a = other.a;
+    }
     J3DGXColorS10(const J3DGXColorS10& other) {
         mColor.r = other.mColor.r;
         mColor.g = other.mColor.g;
