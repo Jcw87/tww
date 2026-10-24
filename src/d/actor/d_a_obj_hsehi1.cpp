@@ -255,7 +255,7 @@ cPhs_State daObj_hsh_c::create() {
     return st;
 }
 
-static char* event_name_tbl[] = {
+static const char* event_name_tbl[] = {
     "hsehi1_tact",
     "hsehi1_talk",
 };

@@ -435,7 +435,7 @@ static dCcD_SrcCps l_kam_at_cps_src = {
     }},
 };
 
-static char* event_name_tbl[] = {
+static const char* event_name_tbl[] = {
     "OPTION_CHAR_END",
     "kamome_call",
     "kamome_out_turn",

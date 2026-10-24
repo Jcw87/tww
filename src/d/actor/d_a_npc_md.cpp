@@ -211,7 +211,7 @@ static const char* l_arc_name = "Md";
 static const char* l_arc_name_ship = "Md_ship";
 static const char* l_staff_name = "Md1";
 
-static char* event_name_tbl[] = {
+static const char* event_name_tbl[] = {
     "Md_ItemGet",
     "Md_RopeGet",
     "MD_FLY",
@@ -3585,7 +3585,7 @@ BOOL daNpc_Md_c::actionMsgEndEvent(int param_1) {
 
 /* 0000B070-0000B728       .text initialMovePosEvent__10daNpc_Md_cFi */
 void daNpc_Md_c::initialMovePosEvent(int staffIdx) {
-    static char* cut_anm_tbl[] = {
+    static const char* cut_anm_tbl[] = {
         "WAIT",
     };
     static const s32 cut_anm_idx_tbl[] = {
@@ -3988,7 +3988,7 @@ BOOL daNpc_Md_c::actionTakeOffEvent(int) {
 
 /* 0000C2C4-0000C360       .text initialOnetimeEvent__10daNpc_Md_cFi */
 void daNpc_Md_c::initialOnetimeEvent(int staffIdx) {
-    static char* cut_anm_tbl[] = {
+    static const char* cut_anm_tbl[] = {
         "WATASU",
     };
     static const s32 cut_anm_idx_tbl[] = {

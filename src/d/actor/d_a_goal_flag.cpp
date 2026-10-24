@@ -867,7 +867,7 @@ BOOL daGoal_Flag_c::TimerExecute() {
 
 /* 00002290-000023E0       .text RaceEnd__13daGoal_Flag_cFv */
 BOOL daGoal_Flag_c::RaceEnd() {
-    static char* event_name_tbl[] = {
+    static const char* event_name_tbl[] = {
         "race_goal_cam",
         "race_fail_cam",
     };

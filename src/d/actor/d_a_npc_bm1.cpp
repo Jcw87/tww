@@ -500,7 +500,7 @@ void daNpc_Bm1_c::nodeBm1Control(J3DNode* i_node, J3DModel* i_model) {
     i_model->setAnmMtx(uVar1, mDoMtx_stack_c::get());
 }
 
-static char* l_evn_tbl[] = {
+static const char* l_evn_tbl[] = {
     "Get_Mo3_Ltr",
     "Met_Ryu_Islnd",
     "Get_Rupee",

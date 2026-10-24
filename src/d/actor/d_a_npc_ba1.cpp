@@ -136,7 +136,7 @@ s16 daNpc_Ba1_c::XyEvent_cB(int param_1) {
     return mEventIdTable[0];
 }
 
-static char* l_evn_tbl[] = {
+static const char* l_evn_tbl[] = {
     "Use_Fairy",
     "Ba1_Get_Itm",
     "Ganbaru",

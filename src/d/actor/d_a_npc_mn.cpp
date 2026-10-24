@@ -206,7 +206,7 @@ static dCcD_SrcCyl l_cyl_src = {
     }},
 };
 
-static char* l_room_name[] = {
+static const char* l_room_name[] = {
     "sea",
     "Pfigure",
     "figureA",
