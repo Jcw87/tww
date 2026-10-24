@@ -81,11 +81,17 @@ u8 rupy_soundSetFlag;
 u8 rupy_soundOnFlag;
 #endif
 
+#if TARGET_PC
+#define CLOCK meter_clock
+#else
+#define CLOCK clock
+#endif
+
 mapCtrlDisp_c dMeter_mMapCtrlDisp;
 dDlst_2DMETER1_c meter1;
 dDlst_2DMETER2_c meter2;
 dDlst_2Dm_c tekari;
-dDlst_2Dm_c clock[3];
+dDlst_2Dm_c CLOCK[3];
 
 static void dummy(f32* m, u32 p2, int p3) {
     DEAD_STRING("cmap_tri.bti");
@@ -5866,7 +5872,7 @@ void dMeter_clockMultiInit(sub_meter_class* i_Meter) {
     ResTIMG* texture2 = (ResTIMG*)JKRGetResource('TIMG', "screw_01.bti", pArchive2);
     JUT_ASSERT(VERSION_SELECT(10626, 10626, 10626, 10625), texture1 != NULL && texture2 != NULL);
     for (int i = 0; i < 3; i++) {
-        clock[i].init(texture1, texture2, 1.0f / scaleX[i], 1.0f / scaleY[i]);
+        CLOCK[i].init(texture1, texture2, 1.0f / scaleX[i], 1.0f / scaleY[i]);
     }
 }
 
@@ -5882,20 +5888,20 @@ void dMeter_clockMultiMove(sub_meter_class* i_Meter) {
         s16 y1 = y0 + i_Meter->field_0x1830.mSizeOrig.y;
         s16 scroll_x = i_Meter->field_0x1868[i].mPosCenter.x;
         s16 scroll_y = i_Meter->field_0x1868[i].mPosCenter.y;
-        clock[i].setPos(x0, y0, x1, y1);
+        CLOCK[i].setPos(x0, y0, x1, y1);
         GXColor color1 = {0xFF, 0XFF, 0XFF, 0XFF};
-        clock[i].mBlack.r = color1.r;
-        clock[i].mBlack.g = color1.g;
-        clock[i].mBlack.b = color1.b;
-        clock[i].mBlack.a = color1.a;
+        CLOCK[i].mBlack.r = color1.r;
+        CLOCK[i].mBlack.g = color1.g;
+        CLOCK[i].mBlack.b = color1.b;
+        CLOCK[i].mBlack.a = color1.a;
         GXColor color2 = {0x00, 0x00, 0XFF, 0x00};
-        clock[i].mWhite.r = color2.r;
-        clock[i].mWhite.g = color2.g;
-        clock[i].mWhite.b = color2.b;
-        clock[i].mWhite.a = color2.a;
-        clock[i].setScroll(0, 0, 0);
-        clock[i].setScroll(1, scroll_x, scroll_y);
-        clock[i].setScale((100.0f * (1.0f / scaleX[i]) / g_meterHIO.field_0x78[i]), (100.0f * (1.0f / scaleY[i])) / g_meterHIO.field_0x78[i]);
+        CLOCK[i].mWhite.r = color2.r;
+        CLOCK[i].mWhite.g = color2.g;
+        CLOCK[i].mWhite.b = color2.b;
+        CLOCK[i].mWhite.a = color2.a;
+        CLOCK[i].setScroll(0, 0, 0);
+        CLOCK[i].setScroll(1, scroll_x, scroll_y);
+        CLOCK[i].setScale((100.0f * (1.0f / scaleX[i]) / g_meterHIO.field_0x78[i]), (100.0f * (1.0f / scaleY[i])) / g_meterHIO.field_0x78[i]);
     }
 }
 
@@ -7277,11 +7283,11 @@ static BOOL dMeter_Draw(sub_meter_class* i_Meter) {
     fopMsgM_setAlpha(&i_Meter->field_0x1948);
     if (i_Meter->field_0x1830.pane->isVisible() && i_Meter->field_0x3020 == 7) {
         for (int i = 0; i < 3; i++) {
-            clock[i].mBlack.a = i_Meter->field_0x1830.mNowAlpha;
+            CLOCK[i].mBlack.a = i_Meter->field_0x1830.mNowAlpha;
         }
     } else {
         for (int i = 0; i < 3; i++) {
-            clock[i].mBlack.a = 0;
+            CLOCK[i].mBlack.a = 0;
         }
     }
     fopMsgM_setAlpha(&i_Meter->field_0x1980);
@@ -7306,7 +7312,7 @@ static BOOL dMeter_Draw(sub_meter_class* i_Meter) {
     if (!fopOvlpM_IsDoingReq()) {
         dComIfGd_set2DOpa(&meter1);
         for (int i = 0; i < 3; i++) {
-            dComIfGd_set2DOpa(&clock[i]);
+            dComIfGd_set2DOpa(&CLOCK[i]);
         }
         if (sScrTimer1 != NULL && sScrTimer2 != NULL) {
             dComIfGd_set2DOpa(&tekari);
