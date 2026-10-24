@@ -4,121 +4,127 @@
 //
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_warpmj.h"
 
 /* 00000078-000000A8       .text _delete__10daWarpmj_cFv */
 bool daWarpmj_c::_delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000000A8-000000C8       .text CheckCreateHeap__FP10fopAc_ac_c */
 static BOOL CheckCreateHeap(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000000C8-00000454       .text CreateHeap__10daWarpmj_cFv */
 void daWarpmj_c::CreateHeap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000049C-00000630       .text CreateInit__10daWarpmj_cFv */
 void daWarpmj_c::CreateInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000630-00000778       .text _create__10daWarpmj_cFv */
 cPhs_State daWarpmj_c::_create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000778-0000084C       .text set_mtx__10daWarpmj_cFv */
 void daWarpmj_c::set_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000084C-00000990       .text _execute__10daWarpmj_cFv */
 bool daWarpmj_c::_execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000990-000009D4       .text normal_execute__10daWarpmj_cFv */
 void daWarpmj_c::normal_execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000009D4-00000A60       .text demo_execute__10daWarpmj_cFv */
 void daWarpmj_c::demo_execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000A60-00000B7C       .text demo_proc__10daWarpmj_cFv */
 void daWarpmj_c::demo_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000B7C-00000B80       .text initWait__10daWarpmj_cFi */
 void daWarpmj_c::initWait(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000B80-00000BA4       .text actWait__10daWarpmj_cFi */
 void daWarpmj_c::actWait(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000BA4-00000C14       .text initWarp__10daWarpmj_cFi */
 void daWarpmj_c::initWarp(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000C14-00000C38       .text actWarp__10daWarpmj_cFi */
 void daWarpmj_c::actWarp(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000C38-00000C94       .text initWarpArrive__10daWarpmj_cFi */
 void daWarpmj_c::initWarpArrive(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000C94-00000CB8       .text actWarpArrive__10daWarpmj_cFi */
 void daWarpmj_c::actWarpArrive(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000CB8-00000D14       .text eventOrder__10daWarpmj_cFv */
 void daWarpmj_c::eventOrder() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000D14-00000DD0       .text checkOrder__10daWarpmj_cFv */
 void daWarpmj_c::checkOrder() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000DD0-00000E10       .text animPlay__10daWarpmj_cFv */
 void daWarpmj_c::animPlay() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000E10-00000E8C       .text setEndAnm__10daWarpmj_cFv */
 void daWarpmj_c::setEndAnm() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000E8C-00000EE0       .text getSeaY__10daWarpmj_cF4cXyz */
 void daWarpmj_c::getSeaY(cXyz) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000EE0-00000FDC       .text check_warp__10daWarpmj_cFv */
 void daWarpmj_c::check_warp() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000FDC-0000114C       .text _draw__10daWarpmj_cFv */
 bool daWarpmj_c::_draw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 0000114C-0000116C       .text daWarpmj_Create__FPv */

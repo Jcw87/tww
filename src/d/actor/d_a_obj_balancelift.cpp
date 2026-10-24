@@ -4,6 +4,7 @@
  */
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_obj_balancelift.h"
 #include "d/d_bg_w.h"
 #include "d/d_cc_d.h"
@@ -41,12 +42,12 @@ static dCcD_SrcCyl l_cyl_src = {
 
 /* 000000EC-00000160       .text __ct__19daBalancelift_HIO_cFv */
 daBalancelift_HIO_c::daBalancelift_HIO_c() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000019C-00000264       .text daObjBlift_ride_actor_check__FP10fopAc_ac_c */
 void daObjBlift_ride_actor_check(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000264-0000033C       .text ride_call_back__FP4dBgWP10fopAc_ac_cP10fopAc_ac_c */
@@ -56,42 +57,45 @@ static void ride_call_back(dBgW*, fopAc_ac_c*, fopAc_ac_c*) {
 
 /* 0000033C-00000510       .text calc_quat__15daBalancelift_cFv */
 void daBalancelift_c::calc_quat() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000510-00000670       .text set_mtx__15daBalancelift_cFv */
 void daBalancelift_c::set_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000670-00000984       .text calc_weight__15daBalancelift_cFv */
 void daBalancelift_c::calc_weight() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000984-000009A4       .text CheckCreateHeap__FP10fopAc_ac_c */
 static BOOL CheckCreateHeap(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000009A4-00000BA0       .text CreateHeap__15daBalancelift_cFv */
 void daBalancelift_c::CreateHeap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000BA0-00000F34       .text CreateInit__15daBalancelift_cFv */
 void daBalancelift_c::CreateInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000F34-000010E0       .text daBalanceliftCreate__FPv */
 static cPhs_State daBalanceliftCreate(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 0000129C-00001318       .text daBalanceliftDelete__FPv */
 static BOOL daBalanceliftDelete(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001318-0000133C       .text daBalanceliftExecute__FPv */
@@ -101,12 +105,14 @@ static BOOL daBalanceliftExecute(void* i_this) {
 
 /* 0000133C-000016F0       .text _execute__15daBalancelift_cFv */
 bool daBalancelift_c::_execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000016F0-00001774       .text daBalanceliftDraw__FPv */
 static BOOL daBalanceliftDraw(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001774-0000177C       .text daBalanceliftIsDelete__FPv */

@@ -4,101 +4,106 @@
 //
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_waterfall.h"
 
 /* 00000078-000000F0       .text _delete__9daWfall_cFv */
 bool daWfall_c::_delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000000F0-00000110       .text CheckCreateHeap__FP10fopAc_ac_c */
 static BOOL CheckCreateHeap(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000110-0000048C       .text CreateHeap__9daWfall_cFv */
 void daWfall_c::CreateHeap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000048C-00000708       .text CreateInit__9daWfall_cFv */
 void daWfall_c::CreateInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000708-00000838       .text _create__9daWfall_cFv */
 cPhs_State daWfall_c::_create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000938-000009B8       .text set_mtx__9daWfall_cFv */
 void daWfall_c::set_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000009B8-00000A1C       .text set_gate_mtx__9daWfall_cFv */
 void daWfall_c::set_gate_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000A1C-00000AD0       .text set_minamo_mtx__9daWfall_cFv */
 void daWfall_c::set_minamo_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000AD0-00000C94       .text _execute__9daWfall_cFv */
 bool daWfall_c::_execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000C94-00000D20       .text mode_proc_call__9daWfall_cFv */
 void daWfall_c::mode_proc_call() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000D20-00000D48       .text mode_wtr_on_init__9daWfall_cFv */
 void daWfall_c::mode_wtr_on_init() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000D48-00000DEC       .text mode_wtr_on__9daWfall_cFv */
 void daWfall_c::mode_wtr_on() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000DEC-00000E14       .text mode_wtr_off_init__9daWfall_cFv */
 void daWfall_c::mode_wtr_off_init() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000E14-00000EE8       .text mode_wtr_off__9daWfall_cFv */
 void daWfall_c::mode_wtr_off() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000EE8-00000FF0       .text setEmitter00Pos__9daWfall_cFv */
 void daWfall_c::setEmitter00Pos() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000FF0-00001098       .text setEmitter01Pos__9daWfall_cFv */
 void daWfall_c::setEmitter01Pos() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001098-000010D8       .text getWaterScaleFromGatePos__9daWfall_cFv */
 void daWfall_c::getWaterScaleFromGatePos() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000010D8-0000124C       .text getWaterHeight__9daWfall_cFv */
 void daWfall_c::getWaterHeight() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001370-000013E0       .text set_se__9daWfall_cFv */
 void daWfall_c::set_se() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000013E0-00001400       .text daWfall_Create__FPv */
@@ -113,7 +118,8 @@ static BOOL daWfall_Delete(void* i_this) {
 
 /* 00001424-00001550       .text daWfall_Draw__FPv */
 static BOOL daWfall_Draw(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001550-00001574       .text daWfall_Execute__FPv */

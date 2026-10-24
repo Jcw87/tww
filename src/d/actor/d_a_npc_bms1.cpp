@@ -4,6 +4,7 @@
  */
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_npc_bms1.h"
 #include "d/d_cc_d.h"
 
@@ -40,227 +41,234 @@ static dCcD_SrcCyl l_cyl_src = {
 
 /* 000000EC-00000108       .text __ct__21daNpc_Bms1_childHIO_cFv */
 daNpc_Bms1_childHIO_c::daNpc_Bms1_childHIO_c() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000108-00000148       .text daNpc_Bms1_shopMsgCheck__FUl */
 void daNpc_Bms1_shopMsgCheck(unsigned long) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000148-00000188       .text daNpc_Bms1_shopStickMoveMsgCheck__FUl */
 void daNpc_Bms1_shopStickMoveMsgCheck(unsigned long) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000188-000002A0       .text __ct__16daNpc_Bms1_HIO_cFv */
 daNpc_Bms1_HIO_c::daNpc_Bms1_HIO_c() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000300-000004C4       .text nodeCallBack_Bms__FP7J3DNodei */
 static BOOL nodeCallBack_Bms(J3DNode*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000004C4-00000A00       .text nodeCallBack_BmsHead__FP7J3DNodei */
 static BOOL nodeCallBack_BmsHead(J3DNode*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000A00-00000C4C       .text set_mtx__12daNpc_Bms1_cFv */
 void daNpc_Bms1_c::set_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000C4C-00000D54       .text initTexPatternAnm__12daNpc_Bms1_cFb */
 void daNpc_Bms1_c::initTexPatternAnm(bool) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000D54-00000DE0       .text playTexPatternAnm__12daNpc_Bms1_cFv */
 void daNpc_Bms1_c::playTexPatternAnm() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000DE0-00000E78       .text setAnm__12daNpc_Bms1_cFScf */
 void daNpc_Bms1_c::setAnm(signed char, float) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000E78-00000EBC       .text setTexAnm__12daNpc_Bms1_cFSc */
 void daNpc_Bms1_c::setTexAnm(signed char) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000EBC-00001100       .text setAnmFromMsgTag__12daNpc_Bms1_cFv */
 void daNpc_Bms1_c::setAnmFromMsgTag() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001100-000011D8       .text chkAttention__12daNpc_Bms1_cF4cXyzs */
 void daNpc_Bms1_c::chkAttention(cXyz, short) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000011D8-00001278       .text eventOrder__12daNpc_Bms1_cFv */
 void daNpc_Bms1_c::eventOrder() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001278-000014AC       .text checkOrder__12daNpc_Bms1_cFv */
 void daNpc_Bms1_c::checkOrder() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000014AC-000017FC       .text next_msgStatus__12daNpc_Bms1_cFPUl */
 void daNpc_Bms1_c::next_msgStatus(unsigned long*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000017FC-00001860       .text getMsg__12daNpc_Bms1_cFv */
 void daNpc_Bms1_c::getMsg() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001860-0000191C       .text setCollision__12daNpc_Bms1_cFv */
 void daNpc_Bms1_c::setCollision() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000191C-00001928       .text talkInit__12daNpc_Bms1_cFv */
 void daNpc_Bms1_c::talkInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001928-00001A34       .text normal_talk__12daNpc_Bms1_cFv */
 void daNpc_Bms1_c::normal_talk() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001A34-00001B88       .text shop_talk__12daNpc_Bms1_cFv */
 void daNpc_Bms1_c::shop_talk() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001B88-00001D68       .text talk__12daNpc_Bms1_cFv */
 void daNpc_Bms1_c::talk() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001D68-00002104       .text CreateInit__12daNpc_Bms1_cFv */
 void daNpc_Bms1_c::CreateInit() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002104-00002144       .text setAttention__12daNpc_Bms1_cFb */
 void daNpc_Bms1_c::setAttention(bool) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002144-000021F4       .text checkPlayerLanding__12daNpc_Bms1_cFv */
 void daNpc_Bms1_c::checkPlayerLanding() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000021F4-00002424       .text lookBack__12daNpc_Bms1_cFv */
 void daNpc_Bms1_c::lookBack() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002424-0000249C       .text wait01__12daNpc_Bms1_cFv */
 void daNpc_Bms1_c::wait01() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000249C-00002590       .text talk01__12daNpc_Bms1_cFv */
 void daNpc_Bms1_c::talk01() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002590-00002764       .text getdemo_action__12daNpc_Bms1_cFPv */
 void daNpc_Bms1_c::getdemo_action(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002764-00002918       .text wait_action__12daNpc_Bms1_cFPv */
 void daNpc_Bms1_c::wait_action(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002918-00002A98       .text event_action__12daNpc_Bms1_cFPv */
 void daNpc_Bms1_c::event_action(void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002A98-00002B94       .text evn_talk_init__12daNpc_Bms1_cFi */
 void daNpc_Bms1_c::evn_talk_init(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002B94-00002BFC       .text evn_continue_talk_init__12daNpc_Bms1_cFi */
 void daNpc_Bms1_c::evn_continue_talk_init(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002BFC-00002DD8       .text evn_talk__12daNpc_Bms1_cFv */
 void daNpc_Bms1_c::evn_talk() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002DD8-00002E30       .text evn_viblation_init__12daNpc_Bms1_cFi */
 void daNpc_Bms1_c::evn_viblation_init(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002E30-00002E68       .text evn_head_swing_init__12daNpc_Bms1_cFi */
 void daNpc_Bms1_c::evn_head_swing_init(int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002E68-00002FBC       .text privateCut__12daNpc_Bms1_cFv */
 void daNpc_Bms1_c::privateCut() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002FBC-000030A4       .text demo_move__12daNpc_Bms1_cFv */
 void daNpc_Bms1_c::demo_move() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000030A4-000030B0       .text demo_end_init__12daNpc_Bms1_cFv */
 void daNpc_Bms1_c::demo_end_init() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000030B0-00003314       .text _draw__12daNpc_Bms1_cFv */
 BOOL daNpc_Bms1_c::_draw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00003314-00003474       .text _execute__12daNpc_Bms1_cFv */
 BOOL daNpc_Bms1_c::_execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00003474-00003514       .text _delete__12daNpc_Bms1_cFv */
 BOOL daNpc_Bms1_c::_delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00003514-00003534       .text CheckCreateHeap__FP10fopAc_ac_c */
 static BOOL CheckCreateHeap(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00003534-00003718       .text _create__12daNpc_Bms1_cFv */
 cPhs_State daNpc_Bms1_c::_create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00003CE8-000043B8       .text CreateHeap__12daNpc_Bms1_cFv */
 void daNpc_Bms1_c::CreateHeap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000043B8-000043D8       .text daNpc_Bms1_Create__FP10fopAc_ac_c */

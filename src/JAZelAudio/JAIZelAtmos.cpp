@@ -4,6 +4,7 @@
 //
 
 #include "JAZelAudio/JAIZelBasic.h"
+#include "global.h"
 #include "dolphin/types.h"
 
 /* 802AD008-802AD014       .text initSeaEnvPos__11JAIZelBasicFv */
@@ -13,32 +14,32 @@ void JAIZelBasic::initSeaEnvPos() {
 
 /* 802AD014-802AD0A8       .text registSeaEnvPos__11JAIZelBasicFP3Vec */
 void JAIZelBasic::registSeaEnvPos(Vec*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 802AD0A8-802AD54C       .text seaEnvSePlay__11JAIZelBasicFUlSc */
 void JAIZelBasic::seaEnvSePlay(u32, s8) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 802AD54C-802AD63C       .text calcPosPanLR__11JAIZelBasicFP3Vec */
 void JAIZelBasic::calcPosPanLR(Vec*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 802AD63C-802AD728       .text calcPosPanSR__11JAIZelBasicFP3Vecf */
 void JAIZelBasic::calcPosPanSR(Vec*, f32) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 802AD728-802AD878       .text calcPosVolume__11JAIZelBasicFP3Vecf */
 void JAIZelBasic::calcPosVolume(Vec*, f32) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 802AD878-802AD98C       .text seaShoreSE__11JAIZelBasicFUlP3VecUlSc */
 void JAIZelBasic::seaShoreSE(u32, Vec*, u32, s8) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 802AD98C-802AD998       .text initRiverPos__11JAIZelBasicFv */
@@ -48,17 +49,17 @@ void JAIZelBasic::initRiverPos() {
 
 /* 802AD998-802ADB38       .text registRiverPos__11JAIZelBasicFP3Vec */
 void JAIZelBasic::registRiverPos(Vec*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 802ADB38-802ADC58       .text riverSePlay__11JAIZelBasicFUcSc */
 void JAIZelBasic::riverSePlay(u8, s8) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 802ADC58-802ADE68       .text waterfallSePlay__11JAIZelBasicFUcP3VecSc */
 void JAIZelBasic::waterfallSePlay(u8, Vec*, s8) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 802ADE68-802ADE74       .text initWindowPos__11JAIZelBasicFv */
@@ -68,10 +69,10 @@ void JAIZelBasic::initWindowPos() {
 
 /* 802ADE74-802ADF20       .text registWindowPos__11JAIZelBasicFP3Vec */
 void JAIZelBasic::registWindowPos(Vec*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 802ADF20-802AE04C       .text rainPlay__11JAIZelBasicFl */
 void JAIZelBasic::rainPlay(s32) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }

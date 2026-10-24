@@ -4,6 +4,7 @@
 //
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_obj_firewall.h"
 #include "d/d_cc_d.h"
 
@@ -44,122 +45,126 @@ static const dCcD_SrcCyl l_cyl_src = {
 
 /* 00000078-000000EC       .text init_mtx__15daObjFirewall_cFv */
 void daObjFirewall_c::init_mtx() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000000EC-00000110       .text solidHeapCB__15daObjFirewall_cFP10fopAc_ac_c */
 void daObjFirewall_c::solidHeapCB(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000110-000002DC       .text create_heap__15daObjFirewall_cFv */
 void daObjFirewall_c::create_heap() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000002DC-00000568       .text registCollisionTable__15daObjFirewall_cFv */
 void daObjFirewall_c::registCollisionTable() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000005A4-00000794       .text setPointLight__15daObjFirewall_cFv */
 void daObjFirewall_c::setPointLight() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000794-00000970       .text particle_set__15daObjFirewall_cFv */
 void daObjFirewall_c::particle_set() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000970-00000A1C       .text particle_delete__15daObjFirewall_cFv */
 void daObjFirewall_c::particle_delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000A1C-00000AB0       .text seStart__15daObjFirewall_cFUl */
 void daObjFirewall_c::seStart(unsigned long) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000AB0-00000B28       .text set_se__15daObjFirewall_cFb */
 void daObjFirewall_c::set_se(bool) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000B28-00000B94       .text seDelete__15daObjFirewall_cFv */
 void daObjFirewall_c::seDelete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000B94-00000C64       .text set_pl_se__15daObjFirewall_cFv */
 void daObjFirewall_c::set_pl_se() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000C64-00000DDC       .text setup_burn_up__15daObjFirewall_cFv */
 void daObjFirewall_c::setup_burn_up() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000DDC-00000EAC       .text setup_put_the_fire_out__15daObjFirewall_cFv */
 void daObjFirewall_c::setup_put_the_fire_out() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000EAC-000011F8       .text _create__15daObjFirewall_cFv */
 cPhs_State daObjFirewall_c::_create() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001550-000015F4       .text _delete__15daObjFirewall_cFv */
 bool daObjFirewall_c::_delete() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000015F4-000016D4       .text wait_act_proc__15daObjFirewall_cFv */
 void daObjFirewall_c::wait_act_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000016D4-00001820       .text wait2_act_proc__15daObjFirewall_cFv */
 void daObjFirewall_c::wait2_act_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001820-000018E0       .text wait3_act_proc__15daObjFirewall_cFv */
 void daObjFirewall_c::wait3_act_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000018E0-000019B0       .text appear_act_proc__15daObjFirewall_cFv */
 void daObjFirewall_c::appear_act_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000019B0-00001A34       .text demo_end_wait_act_proc__15daObjFirewall_cFv */
 void daObjFirewall_c::demo_end_wait_act_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001A34-00001B68       .text burn_wait_act_proc__15daObjFirewall_cFv */
 void daObjFirewall_c::burn_wait_act_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001B68-00001BEC       .text retire_act_proc__15daObjFirewall_cFv */
 void daObjFirewall_c::retire_act_proc() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001BEC-00001C70       .text _execute__15daObjFirewall_cFv */
 bool daObjFirewall_c::_execute() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001C70-00001CD4       .text _draw__15daObjFirewall_cFv */
 bool daObjFirewall_c::_draw() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00001CD4-00001CF4       .text daObjFirewall_Create__FP10fopAc_ac_c */

@@ -4,63 +4,68 @@
  */
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_nz.h"
 #include "m_Do/m_Do_ext.h"
 #include "d/d_cc_d.h"
 
 /* 000000EC-00000138       .text __ct__10daNZ_HIO_cFv */
 daNZ_HIO_c::daNZ_HIO_c() {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000180-00000228       .text nodeCallBack_tail__FP7J3DNodei */
 static BOOL nodeCallBack_tail(J3DNode*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000264-00000874       .text tail_control__FP8nz_class */
 void tail_control(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000BF4-00000C88       .text tail_draw__FP8nz_class */
 void tail_draw(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000C88-00000D64       .text nodeCallBack_head__FP7J3DNodei */
 static BOOL nodeCallBack_head(J3DNode*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000D64-00000E60       .text nodeCallBack_hand__FP7J3DNodei */
 static BOOL nodeCallBack_hand(J3DNode*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000E60-00000F40       .text smoke_set__FP8nz_class */
 void smoke_set(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000F40-00001328       .text rakka_line_check__FP8nz_class */
 void rakka_line_check(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001578-0000178C       .text daNZ_Draw__FP8nz_class */
 static BOOL daNZ_Draw(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 0000178C-00001888       .text item_poi__FP8nz_class */
 void item_poi(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001888-00001F18       .text naraku_water_check__FP8nz_class */
 void naraku_water_check(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000206C-0000214C       .text s_a_d_sub__FPvPv */
@@ -70,87 +75,88 @@ static void s_a_d_sub(void*, void*) {
 
 /* 0000214C-000027FC       .text search_get_obj__FP8nz_class */
 void search_get_obj(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000027FC-00002864       .text s_ana_sub__FPvPv */
 void s_ana_sub(void*, void*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002864-00002990       .text anm_init__FP8nz_classifUcfi */
 void anm_init(nz_class*, int, float, unsigned char, float, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002990-00002EC0       .text search_check__FP8nz_class */
 void search_check(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002EC0-00002F3C       .text BG_check__FP8nz_class */
 void BG_check(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002F3C-00003090       .text shock_damage_check__FP8nz_class */
 void shock_damage_check(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00003090-00003240       .text body_atari_check__FP8nz_class */
 void body_atari_check(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00003240-000042D8       .text nz_move__FP8nz_class */
 void nz_move(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000042D8-000044B8       .text money_drop__FP8nz_class */
 void money_drop(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000044B8-0000482C       .text nz2_move__FP8nz_class */
 void nz2_move(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000482C-000049E8       .text nz3_move__FP8nz_class */
 void nz3_move(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000049E8-00005B2C       .text nz4_move__FP8nz_class */
 void nz4_move(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00005B2C-000061E0       .text nz5_move__FP8nz_class */
 void nz5_move(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000061E0-000062C8       .text bomb_catch_SUB__FP8nz_class */
 void bomb_catch_SUB(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000062C8-00006734       .text nezumi_move__FP8nz_classs */
 void nezumi_move(nz_class*, short) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00006734-000072D8       .text nz6_move__FP8nz_class */
 void nz6_move(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000072D8-00007B50       .text daNZ_Execute__FP8nz_class */
 static BOOL daNZ_Execute(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00007B50-00007B58       .text daNZ_IsDelete__FP8nz_class */
@@ -160,12 +166,14 @@ static BOOL daNZ_IsDelete(nz_class*) {
 
 /* 00007B58-00007BE0       .text daNZ_Delete__FP8nz_class */
 static BOOL daNZ_Delete(nz_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00007BE0-00007EB0       .text useHeapInit__FP10fopAc_ac_c */
 static BOOL useHeapInit(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00007EB0-000081AC       .text daNZ_CreateInit__FP8nz_class */
@@ -204,7 +212,8 @@ void daNZ_CreateInit(nz_class*) {
 
 /* 000081AC-00008294       .text daNZ_Create__FP10fopAc_ac_c */
 static cPhs_State daNZ_Create(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 static actor_method_class l_daNZ_Method = {

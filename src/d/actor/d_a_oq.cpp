@@ -4,93 +4,97 @@
  */
 
 #include "d/dolzel_rel.h" // IWYU pragma: keep
+#include "global.h"
 #include "d/actor/d_a_oq.h"
 #include "m_Do/m_Do_ext.h"
 #include "d/d_cc_d.h"
 
 /* 000000EC-00000208       .text nodeCallBack__FP7J3DNodei */
 static BOOL nodeCallBack(J3DNode*, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00000208-00000310       .text draw_SUB__FP8oq_class */
 void draw_SUB(oq_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000310-000004DC       .text daOQ_Draw__FP8oq_class */
 static BOOL daOQ_Draw(oq_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 000004DC-00000608       .text anm_init__FP8oq_classifUcfi */
 void anm_init(oq_class*, int, float, unsigned char, float, int) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000608-00000D50       .text body_atari_check__FP8oq_class */
 void body_atari_check(oq_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000D8C-00000EC4       .text BG_check__FP8oq_class */
 void BG_check(oq_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00000EC4-000011D8       .text Line_check__FP8oq_class4cXyz */
 void Line_check(oq_class*, cXyz) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001610-000016AC       .text shibuki_set__FP8oq_class4cXyzf */
 void shibuki_set(oq_class*, cXyz, float) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000016AC-00001930       .text sea_water_check__FP8oq_class */
 void sea_water_check(oq_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001930-0000198C       .text search_y_check__FP8oq_classs */
 void search_y_check(oq_class*, short) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000198C-00001B24       .text moguru_check__FP8oq_class */
 void moguru_check(oq_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00001B24-00002270       .text action_dousa__FP8oq_class */
 void action_dousa(oq_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002270-00002BEC       .text action_kougeki__FP8oq_class */
 void action_kougeki(oq_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00002BEC-000032A4       .text action_tama_shoot__FP8oq_class */
 void action_tama_shoot(oq_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 000032A4-0000369C       .text action_itai__FP8oq_class */
 void action_itai(oq_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 0000369C-00003BC4       .text action_wakidasi__FP8oq_class */
 void action_wakidasi(oq_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
 }
 
 /* 00003BC4-00004274       .text daOQ_Execute__FP8oq_class */
 static BOOL daOQ_Execute(oq_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00004274-0000427C       .text daOQ_IsDelete__FP8oq_class */
@@ -100,12 +104,14 @@ static BOOL daOQ_IsDelete(oq_class*) {
 
 /* 0000427C-00004300       .text daOQ_Delete__FP8oq_class */
 static BOOL daOQ_Delete(oq_class*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00004300-000046C0       .text useHeapInit__FP10fopAc_ac_c */
 static BOOL useHeapInit(fopAc_ac_c*) {
-    /* Nonmatching */
+    NOT_IMPLEMENTED;
+    return 0;
 }
 
 /* 00004708-00004DBC       .text daOQ_Create__FP10fopAc_ac_c */
